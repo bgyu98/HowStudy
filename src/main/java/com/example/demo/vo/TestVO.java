@@ -6,7 +6,6 @@ import lombok.Data;
 public class TestVO {
 	private String mphone;
 	private String mid;
-	private Integer snum;
 	private String mpw;
 	private String mname;
 	private String mgender;

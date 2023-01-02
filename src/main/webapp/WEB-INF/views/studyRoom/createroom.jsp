@@ -3,8 +3,11 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!--<![endif]-->
+<!-- 한글 깨짐 방지-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <head>
+    <% String pjName = "/howStudy"; %>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -16,10 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <!-- Reponsive -->
-    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
@@ -45,89 +45,51 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo" class="clearfix">
                                         <div id="site-logo-inner">
-                                            <a href="index.html" rel="home" class="main-logo">
-                                                <img id="logo_header" src="assets/images/logo/logo_dark.png" alt="nft-gaming" width="133" height="56"
-                                                    data-retina="assets/images/logo/logo_dark@2x.png" data-width="133"
-                                                    data-height="56">
+                                            <a href="index" rel="home" class="main-logo">
+                                              <img
+                                                id="logo_header"
+                                                src="../assets/images/logo/logo01.png"
+                                                alt="nft-gaming"
+                                                width="180"
+                                                height="80"
+                                                data-retina="assets/images/logo/logo_dark@2x.png"
+                                                data-width="133"
+                                                data-height="56"
+                                              />
                                             </a>
-                                        </div>
+                                          </div>
                                     </div>
                                     <div class="mobile-button"><span></span></div><!-- /.mobile-button -->
                                     <nav id="main-nav" class="main-nav">
                                         <ul id="menu-primary-menu" class="menu">
-                                            <li class="menu-item menu-item-has-children">
-                                                <a href="#">Home</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="index.html">Home 1</a></li>
-                                                    <li class="menu-item"><a href="home2.html">Home 2</a></li>
-                                                    <li class="menu-item"><a href="home3.html">Home 3</a></li>
-                                                    <li class="menu-item"><a href="home4.html">Home 4</a></li>
-                                                    <li class="menu-item"><a href="home5.html">Home 5</a></li>
-                                                    <li class="menu-item"><a href="home6.html">Home 6</a></li>
-                                                                                                        <li class="menu-item"><a href="home7.html">Home 7</a></li>
-                                                    <li class="menu-item"><a href="home8.html">Home 8 ( Special )</a></li>
-                                                                                                        <li class="menu-item menu-item-has-children">
-                                                        <a href="#">Slider Styles</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="slider-typer-text.html">Text Type</a></li>
-                                                            <li class="menu-item"><a href="slider-scroll-text.html">Text Scroll</a></li>
-                                                            <li class="menu-item"><a href="slider-rotate-text.html">Text Rotate</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                            <li class="menu-item current-menu-item ">
+                                                <a href="../studyRoom/study">스터디룸</a>
                                             </li>
-                                            <li class="menu-item menu-item-has-children current-menu-item">
-                                                <a href="#">Explore</a>
+                                            <li class="menu-item menu-item-has-children">
+                                                <a href="#">공부기록</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="explore-1.html">Explore Style 1</a></li>
-                                                    <li class="menu-item"><a href="explore-2.html">Explore Style 2</a></li>
-                                                    <li class="menu-item"><a href="explore-3.html">Explore Style 3</a></li>
-                                                    <li class="menu-item current-item"><a href="explore-4.html">Explore Style 4</a></li>
-                                                    <li class="menu-item"><a href="auctions.html">Live Auctions</a></li>
-                                                    <li class="menu-item"><a href="item-details.html">Item Details</a></li>
-                                                    <li class="menu-item"><a href="item-details-2.html">Item Details 2</a></li>
+                                                    <li class="menu-item"><a href="../study/record">RECORD</a></li>
+                                                    <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
+                                                    <li class="menu-item"><a href="../study/todo">TO-DO</a></li>
+                                                    <li class="menu-item"><a href="../study/note">NOTE</a></li>
                                                 </ul>
                                             </li>
                                             <li class="menu-item menu-item-has-children">
-                                                <a href="#">Activity</a>
+                                                <a href="#">게시판</a>
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="activity1.html">Activity 1</a></li>
-                                                    <li class="menu-item"><a href="activity2.html">Activity 2</a></li>
+                                                    <li class="menu-item"><a href="../board/notice">공지사항</a></li>
+                                                    <li class="menu-item"><a href="../board/faq">FAQ</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="menu-item menu-item-has-children">
-                                                <a href="#">Community</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="blog.html">Blog</a></li>
-                                                    <li class="menu-item"><a href="blog-details.html">Blog Details</a></li>
-                                                    <li class="menu-item"><a href="help-center.html">Help Center</a></li>
-                                                </ul>
+                                            <li class="menu-item current-menu-item">
+                                                <a href="../meta/meta">메타버스</a>
+
                                             </li>
-                                            <li class="menu-item menu-item-has-children">
-                                                <a href="#">Pages</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="author01.html">Authors</a></li>
-                                                    <li class="menu-item"><a href="author02.html">Authors 2</a></li>
-                                                    <li class="menu-item"><a href="connect-wallet.html">Wallet Connect</a></li>
-                                                    <li class="menu-item"><a href="create-item.html">Create Item</a></li>
-                                                    <li class="menu-item"><a href="profile.html">Edit Profile</a></li>
-                                                     
-                                                    <li class="menu-item"><a href="ranking.html">Ranking</a></li>
-                                                    <li class="menu-item"><a href="login.html">Login</a></li>
-                                                    <li class="menu-item"><a href="signup.html">Sign Up</a></li>
-                                                    <li class="menu-item"><a href="no-result.html">No Result</a></li>
-                                                    <li class="menu-item"><a href="faq.html">FAQ</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="menu-item  menu-item-has-children">
-                                                <a href="#">Contact</a>
-                                                <ul class="sub-menu">
-                                                    <li class="menu-item"><a href="contact1.html">Contact 1</a></li>
-                                                    <li class="menu-item"><a href="contact2.html">Contact 2</a></li>
-                                                </ul>
-                                            </li>
+                                            <li class="menu-item current-menu-item">
+                                                <a href="../offline/off">오프라인</a>
+                                            </li> 
                                         </ul>
-                                    </nav><!-- /#main-nav -->   
+                                    </nav><!-- /#main-nav -->    <!-- /#main-nav -->    
                                     <div class="flat-search-btn flex">
                                         <div class="header-search flat-show-search" id="s1">
                                             <a href="#" class="show-search header-search-trigger">
@@ -157,10 +119,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="sc-btn-top mg-r-12" id="site-header">
-                                            <a  href="connect-wallet.html" id="connectbtn" class="sc-button header-slider style style-1 wallet fl-button pri-1"><span>Wallet connect
-                                            </span></a>
-                                        </div>
+                                        
 
                                         <div class="admin_active" id="header_admin">
                                             <div class="header_avatar">
@@ -345,48 +304,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                <div class="popup-user">
-                                                    <img class="avatar" src="assets/images/avatar/avt-5.jpg" alt="avatar"/>
-                                                    <div class="avatar_popup mt-20">
-                                                        <h4>Tyler Covington</h4>
-                                                        <div class="d-flex align-items-center mt-20 mg-bt-12">
-                                                            <div class="info">
-                                                                <p>Balance</p>
-                                                                <p class="style">45.57 ETH</p>
-                                                            </div>
-                                                        </div>
-                                                        <p>Wallet</p>
-                                                        <div class="d-flex align-items-center justify-content-between mg-t-5 mg-bt-17">
-                                                            <p> 0x84569v....3d5t7e5fd</p>
-                                                            <a href="index.html" class="ml-2">
-                                                                <i class="fal fa-copy"></i>
-                                                            </a>
-                                                        </div>
-                                                        <div class="divider"></div>
-                                                        <div class="hr"></div>
-                                                        <div class="links mt-20">
-                                                            <a href="#">
-                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M0.774902 18.333C0.774902 18.7932 1.14762 19.1664 1.60824 19.1664C2.06885 19.1664 2.44157 18.7932 2.44157 18.333C2.44157 15.3923 4.13448 12.7889 6.77329 11.5578C7.68653 12.1513 8.77296 12.4997 9.94076 12.4997C11.113 12.4997 12.2036 12.1489 13.119 11.5513C13.9067 11.9232 14.6368 12.4235 15.2443 13.0307C16.6611 14.4479 17.4416 16.3311 17.4416 18.333C17.4416 18.7932 17.8143 19.1664 18.2749 19.1664C18.7355 19.1664 19.1083 18.7932 19.1083 18.333C19.1083 15.8859 18.1545 13.5845 16.4227 11.8523C15.8432 11.2725 15.1698 10.7754 14.4472 10.3655C15.2757 9.3581 15.7741 8.06944 15.7741 6.66635C15.7741 3.44979 13.1569 0.833008 9.94076 0.833008C6.72461 0.833008 4.10742 3.44979 4.10742 6.66635C4.10742 8.06604 4.60379 9.35154 5.42863 10.3579C2.56796 11.9685 0.774902 14.9779 0.774902 18.333V18.333ZM9.94076 2.49968C12.2381 2.49968 14.1074 4.36898 14.1074 6.66635C14.1074 8.96371 12.2381 10.833 9.94076 10.833C7.6434 10.833 5.77409 8.96371 5.77409 6.66635C5.77409 4.36898 7.6434 2.49968 9.94076 2.49968V2.49968Z" fill="white"/>
-                                                                </svg>
-                                                                <span>My Profile</span>
-                                                            </a>
-                                                            <a class="mt-10" href="profile.html">
-                                                                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z" fill="white"/>
-                                                                </svg>
-                                                                <span>Wallet</span>
-                                                            </a>
-                                                            <a class="mt-10" href="login.html" id="logout">
-                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                    <path d="M9.9668 18.3057H2.49168C2.0332 18.3057 1.66113 17.9335 1.66113 17.4751V2.52492C1.66113 2.06644 2.03324 1.69437 2.49168 1.69437H9.9668C10.4261 1.69437 10.7973 1.32312 10.7973 0.863828C10.7973 0.404531 10.4261 0.0332031 9.9668 0.0332031H2.49168C1.11793 0.0332031 0 1.15117 0 2.52492V17.4751C0 18.8488 1.11793 19.9668 2.49168 19.9668H9.9668C10.4261 19.9668 10.7973 19.5955 10.7973 19.1362C10.7973 18.6769 10.4261 18.3057 9.9668 18.3057Z" fill="white"/>
-                                                                    <path d="M19.7525 9.40904L14.7027 4.42564C14.3771 4.10337 13.8505 4.10755 13.5282 4.43396C13.206 4.76036 13.2093 5.28611 13.5366 5.60837L17.1454 9.16982H7.47508C7.01578 9.16982 6.64453 9.54107 6.64453 10.0004C6.64453 10.4597 7.01578 10.8309 7.47508 10.8309H17.1454L13.5366 14.3924C13.2093 14.7147 13.2068 15.2404 13.5282 15.5668C13.691 15.7313 13.9053 15.8143 14.1196 15.8143C14.3306 15.8143 14.5415 15.7346 14.7027 15.5751L19.7525 10.5917C19.9103 10.4356 20 10.2229 20 10.0003C20 9.77783 19.9111 9.56603 19.7525 9.40904Z" fill="white"/>
-                                                                </svg>
-                                                                <span>Log out</span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -398,13 +315,15 @@
                 <div class="mode_switcher">
                     <h6>Dark mode <strong>Available</strong></h6>
                     <a href="#" class="light d-flex align-items-center">
-                        <img src="assets/images/icon/sun.png" alt="">
+                        <img src="../assets/images/icon/sun.png" alt="">
                     </a>
                     <a href="#" class="dark d-flex align-items-center is_active">
-                        <img id="moon_dark" src="assets/images/icon/moon-2.png" alt="">
+                        <img id="moon_dark" src="../assets/images/icon/moon-2.png" alt="">
                     </a>
                 </div>
             </header>
+
+            <!-- Header --> 
                 
             <!-- title page -->
             <section class="flat-title-page inner">
@@ -413,13 +332,13 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="page-title-heading mg-bt-12">
-                                <h1 class="heading text-center">Explore 4</h1>
+                                <h1 class="heading text-center">Create Item</h1>
                             </div>
                             <div class="breadcrumbs style2">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">Explore</a></li>
-                                    <li>Explore 4</li>
+                                    <li><a href="/index">Home</a></li>
+                                    <li><a href="#">Pages</a></li>
+                                    <li>Create Item</li>
                                 </ul>
                             </div>
                         </div>
@@ -427,358 +346,156 @@
                 </div>                    
             </section>
 
-            <section class="tf-explore tf-section">
+            <div class="tf-create-item tf-section">
                 <div class="themesflat-container">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-12">
-                            <div id="side-bar" class="side-bar style-3">
-                                <div class="widget widget-category mgbt-24 boder-bt">
-                                    <div class="title-wg-category">
-                                        <h4 class="title-widget style-2">Status</h4>
-                                        <i class="icon-fl-down-2"></i>
-                                    </div>
-                                    <div class="content-wg-category">
-                                        <form action="#">
-                                            <label>Buy Now
-                                                <input type="checkbox" checked="checked">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>On Auctions
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label class="mgbt-none">Has Offers
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                                        </form>
+                         <div class="col-xl-3 col-lg-6 col-md-6 col-12">
+                             <h4 class="title-create-item">Preview item</h4>
+                            <div class="sc-card-product">
+                                <div class="card-media">
+                                    <a href=""><img src="assets/images/box-item/image-box-6.jpg" alt="Image"></a>
+                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
+                                    <div class="featured-countdown">
+                                        <span class="slogan"></span>
+                                        <span class="js-countdown" data-timer="716400" data-labels=" :  ,  : , : , "></span>
                                     </div>
                                 </div>
-                                <div class="widget widget-category mgbt-24 boder-bt">
-                                    <div class="title-wg-category">
-                                        <h4 class="title-widget style-2">Categories</h4>
-                                        <i class="icon-fl-down-2"></i>
+                                <div class="card-title">
+                                    <h5><a href="item-details.html">"Cyber Doberman #766”</a></h5>
+                                    <div class="tags">bsc</div>
+                                </div>
+                                <div class="meta-info">
+                                    <div class="author">
+                                        <div class="avatar">
+                                            <img src="assets/images/avatar/avt-9.jpg" alt="Image">
+                                        </div>
+                                        <div class="info">
+                                            <span>Owned By</span>
+                                            <h6> <a href="author02.html">Freddie Carpenter</a></h6>
+                                        </div>
                                     </div>
-                                    <div class="content-wg-category">
-                                        <form action="#">
-                                            <label>Art
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Music
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Domain Names
-                                                <input type="checkbox" checked="checked">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Virtual Worlds
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Trading  Cards
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Collectibles
-                                                <input type="checkbox" checked="checked">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Sports
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label class="mgbt-none">Utility
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                                        </form>
+                                    <div class="price">
+                                        <span>Current Bid</span>
+                                        <h5> 4.89 ETH</h5>
                                     </div>
                                 </div>
-                                <div class="widget widget-category mgbt-24 boder-bt">
-                                    <div class="title-wg-category">
-                                        <h4 class="title-widget style-2">Chains</h4>
-                                        <i class="icon-fl-down-2"></i>
-                                    </div>
-                                    <div class="content-wg-category">
-                                        <form action="#">
-                                            <label>Ethereum
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Polygon
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label class="mgbt-none">Klaytn
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="widget widget-category">
-                                    <div class="title-wg-category">
-                                        <h4 class="title-widget style-2">Collections</h4>
-                                        <i class="icon-fl-down-2"></i>
-                                    </div>
-                                    <div class="content-wg-category">
-                                        <form action="#">
-                                            <label>Abstraction
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Patternlicious
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Skecthify
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Cartoonism
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label>Virtuland
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                    
-                                            <label class="mgbt-none">Papercut
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label><br>
-                                        </form>
-                                    </div>
+                                <div class="card-bottom">
+                                    <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style bag fl-button pri-3"><span>Place Bid</span></a>
+                                    <a href="activity1.html" class="view-history reload">View History</a>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-xl-9 col-lg-9 col-md-12">
-                            <div class="box-epxlore">
-                                <div class="sc-card-product explode style2 mg-bt">
-                                    <div class="card-media">
-                                        <a href="item-details.html"><img src="assets/images/box-item/card-item-4.jpg" alt="Image"></a>
-                                        <div class="coming-soon">coming soon</div>
-                                        <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    </div>
-                                    <div class="card-title">
-                                        <h5><a href="item-details.html">"Space babe - Night 2/25"</a></h5>
-                                    </div>
-                                    <div class="meta-info">
-                                        <div class="author">
-                                            <div class="avatar">
-                                                <img src="assets/images/avatar/avt-2.jpg" alt="Image">
-                                            </div>
-                                            <div class="info">
-                                                <span>Creator</span>
-                                                <h6> <a href="author02.html">SalvadorDali</a> </h6>
-                                            </div>
+                         </div>
+                         <div class="col-xl-9 col-lg-6 col-md-12 col-12">
+                             <div class="form-create-item">
+                                 <form action="#">
+                                    <h4 class="title-create-item">Upload file</h4>
+                                    <label class="uploadFile">
+                                        <span class="filename">PNG, JPG, GIF, WEBP or MP4. Max 200mb.</span>
+                                        <input type="file" class="inputfile form-control" name="file" >
+                                    </label>
+                                 </form>
+                                <div class="flat-tabs tab-create-item">
+                                    <h4 class="title-create-item">Select method</h4>
+                                    <ul class="menu-tab tabs">
+                                        <li class="tablinks active"><span class="icon-fl-tag"></span>Fixed Price</li>
+                                        <li class="tablinks"><span class="icon-fl-clock"></span>Time Auctions</li>
+                                        <li class="tablinks"><span class="icon-fl-icon-22"></span>Open For Bids</li>
+                                    </ul>
+                                    <div class="content-tab">
+                                        <div class="content-inner">
+                                                <form action="#">
+                                                    <h4 class="title-create-item">Price</h4>
+                                                    <input type="text" placeholder="Enter price for one item (ETH)">
+    
+                                                    <h4 class="title-create-item">Title</h4>
+                                                    <input type="text" placeholder="Item Name">
+    
+                                                    <h4 class="title-create-item">Description</h4>
+                                                    <textarea placeholder="e.g. “This is very limited item”"></textarea>
+    
+                                                    <div class="row-form style-3">
+                                                        <div class="inner-row-form">
+                                                            <h4 class="title-create-item">Royalties</h4>
+                                                            <input type="text" placeholder="5%">
+                                                        </div>
+                                                        <div class="inner-row-form">
+                                                            <h4 class="title-create-item">Size</h4>
+                                                            <input type="text" placeholder="e.g. “size”">
+                                                        </div>
+                                                        <div class="inner-row-form style-2">
+                                                            <div class="seclect-box">
+                                                                <div id="item-create" class="dropdown">
+                                                                    <a href="#" class="btn-selector nolink">Abstraction</a>
+                                                                    <ul >
+                                                                        <li><span>Art</span></li>
+                                                                        <li><span>Music</span></li>
+                                                                        <li><span>Domain Names</span></li>
+                                                                        <li><span>Virtual World</span></li>
+                                                                        <li><span>Trading Cards</span></li>
+                                                                        <li><span>Sports</span></li>
+                                                                        <li><span>Utility</span></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                         </div>
-                                        <div class="tags">bsc</div>
-                                    </div>
-                                    <div class="card-bottom style-explode">
-                                        <div class="price">
-                                            <span>Price</span>
-                                            <div class="price-details">
-                                                <h5> 4.89 ETH</h5>
-                                                <span>= $12.246</span>
-                                            </div>
+                                        <div class="content-inner">
+                                                <form action="#">
+                                                    <h4 class="title-create-item">Minimum bid</h4>
+                                                    <input type="text" placeholder="enter minimum bid">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <h5 class="title-create-item">Starting date</h5>
+                                                            <input type="date" name="bid_starting_date" id="bid_starting_date" class="form-control" min="1997-01-01">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h4 class="title-create-item">Expiration date</h4>
+                                                            <input type="date" name="bid_expiration_date" id="bid_expiration_date" class="form-control">
+                                                        </div>
+                                                    </div>
+    
+                                                    <h4 class="title-create-item">Title</h4>
+                                                    <input type="text" placeholder="Item Name">
+    
+                                                    <h4 class="title-create-item">Description</h4>
+                                                    <textarea placeholder="e.g. “This is very limited item”"></textarea>
+                                                </form>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="sc-card-product explode style2 mg-bt">
-                                    <div class="card-media">
-                                        <a href="item-details.html"><img src="assets/images/box-item/card-item-2.jpg" alt="Image"></a>
-                                        <div class="button-place-bid">
-                                            <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                        </div>
-                                        <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    </div>
-                                    <div class="card-title">
-                                        <h5><a href="item-details.html">"CyberPrimal 042 LAN”</a></h5>
-                                    </div>
-                                    <div class="meta-info">
-                                        <div class="author">
-                                            <div class="avatar">
-                                                <img src="assets/images/avatar/avt-4.jpg" alt="Image">
-                                            </div>
-                                            <div class="info">
-                                                <span>Creator</span>
-                                                <h6> <a href="author02.html">SalvadorDali</a> </h6>
-                                            </div>
-                                        </div>
-                                        <div class="tags">bsc</div>
-                                    </div>
-                                    <div class="card-bottom style-explode">
-                                        <div class="price">
-                                            <span>Current Bid</span>
-                                            <div class="price-details">
-                                                <h5> 4.89 ETH</h5>
-                                                <span>= $12.246</span>
-                                            </div>
-                                        </div>
-                                        <a href="activity1.html" class="view-history reload">View History</a>
-                                    </div>
-                                </div>
-                                <div class="sc-card-product explode style2 mg-bt">
-                                    <div class="card-media">
-                                        <a href="item-details.html"><img src="assets/images/box-item/card-item-7.jpg" alt="Image"></a>
-                                        <div class="button-place-bid">
-                                            <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                        </div>
-                                        <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    </div>
-                                    <div class="card-title">
-                                        <h5><a href="item-details.html">"Crypto Egg Stamp #5”</a></h5>
-                                    </div>
-                                    <div class="meta-info">
-                                        <div class="author">
-                                            <div class="avatar">
-                                                <img src="assets/images/avatar/avt-3.jpg" alt="Image">
-                                            </div>
-                                            <div class="info">
-                                                <span>Creator</span>
-                                                <h6> <a href="author02.html">SalvadorDali</a> </h6>
-                                            </div>
-                                        </div>
-                                        <div class="tags">bsc</div>
-                                    </div>
-                                    <div class="card-bottom style-explode">
-                                        <div class="price">
-                                            <span>Current Bid</span>
-                                            <div class="price-details">
-                                                <h5> 4.89 ETH</h5>
-                                                <span>= $12.246</span>
-                                            </div>
-                                        </div>
-                                        <a href="activity1.html" class="view-history reload">View History</a>
-                                    </div>
-                                </div>
-                                <div class="sc-card-product explode style2 mg-bt">
-                                    <div class="card-media">
-                                        <a href="item-details.html"><img src="assets/images/box-item/card-item-9.jpg" alt="Image"></a>
-                                        <div class="coming-soon">coming soon</div>
-                                        <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    </div>
-                                    <div class="card-title">
-                                        <h5><a href="item-details.html">"Space babe - Night 2/25"</a></h5>
-                                    </div>
-                                    <div class="meta-info">
-                                        <div class="author">
-                                            <div class="avatar">
-                                                <img src="assets/images/avatar/avt-2.jpg" alt="Image">
-                                            </div>
-                                            <div class="info">
-                                                <span>Creator</span>
-                                                <h6> <a href="author02.html">SalvadorDali</a> </h6>
-                                            </div>
-                                        </div>
-                                        <div class="tags">bsc</div>
-                                    </div>
-                                    <div class="card-bottom style-explode">
-                                        <div class="price">
-                                            <span>Price</span>
-                                            <div class="price-details">
-                                                <h5> 4.89 ETH</h5>
-                                                <span>= $12.246</span>
-                                            </div>
+                                        <div class="content-inner">
+                                                <form action="#">
+                                                    <h4 class="title-create-item">Price</h4>
+                                                    <input type="text" placeholder="Enter price for one item (ETH)">
+
+                                                    <h4 class="title-create-item">Minimum bid</h4>
+                                                    <input type="text" placeholder="enter minimum bid">
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <h5 class="title-create-item">Starting date</h5>
+                                                            <input type="date" name="bid_starting_date" id="bid_starting_date2" class="form-control" min="1997-01-01">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <h4 class="title-create-item">Expiration date</h4>
+                                                            <input type="date" name="bid_expiration_date" id="bid_expiration_date2" class="form-control">
+                                                        </div>
+                                                    </div>
+    
+                                                    <h4 class="title-create-item">Title</h4>
+                                                    <input type="text" placeholder="Item Name">
+    
+                                                    <h4 class="title-create-item">Description</h4>
+                                                    <textarea placeholder="e.g. “This is very limited item”"></textarea>
+                                                </form>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="sc-card-product explode style2 mg-bt">
-                                    <div class="card-media">
-                                        <a href="item-details.html"><img src="assets/images/box-item/image-box-6.jpg" alt="Image"></a>
-                                        <div class="button-place-bid">
-                                            <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                        </div>
-                                        <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    </div>
-                                    <div class="card-title">
-                                        <h5><a href="item-details.html">"CyberPrimal 042 LAN"</a></h5>
-                                    </div>
-                                    <div class="meta-info">
-                                        <div class="author">
-                                            <div class="avatar">
-                                                <img src="assets/images/avatar/avt-4.jpg" alt="Image">
-                                            </div>
-                                            <div class="info">
-                                                <span>Creator</span>
-                                                <h6> <a href="author02.html">SalvadorDali</a> </h6>
-                                            </div>
-                                        </div>
-                                        <div class="tags">bsc</div>
-                                    </div>
-                                    <div class="card-bottom style-explode">
-                                        <div class="price">
-                                            <span>Current Bid</span>
-                                            <div class="price-details">
-                                                <h5> 4.89 ETH</h5>
-                                                <span>= $12.246</span>
-                                            </div>
-                                        </div>
-                                        <a href="activity1.html" class="view-history reload">View History</a>
-                                    </div>
-                                </div>
-                                <div class="sc-card-product explode style2 mg-bt">
-                                    <div class="card-media">
-                                        <a href="item-details.html"><img src="assets/images/box-item/image-box-11.jpg" alt="Image"></a>
-                                        <div class="button-place-bid">
-                                            <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                        </div>
-                                        <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    </div>
-                                    <div class="card-title">
-                                        <h5><a href="item-details.html">"Crypto Egg Stamp #5”</a></h5>
-                                    </div>
-                                    <div class="meta-info">
-                                        <div class="author">
-                                            <div class="avatar">
-                                                <img src="assets/images/avatar/avt-3.jpg" alt="Image">
-                                            </div>
-                                            <div class="info">
-                                                <span>Creator</span>
-                                                <h6> <a href="author02.html">SalvadorDali</a> </h6>
-                                            </div>
-                                        </div>
-                                        <div class="tags">bsc</div>
-                                    </div>
-                                    <div class="card-bottom style-explode">
-                                        <div class="price">
-                                            <span>Current Bid</span>
-                                            <div class="price-details">
-                                                <h5> 4.89 ETH</h5>
-                                                <span>= $12.246</span>
-                                            </div>
-                                        </div>
-                                        <a href="activity1.html" class="view-history reload">View History</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="btn-auction center">
-                                <a href="#" class="sc-button loadmore fl-button pri-3"><span>Load More</span></a>
-                            </div>
-                        </div>
+                             </div>
+                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
            <!-- Footer -->
            <footer id="footer" class="clearfix">
@@ -857,8 +574,8 @@
         <!-- Bottom -->
         </div>
         <!-- /#page -->
-        <!-- Modal Popup Bid -->
-        <div class="modal fade popup" id="popup_bid_success" tabindex="-1" role="dialog" aria-hidden="true">
+         <!-- Modal Popup Bid -->
+         <div class="modal fade popup" id="popup_bid_success" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -912,18 +629,18 @@
     <a id="scroll-top"></a>
 
     <!-- Javascript -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.easing.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/plugin.js"></script>
-    <script src="assets/js/count-down.js"></script>
-    <script src="assets/js/shortcodes.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/web3.min.js"></script>
-	<script src="assets/js/moralis.js"></script>
-	<script src="assets/js/nft.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.easing.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/count-down.js"></script>
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/plugin.js"></script>
+    <script src="../assets/js/shortcodes.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/web3.min.js"></script>
+	<script src="../assets/js/moralis.js"></script>
+	<script src="../assets/js/nft.js"></script>
 
 </body>
 
