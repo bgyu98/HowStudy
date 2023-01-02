@@ -47,7 +47,11 @@
                                             <a href="index" rel="home" class="main-logo">
                                               <img
                                                 id="logo_header"
+<<<<<<< HEAD
                                                 src="../assets/images/logo/logo01.png"
+=======
+                                                src="../assets/images/logo/logo.png"
+>>>>>>> c0937d0957909b381a0f2ec1a5ae8a7bf4130eac
                                                 alt="nft-gaming"
                                                 width="180"
                                                 height="80"
@@ -146,7 +150,11 @@
                                                                         <div class="sc-box">
                                                                             <div class="content">
                                                                                 <div class="avatar">
+<<<<<<< HEAD
                                                                                     <img src="../assets/images/avatar/avt-6.jpg" alt="">                                                                           
+=======
+                                                                                    <img src="assets/images/avatar/avt-6.jpg" alt="">                                                                           
+>>>>>>> c0937d0957909b381a0f2ec1a5ae8a7bf4130eac
                                                                                 </div>
                                                                                 <div class="infor">
                                                                                         <span class="fw-7">Tyler Covington</span>      
@@ -377,7 +385,11 @@
                                     <div class="item flex">
                                         <div class="infor-item flex column1">
                                             <div class="media">
+<<<<<<< HEAD
                                                 <img src="../assets/images/box-item/img1rank.jpg" alt="Images">
+=======
+                                                <img src="assets/images/box-item/img1rank.jpg" alt="Images">
+>>>>>>> c0937d0957909b381a0f2ec1a5ae8a7bf4130eac
                                             </div>
                                             <div class="content-collection pad-t-4">
                                                 <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
