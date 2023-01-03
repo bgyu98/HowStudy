@@ -11,6 +11,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!--<![endif]-->
 
+<!-- JSTL 사용-->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
+
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -24,6 +29,9 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+
+    <!-- myStudy Style-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/mystudy.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
@@ -152,254 +160,12 @@
             <!-- title page -->
             
 
-            <section class="tf-section live-auctions home5 style2 bg-style3">
-                <div class="themesflat-container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="heading-live-auctions">
-                                <h2 class="tf-title pb-23">
-                                   방문한 목록 </h2>
-                                <a href="explore-3.html" class="exp style2">기간 설정 탭으로 이동</a>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="swiper-container show-shadow carousel6 pad-t-17 auctions">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product menu_card style2">
-                                                <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-title">
-                                                    <h3><a href="item-details.html">"Hamlet Contemplates ...</a></h3>
-                                                    <div class="tags">bsc</div>
-                                                </div>
-                                                <div class="meta-info style2">
-                                                    <div class="author">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-28.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="info">
-                                                            <span>Creator</span>
-                                                            <h4> <a href="author02.html">Salvador Dali
-                                                            </a> </h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
-                                                    </div>
-                                                </div>
-                                            </div>    	
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product menu_card style2">
-                                                <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-30.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-title">
-                                                    <h3><a href="item-details.html">"Triumphant Awakening...</a></h3>
-                                                    <div class="tags">bsc</div>
-                                                </div>
-                                                <div class="meta-info style2">
-                                                    <div class="author">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-29.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="info">
-                                                            <span>Creator</span>
-                                                            <h4> <a href="author02.html">Trista Francis
-                                                            </a> </h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
-                                                    </div>
-                                                </div>
-                                            </div>    	
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product menu_card style2">
-                                                <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-31.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-title">
-                                                    <h3><a href="item-details.html">"Triumphant Awakening...</a></h3>
-                                                    <div class="tags">bsc</div>
-                                                </div>
-                                                <div class="meta-info style2">
-                                                    <div class="author">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-30.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="info">
-                                                            <span>Creator</span>
-                                                            <h4> <a href="author02.html">Trista Francis
-                                                            </a> </h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
-                                                    </div>
-                                                </div>
-                                            </div>    	
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product menu_card style2">
-                                                <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-title">
-                                                    <h3><a href="item-details.html">"Hamlet Contemplates ...</a></h3>
-                                                    <div class="tags">bsc</div>
-                                                </div>
-                                                <div class="meta-info style2">
-                                                    <div class="author">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-28.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="info">
-                                                            <span>Creator</span>
-                                                            <h4> <a href="author02.html">Salvador Dali
-                                                            </a> </h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
-                                                    </div>
-                                                </div>
-                                            </div>    	
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product menu_card style2">
-                                                <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-30.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-title">
-                                                    <h3><a href="item-details.html">"Triumphant Awakening...</a></h3>
-                                                    <div class="tags">bsc</div>
-                                                </div>
-                                                <div class="meta-info style2">
-                                                    <div class="author">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-29.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="info">
-                                                            <span>Creator</span>
-                                                            <h4> <a href="author02.html">Trista Francis
-                                                            </a> </h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
-                                                    </div>
-                                                </div>
-                                            </div>    	
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product menu_card style2">
-                                                <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-31.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="card-title">
-                                                    <h3><a href="item-details.html">"Triumphant Awakening...</a></h3>
-                                                    <div class="tags">bsc</div>
-                                                </div>
-                                                <div class="meta-info style2">
-                                                    <div class="author">
-                                                        <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-30.jpg" alt="Image">
-                                                        </div>
-                                                        <div class="info">
-                                                            <span>Creator</span>
-                                                            <h4> <a href="author02.html">Trista Francis
-                                                            </a> </h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
-                                                    </div>
-                                                </div>
-                                            </div>    	
-                                        </div><!-- item-->
-                                    </div>
-                                </div>
-                                <div class="swiper-pagination mg-t-13"></div>
-                                <div class="swiper-button-next btn-slide-next active"></div>
-                                <div class="swiper-button-prev btn-slide-prev"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+           
             
 
-
+            <br/><br/><br/><br/>
+            
+            <!-- favorite section start-->
             <section class="tf-section live-auctions style4 home5 mobie-style">
                 <div class="themesflat-container">
                     <div class="row">
@@ -413,168 +179,35 @@
                         <div class="col-md-12">
                             <div class="swiper-container show-shadow carousel9 pad-t-17 auctions">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-collection style-2 home2">
-                                                <div class="card-media-h6">
-                                                    <img src="assets/images/box-item/collection-item-14.jpg" alt="">
-                                                </div>
-                                                <div class="card-bottom">
-                                                    <div class="author">
-                                                        <div class="sc-author-box style-2">
-                                                            <div class="author-avatar">
-                                                                <img src="assets/images/avatar/avt-1.jpg" alt="" class="avatar">
-                                                                <div class="badge"><i class="ripple"></i></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h4><a href="author01.html">Creative Art Collection</a></h4>
-                                                            <div class="infor">
-                                                                <span>Created by</span>
-                                                                <span class="name"><a href="author02.html">Ralph Garraway</a></span>
-                                                            </div>
-                                                        </div>
+                                    <c:forEach items="${favorRoom}" var = "fr">
+                                        <div class="swiper-slide">
+                                            <div class="slider-item">										
+                                                <div class="sc-card-collection style-2 home2">
+                                                    <div class="card-header" style="border-radius: 15px;">
+                                                        <h5>${fr.sCategory}</h5>
                                                     </div>
-                                                    <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
-                                                </div>
-                                            </div> 		
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-collection style-2 home2">
-                                                <div class="card-media-h6">
-                                                    <img src="assets/images/box-item/collection-item-15.jpg" alt="">
-                                                </div>
-                                                <div class="card-bottom">
-                                                    <div class="author">
-                                                        <div class="sc-author-box style-2">
-                                                            <div class="author-avatar">
-                                                                <img src="assets/images/avatar/avt-8.jpg" alt="" class="avatar">
-                                                                <div class="badge"><i class="ripple"></i></div>
+                                                    <div class="card-bottom">
+                                                        <div class="author">
+                                                            <div class="sc-author-box style-2">
+                                                                <div class="author-avatar">
+                                                                    <img src="../assets/images/logo/logo01.png" alt="" class="avatar" style="height: 64px; width: 64px;">
+                                                                    <div class="badge"><i class="ripple"></i></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="content">
+                                                                <h4><a href="author01.html">${fr.sTitle}</a></h4>
+                                                                <div class="infor">
+                                                                    <span>Created by</span>
+                                                                    <span class="name"><a href="author02.html">${fr.sDate}</a></span>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="content">
-                                                            <h4><a href="author01.html">Colorful Abstract</a></h4>
-                                                            <div class="infor">
-                                                                <span>Created by</span>
-                                                                <span class="name"><a href="author02.html">Mason Woodward</a></span>
-                                                            </div>
-                                                        </div>
+                                                        <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
                                                     </div>
-                                                    <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
-                                                </div>
-                                            </div> 		
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-collection style-2 home2">
-                                                <div class="card-media-h6">
-                                                    <img src="assets/images/box-item/collection-item-16.jpg" alt="">
-                                                </div>
-                                                <div class="card-bottom">
-                                                    <div class="author">
-                                                        <div class="sc-author-box style-2">
-                                                            <div class="author-avatar">
-                                                                <img src="assets/images/avatar/avt-7.jpg" alt="" class="avatar">
-                                                                <div class="badge"><i class="ripple"></i></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h4><a href="author01.html">Modern Art Collection</a></h4>
-                                                            <div class="infor">
-                                                                <span>Created by</span>
-                                                                <span class="name"><a href="author02.html">Freddie Carpenter</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
-                                                </div>
-                                            </div> 		
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-collection style-2 home2">
-                                                <div class="card-media-h6">
-                                                    <img src="assets/images/box-item/collection-item-14.jpg" alt="">
-                                                </div>
-                                                <div class="card-bottom">
-                                                    <div class="author">
-                                                        <div class="sc-author-box style-2">
-                                                            <div class="author-avatar">
-                                                                <img src="assets/images/avatar/avt-1.jpg" alt="" class="avatar">
-                                                                <div class="badge"><i class="ripple"></i></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h4><a href="author01.html">Creative Art Collection</a></h4>
-                                                            <div class="infor">
-                                                                <span>Created by</span>
-                                                                <span class="name"><a href="author02.html">Ralph Garraway</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
-                                                </div>
-                                            </div> 		
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-collection style-2 home2">
-                                                <div class="card-media-h6">
-                                                    <img src="assets/images/box-item/collection-item-15.jpg" alt="">
-                                                </div>
-                                                <div class="card-bottom">
-                                                    <div class="author">
-                                                        <div class="sc-author-box style-2">
-                                                            <div class="author-avatar">
-                                                                <img src="assets/images/avatar/avt-8.jpg" alt="" class="avatar">
-                                                                <div class="badge"><i class="ripple"></i></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h4><a href="author01.html">Colorful Abstract</a></h4>
-                                                            <div class="infor">
-                                                                <span>Created by</span>
-                                                                <span class="name"><a href="author02.html">Mason Woodward</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
-                                                </div>
-                                            </div> 		
-                                        </div><!-- item-->
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-collection style-2 home2">
-                                                <div class="card-media-h6">
-                                                    <img src="assets/images/box-item/collection-item-16.jpg" alt="">
-                                                </div>
-                                                <div class="card-bottom">
-                                                    <div class="author">
-                                                        <div class="sc-author-box style-2">
-                                                            <div class="author-avatar">
-                                                                <img src="assets/images/avatar/avt-7.jpg" alt="" class="avatar">
-                                                                <div class="badge"><i class="ripple"></i></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="content">
-                                                            <h4><a href="author01.html">Modern Art Collection</a></h4>
-                                                            <div class="infor">
-                                                                <span>Created by</span>
-                                                                <span class="name"><a href="author02.html">Freddie Carpenter</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
-                                                </div>
-                                            </div> 		
-                                        </div><!-- item-->
-                                    </div>
+                                                </div> 		
+                                            </div><!-- item-->
+                                        </div>
+                                    </c:forEach>
                                 </div>
                                 <div class="swiper-pagination mg-t25"></div>
                                 <div class="swiper-button-next btn-slide-next active"></div>
@@ -584,7 +217,77 @@
                     </div>
                 </div>
             </section>
+            <!-- favorite section finish-->
+            
 
+            <!-- visited section start-->
+            <section class="tf-section live-auctions home5 style2 bg-style3">
+                <div class="themesflat-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-live-auctions">
+                                <h2 class="tf-title pb-23">
+                                   방문한 목록 </h2>
+                                <select class="checkdate" style="color: red;" onchange="javascript:checkD(this);">
+                                    <option value="alld"> 전체</option>
+                                    <option value="resentd">최근 하루</option>
+                                    <option value="resentw">최근 일주일</option>
+                                    <option value="resentm">최근 한 달</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="swiper-container show-shadow carousel6 pad-t-17 auctions">
+                                <div class="swiper-wrapper">
+                                    <c:forEach items="${favorRoom}" var = "fr">
+                                    <div class="swiper-slide">
+                                        <div class="slider-item">										
+                                            <div class="sc-card-product menu_card style2">
+                                                <div class="card-media style2">
+                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
+                                                    <div class="featured-countdown style2">
+                                                        <span class="slogan"></span>
+                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
+                                                    </div>
+                                                    <div class="button-place-bid">
+                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-title">
+                                                    <h3><a href="item-details.html">${fr.sTitle}</a></h3>
+                                                    <div class="tags">bsc</div>
+                                                </div>
+                                                <div class="meta-info style2">
+                                                    <div class="author">
+                                                        <div class="avatar">
+                                                            <img src="assets/images/avatar/avt-28.jpg" alt="Image">
+                                                        </div>
+                                                        <div class="info">
+                                                            <span>Creator</span>
+                                                            <h4> <a href="author02.html">${fr.sDate}
+                                                            </a> </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">
+                                                        <span>Current Bid</span>
+                                                        <h5> 4.89 ETH</h5>
+                                                    </div>
+                                                </div>
+                                            </div>    	
+                                        </div><!-- item-->
+                                    </div>
+                                </c:forEach>
+                                </div>
+                                <div class="swiper-pagination mg-t-13"></div>
+                                <div class="swiper-button-next btn-slide-next active"></div>
+                                <div class="swiper-button-prev btn-slide-prev"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!-- visited section finish-->
 
            
 
@@ -735,6 +438,8 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
+    <script src="../assets/js/mystudyroom.js"></script>
+
 
 </body>
 
