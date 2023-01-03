@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.HistoryDAO">
+
+	<insert id='insertTodo' parameterType='HistoryVO'>
+		INSERT INTO HISTORY ( hSeq, todos, todoTime, completion )
+		VALUES ( nextval(howstudy.sq_hSEQ),  #{todos}, CURDATE(), "N")
+
+	</insert>
+	
+	<select id="todo" parameterType="HistoryVO" resultType="HistoryVO">
+		SELECT hSeq, todos, todoTime, completion
+		FROM HISTORY 
+		WHERE completion = "N"
+		
+	</select>
+	
+	<select id="selectCompletion" parameterType="HistoryVO" resultType="HistoryVO">
+		SELECT hSeq, todos, todoTime, completion
+		FROM HISTORY 
+		WHERE completion = "Y"
+		
+	</select>
+	
+	<update id="updateTodo" parameterType="HistoryVO">
+	UPDATE HISTORY SET 
+	completion = "Y"
+	WHERE hSeq = ${hSeq}
+	</update>
+	
+	<delete id="deleteTodo" parameterType="HistoryVO">
+	DELETE FROM HISTORY
+	WHERE hSeq = ${hSeq}
+	</delete>
+
+</mapper>
