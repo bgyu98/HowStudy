@@ -1332,7 +1332,7 @@ a:focus {
 
 .hover-ecfect,
 .exp{
-    background: linear-gradient(to right, #E250E5,#4B50E6,#E250E5);
+    background: linear-gradient(to right, #97D2EC,#5F6F94,#25316D);
     background-clip: text;
     -webkit-background-clip:text;
     font-weight: 700;
@@ -1383,7 +1383,7 @@ a:focus {
     /* color */
     --primary-color : #fff;
     --primary-color2: #1F1F2C;
-    --primary-color3: #5142FC;
+    --primary-color3: #64b2cd ;
     --primary-color4: #7A798A;
     --primary-color5: #F8F8F8;
     --primary-color6: #14141F;
@@ -1427,6 +1427,13 @@ header{
     -o-transition     : all 0.5s ease;
     transition        : all 0.5s ease;
 }
+
+.is_dark .header_1 {
+    background:   #04293A
+;
+    box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
+}
+
 .item .header_1 {
     position: fixed !important;
     top: 0 !important;
@@ -1446,7 +1453,7 @@ header{
 
 .header_1 #main-nav {
     position: absolute;
-    left:26%;
+    left:18%;
     top: 50%;
     z-index: 0;
     -webkit-transform: translateY(-50%);
@@ -2117,7 +2124,7 @@ header{
 /* Search Form */
 .header-search {
     position    : relative;
-    margin-right: 36px;
+    margin-right: 400px;
     padding: 14px 0;
 }
 
@@ -2288,10 +2295,8 @@ header{
     width     : 100%;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 30%);
     z-index   : 9999;
-    background: linear-gradient(
-        227.3deg, #8A208C 0%, #181B81 100.84%);
+    background: #64b2cdbd;
     border: none;
-    opacity: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition   : all 0.5s ease;
     -ms-transition    : all 0.5s ease;
@@ -2300,7 +2305,7 @@ header{
 }
 .is_dark .header_1.header_2.style.is-fixed,
 .is_dark .header_1.is-fixed {
-    background: #14141F;
+    background:   #04293ac7;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
 }
 .header_1.is-fixed .mode_switcher{
@@ -2405,11 +2410,11 @@ header{
 -------------------------------------------------------------- */
 #footer {
     padding: 80px 0 80px;
-    background-color: #fff;
+    background-color:  #64b2cd ;
 }
 
 #footer.style-2 {
-    background-color: #ffffff;
+    background-color:  #64b2cd ;
 }
 
 .is_dark #footer{
@@ -2502,6 +2507,7 @@ header{
 #footer .widget p {
     font-size  : 14px;
     line-height: 22px;
+    font-weight: bold;
 }
 
 .side-bar .widget p {
@@ -2570,13 +2576,11 @@ header{
     font-weight: bold;
 }
 
-.widget-logo .logo-footer {
-    margin-bottom: 13px;
-}
 
 .widget-logo .sub-widget-logo {
     padding-right: 35px;
     margin-bottom: 26px;
+    margin-top: -28px;
 }
 
 /* widget-social */

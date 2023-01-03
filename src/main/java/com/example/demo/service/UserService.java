@@ -9,9 +9,12 @@ public interface UserService {
 	public int insertCustomer(UserVO vo);
 
 	// id 중복 체크
-	public UserVO checkId(UserVO vo);
+	// public UserVO checkId(UserVO vo);
 
 	// 로그인
 	public UserVO loginCustomer(UserVO vo);
+
+	// 아이디 중복확인
+	public int mIdCheck(String mId);
 
 }

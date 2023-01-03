@@ -4,14 +4,17 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.UserService;
 import com.example.demo.vo.UserVO;
 
-import ch.qos.logback.core.model.Model;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
@@ -28,42 +31,52 @@ public class userController {
 		return "user/" + step;
 	}
 
-	// 회원 가입 아이디 중복일때 :9 / 회원가입 완료: 1
+	// 회원 가입
 	@RequestMapping(value = "insertCustomer", method = RequestMethod.POST)
 	public String insertCustomer(UserVO vo, HttpSession session, HttpServletRequest request) throws IOException {
-		System.out.println("회원가입");
-		if (userService.checkId(vo) != null) {
-			// id exists in DB. Make customer input different id
-			session.setAttribute("sok", 9);
-			// m.addAttribute("sok", 9);
-			return "user/login";
-		}
 		int insertResult = userService.insertCustomer(vo);
-		System.out.println("아이디 중복 확인" + insertResult);
-		request.setAttribute("ok", insertResult);
+		System.out.println("회원가입:" + insertResult);
 		session.setAttribute("sok", 1);
-		// request.setAttribute("sok", 1);
-		// m.addAttribute("sok", 1);
 		return "user/login";
 	}
 
 	// 로그인
 	@RequestMapping(value = "loginCustomer")
-	public String loginCustomer(UserVO vo, HttpSession session, Model m) {
-		System.out.println("  로그인:" + vo);
+	public String loginCustomer(UserVO vo, HttpSession session) {
+		System.out.println("로그인:" + vo);    //로그인 할 때 생성되는 vo 
 		UserVO loginResult = userService.loginCustomer(vo);
-		if (loginResult != null) { // login success!
-			session.setAttribute("loginId", vo.getmId());
-			session.setAttribute("loginPass", vo.getmPw());
-			return "redirect:../index";
+		System.out.println("로그인22:" + loginResult);  //서비스 거쳐서 만들어진 vo
+		if (loginResult != null) { // 로그인 성공
+			session.setAttribute("loginId", loginResult.getmId());
+			session.setAttribute("loginPass", loginResult.getmPw());
+			session.setAttribute("loginEmail", loginResult.getmEmail());
+			return "studyRoom/study";
 		} else {
 			// 로그인 실패
 			session.setAttribute("sok", 5);
-			//m.addAttribute("sok", 5);
 		}
-		return "user/login";
+		return "user/login";  
 	}
 
+	//로그아웃
+	  @RequestMapping(value="logout")
+	     public String logout(HttpServletRequest request,  Model m) {
+	         System.out.println("로그아웃");
+	        HttpSession session = request.getSession(true);
+	        session.invalidate();
+	        return "studyRoom/study";
+	     }
+	
+	  
+	//아이디 중복체크
+	  @RequestMapping(value="mIdCheck")
+	  @ResponseBody
+	  public int mIdCheck(String mId) {
+	  	int result = userService.mIdCheck(mId);
+	   System.out.println("중복체크-------------" +result);
+	  	return result;
+	  }
+	  
 
 
 }

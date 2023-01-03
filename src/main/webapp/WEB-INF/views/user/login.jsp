@@ -24,9 +24,6 @@
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
 
-<!-- content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
-<meta name ="google-signin-client_id" content="672645793237-ndq0f6h0a8r0qjok3r23fueiukm63cdq.apps.googleusercontent.com">
-
 
 </head>
 
@@ -48,7 +45,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo" class="clearfix">
                                         <div id="site-logo-inner">
-                                            <a href="index" rel="home" class="main-logo">
+                                            <a href="../../index" rel="home" class="main-logo">
                                               <img
                                                 id="logo_header"
                                                 src="../assets/images/logo/logo01.png"
@@ -362,15 +359,12 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="../user/login2" class="sc-button style-2 fl-button pri-3">
-                                            <i class="icon-fl-google-2"></i>
-                                            <span>Google</span>
-                                        </a>
+                                        <a id="kakao-login-btn"></a>
                                     </li>
                                     <li>
                                         <a href="#" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-facebook"></i>
-                                            <span>Facebook</span>
+                                            <span>NAVER</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -385,20 +379,35 @@
                                     <form method="POST" id="insert-customer" action="loginCustomer">
                                         <input id="mId" name="mId" tabindex="1"  aria-required="true" required type="text" placeholder="아이디" required>
                                         <input id="mPw" name="mPw" tabindex="3"  aria-required="true" type="password" placeholder="비밀번호" required>
+                                        
                                         <div class="row-form style-1">
-                                            <label>로그인 상태 유지
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label>
                                             <a href="#" class="forgot-pass">비밀번호 찾기</a>
                                         </div>
+                                        <div class="row-form style-1">
+                                            <button class="submit" type="submit" name="submit" style=" margin: auto;">로그인</button>
+                                        </div>
+                                        
+                                        <div class="box-title-login">
+                                            <h5>아직 회원이 아니신가요?</h5>
+                                        </div>
+       
 
-                                        <button class="submit" type="submit" name="submit">로그인</button>
-                                       <!-- <button class="submit">Login</button>-->
+                                     <!--  <button class="submit">Login</button>-->
                                     </form>
+                                    
+                                    <div class="row-form style-1" style=" margin: auto;">
+                                        <a href="../user/signup" ><button class="signup" name="signup" style="width: 483%;" >회원가입</button></a>
+                                    </div>
+                                
                                 </div>
 
                             </div>
+
+                          
+
+
+
+
 
                         </div>
                     </div>
@@ -498,6 +507,25 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+    <script type='text/javascript'>
+        //<![CDATA[
+        // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('fa69ddd270df22f35db1b91c2f89ccf2');
+        // 카카오 로그인 버튼을 생성합니다.
+        Kakao.Auth.createLoginButton({
+            container: '#kakao-login-btn',
+            success: function (authObj) {
+                alert(JSON.stringify(authObj));
+            },
+            fail: function (err) {
+                alert(JSON.stringify(err));
+            }
+        });
+      //]]>
+    </script>
+
 
 </body>
 

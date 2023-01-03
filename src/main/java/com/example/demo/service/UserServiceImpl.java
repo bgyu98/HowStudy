@@ -20,12 +20,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	// 아이디 중복 체크
-	public UserVO checkId(UserVO vo) {
-		return userDAO.checkId(vo);
-	}
+	//public UserVO checkId(UserVO vo) {
+	//	return userDAO.checkId(vo);
+	//}
 
 	// 로그인
 	public UserVO loginCustomer(UserVO vo) {
 		return userDAO.loginCustomer(vo);
+	}
+
+	// 아이디 중복 체크
+	public int mIdCheck(String mId) {
+		return userDAO.mIdCheck(mId);
 	}
 }
