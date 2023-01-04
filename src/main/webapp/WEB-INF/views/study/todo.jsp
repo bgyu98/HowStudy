@@ -376,11 +376,11 @@
                             </div><br/><br/><br/><br/><br/><br/><br/>
                             
                             <!-- 조ㅏ측-->
-                            <div id="grid">
+                            <div id="grid" style="margin-top: 100px; margin-left: 250px; margin-right: 250px;">
                                 <form action="insertTodo" id="todoForm" method="post">
                                   <div id="myDIV" class="header">
                                     <h2>My To Do List</h2>
-                                    <input id="tText" type="text" name="todos"style="width: 200;" placeholder="Title...">
+                                    <input id="tText" type="text" name="todos" style="width: 200;" placeholder="Title...">
                                     <input type="submit" id="addBtn" class="addBtn">
                                   </div>
                                 
@@ -405,7 +405,7 @@
                                
                                 </form>
                                 
-                                <form action="selectCompletion" id="completion" method="post">
+                                <form action="selectCompletion" id="completion" method="post" style="margin-left: 20px;">
                                 <!-- 오른쪽 박스 -->
                                 <div>
                                   <div id="myDIV2" class="header2">
@@ -415,7 +415,7 @@
                                   <ul id="myUL2">
                                     <c:forEach items="${completion}" var="com">
                                     
-                                    <li class="a" value="${com.hSeq}"><span>${com.todos}</span><span class='date'>${com.todoTime}</span></li>
+                                    <li class="a checked" value="${com.hSeq}"><span>${com.todos}</span><span class='date'>${com.todoTime}</span></li>
                                     </c:forEach>
                                   </ul>
                                   </ul>

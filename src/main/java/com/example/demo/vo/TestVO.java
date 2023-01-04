@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class TestVO {
-	private String mphone;
+	private Integer sNum;
 	private String mid;
 	private Integer snum;
 	private String mpw;

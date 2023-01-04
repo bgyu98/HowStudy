@@ -13,52 +13,46 @@ aLiList.addEventListener('click', function(ev) {
 
 
 // todo 버튼 클릭 이벤트 연결
-$('.addBtn').click(function() {
+$('.addBtn').click(function(evt) {
 	evt.stopPropagation();
 	evt.preventDefault();
 
-	var iLine = $("#tText").val();
-	var oToday = new Date().toLocaleString();
+	
+	var formData = $("#todoForm").serialize();
+	$.ajax({
+		url: "./insertTodo",
+		type: "post",
+		data: formData,
 
-	var addList = [{
-		"title": iLine,
-		"inputDate": oToday
-	}]
+		success: function(result) {
+			//화면을 다 지우고 전체내용을 가져온 것으로 다시 붙이기
+			var str = JSON.parse(result);
+			var test = '';
+			$.each(str, function(k, v) {
 
-	newLine(addList, "#myUL");
+				test += '<li class="' + v.hSeq + '"><span>' + v.todos + '</span><span class="date"> ' + v.todoTime +
+					'</span >';
+				test += '</li>';
 
-	console.log("되나여");
+			});
 
+			
+			$("#myUL").empty();
+			$('#myUL').append(test);
+		},
+		error: function() {
+
+			alert("서버요청실패");
+		}
+	});
+
+	$("#tText").val("");
 });
 
 
 
 
-
-
-// todo 새글 등록
-function newLine(arr, name) {
-	console.log("삭제");
-	for (i = 0; i < arr.length; i++) {
-		$(name).append("<li><span>" + arr[i].title + "</span><span class='date'>" + arr[i].inputDate + "</span></li>");
-	}
-}
-
 // 삭제
-function deleteHref(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
-	var oUlcheck = document.querySelector("#myUL"); //왼쪽칸의 li만 가져옴
-	var oChecked = oUlcheck.querySelectorAll('.checked');
-	for (i = 0; i < oChecked.length; i++) {
-		$(oChecked[i]).remove();
-	}
-
-	// 
-	$("#todoForm").attr("action", "deleteTdo");
-};
-
-var a = [];
 
 $("#deleteTodo").click(function(evt) {
 	evt.stopPropagation();
@@ -67,18 +61,32 @@ $("#deleteTodo").click(function(evt) {
 	var oChecked = oUlcheck.querySelectorAll('.checked');		// checked 클래스 를 찾아서 함수에 저장
 	var arr = [];
 	for (i = 0; i < oChecked.length; i++) {
-		$("#myUL2").append(oChecked[i]);
-			arr.push($(oChecked[i]).val());
+		arr.push($(oChecked[i]).val());
 
 	}
-		console.log(arr);
+	console.log(arr);
 
 
+	var parms = '?hSeq=' + arr;
+	var formData = $("#todoForm").serialize();
+	$.ajax({
+		url: "./deleteTodo" + parms,
+		type: "post",
+		data: formData,
 
-	$("#todoForm").attr("action", "deleteTodo?hSeq="+arr);
-	$("#todoForm").submit();
-	
-	
+		success: function() {
+			for (i = 0; i < oChecked.length; i++) {
+				$(oChecked[i]).remove();
+			}
+
+
+		},
+		error: function() {
+
+			alert("서버요청실패");
+		}
+	});
+
 });
 
 
@@ -90,16 +98,39 @@ $("#updateTodo").click(function(evt) {
 	var oChecked = oUlcheck.querySelectorAll('.checked');		// checked 클래스 를 찾아서 함수에 저장
 	var arr = [];
 	for (i = 0; i < oChecked.length; i++) {
-		$("#myUL2").append(oChecked[i]);
-			arr.push($(oChecked[i]).val());
+		arr.push($(oChecked[i]).val());
 
 	}
-		console.log(arr);
 
+	var parms = '?hSeq=' + arr;
+	var formData = $("#todoForm").serialize();
+	$.ajax({
+		url: "./updateTodo" + parms,
+		type: "post",
+		data: formData,
 
+		success: function(result) {
+			alert("성공");
+			for (i = 0; i < oChecked.length; i++) {
+				$(oChecked[i]).remove();	
+			}
+			var str = JSON.parse(result);
+			var test = '';
+			$.each(str, function(k, v) {
+				test += '<li class="' + v.hSeq + '"><span>' + v.todos + '</span><span class="date"> ' + v.todoTime +
+					'</span >';
+				test += '</li>';
 
-	$("#todoForm").attr("action", "updateTodo?hSeq="+arr);
-	$("#todoForm").submit();
+			});
+			$("#myUL2").empty();
+			$('#myUL2').append(test);
+		},
+		error: function() {
 	
-	
+		}
+	});
+
+
+
+
 });

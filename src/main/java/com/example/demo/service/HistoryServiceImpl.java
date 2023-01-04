@@ -32,7 +32,7 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public List<HistoryVO> selectCompletion(HistoryVO vo) {
 		System.out.println("selectCompletion 확인");
-		return historyDAO.todo(vo);
+		return historyDAO.selectCompletion(vo);
 	}
 
 	@Override
