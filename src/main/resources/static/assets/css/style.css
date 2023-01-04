@@ -1381,9 +1381,9 @@ a:focus {
 
 :root {
     /* color */
-    --primary-color : #fff;
+    --primary-color : #fff;;
     --primary-color2: #1F1F2C;
-    --primary-color3: #64b2cd ;
+    --primary-color3: #f2d1d1;
     --primary-color4: #7A798A;
     --primary-color5: #F8F8F8;
     --primary-color6: #14141F;
@@ -1431,6 +1431,7 @@ header{
 
 .is_dark .header_1 {
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
+    background: unset;
 }
 
 .item .header_1 {
@@ -2409,7 +2410,7 @@ header{
 -------------------------------------------------------------- */
 #footer {
     padding: 80px 0 80px;
-    background-color:  rgb(245,245,245);;
+    background-color:  #f2d1d1;
 }
 
 #footer.style-2 {

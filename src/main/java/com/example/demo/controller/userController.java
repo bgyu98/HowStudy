@@ -46,22 +46,31 @@ public class userController {
 		return "user/login";
 	}
 
-	// 로그인
 	@RequestMapping(value = "loginCustomer")
 	public String loginCustomer(UserVO vo, HttpSession session, Model m) {
 		System.out.println("  로그인:" + vo);
 		UserVO loginResult = userService.loginCustomer(vo);
-		if (loginResult != null) { // login success!
+		// 로그인 실패
+		if (loginResult == null || vo.getmId() == null) { 
+			System.out.println("로그인 실패");
+			session.setAttribute("sok", 5);
+			m.addAttribute("sok", 5);
+			return "user/login";
+		} else {
+			// 로그인 성공
+			System.out.println("로그인 성공 : " + vo.getmId());
+			// 세션에 저장
 			session.setAttribute("loginId", vo.getmId());
 			session.setAttribute("loginPass", vo.getmPw());
-			return "redirect:../studyRoom/study";
-		} else {
-			// 로그인 실패
-			session.setAttribute("sok", 5);
-			// m.addAttribute("sok", 5);
+			// 관리자 로그인
+			if (vo.getmId().equals("admin")) {
+				System.out.println("관리자 로그인");
+				return "redirect:../admin/adminMain";
+			}
 		}
-		return "user/login";
+		return "redirect:../studyRoom/study";
 	}
+	
 
 	// 회원정보 조회
 	@RequestMapping("/modifyAccount")
@@ -77,11 +86,10 @@ public class userController {
 		return "redirect:../studyRoom/study?mId=" + vo.getmId();
 	}
 
-
 	// 비밀번호 확인 & 회원정보 삭제
 	@RequestMapping("/userDelete")
 	public String confirm(String mId, String mPw, UserVO vo, Model m, HttpSession session) {
-		
+
 		boolean result = userService.checkPw(mId, mPw);
 		if (result) {
 			userService.deleteInfo(vo);
