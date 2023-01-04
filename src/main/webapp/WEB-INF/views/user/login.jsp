@@ -24,6 +24,10 @@
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
 
+<!-- content에 자신의 OAuth2.0 클라이언트ID를 넣습니다. -->
+<meta name ="google-signin-client_id" content="672645793237-ndq0f6h0a8r0qjok3r23fueiukm63cdq.apps.googleusercontent.com">
+
+
 </head>
 
 <body class="body header-fixed is_dark">
@@ -349,7 +353,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h2 class="tf-title-heading ct style-1">
-                                Login To NFTs
+                                로그인
                             </h2>
 
                             <div class="flat-form box-login-social">
@@ -358,7 +362,7 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#" class="sc-button style-2 fl-button pri-3">
+                                        <a href="../user/login2" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-google-2"></i>
                                             <span>Google</span>
                                         </a>
@@ -378,18 +382,19 @@
                                 </div>
 
                                 <div class="form-inner">
-                                    <form action="#" id="contactform">
-                                        <input id="name" name="name" tabindex="1" value="" aria-required="true" required type="text" placeholder="Your Full Name" >
-                                        <input id="email" name="email" tabindex="2"  value="" aria-required="true" type="email" placeholder="Your Email Address" required >
+                                    <form method="POST" id="insert-customer" action="loginCustomer">
+                                        <input id="mId" name="mId" tabindex="1"  aria-required="true" required type="text" placeholder="아이디" required>
+                                        <input id="mPw" name="mPw" tabindex="3"  aria-required="true" type="password" placeholder="비밀번호" required>
                                         <div class="row-form style-1">
-                                            <label>Remember me
+                                            <label>로그인 상태 유지
                                                 <input type="checkbox">
                                                 <span class="btn-checkbox"></span>
                                             </label>
-                                            <a href="#" class="forgot-pass">Forgot Password ?</a>
+                                            <a href="#" class="forgot-pass">비밀번호 찾기</a>
                                         </div>
 
-                                        <button class="submit">Login</button>
+                                        <button class="submit" type="submit" name="submit">로그인</button>
+                                       <!-- <button class="submit">Login</button>-->
                                     </form>
                                 </div>
 

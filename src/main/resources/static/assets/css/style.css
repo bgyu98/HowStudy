@@ -1006,7 +1006,7 @@ label.error { color: red; }
 }
 
 .mg-t32{
-    margin-top: 32px;
+    margin-top: 65px;
 }
 
 .mg-bt-24 {
@@ -1418,8 +1418,8 @@ header{
 .header_1 {
     position: absolute;
     z-index: 100;
-    background-color:   #64b2cd ;
     height: 80px;
+    background: #fff;
     width: 100%;
     border-bottom: 1px solid rgba(235, 235, 235, 0.2);
     -webkit-transition: all 0.5s ease;
@@ -1430,8 +1430,6 @@ header{
 }
 
 .is_dark .header_1 {
-    background:   #04293A
-;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
 }
 
@@ -2125,7 +2123,7 @@ header{
 /* Search Form */
 .header-search {
     position    : relative;
-    margin-right: 200px;
+    margin-right: 400px;
     padding: 14px 0;
 }
 
@@ -2296,7 +2294,7 @@ header{
     width     : 100%;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 30%);
     z-index   : 9999;
-    background: #64b2cdbd;
+    background: #F2D1D1;
     border: none;
     -webkit-transition: all 0.5s ease;
     -moz-transition   : all 0.5s ease;
@@ -2306,7 +2304,7 @@ header{
 }
 .is_dark .header_1.header_2.style.is-fixed,
 .is_dark .header_1.is-fixed {
-    background:   #04293ac7;
+    background:   #0d0d1196;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
 }
 .header_1.is-fixed .mode_switcher{
@@ -2411,11 +2409,11 @@ header{
 -------------------------------------------------------------- */
 #footer {
     padding: 80px 0 80px;
-    background-color: #fff;
+    background-color:  rgb(245,245,245);;
 }
 
 #footer.style-2 {
-    background-color: #ffffff;
+    background-color:  #64b2cd ;
 }
 
 .is_dark #footer{
@@ -2508,6 +2506,7 @@ header{
 #footer .widget p {
     font-size  : 14px;
     line-height: 22px;
+    font-weight: bold;
 }
 
 .side-bar .widget p {
@@ -2576,13 +2575,11 @@ header{
     font-weight: bold;
 }
 
-.widget-logo .logo-footer {
-    margin-bottom: 13px;
-}
 
 .widget-logo .sub-widget-logo {
     padding-right: 35px;
     margin-bottom: 26px;
+    margin-top: -28px;
 }
 
 /* widget-social */
@@ -3457,4 +3454,8 @@ span.type::after {
     0% { opacity:1; }
     50% { opacity:0; }
     100% { opacity:1; }
+}
+
+.is_dark .mine {
+   background: #14141f;
 }

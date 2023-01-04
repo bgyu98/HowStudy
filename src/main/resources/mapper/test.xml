@@ -4,7 +4,7 @@
 
 <mapper namespace="com.example.demo.dao.TestDAO">
 	<select id="getTest" resultType="TestVO" parameterType="TestVO">
-		select * from member where sNum=1
+		select * from MEMBER
 	</select>
 
 </mapper>

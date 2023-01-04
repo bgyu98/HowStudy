@@ -22,6 +22,7 @@
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png" />
+    <link rel="stylesheet" href="../assets/css/flags.css">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
     <link
       rel="stylesheet"
@@ -191,13 +192,14 @@
                           </form>
                         </div>
                       </div>
+                      <form name="myPage">
                       <div class="my-profile-layer" style="">
                         <div class="my-profile-layer-header">
                           <section class="my-profile-layer-info">
                             <div class="my-profile-layer-img-area">
                               <img src="../assets/images/icon/usericon.png" align="absleft" class="my-profile-layer-img"></div> 
                               <div class="my-profile-layer-info-tx">
-                                <h5 class="my-profile-layer-info-name">이선아</h5> 
+                                <h5 class="my-profile-layer-info-name" name="mId">이선아</h5> 
                                 <p class="my-profile-layer-info-email">dltjsdk0302@gmail.com</p></div>
                               </section> 
                               <section class="my-profile-layer-user-grade">
@@ -210,22 +212,23 @@
                                   <div class="ticket-date">~ 2023년 01월 8일</div>
                                 </div>
                               </section> 
-                      </div> <div class="my-profile-layer-content">
+                      </div> 
+                      <div class="my-profile-layer-content">
                         <div class="my-menu-area">
                           <ul class="my-menu-list">
                             <li class="my-menu-list-item move">
-                              <a href="/camstudy/user" class="my-menu-list-item-btn">내 프로필</a>
+                              <a href="../user/modifyAccount?mId=${sessionScope.loginId}" class="my-menu-list-item-btn">내 프로필</a>
                             </li> 
-                            <li class="my-menu-list-item"><a href="#" class="my-menu-list-item-btn">내 아이템</a>
-                            </li> <li class="my-menu-list-item move">
+                            <li class="my-menu-list-item move">
                               <a href="/camstudy/user/payment" class="my-menu-list-item-btn">결제내역</a>
-                            </li> <li class="my-menu-list-item move"><a href="/camstudy/user/coupon" class="my-menu-list-item-btn">내 쿠폰</a>
-                            </li> <li class="my-menu-list-item move forBusiness"><a href="#" class="my-menu-list-item-btn">구루미 올리고<span class="my-menu-list-item-btn-tag">NEW</span></a>
-                            </li> <li class="my-menu-list-item move guide"><a href="#" target="_blank" class="my-menu-list-item-btn">이용방법</a></li> 
+                            </li> <li class="my-menu-list-item move"><a href="/camstudy/user/coupon" class="my-menu-list-item-btn">공부기록</a>
+                            </li>
+                            </li> <li class="my-menu-list-item move guide"><a href="#" target="_blank" class="my-menu-list-item-btn">이용가이드</a></li> 
                             <li class="my-menu-list-item logout"><a class="my-menu-list-item-btn">로그아웃</a></li></ul>
                           </div>
                         </div>
                       </div>
+                    </form>
 
                       <div class="admin_active" id="header_admin">
                         <div class="header_avatar">
@@ -430,14 +433,14 @@
 
         <!-- title page -->
 
-        <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0">
+        <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
           <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
           <div class="themesflat-container">
             <div class="row" style="margin-top: 20px;">
               <div class="col-md-12">
                 <div class="heading-live-auctions" style="margin-bottom: -10px">
-                  <h2 class="tf-title pb-39" style="margin-left: 55px;">___ 님의 스터디</h2>
+                  <h2 class="tf-title pb-39" style="margin-left: 55px;"><%=session.getAttribute("loginId")%>님의 스터디</h2>
                 </div>
               </div>
 
@@ -569,7 +572,7 @@
         <!-- 랭킹목록 (슬라이더) -->
         <section class="tf-section category">
           <div class="themesflat-container">
-            <div class="row">
+            <div class="row" >
               <div class="col-md-12">
                 <div class="heading-live-auctions" style="margin-top: 26px;">
                   <h2 class="tf-title pb-39">스터디룸 랭킹</h2>
@@ -1662,119 +1665,94 @@
           </div>
         </section>
 
-        <!-- Footer -->
-        <footer id="footer" class="footer-light-style clearfix">
+         <!-- Footer -->
+         <footer id="footer" class="clearfix">
           <div class="themesflat-container">
             <div class="row">
               <div class="col-lg-3 col-md-12 col-12">
                 <div class="widget widget-logo">
-                  <div class="logo-footer" id="logo-footer">
-                    <a href="index.html">
-                      <img
-                        id="logo_footer"
-                        src="../assets/images/logo/logo_dark.png"
-                        alt="nft-gaming"
-                        width="135"
-                        height="56"
-                        data-retina="assets/images/logo/logo_dark@2x.png"
-                        data-width="135"
-                        data-height="56"
-                      />
-                    </a>
+                  <div class="logo-footer" id="logo-footer" style="margin-top: -40px">
+                    <img
+                      id="logo_header"
+                      src="../assets/images/logo/logo01.png"
+                      alt="nft-gaming"
+                      width="220"
+                      height="120"
+                    />
+                    <p class="sub-widget-logo">
+                      (주)HowStudy<br />
+                      서울특별시 강남구 선릉로 112길 34
+                    </p>
                   </div>
-                  <p class="sub-widget-logo">
-                    Lorem ipsum dolor sit amet,consectetur adipisicing elit. Quis non, fugit totam
-                    vel laboriosam vitae.
-                  </p>
                 </div>
               </div>
               <div class="col-lg-2 col-md-4 col-sm-5 col-5">
                 <div class="widget widget-menu style-1">
-                  <h5 class="title-widget">My Account</h5>
+                  <h5 class="title-widget">캠 스터디</h5>
                   <ul>
-                    <li><a href="author01.html">Authors</a></li>
-                    <li><a href="connect-wallet.html">Collection</a></li>
-                    <li><a href="profile.html">Author Profile</a></li>
-                    <li><a href="create-item.html">Create Item</a></li>
+                    <li><a href="author01.html">이용가이드</a></li>
+                  </ul>
+                </div>
+                <div class="widget-social style-1 mg-t32">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                    </li>
+
+                    <li>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+
+                    <li class="mgr-none">
+                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-2 col-md-4 col-sm-7 col-7">
                 <div class="widget widget-menu style-2">
-                  <h5 class="title-widget">Resources</h5>
+                  <h5 class="title-widget">커뮤니티</h5>
                   <ul>
-                    <li><a href="help-center.html">Help & Support</a></li>
-                    <li><a href="auctions.html">Live Auctions</a></li>
-                    <li><a href="item-details.html">Item Details</a></li>
-                    <li><a href="activity1.html">Activity</a></li>
+                    <li><a href="help-center.html">인스타그램</a></li>
+                    <li><a href="auctions.html">페이스북</a></li>
+                    <li><a href="item-details.html">유튜브</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-2 col-md-4 col-sm-5 col-5">
                 <div class="widget widget-menu fl-st-3">
-                  <h5 class="title-widget">Company</h5>
+                  <h5 class="title-widget">오프라인</h5>
                   <ul>
-                    <li><a href="explore-1.html">Explore</a></li>
-                    <li><a href="contact1.html">Contact Us</a></li>
-                    <li><a href="blog.html">Our Blog</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="explore-1.html">안내</a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-3 col-md-6 col-sm-7 col-12">
                 <div class="widget widget-subcribe">
-                  <h5 class="title-widget">Subscribe Us</h5>
-                  <div class="form-subcribe">
-                    <form
-                      id="subscribe-form"
-                      action="#"
-                      method="GET"
-                      accept-charset="utf-8"
-                      class="form-submit"
-                    >
-                      <input
-                        name="email"
-                        value=""
-                        class="email"
-                        type="email"
-                        placeholder="info@yourgmail.com"
-                        required
-                      />
-                      <button id="submit" name="submit" type="submit">
-                        <i class="icon-fl-send"></i>
-                      </button>
-                    </form>
+                  <h5 class="title-widget">언어</h5>
+                <div id="google_translate_element" style="display:none;"></div>
+                  <!-- "새 번역 링크 UI" -->
+                  <div class="language">
+                  <ul class="translation-links">
+                    <li><a href="javascript:void(0)" class="Korean" data-lang="ko"><span class="flag ko">한국어</span></a></li>
+                    <li><a href="javascript:void(0)" class="english" data-lang="en"><span class="flag en">영어</span></a></li>
+                    <li><a href="javascript:void(0)" class="spanish" data-lang="zh-CN"><span class="flag zh-CN">중국어</span></a></li>
+                    <li><a href="javascript:void(0)" class="japanese" data-lang="ja"><span class="flag ja">일본어</span></a></li>
+                  </ul>
+                </div>
                   </div>
-                  <div class="widget-social style-1 mg-t32">
-                    <ul>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                      </li>
 
-                      <li class="style-2">
-                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                      </li>
-                      <li class="mgr-none">
-                        <a href="#"><i class="icon-fl-tik-tok-2"></i></a>
-                      </li>
-                      <li class="mgr-none">
-                        <a href="#"><i class="icon-fl-vt"></i></a>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </footer>
         <!-- /#footer -->
+        <!-- Bottom -->
       </div>
+      <!-- /#page -->
+    </div>
+    <!-- /#wrapper -->
       <!-- /#page -->
 
       <!-- Modal Popup Bid -->
@@ -1856,18 +1834,42 @@
 
     <script type="text/javascript">
       $("#mypage1").click(function () {
-        alert('ok')
         $(".my-profile-layer").toggle();
       });
 
       $("#mypage2").click(function () {
-        alert('ok')
         $(".my-profile-layer").toggle();
       });
     </script>
 
 
+    <!-- 구글 자동 번역 API-->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+<script type="text/javascript">
+  /* 구글 번역 초기화 */
+  function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'ko',autoDisplay: true}, 'google_translate_element');}
+</script>
+<script type="text/javascript">
+  /* 새 UI 선택 클릭 이벤트가 발생하면
+  감춤 처리한 구글 번역 콤보리스트에
+  선택한 언어를 적용해 변경 이벤트를 발생시키는 코드  */
+  document.querySelector('.translation-links').addEventListener('click',function(event) {
+      let el = event.target;
+      if(el != null){
+          while(el.nodeName == 'FONT' || el.nodeName == 'SPAN'){el = el.parentElement;}//data-lang 속성이 있는 태그 찾기
+          const tolang = el.dataset.lang; // 변경할 언어 코드 얻기
+          const gtcombo = document.querySelector('.goog-te-combo');
+          if (gtcombo == null) {
+              alert("Error: Could not find Google translate Combolist.");
+              return false;
+          }
+          gtcombo.value = tolang; // 변경할 언어 적용
+          gtcombo.dispatchEvent(new Event('change')); // 변경 이벤트 트리거
+      }
+      return false;
+  });
+</script>
 
 
     <!-- Javascript -->

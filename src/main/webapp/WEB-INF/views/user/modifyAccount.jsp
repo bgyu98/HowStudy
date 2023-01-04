@@ -3,7 +3,10 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
   <!--<![endif]-->
+  <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  
+
   <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
@@ -17,7 +20,6 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="../assets/css/flags.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png" />
@@ -26,7 +28,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
   </head>
 
   <body class="body header-fixed is_dark">
@@ -46,7 +47,7 @@
                   <div class="wrap-box flex">
                     <div id="site-logo" class="clearfix">
                       <div id="site-logo-inner">
-                        <a href="index.html" rel="home" class="main-logo">
+                        <a href="index" rel="home" class="main-logo">
                           <img
                             id="logo_header"
                             src="../assets/images/logo/logo01.png"
@@ -91,16 +92,7 @@
                         </li>
                       </ul>
                     </nav>
-
-                    <div class="usericon">
-                      <button id="mypage1" class="mypage">
-                        <img src="../assets/images/icon/usericon.png" alt="" />
-                      </button>
-                      <button id="mypage2" class="mypage" style="width: 30px; height: 30px">
-                        <img src="../assets/images/icon/drop_black.png" alt="" />
-                      </button>
-                    </div>
-
+                    <!-- /#main-nav -->
                     <!-- /#main-nav -->
                     <div class="flat-search-btn flex">
                       <div class="header-search flat-show-search" id="s1">
@@ -191,59 +183,6 @@
                         </div>
                       </div>
 
-                      <div class="my-profile-layer" style="">
-                        <div class="my-profile-layer-header">
-                          <section class="my-profile-layer-info">
-                            <div class="my-profile-layer-img-area">
-                              <img
-                                src="../assets/images/icon/usericon.png"
-                                align="absleft"
-                                class="my-profile-layer-img"
-                              />
-                            </div>
-                            <div class="my-profile-layer-info-tx">
-                              <h5 class="my-profile-layer-info-name">이선아</h5>
-                              <p class="my-profile-layer-info-email">dltjsdk0302@gmail.com</p>
-                            </div>
-                          </section>
-                          <section class="my-profile-layer-user-grade">
-                            <div class="my-profile-user-grade-container">
-                              <h6 class="my-grade-title">등급</h6>
-                              <div class="my-grade-contents">
-                                <div class="my-grade-tx">프리미엄 회원</div>
-                                <a href="#" class="purchase-ticket-btn">이용권 구매</a>
-                              </div>
-                              <div class="ticket-date">~ 2023년 01월 8일</div>
-                            </div>
-                          </section>
-                        </div>
-                        <div class="my-profile-layer-content">
-                          <div class="my-menu-area">
-                            <ul class="my-menu-list">
-                              <li class="my-menu-list-item move">
-                                <a href="/camstudy/user" class="my-menu-list-item-btn">내 프로필</a>
-                              </li>
-                              <li class="my-menu-list-item">
-                                <a href="#" class="my-menu-list-item-btn">공부기록</a>
-                              </li>
-                              <li class="my-menu-list-item move">
-                                <a href="/camstudy/user/payment" class="my-menu-list-item-btn"
-                                  >결제내역</a
-                                >
-                              </li>
-                              <li class="my-menu-list-item move guide">
-                                <a href="#" target="_blank" class="my-menu-list-item-btn"
-                                  >이용가이드</a
-                                >
-                              </li>
-                              <li class="my-menu-list-item logout">
-                                <a class="my-menu-list-item-btn">로그아웃</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-
                       <div class="admin_active" id="header_admin">
                         <div class="header_avatar">
                           <div class="popup-notification">
@@ -279,7 +218,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -291,7 +230,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -303,7 +242,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -315,7 +254,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -327,7 +266,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -342,7 +281,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -354,7 +293,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -371,7 +310,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -383,7 +322,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -395,7 +334,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -410,7 +349,7 @@
                                       <div class="sc-box">
                                         <div class="content">
                                           <div class="avatar">
-                                            <img src="../assets/images/avatar/avt-6.jpg" alt="" />
+                                            <img src="assets/images/avatar/avt-6.jpg" alt="" />
                                           </div>
                                           <div class="infor">
                                             <span class="fw-7">Tyler Covington</span>
@@ -439,7 +378,7 @@
               <img src="../assets/images/icon/sun.png" alt="" />
             </a>
             <a href="#" class="dark d-flex align-items-center is_active">
-              <img id="moon_dark" src=../assets/images/icon/moon-2.png" alt="" />
+              <img id="moon_dark" src="../assets/images/icon/moon-2.png" alt="" />
             </a>
           </div>
         </header>
@@ -453,13 +392,12 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="page-title-heading mg-bt-12">
-                  <h1 class="heading text-center">Notice</h1>
+                  <h1 class="heading text-center">My Account</h1>
                 </div>
-                <div class="breadcrumbs">
+                <div class="breadcrumbs style2">
                   <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Notice</a></li>
-                    <li>FAQ</li>
+                    <li>Signup</li>
                   </ul>
                 </div>
               </div>
@@ -467,224 +405,89 @@
           </div>
         </section>
 
-        <div class="tf-section sc-card-blog dark-style2">
+        <section class="tf-login tf-section">
           <div class="themesflat-container">
             <div class="row">
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-1.jpg" alt=""
-                    /></a>
-                  </div>
+              <div class="col-12">
+                <h2 class="tf-title-heading ct style-1">회원정보 수정</h2>
 
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">PC 이용 가이드</a></h3>
-                    <p>PC 이용자분을 위한 이용 가이드입니다.</p>
-                  </div>
-                  <a href="../board/noticesangse" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
+                <div class="flat-form box-login-email">
+                  <div class="form-inner">
+                    <form method="post" id="modifyForm" action="modifyForm">
+                      <input
+                        name="mId"
+                        tabindex="1"
+                        aria-required="true"
+                        required
+                        type="text"
+                        value="${userInfo.mId}"
+                      />
+                      <input
+                       id="mPw"
+                        name="mPw"
+                        tabindex="2"
+                        value=""
+                        aria-required="true"
+                        type="text"
+                        placeholder="비밀번호"
+                        required
+                      />
+                      <input
+                        name="mName"
+                        tabindex="3"
+                        value=""
+                        aria-required="true"
+                        type="text"
+                        placeholder="이름"
+                        style="margin-top: 10px;"
+                      />
+                      <input
+                        name="mPhone"
+                        tabindex="4"
+                        value=""
+                        aria-required="true"
+                        type="text"
+                        placeholder="전화번호"
+                      />
+                      <input
+                        name="mEmail"
+                        tabindex="5"
+                        value=""
+                        aria-required="true"
+                        type="text"
+                        placeholder="이메일"
+                      />
 
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-2.jpg" alt=""
-                    /></a>
+                      <button
+                        class="submit"
+                        id="modifyBtn"
+                        type="submit"
+                        name="modifyBtn"
+                        style="margin-right: 20px; margin-left: 60px; margin-top: 15px"
+                      >
+                        수정하기
+                      </button>
+                    </form>
+                   <a href="../user/passwordConfirm?mId=${userInfo.mId}">
+                    <button
+                          id="delete"
+                          class="submit"
+                          type="submit"
+                          name="delete"
+                          style="margin-top: 15px"
+                        >
+                          회원탈퇴
+                        </button> </a>
+                    
                   </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">스터디룸 개설</a></h3>
-                    <p>직접 스터디를 개설하고 스터디원을 모집할 수 있습니다.</p>
+                  
                   </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-4.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">캠스터디를 위한 준비물 & 기본 매너</a></h3>
-                    <p>캠스터디 기본 매너 TIP</p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-2.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-5.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-6-1.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-1.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-4.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-5.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-md-12 wrap-inner load-more text-center mg-t-10">
-                <a href="blog.html" id="loadmore" class="sc-button loadmore fl-button pri-3"
-                  ><span>더보기</span></a
-                >
+                  
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
+        </section>
         <!-- Footer -->
         <footer id="footer" class="clearfix">
           <div class="themesflat-container">
@@ -713,21 +516,6 @@
                     <li><a href="author01.html">이용가이드</a></li>
                   </ul>
                 </div>
-                <div class="widget-social style-1 mg-t32">
-                  <ul>
-                    <li>
-                      <a href="#"><i class="fab fa-facebook"></i></a>
-                    </li>
-
-                    <li>
-                      <a href="#"><i class="fab fa-youtube"></i></a>
-                    </li>
-
-                    <li class="mgr-none">
-                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    </li>
-                  </ul>
-                </div>
               </div>
               <div class="col-lg-2 col-md-4 col-sm-7 col-7">
                 <div class="widget widget-menu style-2">
@@ -750,18 +538,31 @@
               <div class="col-lg-3 col-md-6 col-sm-7 col-12">
                 <div class="widget widget-subcribe">
                   <h5 class="title-widget">언어</h5>
-                <div id="google_translate_element" style="display:none;"></div>
-                  <!-- "새 번역 링크 UI" -->
-                  <div class="language">
-                  <ul class="translation-links">
-                    <li><a href="javascript:void(0)" class="Korean" data-lang="ko"><span class="flag ko">한국어</span></a></li>
-                    <li><a href="javascript:void(0)" class="english" data-lang="en"><span class="flag en">영어</span></a></li>
-                    <li><a href="javascript:void(0)" class="spanish" data-lang="zh-CN"><span class="flag en">중국어</span></a></li>
-                    <li><a href="javascript:void(0)" class="japanese" data-lang="ja"><span class="flag ja">일본어</span></a></li>
-                  </ul>
-                </div>
+                  <div class="form-subcribe">
+                    <ul class="footer-menu-1depth-group langSelectArea">
+                      <li class="footer-menu-2depth">
+                        <select class="langSelect">
+                          <option value="ko">Korea</option>
+                          <option value="en">English</option>
+                        </select>
+                      </li>
+                    </ul>
                   </div>
+                  <div class="widget-social style-1 mg-t32">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                      </li>
 
+                      <li>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                      </li>
+
+                      <li class="mgr-none">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -776,50 +577,12 @@
 
     <a id="scroll-top"></a>
 
-    <script type="text/javascript">
-      $("#mypage1").click(function () {
-        $(".my-profile-layer").toggle();
-      });
-
-      $("#mypage2").click(function () {
-        $(".my-profile-layer").toggle();
-      });
-    </script>
-
-
-<!-- 구글 자동 번역 API-->
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script type="text/javascript">
-  /* 구글 번역 초기화 */
-  function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'ko',autoDisplay: true}, 'google_translate_element');}
-</script>
-<script type="text/javascript">
-  /* 새 UI 선택 클릭 이벤트가 발생하면
-  감춤 처리한 구글 번역 콤보리스트에
-  선택한 언어를 적용해 변경 이벤트를 발생시키는 코드  */
-  document.querySelector('.translation-links').addEventListener('click',function(event) {
-      let el = event.target;
-      if(el != null){
-          while(el.nodeName == 'FONT' || el.nodeName == 'SPAN'){el = el.parentElement;}//data-lang 속성이 있는 태그 찾기
-          const tolang = el.dataset.lang; // 변경할 언어 코드 얻기
-          const gtcombo = document.querySelector('.goog-te-combo');
-          if (gtcombo == null) {
-              alert("Error: Could not find Google translate Combolist.");
-              return false;
-          }
-          gtcombo.value = tolang; // 변경할 언어 적용
-          gtcombo.dispatchEvent(new Event('change')); // 변경 이벤트 트리거
-      }
-      return false;
-  });
-</script>
-
     <!-- Javascript -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/jquery.easing.js"></script>
     <script src="../assets/js/wow.min.js"></script>
     <script src="../assets/js/plugin.js"></script>
+    <script src="../assets/js/jquery-validate.js"></script>
     <script src="../assets/js/shortcodes.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/swiper-bundle.min.js"></script>
