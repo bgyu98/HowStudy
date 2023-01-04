@@ -42,16 +42,21 @@ public class UserController {
 
 	// 로그인
 	@RequestMapping(value = "loginCustomer")
-	public String loginCustomer(UserVO vo, HttpSession session) {
+	public String loginCustomer(UserVO vo, HttpSession session, Model m) {
 		System.out.println("로그인:" + vo);    //로그인 할 때 생성되는 vo 
 		UserVO loginResult = userService.loginCustomer(vo);
 		System.out.println("로그인22:" + loginResult);  //서비스 거쳐서 만들어진 vo
-		if (loginResult != null) { // 로그인 성공
+		if (loginResult != null ) { // 로그인 성공
 			session.setAttribute("loginId", loginResult.getmId());
 			session.setAttribute("loginPass", loginResult.getmPw());
 			session.setAttribute("loginEmail", loginResult.getmEmail());
 			return "studyRoom/study";
-		} else {
+		}else if (vo.getmId() != null){
+			if( vo.getmId().equals("admin") ){
+				System.out.println("관리자 로그인");
+				return "redirect:../admin/adminMain";
+			}
+		}else {
 			// 로그인 실패
 			session.setAttribute("sok", 5);
 		}
@@ -99,6 +104,40 @@ public class UserController {
 			 * 404가 떠도 제일 중요한건 #########인증코드 가 잘 출력이 되는지가 중요하므로 너무 신경 안쓰셔도 됩니다.
 			 */
 	    	}
+
+			// 회원정보 조회
+	@RequestMapping("/modifyAccount")
+	public void myPage(String mId, Model m) {
+		UserVO vo = userService.getUserInfo(mId);
+		m.addAttribute("userInfo", vo);
+	}
+
+	// 회원정보 수정
+	@RequestMapping("/modifyForm")
+	public String modify(UserVO vo) {
+		userService.updateCustomer(vo);
+		return "redirect:../studyRoom/study?mId=" + vo.getmId();
+	}
+
+	// 비밀번호 확인 & 회원정보 삭제
+	@RequestMapping("/userDelete")
+	public String confirm(String mId, String mPw, UserVO vo, Model m, HttpSession session) {
+
+		boolean result = userService.checkPw(mId, mPw);
+		if (result) {
+			userService.deleteInfo(vo);
+			String id = (String) session.getAttribute("loginId");
+			String pwd = (String) session.getAttribute("loginPass");
+			session.invalidate();
+			return "redirect:../studyRoom/study";
+		} else {
+			m.addAttribute("message", "비밀번호가 불일치합니다.");
+			return "user/passwordConfirm";
+		}
+
+	}
+
+		
 	  
 	  
 	  

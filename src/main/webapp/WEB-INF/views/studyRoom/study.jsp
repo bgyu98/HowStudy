@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -6,8 +5,6 @@
   <!--<![endif]-->
   <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
-
 
   <head>
     <!-- Basic Page Needs -->
@@ -25,6 +22,7 @@
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png" />
+    <link rel="stylesheet" href="../assets/css/flags.css">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
     <link
       rel="stylesheet"
@@ -108,13 +106,13 @@
                             </button>
                           </c:if>
                         </li>
+
+
                       </ul>
                     </nav>
                     <!-- /#main-nav -->
                     <!-- /#main-nav -->
                  
-
-                    
 
                     <div class="flat-search-btn flex">
                       <div class="header-search flat-show-search" id="s1">
@@ -241,9 +239,6 @@
                               <a target="_blank" class="my-menu-list-item-btn"  href="../user/logout">로그아웃</a>
                               </c:if>
                             </li> 
-
-                           
-                          </ul>
                           </div>
                         </div>
                       </div>
@@ -452,7 +447,7 @@
 
         <!-- title page -->
 
-        <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0">
+        <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
           <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
           <div class="themesflat-container">
@@ -595,7 +590,7 @@
         <!-- 랭킹목록 (슬라이더) -->
         <section class="tf-section category">
           <div class="themesflat-container">
-            <div class="row">
+            <div class="row" >
               <div class="col-md-12">
                 <div class="heading-live-auctions" style="margin-top: 26px;">
                   <h2 class="tf-title pb-39">스터디룸 랭킹</h2>
@@ -1688,8 +1683,8 @@
           </div>
         </section>
 
-        <!-- Footer -->
-        <footer id="footer" class="clearfix">
+         <!-- Footer -->
+         <footer id="footer" class="clearfix">
           <div class="themesflat-container">
             <div class="row">
               <div class="col-lg-3 col-md-12 col-12">
@@ -1716,6 +1711,21 @@
                     <li><a href="author01.html">이용가이드</a></li>
                   </ul>
                 </div>
+                <div class="widget-social style-1 mg-t32">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                    </li>
+
+                    <li>
+                      <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+
+                    <li class="mgr-none">
+                      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <div class="col-lg-2 col-md-4 col-sm-7 col-7">
                 <div class="widget widget-menu style-2">
@@ -1738,38 +1748,29 @@
               <div class="col-lg-3 col-md-6 col-sm-7 col-12">
                 <div class="widget widget-subcribe">
                   <h5 class="title-widget">언어</h5>
-                  <div class="form-subcribe">
-                    <ul class="footer-menu-1depth-group langSelectArea">
-                      <li class="footer-menu-2depth">
-                        <select class="langSelect">
-                          <option value="ko">Korea</option>
-                          <option value="en">English</option>
-                        </select>
-                      </li>
-                    </ul>
+                <div id="google_translate_element" style="display:none;"></div>
+                  <!-- "새 번역 링크 UI" -->
+                  <div class="language">
+                  <ul class="translation-links">
+                    <li><a href="javascript:void(0)" class="Korean" data-lang="ko"><span class="flag ko">한국어</span></a></li>
+                    <li><a href="javascript:void(0)" class="english" data-lang="en"><span class="flag en">영어</span></a></li>
+                    <li><a href="javascript:void(0)" class="spanish" data-lang="zh-CN"><span class="flag zh-CN">중국어</span></a></li>
+                    <li><a href="javascript:void(0)" class="japanese" data-lang="ja"><span class="flag ja">일본어</span></a></li>
+                  </ul>
+                </div>
                   </div>
-                  <div class="widget-social style-1 mg-t32">
-                    <ul>
-                      <li>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                      </li>
 
-                      <li>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                      </li>
-
-                      <li class="mgr-none">
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
         </footer>
         <!-- /#footer -->
+        <!-- Bottom -->
       </div>
+      <!-- /#page -->
+    </div>
+    <!-- /#wrapper -->
       <!-- /#page -->
 
       <!-- Modal Popup Bid -->
@@ -1860,7 +1861,33 @@
     </script>
 
 
+    <!-- 구글 자동 번역 API-->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+<script type="text/javascript">
+  /* 구글 번역 초기화 */
+  function googleTranslateElementInit() {new google.translate.TranslateElement({pageLanguage: 'ko',autoDisplay: true}, 'google_translate_element');}
+</script>
+<script type="text/javascript">
+  /* 새 UI 선택 클릭 이벤트가 발생하면
+  감춤 처리한 구글 번역 콤보리스트에
+  선택한 언어를 적용해 변경 이벤트를 발생시키는 코드  */
+  document.querySelector('.translation-links').addEventListener('click',function(event) {
+      let el = event.target;
+      if(el != null){
+          while(el.nodeName == 'FONT' || el.nodeName == 'SPAN'){el = el.parentElement;}//data-lang 속성이 있는 태그 찾기
+          const tolang = el.dataset.lang; // 변경할 언어 코드 얻기
+          const gtcombo = document.querySelector('.goog-te-combo');
+          if (gtcombo == null) {
+              alert("Error: Could not find Google translate Combolist.");
+              return false;
+          }
+          gtcombo.value = tolang; // 변경할 언어 적용
+          gtcombo.dispatchEvent(new Event('change')); // 변경 이벤트 트리거
+      }
+      return false;
+  });
+</script>
 
 
     <!-- Javascript -->

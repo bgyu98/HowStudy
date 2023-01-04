@@ -40,6 +40,27 @@ public class UserServiceImpl implements UserService {
 	public int mIdCheck(String mId) {
 		return userDAO.mIdCheck(mId);
 	}
+	// 회원정보 수정
+	public int updateCustomer(UserVO vo) {
+		return userDAO.updateCustomer(vo);
+	}
+	//회원정보 가져오기
+	public UserVO getUserInfo(String mId) {
+		return userDAO.getUserInfo(mId);
+
+	}
+	
+	//회원정보 삭제
+	public int deleteInfo(UserVO vo) {
+		System.out.println("deleteServiceImpl=>"+ vo);
+		return userDAO.deleteInfo(vo);
+	}
+	
+	// 회원 정보 삭제를 위한 비밀번호 체크
+	public boolean checkPw(String mId, String mPw) {
+		System.out.println("checkPw=>" + mId + mPw);
+			return userDAO.checkPw(mId,mPw);
+	}
 
 	// 카카오 회원가입, 로그인
 	public String getAccessToken(String authorize_code) {

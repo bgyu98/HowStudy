@@ -20,7 +20,17 @@ public interface UserService {
     public String getAccessToken(String code);
 	public HashMap<String, Object> getUserInfo(String access_Token);
 	
+	// 회원정보 수정
+	public int updateCustomer(UserVO vo);
+
+	// 회원정보 출력
+	public UserVO getUserInfo(String mId);
 	
+	//회원정보 삭제
+	public int deleteInfo(UserVO vo);
+	
+	// 회원 정보 삭제를 위한 비밀번호 체크
+	public boolean checkPw(String mId, String mPw);
 	
 
 }

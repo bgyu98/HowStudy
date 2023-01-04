@@ -1,8 +1,6 @@
 package com.example.demo.vo;
 
-import lombok.Data;
 
-//@Data
 public class UserVO {
 	private String mId;    //아이디 
 	private String mPw;    //비밀번호
@@ -10,8 +8,15 @@ public class UserVO {
 	private String mPhone; //전화번호
 	private String mEmail; //이메일
 	private String mtag;   //선호태그
+	private String mDelete; // 탈퇴 여부 : 기본값 Default => 탈퇴 시 1로 변경
 	
 	
+	public String getmDelete() {
+		return mDelete;
+	}
+	public void setmDelete(String mDelete) {
+		this.mDelete = mDelete;
+	}
 	public String getmId() {
 		return mId;
 	}
@@ -30,6 +35,7 @@ public class UserVO {
 	public void setmPw(String mPw) {
 		this.mPw = mPw;
 	}
+	
 	public String getmName() {
 		return mName;
 	}
@@ -46,10 +52,9 @@ public class UserVO {
 	
 	@Override
 	public String toString() {
-		return "userVO [mId=" + mId + ", mPhone=" + mPhone + ", mPw=" + mPw + ", mName=" + mName + ", mEmail=" + mEmail
-				+ ", mtag=" + mtag + "]";
+		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail
+				+ ", mtag=" + mtag + ", mDelete=" + mDelete + "]";
 	}
-	
 	
 	
 }

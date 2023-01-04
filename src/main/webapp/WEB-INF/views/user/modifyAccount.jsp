@@ -5,6 +5,7 @@
   <!--<![endif]-->
   <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  
 
   <head>
     <!-- Basic Page Needs -->
@@ -412,7 +413,7 @@
 
                 <div class="flat-form box-login-email">
                   <div class="form-inner">
-                    <form method="post" id="modifyForm" action="../studyRoom/study">
+                    <form method="post" id="modifyForm" action="modifyForm">
                       <input
                         name="mId"
                         tabindex="1"
@@ -422,6 +423,7 @@
                         value="${userInfo.mId}"
                       />
                       <input
+                       id="mPw"
                         name="mPw"
                         tabindex="2"
                         value=""
@@ -437,7 +439,7 @@
                         aria-required="true"
                         type="text"
                         placeholder="이름"
-                        required
+                        style="margin-top: 10px;"
                       />
                       <input
                         name="mPhone"
@@ -446,7 +448,6 @@
                         aria-required="true"
                         type="text"
                         placeholder="전화번호"
-                        required
                       />
                       <input
                         name="mEmail"
@@ -455,25 +456,33 @@
                         aria-required="true"
                         type="text"
                         placeholder="이메일"
-                        required
                       />
 
                       <button
                         class="submit"
                         id="modifyBtn"
                         type="submit"
-                        name="modifySub"
+                        name="modifyBtn"
                         style="margin-right: 20px; margin-left: 60px; margin-top: 15px"
                       >
                         수정하기
                       </button>
-                      <a href="../user/passwordConfirm">
-                        <button class="submit" type="submit" name="submit" style="margin-top: 15px">
-                          회원탈퇴
-                        </button>
-                      </a>
                     </form>
+                   <a href="../user/passwordConfirm?mId=${userInfo.mId}">
+                    <button
+                          id="delete"
+                          class="submit"
+                          type="submit"
+                          name="delete"
+                          style="margin-top: 15px"
+                        >
+                          회원탈퇴
+                        </button> </a>
+                    
                   </div>
+                  
+                  </div>
+                  
                 </div>
               </div>
             </div>
