@@ -303,6 +303,12 @@
     background: transparent none repeat scroll 0 0;
 }
 
+.sc-button.style-111 {
+    border    : 2px solid rgb(168, 20, 20);
+    color     : rgb(180, 25, 25);
+    background: transparent none repeat scroll 0 0;
+}
+
 .is_dark .sc-button.style-1 {
     border    : 2px solid #5142FC;
     color     : #fff;
