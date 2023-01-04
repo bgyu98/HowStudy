@@ -12,6 +12,10 @@ function checkD(e) {
         dataType: 'json',
         success: function (checkdate) {
             alert('성공');
+           
+            for (var i = 0; i < checkdate.length; i++){
+                alert(checkdate[i].sNum);
+            }
         },error:function () {
             alert('실패');
         }

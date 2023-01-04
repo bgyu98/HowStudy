@@ -239,7 +239,7 @@
                         <div class="col-md-12">
                             <div class="swiper-container show-shadow carousel6 pad-t-17 auctions">
                                 <div class="swiper-wrapper">
-                                    <c:forEach items="${favorRoom}" var = "fr">
+                                    <c:forEach items="${json1}" var = "js">
                                     <div class="swiper-slide">
                                         <div class="slider-item">										
                                             <div class="sc-card-product menu_card style2">
@@ -255,7 +255,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="card-title">
-                                                    <h3><a href="item-details.html">${fr.sTitle}</a></h3>
+                                                    <h3><a href="item-details.html">${js.sTitle}</a></h3>
                                                     <div class="tags">bsc</div>
                                                 </div>
                                                 <div class="meta-info style2">
@@ -265,7 +265,7 @@
                                                         </div>
                                                         <div class="info">
                                                             <span>Creator</span>
-                                                            <h4> <a href="author02.html">${fr.sDate}
+                                                            <h4> <a href="author02.html">${js.sDate}
                                                             </a> </h4>
                                                         </div>
                                                     </div>

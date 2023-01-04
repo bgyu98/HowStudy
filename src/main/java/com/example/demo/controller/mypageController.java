@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.Iterator;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -75,6 +77,15 @@ public class mypageController {
 		String json = gson.toJson(jArray);
         m.addAttribute("json", json);
         System.out.println(json);
+        
+        JSONParser parser = new JSONParser();
+        
+        //3. To Object
+        Object obj = JSON.parser(json);
+        
+        //4. To JsonObject
+        JSONObject jsonObj = (JSONObject) obj;
+        
         return json;
 	}
 	
