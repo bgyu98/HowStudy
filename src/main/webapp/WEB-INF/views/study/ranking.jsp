@@ -146,7 +146,7 @@
                                                                         <div class="sc-box">
                                                                             <div class="content">
                                                                                 <div class="avatar">
-                                                                                    <img src="assets/images/avatar/avt-6.jpg" alt="">                                                                           
+                                                                                    <img src="../assets/images/avatar/avt-6.jpg" alt="">                                                                           
                                                                                 </div>
                                                                                 <div class="infor">
                                                                                         <span class="fw-7">Tyler Covington</span>      
@@ -377,7 +377,7 @@
                                     <div class="item flex">
                                         <div class="infor-item flex column1">
                                             <div class="media">
-                                                <img src="assets/images/box-item/img1rank.jpg" alt="Images">
+                                                <img src="../assets/images/box-item/img1rank.jpg" alt="Images">
                                             </div>
                                             <div class="content-collection pad-t-4">
                                                 <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>

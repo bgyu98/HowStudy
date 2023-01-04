@@ -546,12 +546,7 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-bottom: 0;
 }
 
-select{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    -ms-appearance: none;
-}
+
 
 .select{
     position: relative;
@@ -1815,16 +1810,6 @@ header{
     line-height  : 26px;
     font-weight  : 700;
     display      : block;
-    color        : #fff;
-    padding-right: 15.5px;
-}
-#main-nav>ul>li>a.asdf {
-    position     : relative;
-    font-size    : 18px;
-    line-height  : 26px;
-    font-weight  : 700;
-    display      : block;
-    color        : red;
     padding-right: 15.5px;
 }
 

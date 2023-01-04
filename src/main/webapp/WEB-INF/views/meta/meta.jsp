@@ -86,7 +86,11 @@
                                             </li>
                                             <li class="menu-item current-menu-item">
                                                 <a href="../offline/off">오프라인</a>
-                                            </li> 
+                                            </li>
+                                            
+                                            <li class="menu-item current-menu-item">
+                                              <a href="../mypage/mystudyroom">마이 페이지</a>
+                                          </li>
                                         </ul>
                                     </nav><!-- /#main-nav -->    
                                     <div class="flat-search-btn flex">
@@ -118,23 +122,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        
-
-                                        <div class="admin_active" id="header_admin">
-                                            <div class="header_avatar">
-                                                <div class="popup-notification">
-                                                    <div class="notification">
-                                                        <span class="number">3</span>
-                                                        <svg width="19" height="22" viewBox="0 0 19 22" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M18.4915 15.495L17.209 13.65C17.0339 13.3992 16.9397 13.1009 16.939 12.795V7.5C16.939 5.51088 16.1488 3.60322 14.7423 2.1967C13.3357 0.790176 11.4281 0 9.43896 0C7.44984 0 5.54218 0.790176 4.13566 2.1967C2.72914 3.60322 1.93896 5.51088 1.93896 7.5V12.795C1.93824 13.1009 1.84403 13.3992 1.66896 13.65L0.386463 15.495C0.192273 15.7102 0.064576 15.977 0.018815 16.2632C-0.0269461 16.5494 0.0111884 16.8427 0.128607 17.1077C0.246026 17.3727 0.437699 17.598 0.680449 17.7563C0.923199 17.9147 1.20663 17.9993 1.49646 18H5.76396C5.9361 18.8477 6.39601 19.6099 7.06577 20.1573C7.73553 20.7047 8.57394 21.0038 9.43896 21.0038C10.304 21.0038 11.1424 20.7047 11.8122 20.1573C12.4819 19.6099 12.9418 18.8477 13.114 18H17.3815C17.6713 17.9993 17.9547 17.9147 18.1975 17.7563C18.4402 17.598 18.6319 17.3727 18.7493 17.1077C18.8667 16.8427 18.9049 16.5494 18.8591 16.2632C18.8133 15.977 18.6856 15.7102 18.4915 15.495ZM9.43896 19.5C8.97475 19.4987 8.52231 19.3538 8.14366 19.0853C7.76501 18.8168 7.4787 18.4377 7.32396 18H11.554C11.3992 18.4377 11.1129 18.8168 10.7343 19.0853C10.3556 19.3538 9.90317 19.4987 9.43896 19.5ZM1.49646 16.5C1.53036 16.4685 1.56056 16.4333 1.58646 16.395L2.89896 14.505C3.24909 14.0034 3.43751 13.4067 3.43896 12.795V7.5C3.43896 5.9087 4.0711 4.38258 5.19632 3.25736C6.32154 2.13214 7.84766 1.5 9.43896 1.5C11.0303 1.5 12.5564 2.13214 13.6816 3.25736C14.8068 4.38258 15.439 5.9087 15.439 7.5V12.795C15.4404 13.4067 15.6288 14.0034 15.979 14.505L17.2915 16.395C17.3174 16.4333 17.3476 16.4685 17.3815 16.5H1.49646Z" fill="white"/>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="avatar_popup2 mt-20">
-                                                        <div class="show mg-bt-18">
-                                                            <h4>Notifications</h4>
-                                                            <a href="#">Show All</a>
-                                                        </div>
-                                                        
+                                      </div>                 
                                     </div>
                                 </div> 
                             </div>
@@ -162,6 +150,7 @@
                     
                 </div>
             </section>
+
 <!-- Footer -->
 <footer id="footer" class="footer-light-style clearfix">
     <div class="themesflat-container">
@@ -277,55 +266,7 @@
         </div>
         <!-- /#page -->
    
-        <!-- Modal Popup Bid -->
-        <div class="modal fade popup" id="popup_bid_success" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="modal-body space-y-20 pd-40">
-                        <h3 class="text-center">Your Bidding
-                            Successfuly Added</h3>
-                        <p class="text-center">your bid <span class="price color-popup">(4ETH) </span> has been listing to our database</p>
-                        <a href="#" class="btn btn-primary"> Watch the listings</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="modal-body space-y-20 pd-40">
-                        <h3>Place a Bid</h3>
-                        <p class="text-center">You must bid at least <span class="price color-popup">4.89 ETH</span>
-                        </p>
-                        <input type="text" class="form-control"
-                            placeholder="00.00 ETH">
-                        <p>Enter quantity. <span class="color-popup">5 available</span>
-                        </p>
-                        <input type="text" class="form-control quantity" value="1">
-                        <div class="hr"></div>
-                        <div class="d-flex justify-content-between">
-                            <p> You must bid at least:</p>
-                            <p class="text-right price color-popup"> 4.89 ETH </p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p> Service free:</p>
-                            <p class="text-right price color-popup"> 0,89 ETH </p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p> Total bid amount:</p>
-                            <p class="text-right price color-popup"> 4 ETH </p>
-                        </div>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"> Place a bid</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -343,6 +284,7 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/count-down.js"></script>
     <script src="../assets/js/swiper-bundle.min.js"></script>
+    
     <script src="../assets/js/price-ranger.js"></script>
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
