@@ -176,15 +176,18 @@
                                 <a href="explore-3.html" class="exp style2">즐겨찾기 수정</a>
                             </div>
                         </div>
+
+                        <!-- 즐겨찾기한 목록 방 생성 -->
+
                         <div class="col-md-12">
                             <div class="swiper-container show-shadow carousel9 pad-t-17 auctions">
                                 <div class="swiper-wrapper">
                                     <c:forEach items="${favorRoom}" var = "fr">
                                         <div class="swiper-slide">
-                                            <div class="slider-item">										
+                                            <div class="slider-item">	<!-- item start -->									
                                                 <div class="sc-card-collection style-2 home2">
                                                     <div class="card-header" style="border-radius: 15px;">
-                                                        <h5>${fr.sCategory}</h5>
+                                                        <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
                                                     </div>
                                                     <div class="card-bottom">
                                                         <div class="author">
@@ -195,14 +198,14 @@
                                                                 </div>
                                                             </div>
                                                             <div class="content">
-                                                                <h4><a href="author01.html">${fr.sTitle}</a></h4>
+                                                                <h4><a href="author01.html">${fr.sTitle}</a></h4> <!-- 제목 -->
                                                                 <div class="infor">
                                                                     <span>Created by</span>
-                                                                    <span class="name"><a href="author02.html">${fr.sDate}</a></span>
+                                                                    <span class="name"><a href="author02.html">${fr.sDate}</a></span><!-- 날짜 -->
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
+                                                        <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button> <!-- 선호태그 -->
                                                     </div>
                                                 </div> 		
                                             </div><!-- item-->
@@ -215,6 +218,8 @@
                             </div>  
                         </div>
                     </div>
+
+                     <!-- 즐겨찾기한 목록 방 끝 -->
                 </div>
             </section>
             <!-- favorite section finish-->
@@ -223,6 +228,7 @@
             <!-- visited section start-->
             <section class="tf-section live-auctions home5 style2 bg-style3">
                 <div class="themesflat-container">
+                    <!-- 날짜 선택 select 문-->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-live-auctions">
@@ -236,47 +242,56 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="swiper-container show-shadow carousel6 pad-t-17 auctions">
-                                <div class="swiper-wrapper">
-                                    <c:forEach items="${json1}" var = "js">
+                        <!-- 날짜 선택 끝-->
+
+                        <div class="col-md-12" id="favor">
+                            <div class="swiper-container show-shadow carousel6 pad-t-17 auctions" >
+                                <div class="swiper-wrapper" >
+                                    <c:forEach items="${favorRoom}" var = "fr" >
                                     <div class="swiper-slide">
                                         <div class="slider-item">										
                                             <div class="sc-card-product menu_card style2">
+                                                
                                                 <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
+                                                    
+                                                    <a href="item-details.html"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <button class="wishlist-button heart">
+                                                        <span class="number-like"> 100</span> <!-- 선호태그 -->
+                                                    </button>
+                                                   
+                                                    
                                                 </div>
+                                                
                                                 <div class="card-title">
-                                                    <h3><a href="item-details.html">${js.sTitle}</a></h3>
-                                                    <div class="tags">bsc</div>
+                                                    <h3><a href="item-details.html">${fr.sTitle}</a></h3> <!-- 제목 -->
+                                                    <div class="tags"></div>
                                                 </div>
+
                                                 <div class="meta-info style2">
                                                     <div class="author">
                                                         <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-28.jpg" alt="Image">
+                                                            <img src="../assets/images/avatar/avt-28.jpg" alt="Image">
                                                         </div>
+                                                        
                                                         <div class="info">
                                                             <span>Creator</span>
-                                                            <h4> <a href="author02.html">${js.sDate}
+                                                            <h4> <a href="author02.html">${fr.mId} <!-- 로그인아이디 -->
                                                             </a> </h4>
                                                         </div>
+
                                                     </div>
+
                                                     <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
+                                                        <span>Date</span>
+                                                        <h5> ${fr.sDate}</h5>       <!-- 날짜 -->
                                                     </div>
+
                                                 </div>
+
                                             </div>    	
                                         </div><!-- item-->
                                     </div>
+
                                 </c:forEach>
                                 </div>
                                 <div class="swiper-pagination mg-t-13"></div>

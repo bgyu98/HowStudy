@@ -3,8 +3,6 @@ package com.example.demo.controller;
 import java.util.Iterator;
 import java.util.List;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +14,9 @@ import com.example.demo.service.MyStudyService;
 import com.example.demo.vo.MyStudyVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 @Controller
 @RequestMapping("/mypage")
@@ -54,7 +54,7 @@ public class mypageController {
 		System.out.println(checkdate.size());
 	
 		for( MyStudyVO k : checkdate) {
-			System.out.println(k.toString());
+			//System.out.println(k.toString());
 		}
 		
 		Gson gson = new Gson();
@@ -74,18 +74,11 @@ public class mypageController {
 			 jArray.add(object);
 		}
 		
-		String json = gson.toJson(jArray);
-        m.addAttribute("json", json);
-        System.out.println(json);
+		String json = gson.toJson(checkdate);
         
-        JSONParser parser = new JSONParser();
+       System.out.println(json);  // 문자열화 된 json
         
-        //3. To Object
-        Object obj = JSON.parser(json);
-        
-        //4. To JsonObject
-        JSONObject jsonObj = (JSONObject) obj;
-        
+    
         return json;
 	}
 	
