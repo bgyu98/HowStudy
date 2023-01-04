@@ -28,18 +28,14 @@ public class ShopController {
 	public String selectTicketVOList(ShopVO vo, Model m) {
 		List<ShopVO> list = service.selectTicketVOList(vo);
 		m.addAttribute("list",list);
-		System.out.println(list);
 		return "shop/ticket";
 	}
 	
-	// 이용권 구매 테스트
-		@RequestMapping("/test")
-		public String selectTicketVOList1(ShopVO vo, Model m) {
-			List<ShopVO> list = service.selectTicketVOList(vo);
-			m.addAttribute("list",list);
-			System.out.println(list);
-			return "shop/test";
-		}
+	// 이용권 구매 성공 페이지
+	@RequestMapping("/paySuccess")
+	public String paySuccess() {
+		return "shop/paySuccess";
+	}
 	
 
 }
