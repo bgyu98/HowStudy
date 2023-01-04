@@ -90,7 +90,7 @@ public class UserController {
 			System.out.println("#########" + code);
 			
 			String access_Token = userService.getAccessToken(code);
-			HashMap<String, Object> userInfo = userService.getUserInfo(access_Token);
+			HashMap<String, Object> userInfo = userService.getUserInfoo(access_Token);
 			
 			System.out.println("###access_Token#### : " + access_Token);
 			System.out.println("###nickname#### : " + userInfo.get("nickname"));

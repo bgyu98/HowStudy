@@ -18,7 +18,7 @@ public interface UserService {
 
 	// 카카오 회원가입 로그인
     public String getAccessToken(String code);
-	public HashMap<String, Object> getUserInfo(String access_Token);
+	public HashMap<String, Object> getUserInfoo(String access_Token);
 	
 	// 회원정보 수정
 	public int updateCustomer(UserVO vo);
