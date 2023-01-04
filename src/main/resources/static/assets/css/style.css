@@ -1006,7 +1006,11 @@ label.error { color: red; }
 }
 
 .mg-t32{
+<<<<<<< HEAD
     margin-top: 32px;
+=======
+    margin-top: 65px;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
 }
 
 .mg-bt-24 {
@@ -1332,7 +1336,11 @@ a:focus {
 
 .hover-ecfect,
 .exp{
+<<<<<<< HEAD
     background: linear-gradient(to right, #E250E5,#4B50E6,#E250E5);
+=======
+    background: linear-gradient(to right, #97D2EC,#5F6F94,#25316D);
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     background-clip: text;
     -webkit-background-clip:text;
     font-weight: 700;
@@ -1381,9 +1389,15 @@ a:focus {
 
 :root {
     /* color */
+<<<<<<< HEAD
     --primary-color : #fff;
     --primary-color2: #1F1F2C;
     --primary-color3: #5142FC;
+=======
+    --primary-color : #fff;;
+    --primary-color2: #1F1F2C;
+    --primary-color3: #f2d1d1;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     --primary-color4: #7A798A;
     --primary-color5: #F8F8F8;
     --primary-color6: #14141F;
@@ -1419,6 +1433,10 @@ header{
     position: absolute;
     z-index: 100;
     height: 80px;
+<<<<<<< HEAD
+=======
+    background: #fff;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     width: 100%;
     border-bottom: 1px solid rgba(235, 235, 235, 0.2);
     -webkit-transition: all 0.5s ease;
@@ -1427,6 +1445,15 @@ header{
     -o-transition     : all 0.5s ease;
     transition        : all 0.5s ease;
 }
+<<<<<<< HEAD
+=======
+
+.is_dark .header_1 {
+    box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
+    background: unset;
+}
+
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
 .item .header_1 {
     position: fixed !important;
     top: 0 !important;
@@ -1446,7 +1473,11 @@ header{
 
 .header_1 #main-nav {
     position: absolute;
+<<<<<<< HEAD
     left:26%;
+=======
+    left:18%;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     top: 50%;
     z-index: 0;
     -webkit-transform: translateY(-50%);
@@ -2117,7 +2148,11 @@ header{
 /* Search Form */
 .header-search {
     position    : relative;
+<<<<<<< HEAD
     margin-right: 36px;
+=======
+    margin-right: 400px;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     padding: 14px 0;
 }
 
@@ -2288,10 +2323,15 @@ header{
     width     : 100%;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 30%);
     z-index   : 9999;
+<<<<<<< HEAD
     background: linear-gradient(
         227.3deg, #8A208C 0%, #181B81 100.84%);
     border: none;
     opacity: 0;
+=======
+    background: #F2D1D1;
+    border: none;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     -webkit-transition: all 0.5s ease;
     -moz-transition   : all 0.5s ease;
     -ms-transition    : all 0.5s ease;
@@ -2300,7 +2340,11 @@ header{
 }
 .is_dark .header_1.header_2.style.is-fixed,
 .is_dark .header_1.is-fixed {
+<<<<<<< HEAD
     background: #14141F;
+=======
+    background:   #0d0d1196;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
 }
 .header_1.is-fixed .mode_switcher{
@@ -2405,11 +2449,19 @@ header{
 -------------------------------------------------------------- */
 #footer {
     padding: 80px 0 80px;
+<<<<<<< HEAD
     background-color: #fff;
 }
 
 #footer.style-2 {
     background-color: #ffffff;
+=======
+    background-color:  #f2d1d1;
+}
+
+#footer.style-2 {
+    background-color:  #64b2cd ;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
 }
 
 .is_dark #footer{
@@ -2502,6 +2554,10 @@ header{
 #footer .widget p {
     font-size  : 14px;
     line-height: 22px;
+<<<<<<< HEAD
+=======
+    font-weight: bold;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
 }
 
 .side-bar .widget p {
@@ -2570,13 +2626,20 @@ header{
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 .widget-logo .logo-footer {
     margin-bottom: 13px;
 }
+=======
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
 
 .widget-logo .sub-widget-logo {
     padding-right: 35px;
     margin-bottom: 26px;
+<<<<<<< HEAD
+=======
+    margin-top: -28px;
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133
 }
 
 /* widget-social */
@@ -3453,6 +3516,7 @@ span.type::after {
     100% { opacity:1; }
 }
 
+<<<<<<< HEAD
 .toggle {
     position: relative;
     display: inline-block;
@@ -3499,3 +3563,8 @@ span.type::after {
 .toggle input:checked + label::after { /* 켠 상태 스위치 위치 */
     left: 24px;
 }
+=======
+.is_dark .mine {
+   background: #14141f;
+}
+>>>>>>> 4005778967881cfbb0bf0f62d4589a8fe841e133

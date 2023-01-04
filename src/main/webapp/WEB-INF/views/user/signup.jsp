@@ -24,6 +24,9 @@
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
 
+
+
+
 </head>
 
 <body class="body header-fixed is_dark">
@@ -86,7 +89,10 @@
                                             </li>
                                             <li class="menu-item current-menu-item">
                                                 <a href="../offline/off">오프라인</a>
-                                            </li> 
+                                            </li>
+                                            
+                                            
+                                            
                                         </ul>
                                     </nav><!-- /#main-nav -->    <!-- /#main-nav -->    
                                     <div class="flat-search-btn flex">
@@ -349,12 +355,11 @@
                     <div class="row">
                         <div class="col-12">
                             <h2 class="tf-title-heading ct style-1">
-                                Sigup To NFTs
+                                회원가입
                             </h2>
-
                             <div class="flat-form box-login-social">
                                 <div class="box-title-login">
-                                    <h5>Login with social</h5>
+                                    <h5>Signup with social</h5>
                                 </div>
                                 <ul>
                                     <li>
@@ -374,23 +379,34 @@
 
                             <div class="flat-form box-login-email">
                                 <div class="box-title-login">
-                                    <h5>Or login with email</h5>
+                                    <h5>Or Signup with email</h5>
                                 </div>
+                               
 
                                 <div class="form-inner">
-                                    <form action="#" id="contactform">
-                                        <input id="name" name="name" tabindex="1" value="" aria-required="true" required type="text" placeholder="Your Full Name">
-                                        <input id="email" name="email" tabindex="2"  value="" aria-required="true" type="email" placeholder="Your Email Address" required>
-                                        <input id="pass" name="pass" tabindex="3"  value="" aria-required="true" type="text" placeholder="Set Your Password" required>
+                                    <form method="post" id="insert-customer" action="insertCustomer">
+                                        <input id="mId" name="mId" tabindex="1"  aria-required="true" required type="text" placeholder="아이디"  required>
+                                        <p id="chkNotice" name="chkNotice" size="2" style="font-size: small;"></p>
+                                        <input id="mPw" name="mPw" tabindex="3"   aria-required="true" type="password" placeholder="비밀번호" required>
+                                        <p id="chkNotice2" name="chkNotice2" size="2" style="font-size: small;"></p>
+                                        <input id="mPwchk" name="mPwchk" tabindex="3"  aria-required="true" type="password" placeholder="비밀번호 재확인" required>
+                                        <p id="chkNotice3"  name="chkNotice3" size="2" style="font-size: small;"></p>
+                                        <input id="mName" name="mName" tabindex="3"  aria-required="true" type="text"  placeholder="이름" required>
+                                        <p id="chkNotice4"  name="chkNotice4" size="2" style="font-size: small;"></p>
+                                        <input id="mPhone" name="mPhone" tabindex="3"  aria-required="true" type="text" placeholder="전화번호" required>
+                                        <p id="chkNotice5"  name="chkNotice5" size="2" style="font-size: small;"></p>
+                                        <input id="mEmail" name="mEmail" tabindex="2"   aria-required="true" type="email" placeholder="이메일" required>
+                                        <p id="chkNotice6"  name="chkNotice6" size="2" style="font-size: small;"></p>
+                                        
+                                        
                                         <div class="row-form style-1">
-                                            <label>Remember me
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label>
-                                            <a href="#" class="forgot-pass">Forgot Password ?</a>
+                                            <button class="submit" type="submit" name="submit"  style="margin: auto;">가입하기</button>
                                         </div>
 
-                                        <button class="submit">Login</button>
+                                       
+                                       <!-- <input type="submit" class="submit-btn" value="가입하기" name="submit" />-->
+
+
                                     </form>
                                 </div>
 
@@ -494,6 +510,13 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
+    <script src="../assets/js/signup.js"></script>
+    
+
+
+
+
+
 
 </body>
 

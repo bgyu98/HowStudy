@@ -24,6 +24,7 @@
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
 
+
 </head>
 
 <body class="body header-fixed is_dark">
@@ -44,7 +45,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo" class="clearfix">
                                         <div id="site-logo-inner">
-                                            <a href="index" rel="home" class="main-logo">
+                                            <a href="../../index" rel="home" class="main-logo">
                                               <img
                                                 id="logo_header"
                                                 src="../assets/images/logo/logo01.png"
@@ -349,7 +350,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h2 class="tf-title-heading ct style-1">
-                                Login To NFTs
+                                로그인
                             </h2>
 
                             <div class="flat-form box-login-social">
@@ -358,15 +359,16 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="#" class="sc-button style-2 fl-button pri-3">
-                                            <i class="icon-fl-google-2"></i>
-                                            <span>Google</span>
+        
+                                  <a href="https://kauth.kakao.com/oauth/authorize?client_id=d1c0195fc59220d458f0c41370aa7c5a&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code" class="sc-button style-2 fl-button pri-3">
+                                            <i class="icon-fl-facebook"></i>
+                                            <span>KAKAO</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-facebook"></i>
-                                            <span>Facebook</span>
+                                            <span>NAVER</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -378,22 +380,40 @@
                                 </div>
 
                                 <div class="form-inner">
-                                    <form action="#" id="contactform">
-                                        <input id="name" name="name" tabindex="1" value="" aria-required="true" required type="text" placeholder="Your Full Name" >
-                                        <input id="email" name="email" tabindex="2"  value="" aria-required="true" type="email" placeholder="Your Email Address" required >
+                                    <form method="POST" id="insert-customer" action="loginCustomer">
+                                        <input id="mId" name="mId" tabindex="1"  aria-required="true" required type="text" placeholder="아이디" required>
+                                        <input id="mPw" name="mPw" tabindex="3"  aria-required="true" type="password" placeholder="비밀번호" required>
+                                        
                                         <div class="row-form style-1">
-                                            <label>Remember me
-                                                <input type="checkbox">
-                                                <span class="btn-checkbox"></span>
-                                            </label>
-                                            <a href="#" class="forgot-pass">Forgot Password ?</a>
+                                            <a href="#" class="forgot-pass">비밀번호 찾기</a>
                                         </div>
+                                        <div class="row-form style-1">
+                                            <button class="submit" type="submit" name="submit" style=" margin: auto;">로그인</button>
+                                        </div>
+                                        
+                                        <div class="box-title-login">
+                                            <h5>아직 회원이 아니신가요?</h5>
+                                        </div>
+       
 
-                                        <button class="submit">Login</button>
+                                     <!--  <button class="submit">Login</button>-->
                                     </form>
+                                    
+                            
+
+                                    <div class="row-form style-1">
+                                        <button onclick="location.replace('../user/signup');" class="submit" type="submit" name="submit"  style="margin: auto;">가입하기</button>
+                                    </div>
+                                
                                 </div>
 
                             </div>
+
+                          
+
+
+
+
 
                         </div>
                     </div>
@@ -493,6 +513,9 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
+
+
+
 
 </body>
 
