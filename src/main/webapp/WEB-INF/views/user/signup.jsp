@@ -388,11 +388,15 @@
                                         <input id="mId" name="mId" tabindex="1"  aria-required="true" required type="text" placeholder="아이디"  required>
                                         <p id="chkNotice" name="chkNotice" size="2" style="font-size: small;"></p>
                                         <input id="mPw" name="mPw" tabindex="3"   aria-required="true" type="password" placeholder="비밀번호" required>
+                                        <p id="chkNotice2" name="chkNotice2" size="2" style="font-size: small;"></p>
                                         <input id="mPwchk" name="mPwchk" tabindex="3"  aria-required="true" type="password" placeholder="비밀번호 재확인" required>
-                                        <p id="chkNotice2" size="2" name="chkNotice2" style="font-size: small;"></p>
-                                        <input id="mName" name="mName" tabindex="3"  aria-required="true" type="text" placeholder="이름" required>
+                                        <p id="chkNotice3"  name="chkNotice3" size="2" style="font-size: small;"></p>
+                                        <input id="mName" name="mName" tabindex="3"  aria-required="true" type="text"  placeholder="이름" required>
+                                        <p id="chkNotice4"  name="chkNotice4" size="2" style="font-size: small;"></p>
                                         <input id="mPhone" name="mPhone" tabindex="3"  aria-required="true" type="text" placeholder="전화번호" required>
+                                        <p id="chkNotice5"  name="chkNotice5" size="2" style="font-size: small;"></p>
                                         <input id="mEmail" name="mEmail" tabindex="2"   aria-required="true" type="email" placeholder="이메일" required>
+                                        <p id="chkNotice6"  name="chkNotice6" size="2" style="font-size: small;"></p>
                                         
                                         
                                         <div class="row-form style-1">
@@ -506,67 +510,9 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
+    <script src="../assets/js/signup.js"></script>
     
 
-
-
-    <script type="text/javascript">
-
-            //비밀번호 일치 확인
-        $(function(){
-            $('#mPw').keyup(function(){
-               
-              $('#chkNotice2').html('');
-            });
-        
-            $('#mPwchk').keyup(function(){
-               
-        
-                if($('#mPw').val() != $('#mPwchk').val()){
-                  $('#chkNotice2').html('비밀번호가 일치하지 않습니다.<br><br>');
-                  $('#chkNotice2').css('color', '#dc3545');
-                } else{
-                  $('#chkNotice2').html('비밀번호가 일치합니다. <br><br>');
-                  $('#chkNotice2').css('color', '#2fb380');
-                }
-        
-            });
-
-            //아이디 중복 확인
-
-
-            $('#mId').keyup(function(){
-
-	     	let mId = $('#mId').val();
-			
-		$.ajax({
-			url : "./mIdCheck",
-			type : "post",
-			data : {mId: mId},
-			dataType : 'json',
-			success : function(result){
-				if(result == 1){
-					$("#chkNotice").html('누군가 이 아이디를 사용하고 있어요. <br><br>');
-					$("#chkNotice").css('color','#dc3545');
-				} else{
-					$("#chkNotice").html('멋진 아이디네요! <br><br>');
-					$("#chkNotice").css('color','#2fb380');
-				} 
-			},
-			error : function(){
-              
-				alert("서버요청실패");
-			}
-		});
-			 
-	});
-
-
-
-            }); //end of function  
-
-
-            </script>
 
 
 
