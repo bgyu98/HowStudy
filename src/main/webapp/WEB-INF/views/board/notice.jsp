@@ -2,8 +2,10 @@
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
   <!--<![endif]-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
@@ -472,10 +474,10 @@
             <div class="row">
               <div class="fl-blog fl-item2 col-lg-4 col-md-6">
                 <article class="sc-card-article">
+                  <c:forEach items="${noticeContent}" var="noticevo">
                   <div class="card-media">
                     <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-1.jpg" alt=""
-                    /></a>
+                      ><img src="../assets/images/noticeimage/${noticeContent.nREALNAME}" width="100%" /></a>
                   </div>
 
                   <div class="text-article">
@@ -488,6 +490,7 @@
                   <div class="meta-info" style="float: right; margin-right: 6px">
                     <div class="date">Feb 19, 2021</div>
                   </div>
+                </c:forEach>
                 </article>
               </div>
 

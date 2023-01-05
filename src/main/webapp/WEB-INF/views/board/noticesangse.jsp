@@ -3,7 +3,8 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
   <!--<![endif]-->
-  <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  <%@ page language="java" contentType="text/html; charset=UTF-8"%> <%@ taglib
+  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
@@ -482,42 +483,35 @@
             <div class="wrap-flex-box style">
               <div class="post">
                 <div class="inner-content">
-                  <h2 class="title-post">PC 이용 가이드</h2>
+                  <h2 class="title-post">${notice.nTITLE}</h2>
                   <div class="divider"></div>
                   <div class="meta-post flex mg-bt-31">
                     <div class="box"></div>
                     <div class="box left">
                       <div class="inner boder pad-r-50">
-                        <p>DWINAWAN</p>
+                        <p>조회수 : ${notice.nCNT}</p>
                       </div>
                       <div class="inner mg-l-39 mg-r-1">
-                        <p>AUGUST 11, 2021</p>
+                        <p>${notice.nDATE}</p>
                       </div>
                     </div>
                   </div>
                   <div class="image">
-                    <img src="../assets/images/blog/thumb-7.jpg" alt="Image" />
+                    <img src="../assets/images/noticeimage/${notice.nMAINREALNAME}" width="100%" />
                   </div>
                   <div class="inner-post mg-t-40">
                     <h3 class="heading mg-bt-16">
                       What is the most fun thing to become a designer?
                     </h3>
-                    <p class="mg-bt-24">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                      Cupidatat non Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+                    <p class="mg-bt-24">${notice.nCOMMENT}</p>
                   </div>
                   <div class="sc-widget style-1">
                     <div class="widget widget-tag style-2">
                       <h4 class="title-widget">태그</h4>
                       <ul>
-                        <li><a href="#">Bitcoin</a></li>
-                        <li><a href="#">Token</a></li>
-                        <li><a href="#">Wallet</a></li>
+                        <li><a href="#">${notice.nTAG1}</a></li>
+                        <li><a href="#">${notice.nTAG2}</a></li>
+                        <li><a href="#">${notice.nTAG3}</a></li>
                       </ul>
                     </div>
                     <div class="widget widget-social style-2"></div>
@@ -562,9 +556,9 @@
                 <div class="widget widget-tag style-1">
                   <h3 class="title-widget mg-bt-23">태그</h3>
                   <ul>
-                    <li><a href="blog.html" class="box-widget-tag">Bitcoin</a></li>
-                    <li><a href="blog.html" class="box-widget-tag">NFT</a></li>
-                    <li><a href="blog.html" class="box-widget-tag">Bids</a></li>
+                    <li><a href="blog.html" class="box-widget-tag">${notice.nTAG1}</a></li>
+                    <li><a href="blog.html" class="box-widget-tag">${notice.nTAG2}</a></li>
+                    <li><a href="blog.html" class="box-widget-tag">${notice.nTAG3}</a></li>
                   </ul>
                 </div>
               </div>

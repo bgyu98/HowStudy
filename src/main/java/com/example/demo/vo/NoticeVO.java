@@ -8,12 +8,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class NoticeVO {
 
+	private Integer nNUM;
 	private String nTITLE;
 	private String nWRITER;
 	private Integer nCNT;
 	private String nCOMMENT;
-	private String nFILE;
-	private String nPW;
 	private String nDATE;
 	private String nTAG1;
 	private String nTAG2;
@@ -29,11 +28,20 @@ public class NoticeVO {
 	private String nMAINREALNAME;
 	private long nMAINNSIZE;
 
-	// 배너 파일
-	MultipartFile file;
+	// 썸네일 파일
+	MultipartFile nFILE;
 
 	// 상세 이미지 파일
-	MultipartFile file1;
+	MultipartFile nFILE1;
+	
+	
+	public Integer getnNUM() {
+		return nNUM;
+	}
+
+	public void setnNUM(Integer nNUM) {
+		this.nNUM = nNUM;
+	}
 
 	public String getnTITLE() {
 		return nTITLE;
@@ -67,22 +75,7 @@ public class NoticeVO {
 		this.nCOMMENT = nCOMMENT;
 	}
 
-	public String getnFILE() {
-		return nFILE;
-	}
-
-	public void setnFILE(String nFILE) {
-		this.nFILE = nFILE;
-	}
-
-	public String getnPW() {
-		return nPW;
-	}
-
-	public void setnPW(String nPW) {
-		this.nPW = nPW;
-	}
-
+	
 	public String getnDATE() {
 		return nDATE;
 	}
@@ -111,7 +104,7 @@ public class NoticeVO {
 		return nNSIZE;
 	}
 
-	public void setnNSIZE(long nNSIZE) {
+	public void setnNSIZE(Integer nNSIZE) {
 		this.nNSIZE = nNSIZE;
 	}
 
@@ -135,33 +128,31 @@ public class NoticeVO {
 		return nMAINNSIZE;
 	}
 
-	public void setnMAINNSIZE(long nMAINNSIZE) {
+	public void setnMAINNSIZE(Integer nMAINNSIZE) {
 		this.nMAINNSIZE = nMAINNSIZE;
 	}
 
-	public MultipartFile getFile() {
-		return file;
+	public MultipartFile getnFILE() {
+		return nFILE;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setnFILE(MultipartFile nFILE) {
+		this.nFILE = nFILE;
 
 		// 업로드 파일이 있을 경우
-		if (!file.isEmpty()) {
+		if (!nFILE.isEmpty()) {
 
-			this.nNAME = file.getOriginalFilename();
-			this.nNSIZE = file.getSize();
+			this.nNAME = nFILE.getOriginalFilename();
+			this.nNSIZE = nFILE.getSize();
 
 			UUID uuid = UUID.randomUUID();
-			// 삽입 된 이미지를 이미지명으로 저장해놓았을 경우,
-			// 이미지 삭제 시 중복 된 이미지명이 전부 삭제되므로 이미지명에 랜덤 값 붙임.
+
 			this.nREALNAME = uuid.toString() + "_" + nNAME;
 
-			// 파일 경로 지정하여 추가 된 파일의 이름을 b_realfname으로 지정
-			File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\" + nREALNAME);
-			// 파일 저장 위치를 추후에 서버 경로를 얻어서 상대 경로로 수정하기
+			File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\noticeimage\\" + nREALNAME);
+
 			try {
-				file.transferTo(f); // 파일 데이터를 지정한 f에 저장
+				nFILE.transferTo(f); 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -171,28 +162,26 @@ public class NoticeVO {
 		}
 	}
 
-	public MultipartFile getFile1() {
-		return file1;
+	public MultipartFile getnFILE1() {
+		return nFILE1;
 	}
 
-	public void setFile1(MultipartFile file1) {
-		this.file1 = file1;
+	public void setnFILE1(MultipartFile nFILE1) {
+		this.nFILE1 = nFILE1;
 
-		if (!file1.isEmpty()) {
+		if (!nFILE1.isEmpty()) {
 
-			this.nMAINNAME = file1.getOriginalFilename();
-			this.nMAINNSIZE = file1.getSize();
+			this.nMAINNAME = nFILE1.getOriginalFilename();
+			this.nMAINNSIZE = nFILE1.getSize();
 
 			UUID uuid = UUID.randomUUID();
-			// 삽입 된 이미지를 이미지명으로 저장해놓았을 경우,
-			// 이미지 삭제 시 중복 된 이미지명이 전부 삭제되므로 이미지명에 랜덤 값 붙임.
+
 			this.nMAINREALNAME = uuid.toString() + "_" + nMAINNAME;
 
-			// 파일 경로 지정하여 추가 된 파일의 이름을 b_realfname으로 지정
-			File fa = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\" + nREALNAME);
-			// 파일 저장 위치를 추후에 서버 경로를 얻어서 상대 경로로 수정하기
+			File fa = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\noticeimage\\" + nMAINREALNAME);
+
 			try {
-				file1.transferTo(fa); // 파일 데이터를 지정한 f에 저장
+				nFILE1.transferTo(fa); 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -222,17 +211,19 @@ public class NoticeVO {
 	public String getnTAG3() {
 		return nTAG3;
 	}
-
+	
 	public void setnTAG3(String nTAG3) {
 		this.nTAG3 = nTAG3;
 	}
 
 	@Override
 	public String toString() {
-		return "NoticeVO [nTITLE=" + nTITLE + ", nWRITER=" + nWRITER + ", nCNT=" + nCNT + ", nCOMMENT=" + nCOMMENT
-				+ ", nFILE=" + nFILE + ", nPW=" + nPW + ", nDATE=" + nDATE + ", nNAME=" + nNAME + ", nREALNAME="
-				+ nREALNAME + ", nNSIZE=" + nNSIZE + ", nMAINNAME=" + nMAINNAME + ", nMAINREALNAME=" + nMAINREALNAME
-				+ ", nMAINNSIZE=" + nMAINNSIZE + ", file=" + file + ", file1=" + file1 + "]";
+		return "NoticeVO [nNUM=" + nNUM + ", nTITLE=" + nTITLE + ", nWRITER=" + nWRITER + ", nCNT=" + nCNT
+				+ ", nCOMMENT=" + nCOMMENT + ", nDATE=" + nDATE + ", nTAG1="
+				+ nTAG1 + ", nTAG2=" + nTAG2 + ", nTAG3=" + nTAG3 + ", nNAME=" + nNAME + ", nREALNAME=" + nREALNAME
+				+ ", nNSIZE=" + nNSIZE + ", nMAINNAME=" + nMAINNAME + ", nMAINREALNAME=" + nMAINREALNAME
+				+ ", nMAINNSIZE=" + nMAINNSIZE + ", nFILE=" + nFILE + ", nFILE1=" + nFILE1 + "]";
 	}
-
+	
+	
 }
