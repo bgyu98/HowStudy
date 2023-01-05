@@ -1,3 +1,71 @@
+(function ($) {
+  "use strict";
+  var buttonHeart2 = function () {
+    $(".wishlist-button2").on("click", function () {
+      var seq = $(this).prev().val(); // 23
+      alert(seq);
+      /*
+      $.ajax({
+        type: "get",
+        url: "checkdate",
+        data: day,
+        dataType: "json",
+        success: function (data) {
+          var iteration = $(this).data("iteration") || 1;
+          switch (iteration) {
+            case 1:
+              $(this).removeClass("active");
+              var val = parseInt($(this).find("span").text()) - 1;
+              // 여기에 처음 눌렀을때 관련 ajax 문 작성
+              //alert("하트 첫번째누름");
+              $(this).find("span").text(val);
+              break;
+            case 2:
+              $(this).addClass("active");
+              var val = parseInt($(this).find("span").text()) + 1;
+              // 여기에 두번째 눌렀을 때 관련 ajax문 작성
+              //alert("하트 두번째누름");
+              $(this).find("span").text(val);
+              break;
+          }
+          iteration++;
+          if (iteration > 2) iteration = 1;
+          $(this).data("iteration", iteration);
+       
+        },
+        error: function () {
+          alert("실패");
+        },
+      });
+      */
+      var iteration = $(this).data("iteration") || 1;
+      switch (iteration) {
+        case 1:
+          $(this).removeClass("active");
+          var val = parseInt($(this).find("span").text()) - 1;
+          // 여기에 처음 눌렀을때 관련 ajax 문 작성
+          //alert("하트 첫번째누름");
+          $(this).find("span").text(val);
+          break;
+        case 2:
+          $(this).addClass("active");
+          var val = parseInt($(this).find("span").text()) + 1;
+          // 여기에 두번째 눌렀을 때 관련 ajax문 작성
+          //alert("하트 두번째누름");
+          $(this).find("span").text(val);
+          break;
+      }
+      iteration++;
+      if (iteration > 2) iteration = 1;
+      $(this).data("iteration", iteration);
+    });
+  };
+  // Dom Ready
+  $(function () {
+    buttonHeart2();
+  });
+})(jQuery);
+
 function checkD(e) {
   // select 선택시 실행
   // alert(d);
@@ -14,7 +82,7 @@ function checkD(e) {
     dataType: "json",
 
     success: function (json) {
-      //alert("성공");
+      alert("성공");
       //alert(checkdate);
       $("#favor").empty(); // 날짜 선택 하단부분의 방부분 초기화
       var c = "";
@@ -50,7 +118,7 @@ function checkD(e) {
 
         d += "<div class='info'>";
         d += "<span>Creator</span>";
-        d += " <h4> <a>" + value.mId; // 로그인 아이디
+        d += " <h4> <a class='lid' value='" + value.mId + "'>" + value.mId; // 로그인 아이디
         d += "</a></h4>";
         d += "</div>";
 

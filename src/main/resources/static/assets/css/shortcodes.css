@@ -950,7 +950,7 @@ keyframes spin { 100% {
 }
 
 /* card wishlist */
-.sc-card-product .card-media .wishlist-button {
+.sc-card-product .card-media .wishlist-button{
 	position: absolute;
 	top: 13px;
 	right: 11px;
@@ -965,7 +965,8 @@ keyframes spin { 100% {
 	border: none;
 }
 
-.wishlist-button.public {
+.wishlist-button.public,
+.wishlist-button2.public  {
 	font-weight: bold;
 	font-size: 14px;
 	line-height: 24px;
@@ -978,22 +979,26 @@ keyframes spin { 100% {
 	border: none;
 }
 
-.wishlist-button .number-like {
+.wishlist-button .number-like,
+.wishlist-button2 .number-like {
 	width: 22px;
 	display: inline-block;
 }
 
-.wishlist-button .number-like {
+.wishlist-button .number-like,
+.wishlist-button2 .number-like {
 	width: 22px;
 	display: inline-block;
 }
-
-.wishlist-button.active.heart::before {
+/* 선호태그 눌렸을 때 버튼 색상*/
+.wishlist-button.active.heart::before,
+.wishlist-button2.active.heart::before {
 	color: #ee3434;
 	font-weight: 700;
 }
 
-.wishlist-button.heart::before {
+.wishlist-button.heart::before,
+.wishlist-button2.heart::before {
 	content: '\f004';
 	font-family: 'Font Awesome 5 Pro';
 	font-weight: 300;
@@ -4201,7 +4206,8 @@ section.today-picks {
 	background-color: var(- -primary-color5);
 }
 
-.tf-item-details .content-right .meta-item .wishlist-button {
+.tf-item-details .content-right .meta-item .wishlist-button,
+.tf-item-details .content-right .meta-item .wishlist-button2 {
 	cursor: pointer;
 }
 
@@ -6247,7 +6253,8 @@ section.today-picks {
 	line-height: 20px;
 }
 
-.sc-card-collection.style-2.home5 .media-images-collection .wishlist-button
+.sc-card-collection.style-2.home5 .media-images-collection .wishlist-button,
+.sc-card-collection.style-2.home5 .media-images-collection .wishlist-button2
 	{
 	position: absolute;
 	top: 32px;
@@ -6390,17 +6397,20 @@ section.today-picks {
     letter-spacing: 1px;
 }
 
-.carousel6 .sc-card-product.style2 .wishlist-button .number-like {
+.carousel6 .sc-card-product.style2 .wishlist-button .number-like,
+.carousel6 .sc-card-product.style2 .wishlist-button2 .number-like {
 	font-size: 20px;
 }
 
-.carousel6 .sc-card-product.style2 .card-media .wishlist-button {
+.carousel6 .sc-card-product.style2 .card-media .wishlist-button,
+.carousel6 .sc-card-product.style2 .card-media .wishlist-button2 {
 	padding: 4px 20px 3px 12px;
 	line-height: 21px;
 	top: 15px;
 }
 
-.carousel6 .sc-card-product.style2 .wishlist-button.heart::before {
+.carousel6 .sc-card-product.style2 .wishlist-button.heart::before,
+.carousel6 .sc-card-product.style2 .wishlist-button2.heart::before {
 	font-size: 18px;
 }
 
@@ -6677,7 +6687,8 @@ section.today-picks {
 	padding-top: 0;
 }
 
-.meta-info.style .wishlist-button.heart {
+.meta-info.style .wishlist-button.heart,
+.meta-info.style .wishlist-button2.heart {
 	font-weight: bold;
 	font-size: 14px;
 	line-height: 24px;
@@ -6704,7 +6715,8 @@ section.today-picks {
 	font-size: 14px;
 }
 
-.style-h7 .wishlist-button.heart::before {
+.style-h7 .wishlist-button.heart::before,
+.style-h7 .wishlist-button2.heart::before {
 	font-size: 11px;
 }
 
@@ -7167,7 +7179,8 @@ section.today-picks {
 	margin-bottom: 6px;
 }
 
-.sc-card-collection.style-2.sc-card-style7 .wishlist-button.public {
+.sc-card-collection.style-2.sc-card-style7 .wishlist-button.public,
+.sc-card-collection.style-2.sc-card-style7 .wishlist-button2.public  {
 	padding: 1px 14px;
 }
 
@@ -7644,7 +7657,8 @@ section.today-picks {
 	margin-bottom: 11px;
 }
 
-.content-item2 .style-h7 .wishlist-button.heart::before {
+.content-item2 .style-h7 .wishlist-button.heart::before,
+.content-item2 .style-h7 .wishlist-button2.heart::before {
 	font-size: 15px;
 }
 
@@ -7701,7 +7715,8 @@ section.today-picks {
 	font-size: 20px;
 }
 
-.content-item2 .sc-card-product .wishlist-button.heart {
+.content-item2 .sc-card-product .wishlist-button.heart,
+.content-item2 .sc-card-product .wishlist-button2.heart  {
 	font-weight: bold;
 	font-size: 14px;
 	line-height: 24px;

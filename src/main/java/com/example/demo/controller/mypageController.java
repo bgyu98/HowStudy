@@ -33,6 +33,7 @@ public class MypageController {
 	/*
 	 * mypage 들어갔을 경우 선호 태그 목록 출력
 	 */
+	
 	@RequestMapping("/mystudyroom")
 	public void favorRoom(MyStudyVO vo, Model m) {
 		System.out.println("favorRoom 요청");

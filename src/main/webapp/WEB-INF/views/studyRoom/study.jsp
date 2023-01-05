@@ -246,6 +246,8 @@
                               <a href="/camstudy/user/payment" class="my-menu-list-item-btn">결제내역</a>
                             </li> <li class="my-menu-list-item move"><a href="/camstudy/user/coupon" class="my-menu-list-item-btn">공부기록</a>
                             </li>
+                            <li class="my-menu-list-item move"><a href="../mypage/mystudyroom" class="my-menu-list-item-btn">마이페이지</a>
+                            </li>
                             </li> <li class="my-menu-list-item move guide"><a href="#" target="_blank" class="my-menu-list-item-btn">이용가이드</a></li> 
                             <li class="my-menu-list-item move guide">
                               <c:if test="${sessionScope.loginId!=null}">
@@ -588,6 +590,7 @@
                   class="swiper-container seller style2 seller-slider2 button-arow-style"
                   style="max-width: 40%"
                 >
+                <a href="./createroom">
                   <div data-v-2bb159fc="" class="empty_my_study">
                     <button
                       id="maderoom"
@@ -597,6 +600,7 @@
                     </button>
                     <p style="margin-top: 20px">나만의&nbsp;스터디를&nbsp;만들어&nbsp;보세요</p>
                   </div>
+                </a>
                 </div>
               </div>
             </div>

@@ -57,7 +57,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo" class="clearfix">
                                         <div id="site-logo-inner">
-                                            <a href="../index" rel="home" class="main-logo">
+                                            <a href="../" rel="home" class="main-logo">
                                               <img
                                                 id="logo_header"
                                                 src="../assets/images/logo/logo01.png"
@@ -100,10 +100,6 @@
                                             <li class="menu-item current-menu-item">
                                                 <a href="../offline/off">오프라인</a>
                                             </li>
-                                            
-                                            <li class="menu-item current-menu-item">
-                                                <a href="../mypage/mystudyroom">마이 페이지</a>
-                                            </li> 
                                         </ul>
                                     </nav><!-- /#main-nav -->    
                                     <div class="flat-search-btn flex">
@@ -173,7 +169,6 @@
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left">
                                     즐겨 찾기 한 스터디룸 목록</h2>
-                                <a href="explore-3.html" class="exp style2">즐겨찾기 수정</a>
                             </div>
                         </div>
 
@@ -183,6 +178,7 @@
                             <div class="swiper-container show-shadow carousel9 pad-t-17 auctions">
                                 <div class="swiper-wrapper">
                                     <c:forEach items="${favorRoom}" var = "fr">
+                                        
                                         <div class="swiper-slide">
                                             <div class="slider-item">	<!-- item start -->									
                                                 <div class="sc-card-collection style-2 home2">
@@ -205,7 +201,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button> <!-- 즐겨찾기 개수 -->
+                                                        <input type="hidden" value = "${fr.sNum}"/>
+                                                        <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2"><span class="number-like"> 100</span></button> <!-- 즐겨찾기 개수 -->
+                                                        
                                                     </div>
                                                 </div> 		
                                             </div><!-- item-->
@@ -242,8 +240,8 @@
                                 </select>
                             </div>
                         </div>
+                        
                         <!-- 날짜 선택 끝-->
-
                         <div class="col-md-12" id="favor">
                             <div class="swiper-container show-shadow carousel6 pad-t-17 auctions" >
                                 <div class="swiper-wrapper" >
@@ -275,7 +273,7 @@
                                                         
                                                         <div class="info">
                                                             <span>Creator</span>
-                                                            <h4> <a >${fr.mId} <!-- 로그인아이디 -->
+                                                            <h4 ><a>${fr.mId} <!-- 로그인한 아이디 -->
                                                             </a> </h4>
                                                         </div>
 

@@ -9,7 +9,7 @@
 	</select>
 
 
-
+	<!--  날짜 기준 데이터 체크  -->
 	<select id="checkdate" resultType="MyStudyVO" parameterType="String">
 		select *
 		from STUDYROOM
@@ -17,7 +17,6 @@
 		<if test="date=='resentd'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND NOW()</if>
 		<if test="date=='resentw'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -7 DAY ) AND NOW()</if>
 		<if test="date=='resentm'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -30 DAY ) AND NOW()</if>
-		<!--  <if test="date=='alld'"></if>-->
 		
 	</select>
 </mapper>
