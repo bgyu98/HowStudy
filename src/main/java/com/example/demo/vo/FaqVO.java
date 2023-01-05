@@ -1,27 +1,27 @@
 package com.example.demo.vo;
 
+
 public class FaqVO {
-	
+
+	private Integer fNUM;
 	private String fTITLE;
-	private String fSUBTITLE;
 	private String fWRITER;
 	private Integer fCNT;
 	private String fCOMMENT;
-	private String fFILE;
-	private String fPW;
+	private String fDATE;
 	
-
+	
+	public Integer getfNUM() {
+		return fNUM;
+	}
+	public void setfNUM(Integer fNUM) {
+		this.fNUM = fNUM;
+	}
 	public String getfTITLE() {
 		return fTITLE;
 	}
 	public void setfTITLE(String fTITLE) {
 		this.fTITLE = fTITLE;
-	}
-	public String getfSUBTITLE() {
-		return fSUBTITLE;
-	}
-	public void setfSUBTITLE(String fSUBTITLE) {
-		this.fSUBTITLE = fSUBTITLE;
 	}
 	public String getfWRITER() {
 		return fWRITER;
@@ -41,24 +41,20 @@ public class FaqVO {
 	public void setfCOMMENT(String fCOMMENT) {
 		this.fCOMMENT = fCOMMENT;
 	}
-	public String getfFILE() {
-		return fFILE;
+	public String getfDATE() {
+		return fDATE;
 	}
-	public void setfFILE(String fFILE) {
-		this.fFILE = fFILE;
+	public void setfDATE(String fDATE) {
+		this.fDATE = fDATE;
 	}
-	public String getfPW() {
-		return fPW;
-	}
-	public void setfPW(String fPW) {
-		this.fPW = fPW;
-	}
+	
 	@Override
 	public String toString() {
-		return "FaqVO [fTITLE=" + fTITLE + ", fSUBTITLE=" + fSUBTITLE + ", fWRITER=" + fWRITER + ", fCNT=" + fCNT
-				+ ", fCOMMENT=" + fCOMMENT + ", fFILE=" + fFILE + ", fPW=" + fPW + "]";
+		return "FaqVO [fNUM=" + fNUM + ", fTITLE=" + fTITLE + ", fWRITER=" + fWRITER + ", fCNT=" + fCNT + ", fCOMMENT="
+				+ fCOMMENT + ", fDATE=" + fDATE + "]";
 	}
-
 	
+	
+
 	
 }

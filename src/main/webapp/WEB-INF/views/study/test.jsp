@@ -1,15 +1,10 @@
-<!-- 한글 깨짐 방지-->
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!--<![endif]-->
 <!-- 한글 깨짐 방지-->
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <head>
     <!-- Basic Page Needs -->
@@ -25,37 +20,6 @@
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/todo.css">
-    <style>
-        .btn{  <!-- 모든 버튼에대한 css설정 -->
-          text-decoration: none;
-          font-size:14px;
-          color:white;
-          padding:5px 8px 5px 8px;
-          margin:15px;
-          display:inline-block;
-          border-radius: 10px;
-          transition:all 0.1s;
-          text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-          font-family: 'Lobster', cursive; <!-- google font -->
-        }
-        .btn:active{
-          transform: translateY(3px);
-        }
-        .btn.blue{
-          background-color: #1f75d9;
-          border-bottom:5px solid #165195;
-        }
-        .btn.blue:active{
-          border-bottom:2px solid #165195;
-        }
-        .btn.red{
-          background-color: #ff521e;
-          border-bottom:5px solid #c1370e;
-        }
-        .btn.red:active{
-          border-bottom:2px solid #c1370e;
-        }
-      </style>
 
 
     <!-- Favicon and Touch Icons  -->
@@ -373,45 +337,32 @@
                                     <li><a href="todo"><span>TO-DO</span></a></li>
                                     <li><a href="note"><span>NOTE</span></a></li>
                                 </ul>
-                            </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><div id="test"  style="border-radius : 75px; margin-left : 400px; margin-right : 400px; background: #f5f7f9; "
-                            ><br/>
+                            </div><br/><br/><br/><br/><br/><br/><br/>
                             
                             <!-- 조ㅏ측-->
-                            
-                            <div id="grid" style="margin-top: 35px; margin-left: 50px; margin-right: 50px; margin-bottom: -35px;">
+                            <div id="grid">
+                              <form id="form" action="insertTodo" method="post">
                                 
-                                <form action="insertTodo" id="todoForm" method="post">
-                                    <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
                                   <div id="myDIV" class="header">
                                     <h2>My To Do List</h2>
-
                                     <input id="tText" type="text" name="todos" style="width: 200;" placeholder="Title...">
-                                    <input type="submit" id="addBtn" class="addBtn">
-                                  </div>
-                                
-                                  
+                                    <input type="button"  class="addBtn">Add2</input>
+                                </div>
+                              </form>
+
+
                                   <ul id="myUL">
-                                    <c:forEach items="${selectTodo}" var="temp">
-                                    
-                                    <li class="a aLine" value="${temp.hSeq}"><span>${temp.todos}</span><span>${temp.todos}</span><span class='date'>${temp.todoTime}</span></li>
-                                    
-                                    </c:forEach>
                                   </ul>
                             
                                   <div class="button_area">
-
                                     <div>
-                                      
-                                    <button class="btn red" id="updateTodo" >완료</button>
-                                      <button class="btn red" id="deleteTodo">삭제</button>
-
+                                      <button onclick="deleteHref();" class="ui grey button">삭제</button>
+                                      <button onclick="endHref();" class="ui brown button">완료</button>
                                     </div>
-
                                   </div>
-                               
-                                </form>
+                                </div>
                                 
-                                <form action="selectCompletion" id="completion" method="post" style="margin-left: 20px;">
+                                
                                 <!-- 오른쪽 박스 -->
                                 <div>
                                   <div id="myDIV2" class="header2">
@@ -419,15 +370,8 @@
                                   </div>
                             
                                   <ul id="myUL2">
-                                    <c:forEach items="${completion}" var="com">
-                                    
-                                    <li class="a checked aLine" value="${com.hSeq}" style="max-height: 30px;"><span>${com.todos}</span><span class='date'>${com.todoTime}</span></li>
-                                    </c:forEach>
-                                  </ul>
                                   </ul>
                                 </div>
-                                </form>
-                            </div>
                             </div>
                         </div>
                         
@@ -505,8 +449,8 @@
     <script src="../assets/js/swiper-bundle.min.js"></script>
     <script src="../assets/js/price-ranger.js"></script>
     <script src="../assets/js/web3.min.js"></script>
-   <script src="../assets/js/moralis.js"></script>
-   <script src="../assets/js/nft.js"></script>
+	<script src="../assets/js/moralis.js"></script>
+	<script src="../assets/js/nft.js"></script>
     <script src="../assets/js/todo.js"></script>
 
 

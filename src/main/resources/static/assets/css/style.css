@@ -1420,6 +1420,7 @@ header{
     z-index: 100;
     height: 80px;
     width: 100%;
+    background: #fff;
     border-bottom: 1px solid rgba(235, 235, 235, 0.2);
     -webkit-transition: all 0.5s ease;
     -moz-transition   : all 0.5s ease;
@@ -1427,6 +1428,12 @@ header{
     -o-transition     : all 0.5s ease;
     transition        : all 0.5s ease;
 }
+/*추가*/
+.is_dark .header_1 {
+    box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
+    background: unset;
+}
+
 .item .header_1 {
     position: fixed !important;
     top: 0 !important;
@@ -2571,13 +2578,17 @@ header{
     font-weight: bold;
 }
 
+
+/* <선아야 왜 지웠니?> */
 .widget-logo .logo-footer {
     margin-bottom: 13px;
 }
 
+/* <선아야 왜 추가했니>?*/
 .widget-logo .sub-widget-logo {
     padding-right: 35px;
     margin-bottom: 26px;
+    /*margin-top: -28px;*/
 }
 
 /* widget-social */
@@ -3453,3 +3464,56 @@ span.type::after {
     50% { opacity:0; }
     100% { opacity:1; }
 }
+
+/*<선아가 추가했다>*/
+/* .toggle {
+    position: relative;
+    display: inline-block;
+}
+.toggle input {
+    display: none;
+}
+.toggle label {
+    display: block;
+    width: 48px;
+    height: 24px;
+    text-indent: -5000%; /* 라벨 텍스트 왼쪽으로 이동*/
+    user-select: none; /* 라벨 텍스트 선택 차단 */
+/* }
+.toggle label::before,
+.toggle label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    cursor: pointer;
+} */
+/* .toggle label::before { /* 배경 */
+    /* width: 100%;
+    height: 100%;
+    background-color: #dedede;
+    border-radius: 1em;
+    -webkit-transition: background-color 0.25s ease;
+    transition: background-color 0.25s ease; //배경색 애니메이션 
+} 
+.toggle label::after { //스위치
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.45);
+    -webkit-transition: left 0.25s ease;
+    transition: left 0.25s ease; //스위치 이동 애니메이션
+}
+.toggle input:checked + label::before {
+    background-color: skyblue; //켠 상태 배경색
+}
+.toggle input:checked + label::after { //켠 상태 스위치 위치
+    left: 24px;
+}
+
+.is_dark .mine {
+   background: #14141f;
+}  */
+/* <여기까지> */

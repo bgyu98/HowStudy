@@ -43,77 +43,69 @@ public class UserController {
 	// 로그인
 	@RequestMapping(value = "loginCustomer")
 	public String loginCustomer(UserVO vo, HttpSession session, Model m) {
-		System.out.println("로그인:" + vo); // 로그인 할 때 생성되는 vo
+		System.out.println("로그인:" + vo);    //로그인 할 때 생성되는 vo 
 		UserVO loginResult = userService.loginCustomer(vo);
-		System.out.println("로그인22:" + loginResult); // 서비스 거쳐서 만들어진 vo
-		if (loginResult != null) { // 로그인 성공
+		System.out.println("로그인22:" + loginResult);  //서비스 거쳐서 만들어진 vo
+		if (loginResult != null ) { // 로그인 성공
 			session.setAttribute("loginId", loginResult.getmId());
 			session.setAttribute("loginPass", loginResult.getmPw());
 			session.setAttribute("loginEmail", loginResult.getmEmail());
-
-			return "redirect:../studyRoom/study";
-		} else if (vo.getmId() != null) {
-			if (vo.getmId().equals("admin")) {
+			return "studyRoom/study";
+		}else if (vo.getmId() != null){
+			if( vo.getmId().equals("admin") ){
 				System.out.println("관리자 로그인");
 				return "redirect:../admin/adminMain";
 			}
-		} else {
+		}else {
 			// 로그인 실패
 			session.setAttribute("sok", 5);
 		}
-		return "user/login";
+		return "user/login";  
 	}
 
+	//로그아웃
+	  @RequestMapping(value="logout")
+	     public String logout(HttpServletRequest request,  Model m) {
+	         System.out.println("로그아웃");
+	        HttpSession session = request.getSession(true);
+	        session.invalidate();
+	        return "studyRoom/study";
+	     }
 	
-
-	// 아이디 중복체크
-	@RequestMapping(value = "mIdCheck")
-	@ResponseBody
-	public int mIdCheck(String mId) {
-		int result = userService.mIdCheck(mId);
-		System.out.println("중복체크-------------" + result);
-		return result;
-	}
-
-	// 카카오 회원가입, 로그인
-
-	@RequestMapping(value = "/kakaoLogin", method = RequestMethod.GET)
-	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, HttpSession session) throws Exception {
-		System.out.println("####code#### : " + code);
-
-		String access_Token = userService.getAccessToken(code);
-		System.out.println("###access_Token#### : " + access_Token);
+	  
+	//아이디 중복체크
+	  @RequestMapping(value="mIdCheck")
+	  @ResponseBody
+	  public int mIdCheck(String mId) {
+	  	int result = userService.mIdCheck(mId);
+	   System.out.println("중복체크-------------" +result);
+	  	return result;
+	  }
+	  
+	  
+	  //카카오 회원가입, 로그인
+	  
+	  @RequestMapping(value="/kakaoLogin", method=RequestMethod.GET)
+		public String kakaoLogin(@RequestParam(value = "code", required = false) String code) throws Exception {
+			System.out.println("#########" + code);
+			
+			String access_Token = userService.getAccessToken(code);
+			HashMap<String, Object> userInfo = userService.getUserInfoo(access_Token);
+			
+			System.out.println("###access_Token#### : " + access_Token);
+			System.out.println("###nickname#### : " + userInfo.get("nickname"));
+			//System.out.println("###email#### : " + userInfo.get("email"));
 		
-		UserVO userInfo = userService.getUserInfoo(access_Token);
-		System.out.println("###nickname#### : " + userInfo.getmId());
-	    System.out.println("###email#### : " + userInfo.getmEmail());
+				
+			return "studyRoom/study";
+			/*
+			 * 리턴값의 testPage는 아무 페이지로 대체해도 괜찮습니다.
+			 * 없는 페이지를 넣어도 무방합니다.
+			 * 404가 떠도 제일 중요한건 #########인증코드 가 잘 출력이 되는지가 중요하므로 너무 신경 안쓰셔도 됩니다.
+			 */
+	    	}
 
-		 //    클라이언트의 아이디가 존재할 때 세션에 해당 아이디와 이메일 토큰 등록
-	        if (userInfo.getmId() != null) {
-	            session.setAttribute("loginId", userInfo.getmId());
-	            session.setAttribute("loginEmail", userInfo.getmEmail());
-	            session.setAttribute("access_Token", access_Token);
-	        }
-		 
-		return "redirect:../studyRoom/study";
-		/*
-		 * 리턴값의 testPage는 아무 페이지로 대체해도 괜찮습니다. 없는 페이지를 넣어도 무방합니다. 404가 떠도 제일 중요한건
-		 * #########인증코드 가 잘 출력이 되는지가 중요하므로 너무 신경 안쓰셔도 됩니다.
-		 */
-	}
-	
-	// 로그아웃
-	   @RequestMapping(value = "logout")
-	   public String logout(HttpServletRequest request, Model m) {
-	      System.out.println("로그아웃");
-	      HttpSession session = request.getSession(true);
-	      session.invalidate();
-	      return "redirect:../index";
-	   }
-	
-
-	
-	// 회원정보 조회
+			// 회원정보 조회
 	@RequestMapping("/modifyAccount")
 	public void myPage(String mId, Model m) {
 		UserVO vo = userService.getUserInfo(mId);
@@ -144,5 +136,9 @@ public class UserController {
 		}
 
 	}
+
+		
+
+
 
 }

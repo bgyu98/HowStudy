@@ -74,7 +74,7 @@
                           <ul class="sub-menu">
                             <li class="menu-item"><a href="../study/record">RECORD</a></li>
                             <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
-                            <li class="menu-item"><a href="../study/todo">TO-DO</a></li>
+                            <li class="menu-item"><a href="../study/todo?mId=${sessionScope.loginId}">TO-DO</a></li>
                             <li class="menu-item"><a href="../study/note">NOTE</a></li>
                           </ul>
                         </li>

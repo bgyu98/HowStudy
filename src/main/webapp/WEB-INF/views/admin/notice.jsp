@@ -201,21 +201,35 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                       </tr>
                     </tfoot>
                     <tbody>
-                      <tr>
-                        <td>${vo.notify_seq }</td>
-                        <td>${vo.notify_title }</td>
-                        <td>${vo.nDate }</td>
-                        <td style="text-align: center">
-                          <a href="../admin/modifyNotice" class="btn btn-info btn-circle btn-sm">
-                            <i class="fas fa-info-circle"></i>
-                          </a>
-                        </td>
-                        <td style="text-align: center">
-                          <a href="../admin/deleteNotic" class="btn btn-danger btn-circle btn-sm">
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
+                      <c:forEach items="${noticeContent}" var="noticevo">
+                        <tr>
+                          <td>
+                            <a href="../board/noticesangse?nNUM=${noticevo.nNUM}"
+                              >${noticevo.nNUM}</a
+                            >
+                          </td>
+                          <td>
+                            <a href="../board/noticesangse?nNUM=${noticevo.nNUM}"
+                              >${noticevo.nTITLE}</a
+                            >
+                          </td>
+                          <td>
+                            <a href="../board/noticesangse?nNUM=${noticevo.nNUM}"
+                              >${noticevo.nDATE}</a
+                            >
+                          </td>
+                          <td style="text-align: center">
+                            <a href="../admin/modifyNotice" class="btn btn-info btn-circle btn-sm">
+                              <i class="fas fa-info-circle"></i>
+                            </a>
+                          </td>
+                          <td style="text-align: center">
+                            <a href="../admin/deleteNotic" class="btn btn-danger btn-circle btn-sm">
+                              <i class="fas fa-trash"></i>
+                            </a>
+                          </td>
+                        </tr>
+                      </c:forEach>
                     </tbody>
                   </table>
                 </div>

@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
   <!--<![endif]-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
@@ -490,63 +491,18 @@
                 </h5>
               </div>
               <div class="col-md-12">
+                <c:forEach items ="${faqlist}" var="faqvo">
                 <div class="flat-accordion2">
                   <div class="flat-toggle2">
-                    <h6 class="toggle-title active">
-                      베이직 요금제와 프리미엄 요금제의 차이는 무엇인가요?
-                    </h6>
+                    <h6 class="toggle-title">${faqvo.fTITLE}</h6>
                     <div class="toggle-content">
                       <p>
-                        프리미엄 요금제의 경우, 프리미엄 전용 서버로 이용 가능하여 공부기록,
-                        메타버스 커뮤니티 등 다양한 특전 중 엄선한 인기있는 모든 기능을 이용할 수
-                        있습니다.
+                        ${faqvo.fCOMMENT}
                       </p>
                     </div>
                   </div>
-                  <div class="flat-toggle2">
-                    <h6 class="toggle-title">Customer support is available ?</h6>
-                    <div class="toggle-content">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flat-toggle2">
-                    <h6 class="toggle-title">How do I find my transaction hash?</h6>
-                    <div class="toggle-content">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flat-toggle2">
-                    <h6 class="toggle-title">What are gas fees on Axies?</h6>
-                    <div class="toggle-content">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flat-toggle2">
-                    <h6 class="toggle-title">What is the effective staking amount?</h6>
-                    <div class="toggle-content">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation.Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod.
-                      </p>
-                    </div>
-                  </div>
+
+                  </c:forEach>
                 </div>
               </div>
             </div>

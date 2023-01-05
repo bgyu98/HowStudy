@@ -59,31 +59,31 @@
             <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>공지사항 등록</b></h1>
 
             <!-- faq 입력 폼 -->
-            <form action="../admin/insertFaq" method="post" enctype="multipart/form-data" id="insertFaq">
+            <form action="insertNotice" method="post" enctype="multipart/form-data" id="insertFaq">
               <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
                   <div class="card-header py-3">
                       <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
                   </div>
                   <div class="card-body" style="margin-left:15px;">
                       <div class="inputTitle">
-                          <input type="text" name="faq_title" style="width: 70%;" placeholder="메인 제목"/>
+                          <input type="text" name="nTITLE" style="width: 70%;" placeholder="메인 제목"/>
                       </div>
                       <hr />
                   <div>
                     상세 설명
-                    <textarea style="width: 100%; height: 300px" name="notify_content"></textarea>
+                    <textarea style="width: 100%; height: 300px" name="nCOMMENT"></textarea>
                   </div>
                       <hr/>
                       <div>
-                          <label> 이미지 업로드 </label> <input type="file" name="file"/>
+                          <label> 이미지 업로드 </label> <input type="file" name="nFILE"/>
                       </div>
                        <div>
-                          <label> 이미지 업로드 </label> <input type="file" name="file1"/>
+                          <label> 이미지 업로드 </label> <input type="file" name="nFILE1"/>
                       </div>
                       <div class="inputHashTag">
-                          <span> <input type="text" name= "faq_tag1" value="#"/> </span>
-                          <span> <input type="text" name= "faq_tag2" value="#"/> </span>
-                          <span> <input type="text" name= "faq_tag3" value="#"/> </span>
+                          <span> <input type="text" name= "nTAG1" value="#"/> </span>
+                          <span> <input type="text" name= "nTAG2" value="#"/> </span>
+                          <span> <input type="text" name= "nTAG3" value="#"/> </span>
                       </div>
                       <div class="recommItems">
                           <table class="recommItemsTbl">
