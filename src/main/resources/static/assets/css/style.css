@@ -2133,7 +2133,11 @@ header{
 .header-search .show-search svg{
     opacity: 1;
 }
-
+/* svg 돋보기 아이콘 색 변경 
+.header-search svg path{
+    fill :red !important;
+}
+*/
 .top-search.show {
     visibility: visible;
     filter    : alpha(opacity=100);

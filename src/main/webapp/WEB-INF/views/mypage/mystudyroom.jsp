@@ -118,7 +118,7 @@
                                                     <path d="M9.67711 2.37312C5.67512 2.37312 2.40072 5.55836 2.40072 9.49903H3.40072C3.40072 6.13174 6.20607 3.37312 9.67711 3.37312V2.37312ZM2.40072 9.49903C2.40072 13.4396 5.67504 16.6257 9.67711 16.6257V15.6257C6.20615 15.6257 3.40072 12.8664 3.40072 9.49903H2.40072ZM9.67711 16.6257C13.6784 16.6257 16.9527 13.4396 16.9527 9.49903H15.9527C15.9527 12.8664 13.1472 15.6257 9.67711 15.6257V16.6257ZM16.9527 9.49903C16.9527 5.5584 13.6783 2.37312 9.67711 2.37312V3.37312C13.1473 3.37312 15.9527 6.1317 15.9527 9.49903H16.9527ZM9.67709 16.8322C5.52595 16.8322 2.16699 13.5316 2.16699 9.49902H1.16699C1.16699 14.1048 4.99484 17.8322 9.67709 17.8322V16.8322ZM2.16699 9.49902C2.16699 5.46656 5.52588 2.16666 9.67709 2.16666V1.16666C4.9949 1.16666 1.16699 4.8932 1.16699 9.49902H2.16699ZM9.67709 2.16666C13.8282 2.16666 17.1864 5.46649 17.1864 9.49902H18.1864C18.1864 4.89327 14.3593 1.16666 9.67709 1.16666V2.16666ZM17.1864 9.49902C17.1864 13.5316 13.8282 16.8322 9.67709 16.8322V17.8322C14.3594 17.8322 18.1864 14.1047 18.1864 9.49902H17.1864Z" fill="white"/>
                                                     </g>
                                                     <mask id="mask1_334_638" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="13" y="13" width="6" height="6">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2012 14.2999H18.3333V18.3333H14.2012V14.2999Z" fill="white" stroke="white"/>
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2012 14.2999H18.3333V18.3333H14.2012V14.2999Z" fill="white" stroke="white" />
                                                     </mask>
                                                     <g mask="url(#mask1_334_638)">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7166 18.3333C17.5596 18.3333 17.4016 18.2746 17.2807 18.1572L14.3823 15.3308C14.1413 15.0952 14.1405 14.7131 14.3815 14.4774C14.6217 14.2402 15.0123 14.2418 15.2541 14.4758L18.1526 17.303C18.3935 17.5387 18.3944 17.9199 18.1534 18.1556C18.0333 18.2746 17.8746 18.3333 17.7166 18.3333Z" fill="white"/>
@@ -176,15 +176,18 @@
                                 <a href="explore-3.html" class="exp style2">즐겨찾기 수정</a>
                             </div>
                         </div>
+
+                        <!-- 즐겨찾기한 목록 방 생성 -->
+
                         <div class="col-md-12">
                             <div class="swiper-container show-shadow carousel9 pad-t-17 auctions">
                                 <div class="swiper-wrapper">
                                     <c:forEach items="${favorRoom}" var = "fr">
                                         <div class="swiper-slide">
-                                            <div class="slider-item">										
+                                            <div class="slider-item">	<!-- item start -->									
                                                 <div class="sc-card-collection style-2 home2">
                                                     <div class="card-header" style="border-radius: 15px;">
-                                                        <h5>${fr.sCategory}</h5>
+                                                        <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
                                                     </div>
                                                     <div class="card-bottom">
                                                         <div class="author">
@@ -195,14 +198,14 @@
                                                                 </div>
                                                             </div>
                                                             <div class="content">
-                                                                <h4><a href="author01.html">${fr.sTitle}</a></h4>
+                                                                <h4><a>${fr.sTitle}</a></h4> <!-- 제목 -->
                                                                 <div class="infor">
                                                                     <span>Created by</span>
-                                                                    <span class="name"><a href="author02.html">${fr.sDate}</a></span>
+                                                                    <span class="name"><a>${fr.mId}</a></span><!-- 작성자 -->
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button>
+                                                        <button class="wishlist-button public heart mg-t-6"><span class="number-like"> 100</span></button> <!-- 즐겨찾기 개수 -->
                                                     </div>
                                                 </div> 		
                                             </div><!-- item-->
@@ -215,6 +218,8 @@
                             </div>  
                         </div>
                     </div>
+
+                     <!-- 즐겨찾기한 목록 방 끝 -->
                 </div>
             </section>
             <!-- favorite section finish-->
@@ -223,6 +228,7 @@
             <!-- visited section start-->
             <section class="tf-section live-auctions home5 style2 bg-style3">
                 <div class="themesflat-container">
+                    <!-- 날짜 선택 select 문-->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-live-auctions">
@@ -236,47 +242,56 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="swiper-container show-shadow carousel6 pad-t-17 auctions">
-                                <div class="swiper-wrapper">
-                                    <c:forEach items="${json1}" var = "js">
+                        <!-- 날짜 선택 끝-->
+
+                        <div class="col-md-12" id="favor">
+                            <div class="swiper-container show-shadow carousel6 pad-t-17 auctions" >
+                                <div class="swiper-wrapper" >
+                                    <c:forEach items="${favorRoom}" var = "fr" >
                                     <div class="swiper-slide">
                                         <div class="slider-item">										
                                             <div class="sc-card-product menu_card style2">
+                                                
                                                 <div class="card-media style2">
-                                                    <a href="item-details.html"><img src="assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                                    <div class="featured-countdown style2">
-                                                        <span class="slogan"></span>
-                                                        <span class="js-countdown" data-timer="516400" data-labels=" :  ,  : , : , "></span>
-                                                    </div>
-                                                    <div class="button-place-bid">
-                                                        <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style-place-bid style bag fl-button pri-3"><span>Place Bid</span></a>
-                                                    </div>
+                                                    
+                                                    <a href="item-details.html"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <button class="wishlist-button heart">
+                                                        <span class="number-like"> 100</span> <!-- 즐겨찾기 개수 -->
+                                                    </button>
+                                                   
+                                                    
                                                 </div>
+                                                
                                                 <div class="card-title">
-                                                    <h3><a href="item-details.html">${js.sTitle}</a></h3>
-                                                    <div class="tags">bsc</div>
+                                                    <h3><a href="item-details.html">${fr.sTitle}</a></h3> <!-- 제목 -->
+                                                    <div class="tags">${fr.sCategory}</div>
                                                 </div>
+
                                                 <div class="meta-info style2">
                                                     <div class="author">
                                                         <div class="avatar">
-                                                            <img src="assets/images/avatar/avt-28.jpg" alt="Image">
+                                                            <img src="../assets/images/avatar/avt-28.jpg" alt="Image">
                                                         </div>
+                                                        
                                                         <div class="info">
                                                             <span>Creator</span>
-                                                            <h4> <a href="author02.html">${js.sDate}
+                                                            <h4> <a >${fr.mId} <!-- 로그인아이디 -->
                                                             </a> </h4>
                                                         </div>
+
                                                     </div>
-                                                    <div class="price">
-                                                        <span>Current Bid</span>
-                                                        <h5> 4.89 ETH</h5>
+
+                                                    <div class="fdate">
+                                                        <span>Date</span>
+                                                        <h5> ${fr.sDate}</h5>       <!-- 날짜-->
                                                     </div>
+
                                                 </div>
+
                                             </div>    	
                                         </div><!-- item-->
                                     </div>
+
                                 </c:forEach>
                                 </div>
                                 <div class="swiper-pagination mg-t-13"></div>

@@ -1,23 +1,34 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
   <!--<![endif]-->
   <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  <!--<![endif]-->
+  <!-- 한글 깨짐 방지-->
+  <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
+
 
   <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+    <meta charset="utf-8" />
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
     <title>Axies | NFT Marketplace HTML Template</title>
 
     <meta name="author" content="themesflat.com" />
+    <meta name="author" content="themesflat.com" />
 
     <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" / />
 
     <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
 
     <!-- Favicon and Touch Icons  -->
@@ -32,8 +43,10 @@
   </head>
 
   <body class="body header-fixed is_dark">
+  <body class="body header-fixed is_dark">
     <!-- preloade -->
     <div class="preload preload-container">
+      <div class="preload-logo"></div>
       <div class="preload-logo"></div>
     </div>
     <!-- /preload -->
@@ -106,13 +119,13 @@
                             </button>
                           </c:if>
                         </li>
-
-
                       </ul>
                     </nav>
                     <!-- /#main-nav -->
                     <!-- /#main-nav -->
                  
+
+                    
 
                     <div class="flat-search-btn flex">
                       <div class="header-search flat-show-search" id="s1">
@@ -239,6 +252,9 @@
                               <a target="_blank" class="my-menu-list-item-btn"  href="../user/logout">로그아웃</a>
                               </c:if>
                             </li> 
+
+                           
+                          </ul>
                           </div>
                         </div>
                       </div>
@@ -447,7 +463,7 @@
 
         <!-- title page -->
 
-        <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
+        <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0">
           <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
           <div class="themesflat-container">
@@ -1683,8 +1699,8 @@
           </div>
         </section>
 
-         <!-- Footer -->
-         <footer id="footer" class="clearfix">
+        <!-- Footer -->
+        <footer id="footer" class="clearfix">
           <div class="themesflat-container">
             <div class="row">
               <div class="col-lg-3 col-md-12 col-12">
@@ -1748,18 +1764,31 @@
               <div class="col-lg-3 col-md-6 col-sm-7 col-12">
                 <div class="widget widget-subcribe">
                   <h5 class="title-widget">언어</h5>
-                <div id="google_translate_element" style="display:none;"></div>
-                  <!-- "새 번역 링크 UI" -->
-                  <div class="language">
-                  <ul class="translation-links">
-                    <li><a href="javascript:void(0)" class="Korean" data-lang="ko"><span class="flag ko">한국어</span></a></li>
-                    <li><a href="javascript:void(0)" class="english" data-lang="en"><span class="flag en">영어</span></a></li>
-                    <li><a href="javascript:void(0)" class="spanish" data-lang="zh-CN"><span class="flag zh-CN">중국어</span></a></li>
-                    <li><a href="javascript:void(0)" class="japanese" data-lang="ja"><span class="flag ja">일본어</span></a></li>
-                  </ul>
-                </div>
+                  <div class="form-subcribe">
+                    <ul class="footer-menu-1depth-group langSelectArea">
+                      <li class="footer-menu-2depth">
+                        <select class="langSelect">
+                          <option value="ko">Korea</option>
+                          <option value="en">English</option>
+                        </select>
+                      </li>
+                    </ul>
                   </div>
+                  <div class="widget-social style-1 mg-t32">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                      </li>
 
+                      <li>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                      </li>
+
+                      <li class="mgr-none">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
