@@ -1419,6 +1419,7 @@ header{
     position: absolute;
     z-index: 100;
     height: 80px;
+    background: #fff;
     width: 100%;
     /* 누나 이거 왜 지웠어요 */
     /* background: #fff; */
@@ -1429,13 +1430,11 @@ header{
     -o-transition     : all 0.5s ease;
     transition        : all 0.5s ease;
 }
-
-/*선아야 왜 삭제했어*/
+/*추가*/
 .is_dark .header_1 {
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
     background: unset;
 }
-
 
 .item .header_1 {
     position: fixed !important;
@@ -2582,11 +2581,12 @@ header{
 }
 
 
-/* 누나 이거 왜 추가했어요? */
+/* <선아야 왜 지웠니?> */
 .widget-logo .logo-footer {
     margin-bottom: 13px;
 }
 
+/* <선아야 왜 추가했니>?*/
 .widget-logo .sub-widget-logo {
     padding-right: 35px;
     margin-bottom: 26px;

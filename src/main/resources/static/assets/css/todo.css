@@ -146,7 +146,7 @@ input {
   background-color: #bbb;
 }
 
-
+/*추가한거*/
 .aLine:after {
 content: "";
   position: absolute;
