@@ -40,26 +40,28 @@ public class UserServiceImpl implements UserService {
 	public int mIdCheck(String mId) {
 		return userDAO.mIdCheck(mId);
 	}
+
 	// 회원정보 수정
 	public int updateCustomer(UserVO vo) {
 		return userDAO.updateCustomer(vo);
 	}
-	//회원정보 가져오기
+
+	// 회원정보 가져오기
 	public UserVO getUserInfo(String mId) {
 		return userDAO.getUserInfo(mId);
 
 	}
-	
-	//회원정보 삭제
+
+	// 회원정보 삭제
 	public int deleteInfo(UserVO vo) {
-		System.out.println("deleteServiceImpl=>"+ vo);
+		System.out.println("deleteServiceImpl=>" + vo);
 		return userDAO.deleteInfo(vo);
 	}
-	
+
 	// 회원 정보 삭제를 위한 비밀번호 체크
 	public boolean checkPw(String mId, String mPw) {
 		System.out.println("checkPw=>" + mId + mPw);
-			return userDAO.checkPw(mId,mPw);
+		return userDAO.checkPw(mId, mPw);
 	}
 
 	// 카카오 회원가입, 로그인
@@ -81,10 +83,8 @@ public class UserServiceImpl implements UserService {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
 			StringBuilder sb = new StringBuilder();
 			sb.append("grant_type=authorization_code");
-
-			sb.append("&client_id=d1c0195fc59220d458f0c41370aa7c5a"); // 본인이 발급받은 key
+			sb.append("&client_id=60fba32f81035c06fdb413a6e0d5bf99"); // 본인이 발급받은 key
 			sb.append("&redirect_uri=http://localhost:8888/user/kakaoLogin"); // 본인이 설정한 주소
-
 			sb.append("&code=" + authorize_code);
 			bw.write(sb.toString());
 			bw.flush();
@@ -121,38 +121,66 @@ public class UserServiceImpl implements UserService {
 		return access_Token;
 	}
 
-	public HashMap<String, Object> getUserInfoo(String access_Token) {
-		
+	public UserVO getUserInfoo(String access_Token) {
+
+		// 요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
 		HashMap<String, Object> userInfo = new HashMap<String, Object>();
-		
+
 		String reqURL = "https://kapi.kakao.com/v2/user/me";
-		
+
 		try {
 			URL url = new URL(reqURL);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
+
+			// 요청에 필요한 Header에 포함될 내용
 			conn.setRequestProperty("Authorization", "Bearer " + access_Token);
+
 			int responseCode = conn.getResponseCode();
 			System.out.println("responseCode : " + responseCode);
+			
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			
 			String line = "";
 			String result = "";
+			
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
 			System.out.println("response body : " + result);
+			
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
+			
 			JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
 			JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+			
 			String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-			//String email = kakao_account.getAsJsonObject().get("email").getAsString();
+			String email = kakao_account.getAsJsonObject().get("email").getAsString();
+			
 			userInfo.put("nickname", nickname);
-			//userInfo.put("email", email);
+			userInfo.put("email", email);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return userInfo;
+		// catch 아래 코드 추가.
+		
+		UserVO result = userDAO.findkakao(userInfo);
+		// 위 코드는 먼저 정보가 저장되있는지 확인하는 코드.
+		System.out.println("S:" + result);
+		if (result == null) {
+			// result가 null이면 정보가 저장이 안되있는거므로 정보를 저장.
+			userDAO.kakaoinsert(userInfo);
+			// 위 코드가 정보를 저장하기 위해 Repository로 보내는 코드임.
+			return userDAO.findkakao(userInfo);
+			// 위 코드는 정보 저장 후 컨트롤러에 정보를 보내는 코드임.
+			// result를 리턴으로 보내면 null이 리턴되므로 위 코드를 사용.
+		} else {
+			return result;
+		}
+
 	}
+
 
 }

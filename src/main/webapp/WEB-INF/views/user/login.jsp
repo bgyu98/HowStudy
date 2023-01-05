@@ -5,6 +5,7 @@
 <!--<![endif]-->
 <!-- 한글 깨짐 방지-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
     <!-- Basic Page Needs -->
@@ -358,11 +359,10 @@
                                     <h5>Login with social</h5>
                                 </div>
                                 <ul>
-                                    <li>
-        
-                                  <a href="https://kauth.kakao.com/oauth/authorize?client_id=d1c0195fc59220d458f0c41370aa7c5a&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code" class="sc-button style-2 fl-button pri-3">
+                                    <li> 
+                                  <a href="https://kauth.kakao.com/oauth/authorize?client_id=60fba32f81035c06fdb413a6e0d5bf99&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code" class="sc-button style-2 fl-button pri-3" >
                                             <i class="icon-fl-facebook"></i>
-                                            <span>KAKAO</span>
+                                            <span>KAKAO login</span>
                                         </a>
                                     </li>
                                     <li>

@@ -1,5 +1,4 @@
 
-
 $(document).ready(function() {
 
 	//회원가입시 아이디 유효성 검사
@@ -55,11 +54,11 @@ $(document).ready(function() {
 		$('#chkNotice2').html('');
 
 		let mPw = $('#mPw').val();
-		let mPwchk = /^[a-zA-Z0-9]{8,16}$/
+		let mPwchk = /(?=.*[0-9])(?=.*[a-z])(?=.*\W)(?=\S+$).{8,16}/
 
 
 		if (!mPwchk.test(mPw)) {
-			$("#chkNotice2").html('8~16자 영문 대 소문자, 숫자를 사용하세요.<br><br>')
+			$("#chkNotice2").html('8~16자 소문자, 숫자, 특수문자를 사용하세요.<br><br>')
 			$("#chkNotice2").css('color', '#dc3545');
 			$('#mPw').focus()
 			return false
@@ -155,4 +154,4 @@ $(document).ready(function() {
 
 
 
-}); //end of function  
+}); //end of function 

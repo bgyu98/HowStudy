@@ -5,7 +5,7 @@
   <!--<![endif]-->
   <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
@@ -1854,7 +1854,6 @@
       $("#mypage1").click(function () {
         $(".my-profile-layer").toggle();
       });
-
       $("#mypage2").click(function () {
         $(".my-profile-layer").toggle();
       });
