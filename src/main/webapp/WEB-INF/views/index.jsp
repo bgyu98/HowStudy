@@ -49,7 +49,7 @@
                             <p class="sub-heading mg-t-7 mg-bt-39">Marketplace for monster character cllections non fungible token NFTs
                             </p>
                             <div class="flat-bt-slider style2 flex">
-                                <a href="study" class="sc-button header-slider style style-1 rocket fl-button pri-1"><span>스터디룸
+                                <a href="studyRoom/study" class="sc-button header-slider style style-1 rocket fl-button pri-1"><span>스터디룸
                                 </span></a>
                                 <a href="#" class="sc-button header-slider style style-1 note fl-button pri-1"><span>이용가이드
                                 </span></a>

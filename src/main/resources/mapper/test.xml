@@ -4,8 +4,10 @@
 
 <mapper namespace="com.example.demo.dao.TestDAO">
 	<select id="getTest" resultType="TestVO" parameterType="TestVO">
+
 		select *
 		from MEMBER
+
 	</select>
 
 </mapper>

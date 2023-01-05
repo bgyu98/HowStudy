@@ -332,13 +332,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="page-title-heading mg-bt-12">
-                                <h1 class="heading text-center">Create Item</h1>
+                                <h1 class="heading text-center">스터디룸 생성</h1>
                             </div>
                             <div class="breadcrumbs style2">
                                 <ul>
                                     <li><a href="/index">Home</a></li>
-                                    <li><a href="#">Pages</a></li>
-                                    <li>Create Item</li>
                                 </ul>
                             </div>
                         </div>
@@ -348,147 +346,81 @@
 
             <div class="tf-create-item tf-section">
                 <div class="themesflat-container">
-                    <div class="row">
-                         <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-                             <h4 class="title-create-item">Preview item</h4>
-                            <div class="sc-card-product">
-                                <div class="card-media">
-                                    <a href=""><img src="assets/images/box-item/image-box-6.jpg" alt="Image"></a>
-                                    <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                                    <div class="featured-countdown">
-                                        <span class="slogan"></span>
-                                        <span class="js-countdown" data-timer="716400" data-labels=" :  ,  : , : , "></span>
-                                    </div>
-                                </div>
-                                <div class="card-title">
-                                    <h5><a href="item-details.html">"Cyber Doberman #766”</a></h5>
-                                    <div class="tags">bsc</div>
-                                </div>
-                                <div class="meta-info">
-                                    <div class="author">
-                                        <div class="avatar">
-                                            <img src="assets/images/avatar/avt-9.jpg" alt="Image">
-                                        </div>
-                                        <div class="info">
-                                            <span>Owned By</span>
-                                            <h6> <a href="author02.html">Freddie Carpenter</a></h6>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span>Current Bid</span>
-                                        <h5> 4.89 ETH</h5>
-                                    </div>
-                                </div>
-                                <div class="card-bottom">
-                                    <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style bag fl-button pri-3"><span>Place Bid</span></a>
-                                    <a href="activity1.html" class="view-history reload">View History</a>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="col-xl-9 col-lg-6 col-md-12 col-12">
+                   
+                         <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                              <div class="form-create-item">
-                                 <form action="#">
-                                    <h4 class="title-create-item">Upload file</h4>
-                                    <label class="uploadFile">
-                                        <span class="filename">PNG, JPG, GIF, WEBP or MP4. Max 200mb.</span>
-                                        <input type="file" class="inputfile form-control" name="file" >
-                                    </label>
-                                 </form>
                                 <div class="flat-tabs tab-create-item">
-                                    <h4 class="title-create-item">Select method</h4>
-                                    <ul class="menu-tab tabs">
-                                        <li class="tablinks active"><span class="icon-fl-tag"></span>Fixed Price</li>
-                                        <li class="tablinks"><span class="icon-fl-clock"></span>Time Auctions</li>
-                                        <li class="tablinks"><span class="icon-fl-icon-22"></span>Open For Bids</li>
-                                    </ul>
                                     <div class="content-tab">
                                         <div class="content-inner">
-                                                <form action="#">
-                                                    <h4 class="title-create-item">Price</h4>
-                                                    <input type="text" placeholder="Enter price for one item (ETH)">
+                                                <form action="insertRoom" method="post">
+                                                    <h2 class="title-create-item">스터디 만들기</h2><div><br/><br/>
+                                                    <input type="hidden" id="mId" name="mId">
+                                                    <h4 class="title-create-item">스터디 이름</h4>
+                                                    <input type="text" placeholder="제목을 입력 해 주세요" name="sTitle" id="sTitle">
     
-                                                    <h4 class="title-create-item">Title</h4>
-                                                    <input type="text" placeholder="Item Name">
-    
-                                                    <h4 class="title-create-item">Description</h4>
-                                                    <textarea placeholder="e.g. “This is very limited item”"></textarea>
-    
-                                                    <div class="row-form style-3">
-                                                        <div class="inner-row-form">
-                                                            <h4 class="title-create-item">Royalties</h4>
-                                                            <input type="text" placeholder="5%">
-                                                        </div>
-                                                        <div class="inner-row-form">
-                                                            <h4 class="title-create-item">Size</h4>
-                                                            <input type="text" placeholder="e.g. “size”">
-                                                        </div>
+                                                    <div style="display : inline-block; text-align: left;">
+                                                    <h4 class="title-create-item">카테고리</h4>
                                                         <div class="inner-row-form style-2">
                                                             <div class="seclect-box">
                                                                 <div id="item-create" class="dropdown">
-                                                                    <a href="#" class="btn-selector nolink">Abstraction</a>
-                                                                    <ul >
-                                                                        <li><span>Art</span></li>
-                                                                        <li><span>Music</span></li>
-                                                                        <li><span>Domain Names</span></li>
-                                                                        <li><span>Virtual World</span></li>
-                                                                        <li><span>Trading Cards</span></li>
-                                                                        <li><span>Sports</span></li>
-                                                                        <li><span>Utility</span></li>
+                                                                    <a href="#" class="btn-selector nolink" name="sCtaegoly">선택</a>
+                                                                    <input type="hidden" value="">
+                                                                    <ul class="test">
+                                                                        <li ><span>취업</span></li>
+                                                                        <li><span>독서</span></li>
+                                                                        <li><span>어학</span></li>
+                                                                        <li><span >임용</span></li>
+                                                                        <li><span >공무원</span></li>
+                                                                        <li><span>대학,수능</span></li>
+                                                                        <li><span>자격증</span></li>
+                                                                        <li><span>학교공부</span></li>
+                                                                        <li><span>기타</span></li>
+                                                                        <li><span>코딩</span></li>
+                                                                        <li><span>이직</span></li>
+                                                                        <li><span>자기계발</span></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div><br/><br/>
                                                     </div>
+                                                    <div style="display : inline-block; float: left;"></div>
+                                                    <h4 class="title-create-item">참여인원</h4>
+                                                        <div class="inner-row-form style-2">
+                                                            <div class="seclect-box">
+                                                                <div id="item-create2" class="dropdown">
+                                                                    <a href="#" class="btn-selector nolink">선택</a>
+                                                                    <ul >
+                                                                        <li><span value="1" name="sPeopleNum">1 명</span></li>
+                                                                        <li><span value="2" name="sPeopleNum">2 명</span></li>
+                                                                        <li><span value="3" name="sPeopleNum">3 명</span></li>
+                                                                        <li><span value="4" name="sPeopleNum">4 명</span></li>
+                                                                        <li><span value="5" name="sPeopleNum">5 명</span></li>
+                                                                        <li><span value="6" name="sPeopleNum">6 명</span></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div><br/> 
+                                                    </div>
+                                                    
+                                                    <h4 class="title-create-item">스터디 에티켓</h4>
+                                                    <textarea placeholder="“스터디룸의 에티켓을 정하여 입력해 주세요”" name="sComment" style="height: 240px;" name></textarea>
+                                                    
+                                                    
+                                                    <div class="row-form style-2">
+                                                        <div class="inner-row-form toggle">
+                                                            <h4 class="title-create-item toggle">비밀번호</h4>
+                                                            <div class="toggle" style="margin-left: 26px; margin-bottom:-10%;">
+                                                                <input type="checkbox" name="toggle1" id="toggle1" >
+                                                                <label for="toggle1">스위치</label>
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" id="pass" name="sPw" style="display:none;width:300px;" placeholder="비밀번호를 입력해주세요." >
+                                                    </div>
+                                                    <button id="btn" name="btn" >등록</button>
                                                 </form>
                                         </div>
-                                        <div class="content-inner">
-                                                <form action="#">
-                                                    <h4 class="title-create-item">Minimum bid</h4>
-                                                    <input type="text" placeholder="enter minimum bid">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <h5 class="title-create-item">Starting date</h5>
-                                                            <input type="date" name="bid_starting_date" id="bid_starting_date" class="form-control" min="1997-01-01">
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <h4 class="title-create-item">Expiration date</h4>
-                                                            <input type="date" name="bid_expiration_date" id="bid_expiration_date" class="form-control">
-                                                        </div>
-                                                    </div>
-    
-                                                    <h4 class="title-create-item">Title</h4>
-                                                    <input type="text" placeholder="Item Name">
-    
-                                                    <h4 class="title-create-item">Description</h4>
-                                                    <textarea placeholder="e.g. “This is very limited item”"></textarea>
-                                                </form>
-                                        </div>
-                                        <div class="content-inner">
-                                                <form action="#">
-                                                    <h4 class="title-create-item">Price</h4>
-                                                    <input type="text" placeholder="Enter price for one item (ETH)">
-
-                                                    <h4 class="title-create-item">Minimum bid</h4>
-                                                    <input type="text" placeholder="enter minimum bid">
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <h5 class="title-create-item">Starting date</h5>
-                                                            <input type="date" name="bid_starting_date" id="bid_starting_date2" class="form-control" min="1997-01-01">
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <h4 class="title-create-item">Expiration date</h4>
-                                                            <input type="date" name="bid_expiration_date" id="bid_expiration_date2" class="form-control">
-                                                        </div>
-                                                    </div>
-    
-                                                    <h4 class="title-create-item">Title</h4>
-                                                    <input type="text" placeholder="Item Name">
-    
-                                                    <h4 class="title-create-item">Description</h4>
-                                                    <textarea placeholder="e.g. “This is very limited item”"></textarea>
-                                                </form>
-                                        </div>
+                                       
+                                        
                                     </div>
                                 </div>
                              </div>
@@ -641,6 +573,7 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
+    <script src="../assets/js/test.js"></script>
 
 </body>
 

@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/studyRoom")
-public class studyRoomController {
+@RequestMapping("/meta")
+public class MetaController {
 
+	
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
-		return "studyRoom/" + step;
+		return "meta/" + step;
 	}
-	
 }

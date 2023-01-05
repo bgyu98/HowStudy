@@ -91,18 +91,28 @@
                         <li class="menu-item current-menu-item">
                           <a href="../offline/off">오프라인</a>
                         </li>
+                        <li class="menu-item current-menu-item">
+                          <c:if test="${sessionScope.loginId==null}"> 
+                            <a id="login" class="login"
+                              href="../user/login">로그인</a>  
+                          </c:if>
+                          <c:if test="${sessionScope.loginId!=null}">
+                            <li>
+                              <button id="mypage1" class="mypage">
+                              <img src="../assets/images/icon/usericon.png" alt="" />
+                            </button>
+                            <button id="mypage2" class="mypage" style="width: 30px; height: 30px;">
+                              <img src="../assets/images/icon/drop.png" alt="" />
+                            </button>
+                          </c:if>
+                        </li>
+
+
                       </ul>
                     </nav>
                     <!-- /#main-nav -->
                     <!-- /#main-nav -->
-                    <div class="usericon">
-                      <button id="mypage1" class="mypage">
-                      <img src="../assets/images/icon/usericon.png" alt="" />
-                    </button>
-                    <button id="mypage2" class="mypage" style="width: 30px; height: 30px;">
-                      <img src="../assets/images/icon/drop.png" alt="" />
-                    </button>
-                    </div>
+                 
 
                     <div class="flat-search-btn flex">
                       <div class="header-search flat-show-search" id="s1">
@@ -199,8 +209,8 @@
                             <div class="my-profile-layer-img-area">
                               <img src="../assets/images/icon/usericon.png" align="absleft" class="my-profile-layer-img"></div> 
                               <div class="my-profile-layer-info-tx">
-                                <h5 class="my-profile-layer-info-name" name="mId">이선아</h5> 
-                                <p class="my-profile-layer-info-email">dltjsdk0302@gmail.com</p></div>
+                                <h5 class="my-profile-layer-info-name" name="mId"><%=session.getAttribute("loginId")%> 님 </h5> 
+                                <p class="my-profile-layer-info-email"  name="mEmail"><%=session.getAttribute("loginEmail")%></p></div>
                               </section> 
                               <section class="my-profile-layer-user-grade">
                                 <div class="my-profile-user-grade-container">
@@ -224,7 +234,11 @@
                             </li> <li class="my-menu-list-item move"><a href="/camstudy/user/coupon" class="my-menu-list-item-btn">공부기록</a>
                             </li>
                             </li> <li class="my-menu-list-item move guide"><a href="#" target="_blank" class="my-menu-list-item-btn">이용가이드</a></li> 
-                            <li class="my-menu-list-item logout"><a class="my-menu-list-item-btn">로그아웃</a></li></ul>
+                            <li class="my-menu-list-item move guide">
+                              <c:if test="${sessionScope.loginId!=null}">
+                              <a target="_blank" class="my-menu-list-item-btn"  href="../user/logout">로그아웃</a>
+                              </c:if>
+                            </li> 
                           </div>
                         </div>
                       </div>
@@ -440,7 +454,11 @@
             <div class="row" style="margin-top: 20px;">
               <div class="col-md-12">
                 <div class="heading-live-auctions" style="margin-bottom: -10px">
-                  <h2 class="tf-title pb-39" style="margin-left: 55px;"><%=session.getAttribute("loginId")%>님의 스터디</h2>
+                  <h2 class="tf-title pb-39" style="margin-left: 55px;"> 
+                    <c:if test="${sessionScope.loginId!=null}">
+                      <%=session.getAttribute("loginId")%> 님의 스터디룸
+                    </c:if>
+                  </h2>
                 </div>
               </div>
 

@@ -19,11 +19,12 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/todo.css">
+
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
-
 
 </head>
 
@@ -45,7 +46,7 @@
                                 <div class="wrap-box flex">
                                     <div id="site-logo" class="clearfix">
                                         <div id="site-logo-inner">
-                                            <a href="../../index" rel="home" class="main-logo">
+                                            <a href="../index" rel="home" class="main-logo">
                                               <img
                                                 id="logo_header"
                                                 src="../assets/images/logo/logo01.png"
@@ -89,7 +90,7 @@
                                                 <a href="../offline/off">오프라인</a>
                                             </li> 
                                         </ul>
-                                    </nav><!-- /#main-nav -->    <!-- /#main-nav -->    
+                                    </nav><!-- /#main-nav -->    
                                     <div class="flat-search-btn flex">
                                         <div class="header-search flat-show-search" id="s1">
                                             <a href="#" class="show-search header-search-trigger">
@@ -323,179 +324,114 @@
                 </div>
             </header>
 
-            <!-- Header --> 
-                
-            <!-- title page -->
-            <section class="flat-title-page inner">
-                <div class="overlay"></div>
+            <!-- Header -->      
+            
+            <section class="tf-item tf-section">
                 <div class="themesflat-container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="page-title-heading mg-bt-12">
-                                <h1 class="heading text-center">Login</h1>
-                            </div>
-                            <div class="breadcrumbs style2">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li>Login</li>
+                    <div>
+                        <div >
+                            <div class="flat-tabs items">
+                                <ul class="menu-tab">
+                                    <li><a href="record"><span>RECORD</span></a></li>
+                                    <li><a href="ranking"><span>RANKING</span></a></li>
+                                    <li><a href="todo"><span>TO-DO</span></a></li>
+                                    <li><a href="note"><span>NOTE</span></a></li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>                    
-            </section>
-
-            <section class="tf-login tf-section">
-                <div class="themesflat-container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h2 class="tf-title-heading ct style-1">
-                                로그인
-                            </h2>
-
-                            <div class="flat-form box-login-social">
-                                <div class="box-title-login">
-                                    <h5>Login with social</h5>
-                                </div>
-                                <ul>
-                                    <li>
-        
-                                  <a href="https://kauth.kakao.com/oauth/authorize?client_id=d1c0195fc59220d458f0c41370aa7c5a&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code" class="sc-button style-2 fl-button pri-3">
-                                            <i class="icon-fl-facebook"></i>
-                                            <span>KAKAO</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="sc-button style-2 fl-button pri-3">
-                                            <i class="icon-fl-facebook"></i>
-                                            <span>NAVER</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="flat-form box-login-email">
-                                <div class="box-title-login">
-                                    <h5>Or login with email</h5>
-                                </div>
-
-                                <div class="form-inner">
-                                    <form method="POST" id="insert-customer" action="loginCustomer">
-                                        <input id="mId" name="mId" tabindex="1"  aria-required="true" required type="text" placeholder="아이디" required>
-                                        <input id="mPw" name="mPw" tabindex="3"  aria-required="true" type="password" placeholder="비밀번호" required>
-                                        
-                                        <div class="row-form style-1">
-                                            <a href="#" class="forgot-pass">비밀번호 찾기</a>
-                                        </div>
-                                        <div class="row-form style-1">
-                                            <button class="submit" type="submit" name="submit" style=" margin: auto;">로그인</button>
-                                        </div>
-                                        
-                                        <div class="box-title-login">
-                                            <h5>아직 회원이 아니신가요?</h5>
-                                        </div>
-       
-
-                                     <!--  <button class="submit">Login</button>-->
-                                    </form>
-                                    
+                            </div><br/><br/><br/><br/><br/><br/><br/>
                             
-
-                                    <div class="row-form style-1">
-                                        <button onclick="location.replace('../user/signup');" class="submit" type="submit" name="submit"  style="margin: auto;">가입하기</button>
-                                    </div>
+                            <!-- 조ㅏ측-->
+                            <div id="grid">
+                              <form id="form" action="insertTodo" method="post">
                                 
+                                  <div id="myDIV" class="header">
+                                    <h2>My To Do List</h2>
+                                    <input id="tText" type="text" name="todos" style="width: 200;" placeholder="Title...">
+                                    <input type="button"  class="addBtn">Add2</input>
                                 </div>
+                              </form>
 
+
+                                  <ul id="myUL">
+                                  </ul>
+                            
+                                  <div class="button_area">
+                                    <div>
+                                      <button onclick="deleteHref();" class="ui grey button">삭제</button>
+                                      <button onclick="endHref();" class="ui brown button">완료</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                
+                                <!-- 오른쪽 박스 -->
+                                <div>
+                                  <div id="myDIV2" class="header2">
+                                    <h2>Complete To Do List</h2>
+                                  </div>
+                            
+                                  <ul id="myUL2">
+                                  </ul>
+                                </div>
                             </div>
-
-                          
-
-
-
-
-
                         </div>
+                        
                     </div>
                 </div>
             </section>
-           <!-- Footer -->
-           <footer id="footer" class="clearfix">
-            <div class="themesflat-container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-12 col-12">
-                        <div class="widget widget-logo">
-                            <div class="logo-footer" id="logo-footer">
-                                <a href="index.html">
-                                    <img id="logo_footer" src="assets/images/logo/logo_dark.png" alt="nft-gaming" width="135" height="56"
-                                    data-retina="assets/images/logo/logo_dark@2x.png" data-width="135"
-                                    data-height="56">
-                                </a>
-                            </div>
-                            <p class="sub-widget-logo">Lorem ipsum dolor sit amet,consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-5 col-5">
-                        <div class="widget widget-menu style-1">
-                            <h5 class="title-widget">My Account</h5>
-                            <ul>
-                                <li><a href="author01.html">Authors</a></li>
-                                <li><a href="connect-wallet.html">Collection</a></li>
-                                <li><a href="profile.html">Author Profile</a></li>
-                                <li><a href="create-item.html">Create Item</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-7 col-7">
-                        <div class="widget widget-menu style-2">
-                            <h5 class="title-widget">Resources</h5>
-                            <ul>
-                                <li><a href="help-center.html">Help & Support</a></li>
-                                <li><a href="auctions.html">Live Auctions</a></li>
-                                <li><a href="item-details.html">Item Details</a></li>
-                                <li><a href="activity1.html">Activity</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-sm-5 col-5">
-                        <div class="widget widget-menu fl-st-3">
-                            <h5 class="title-widget">Company</h5>
-                            <ul>
-                                <li><a href="explore-1.html">Explore</a></li>
-                                <li><a href="contact1.html">Contact Us</a></li>
-                                <li><a href="blog.html">Our Blog</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-7 col-12">
-                        <div class="widget widget-subcribe">
-                            <h5 class="title-widget">Subscribe Us</h5>
-                            <div class="form-subcribe">
-                                <form id="subscribe-form" action="#" method="GET" accept-charset="utf-8" class="form-submit">
-                                    <input name="email" value="" class="email" type="email" placeholder="info@yourgmail.com" required>
-                                    <button id="submit" name="submit" type="submit"><i class="icon-fl-send"></i></button>
-                                </form>
-                            </div>
-                            <div class="widget-social style-1 mg-t32">
-                                <ul>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                    
-                                    <li class="style-2"><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                    <li class="mgr-none"><a href="#"><i class="icon-fl-tik-tok-2"></i></a></li>
-                                    <li class="mgr-none"><a href="#"><i class="icon-fl-vt"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+
+            <!-- Footer -->
+        </div>
+        <!-- /#page -->
+
+        <!-- Modal Popup Bid -->
+        <div class="modal fade popup" id="popup_bid_success" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body space-y-20 pd-40">
+                        <h3 class="text-center">Your Bidding
+                            Successfuly Added</h3>
+                        <p class="text-center">your bid <span class="price color-popup">(4ETH) </span> has been listing to our database</p>
+                        <a href="#" class="btn btn-primary"> Watch the listings</a>
                     </div>
                 </div>
             </div>
-            </footer><!-- /#footer -->
-        <!-- Bottom -->
         </div>
-        <!-- /#page -->
+        <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body space-y-20 pd-40">
+                        <h3>Place a Bid</h3>
+                        <p class="text-center">You must bid at least <span class="price color-popup">4.89 ETH</span>
+                        </p>
+                        <input type="text" class="form-control"
+                            placeholder="00.00 ETH">
+                        <p>Enter quantity. <span class="color-popup">5 available</span>
+                        </p>
+                        <input type="text" class="form-control quantity" value="1">
+                        <div class="hr"></div>
+                        <div class="d-flex justify-content-between">
+                            <p> You must bid at least:</p>
+                            <p class="text-right price color-popup"> 4.89 ETH </p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p> Service free:</p>
+                            <p class="text-right price color-popup"> 0,89 ETH </p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <p> Total bid amount:</p>
+                            <p class="text-right price color-popup"> 4 ETH </p>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"> Place a bid</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /#wrapper -->
 
@@ -504,17 +440,18 @@
     <!-- Javascript -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/jquery.easing.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/wow.min.js"></script>
     <script src="../assets/js/plugin.js"></script>
-    <script src="../assets/js/jquery-validate.js"></script>
     <script src="../assets/js/shortcodes.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/count-down.js"></script>
     <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/price-ranger.js"></script>
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
-
-
+    <script src="../assets/js/todo.js"></script>
 
 
 </body>
