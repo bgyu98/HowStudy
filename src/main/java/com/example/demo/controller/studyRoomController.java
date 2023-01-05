@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/studyRoom")
-public class studyRoomController {
+public class StudyRoomController {
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {

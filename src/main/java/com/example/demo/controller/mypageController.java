@@ -20,7 +20,7 @@ import com.google.gson.JsonParser;
 
 @Controller
 @RequestMapping("/mypage")
-public class mypageController {
+public class MypageController {
 
       @Autowired
       private MyStudyService mystudyservice;

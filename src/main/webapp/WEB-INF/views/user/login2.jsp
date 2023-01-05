@@ -7,7 +7,7 @@
 </head>
 <body>
 	<!-- 카카오 로그인 -->
-	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=d1c0195fc59220d458f0c41370aa7c5a&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code">
+	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=60fba32f81035c06fdb413a6e0d5bf99&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code">
 	<!-- REST_API키 및 REDIRECT_URi는 본인걸로 수정하세요 -->
 	<!-- 저는 redirect_uri을 http://localhost:8080/member/kakaoLogin로 했습니다. -->
 	<!-- 본인걸로 수정 시 띄어쓰기 절대 하지 마세요. 오류납니다. -->
