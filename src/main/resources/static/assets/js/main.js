@@ -132,8 +132,8 @@
 
         $(".tf-text").removeClass("style")
         $(".tf-text").addClass("s1")
-        document.getElementById("logo_header").src = "../assets/images/logo/logo01.png";
-        document.getElementById("logo_footer").src = "../assets/images/logo/logo01.png";
+        document.getElementById("logo_header").src = "assets/images/logo/logo_dark.png";
+        document.getElementById("logo_footer").src = "assets/images/logo/logo_dark.png";
         document.getElementById("moon_dark").src = "assets/images/icon/moon-2.png";
     });
 
@@ -145,8 +145,8 @@
 
         $(".tf-text").addClass("style")
         $(".tf-text").removeClass("s1")
-        document.getElementById("logo_header").src = "../assets/images/logo/logo02.png";
-        document.getElementById("logo_footer").src = "../assets/images/logo/logo02.png";
+        document.getElementById("logo_header").src = "assets/images/logo/logo.png";
+        document.getElementById("logo_footer").src = "assets/images/logo/logo2.png";
         document.getElementById("moon_dark").src = "assets/images/icon/moon.png";
     });
 
@@ -277,9 +277,7 @@
               .children("ul")
               .removeAttr("style")
               .hide()
-              .before('<span class="arrow"></span>')
-              ;
-              
+              .before('<span class="arrow"></span>');
           } else {
             $("#main-nav-mobi")
               .attr("id", "main-nav")
