@@ -3,18 +3,40 @@ package com.example.demo.vo;
 import java.util.Date;
 
 public class MyStudyVO {
-	public Integer sNum;
-	public String sTitle;
-	public Integer sPeopleNum;
-	public String sPw;
-	public Date sDate;
-	public String sCategory;
-	public String mId;
-	public Integer checkDate;
+	public Integer sNum;		// 방 번호
+	public String sTitle;		// 방 제목
+	public Integer sPeopleNum;	// 방 허가인원수 
+	public String sPw;			// 방 비밀번호
+	public Date sDate;			// 방 생성 날짜
+	public String sCategory;	// 선호태그
+	public String mId;			// 로그인한 아이디
+	public Integer checkDate; // 선택 기간
+	public Integer sFavorNum; // 즐겨찾기 개수
+	public Integer check;	// 즐겨찾기 클릭 여부 확인용
 	
 	
 	
 	
+	public Integer getCheck() {
+		return check;
+	}
+
+
+	public void setCheck(Integer check) {
+		this.check = check;
+	}
+
+
+	public Integer getsFavorNum() {
+		return sFavorNum;
+	}
+
+
+	public void setsFavorNum(Integer sFavorNum) {
+		this.sFavorNum = sFavorNum;
+	}
+
+
 	public Integer getCheckDate() {
 		return checkDate;
 	}
@@ -48,7 +70,8 @@ public class MyStudyVO {
 	@Override
 	public String toString() {
 		return "MyStudyVO [sNum=" + sNum + ", sTitle=" + sTitle + ", sPeopleNum=" + sPeopleNum + ", sPw=" + sPw
-				+ ", sDate=" + sDate + ", sCategory=" + sCategory + ", mId=" + mId + ", checkDate=" + checkDate + "]";
+				+ ", sDate=" + sDate + ", sCategory=" + sCategory + ", mId=" + mId + ", checkDate=" + checkDate
+				+ ", sFavorNum=" + sFavorNum + ", check=" + check + "]";
 	}
 
 

@@ -1,8 +1,6 @@
 package com.example.demo.vo;
 
-import lombok.Data;
 
-@Data
 public class StudyRoomVO {
 	private Integer sNum;
 	private String mId;

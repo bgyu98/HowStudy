@@ -202,7 +202,7 @@
                                                             </div>
                                                         </div>
                                                         <input type="hidden" value = "${fr.sNum}"/>
-                                                        <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2"><span class="number-like"> 100</span></button> <!-- 즐겨찾기 개수 -->
+                                                        <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2"><span class="number-like">${fr.sFavorNum}</span></button> <!-- 즐겨찾기 개수 -->
                                                         
                                                     </div>
                                                 </div> 		
