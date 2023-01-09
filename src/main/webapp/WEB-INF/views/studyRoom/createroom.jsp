@@ -354,7 +354,8 @@
                                         <div class="content-inner">
                                                 <form action="insertRoom" method="post">
                                                     <h2 class="title-create-item">스터디 만들기</h2><div><br/><br/>
-                                                    <input type="hidden" id="mId" name="mId">
+                                                        
+                                                    <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
                                                     <h4 class="title-create-item">스터디 이름</h4>
                                                     <input type="text" placeholder="제목을 입력 해 주세요" name="sTitle" id="sTitle">
     
@@ -363,9 +364,9 @@
                                                         <div class="inner-row-form style-2">
                                                             <div class="seclect-box">
                                                                 <div id="item-create" class="dropdown">
-                                                                    <a href="#" class="btn-selector nolink" name="sCtaegoly">선택</a>
-                                                                    <input type="hidden" value="">
-                                                                    <ul class="test">
+                                                                    <a href="#" class="btn-selector nolink" id="ct" >선택</a>
+                                                                    <input type="hidden" name="sCategory" id="sCtaegoly" value="">
+                                                                    <ul class="cate">
                                                                         <li ><span>취업</span></li>
                                                                         <li><span>독서</span></li>
                                                                         <li><span>어학</span></li>
@@ -388,14 +389,15 @@
                                                         <div class="inner-row-form style-2">
                                                             <div class="seclect-box">
                                                                 <div id="item-create2" class="dropdown">
-                                                                    <a href="#" class="btn-selector nolink">선택</a>
-                                                                    <ul >
-                                                                        <li><span value="1" name="sPeopleNum">1 명</span></li>
-                                                                        <li><span value="2" name="sPeopleNum">2 명</span></li>
-                                                                        <li><span value="3" name="sPeopleNum">3 명</span></li>
-                                                                        <li><span value="4" name="sPeopleNum">4 명</span></li>
-                                                                        <li><span value="5" name="sPeopleNum">5 명</span></li>
-                                                                        <li><span value="6" name="sPeopleNum">6 명</span></li>
+                                                                    <a href="#" class="btn-selector nolink" id="num">선택</a>
+                                                                    <input type="hidden" name="sPeopleNum" id="sPeopleNum" value="">
+                                                                    <ul class="peopleNum">
+                                                                        <li><span>1 명</span></li>
+                                                                        <li><span>2 명</span></li>
+                                                                        <li><span>3 명</span></li>
+                                                                        <li><span>4 명</span></li>
+                                                                        <li><span>5 명</span></li>
+                                                                        <li><span>6 명</span></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -573,7 +575,7 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
-    <script src="../assets/js/test.js"></script>
+    <script src="../assets/js/studyRoom.js"></script>
 
 </body>
 

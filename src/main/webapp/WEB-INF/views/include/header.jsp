@@ -11,7 +11,7 @@
 <body>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 
-<header id="header_main" class="header_1 js-header">
+  <header id="header_main" class="header_1 js-header">
     <div class="themesflat-container">
       <div class="row">
         <div class="col-md-12">
@@ -19,7 +19,7 @@
             <div class="wrap-box flex">
               <div id="site-logo" class="clearfix">
                 <div id="site-logo-inner">
-                  <a href="index" rel="home" class="main-logo">
+                  <a href="../index" rel="home" class="main-logo">
                     <img
                       id="logo_header"
                       src="../assets/images/logo/logo01.png"
@@ -45,7 +45,7 @@
                     <ul class="sub-menu">
                       <li class="menu-item"><a href="../study/record">RECORD</a></li>
                       <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
-                      <li class="menu-item"><a href="../study/todo">TO-DO</a></li>
+                      <li class="menu-item"><a href="../study/todo?mId=${sessionScope.loginId}">TO-DO</a></li>
                       <li class="menu-item"><a href="../study/note">NOTE</a></li>
                     </ul>
                   </li>
@@ -62,10 +62,29 @@
                   <li class="menu-item current-menu-item">
                     <a href="../offline/off">오프라인</a>
                   </li>
+                  <li class="menu-item current-menu-item">
+                    <c:if test="${sessionScope.loginId==null}"> 
+                      <a id="login" class="login"
+                        href="../user/login">로그인</a>  
+                    </c:if>
+                    <c:if test="${sessionScope.loginId!=null}">
+                      <li>
+                        <button id="mypage1" class="mypage">
+                        <img src="../assets/images/icon/usericon.png" alt="" />
+                      </button>
+                      <button id="mypage2" class="mypage" style="width: 30px; height: 30px;">
+                        <img src="../assets/images/icon/drop.png" alt="" />
+                      </button>
+                    </c:if>
+                  </li>
+
+
                 </ul>
               </nav>
               <!-- /#main-nav -->
               <!-- /#main-nav -->
+           
+
               <div class="flat-search-btn flex">
                 <div class="header-search flat-show-search" id="s1">
                   <a href="#" class="show-search header-search-trigger">
@@ -154,6 +173,47 @@
                     </form>
                   </div>
                 </div>
+                <form name="myPage">
+                <div class="my-profile-layer" style="">
+                  <div class="my-profile-layer-header">
+                    <section class="my-profile-layer-info">
+                      <div class="my-profile-layer-img-area">
+                        <img src="../assets/images/icon/usericon.png" align="absleft" class="my-profile-layer-img"></div> 
+                        <div class="my-profile-layer-info-tx">
+                          <h5 class="my-profile-layer-info-name" name="mId"><%=session.getAttribute("loginId")%> 님 </h5> 
+                          <p class="my-profile-layer-info-email"  name="mEmail"><%=session.getAttribute("loginEmail")%></p></div>
+                        </section> 
+                        <section class="my-profile-layer-user-grade">
+                          <div class="my-profile-user-grade-container">
+                            <h6 class="my-grade-title">등급</h6> 
+                            <div class="my-grade-contents">
+                              <div class="my-grade-tx">프리미엄 회원</div> 
+                              <a href="../shop/ticket" class="purchase-ticket-btn">이용권 구매</a>
+                            </div> 
+                            <div class="ticket-date">~ 2023년 01월 8일</div>
+                          </div>
+                        </section> 
+                </div> 
+                <div class="my-profile-layer-content">
+                  <div class="my-menu-area">
+                    <ul class="my-menu-list">
+                      <li class="my-menu-list-item move">
+                        <a href="../user/modifyAccount?mId=${sessionScope.loginId}" class="my-menu-list-item-btn">내 프로필</a>
+                      </li> 
+                      <li class="my-menu-list-item move">
+                        <a href="/camstudy/user/payment" class="my-menu-list-item-btn">결제내역</a>
+                      </li> <li class="my-menu-list-item move"><a href="/camstudy/user/coupon" class="my-menu-list-item-btn">공부기록</a>
+                      </li>
+                      </li> <li class="my-menu-list-item move guide"><a href="#" target="_blank" class="my-menu-list-item-btn">이용가이드</a></li> 
+                      <li class="my-menu-list-item move guide">
+                        <c:if test="${sessionScope.loginId!=null}">
+                        <a target="_blank" class="my-menu-list-item-btn"  href="../user/logout">로그아웃</a>
+                        </c:if>
+                      </li> 
+                    </div>
+                  </div>
+                </div>
+              </form>
 
                 <div class="admin_active" id="header_admin">
                   <div class="header_avatar">
@@ -190,7 +250,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -202,7 +262,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -214,7 +274,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -226,7 +286,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -238,7 +298,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -253,7 +313,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -265,7 +325,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -282,7 +342,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -294,7 +354,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -306,7 +366,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -321,7 +381,7 @@
                                 <div class="sc-box">
                                   <div class="content">
                                     <div class="avatar">
-                                      <img src="assets/images/avatar/avt-6.jpg" alt="" />
+                                      <img src="../assets/images/avatar/avt-6.jpg" alt="" />
                                     </div>
                                     <div class="infor">
                                       <span class="fw-7">Tyler Covington</span>
@@ -345,12 +405,11 @@
       </div>
     </div>
     <div class="mode_switcher">
-      <h6>Dark mode <strong>Available</strong></h6>
-      <a href="#" class="light d-flex align-items-center">
+      <a href="#" class="light d-flex align-items-center is_active">
         <img src="../assets/images/icon/sun.png" alt="" />
       </a>
       <a href="#" class="dark d-flex align-items-center is_active">
-        <img id="moon_dark" src="../assets/images/icon/moon-2.png" alt="" />
+        <img src="../assets/images/icon/moon.png" alt="" />
       </a>
     </div>
   </header>

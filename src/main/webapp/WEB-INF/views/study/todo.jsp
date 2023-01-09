@@ -28,10 +28,10 @@
     <style>
         .btn{  <!-- 모든 버튼에대한 css설정 -->
           text-decoration: none;
-          font-size:2rem;
+          font-size:14px;
           color:white;
-          padding:10px 20px 10px 20px;
-          margin:20px;
+          padding:5px 8px 5px 8px;
+          margin:13px;
           display:inline-block;
           border-radius: 10px;
           transition:all 0.1s;
@@ -373,14 +373,19 @@
                                     <li><a href="todo"><span>TO-DO</span></a></li>
                                     <li><a href="note"><span>NOTE</span></a></li>
                                 </ul>
-                            </div><br/><br/><br/><br/><br/><br/><br/>
+                            </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><div id="test"  style="border-radius : 75px; margin-left : 400px; margin-right : 400px; background: #f5f7f9; "
+                            ><br/>
                             
                             <!-- 조ㅏ측-->
-                            <div id="grid" style="margin-top: 100px; margin-left: 250px; margin-right: 250px;">
+                            
+                            <div id="grid" style="margin-top: 35px; margin-left: 80px; margin-right: 80px;">
+                                
                                 <form action="insertTodo" id="todoForm" method="post">
+                                    <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
                                   <div id="myDIV" class="header">
                                     <h2>My To Do List</h2>
-                                    <input id="tText" type="text" name="todos" style="width: 200;" placeholder="Title...">
+
+                                    <input id="tText" type="text" name="todos" placeholder="Title...">
                                     <input type="submit" id="addBtn" class="addBtn">
                                   </div>
                                 
@@ -388,7 +393,7 @@
                                   <ul id="myUL">
                                     <c:forEach items="${selectTodo}" var="temp">
                                     
-                                    <li class="a" value="${temp.hSeq}"><span>${temp.todos}</span><span class='date'>${temp.todoTime}</span></li>
+                                    <li class="a" value="${temp.hSeq}"><span>${temp.todos}</span><span>${temp.todos}</span><span class='date'>${temp.todoTime}</span></li>
                                     </c:forEach>
                                   </ul>
                             
@@ -421,6 +426,7 @@
                                   </ul>
                                 </div>
                                 </form>
+                            </div>
                             </div>
                         </div>
                         

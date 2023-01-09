@@ -175,9 +175,10 @@
                     <h3>결제 방식을 선택해주세요</h3>
                     <input id="submitName" type="hidden" name="selectName" value="">
                     <input id="submitPrice" type="hidden" name="selectPrice" value="">
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button" id="kakaoPay"><img src="../assets/images/pay/payment_icon_yellow_medium.png"></button></a>
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button"  id="tossPay"><img src="../assets/images/pay/tosspay.png"></button></a>
-                    <button type="submit">테스트버튼</button>
+                    <input id="submitPayment" type="hidden" name="selectPay" value="">
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button" id="kakaoPay" name="kakaoPay"><img src="../assets/images/pay/payment_icon_yellow_medium.png"></button></a>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button"  id="tossPay" name="tossPay"><img src="../assets/images/pay/tosspay.png"></button></a>
+                    <button id="testbtn" type="submit" name="testbtn">테스트버튼</button>
                 </div>
             </div>
         </div>
@@ -197,7 +198,31 @@
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
+<script script type="text/javascript">
+  $(".room-more-view-btn").click(function () {
+    $("#room-more-list").toggle();
+  });
+</script>
+
+<script type="text/javascript">
+  $("#mypage1").click(function () {
+    $(".my-profile-layer").toggle();
+  });
+
+  $("#mypage2").click(function () {
+    $(".my-profile-layer").toggle();
+  });
+</script>
+
     <script>
+
+      //test
+      $(function(){
+        $("#testbtn").click(function(){
+          var test = $("#testbtn").text();
+          $("#submitPayment").val(test);
+        })
+      })
 
       //결제수단으로 넘어갈때
       $(function(){
@@ -234,6 +259,7 @@
         $("#tossPay").click(function () {
           requestPaytoss();
         }); // end of click function
+        
 
   
 

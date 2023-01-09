@@ -47,11 +47,11 @@ public class HistoryController {
 	// Todo 목록
 	@RequestMapping(value = {"/todo"})
 	public void todo(HistoryVO vo, Model model ) {
-		System.out.println("todoCon확인");
+		System.out.println("todoCon확인" + vo);
 		List<HistoryVO> todolist = historyService.todo(vo);
-		
+		System.out.println(todolist);
 		for(HistoryVO temp : todolist) {
-			System.out.println(temp);
+			System.out.println("확인 : " +temp);
 		}
 		System.out.println("=========================");
 		List<HistoryVO> comlist = historyService.selectCompletion(vo);
