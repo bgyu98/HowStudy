@@ -42,13 +42,13 @@
 	<!-- 즐겨찾기 한 방 즐겨찾기 테이블에 저장 -->
 	<insert id="insertfavor" parameterType="MyStudyVO">
 		insert into FAVORITES
-		values (nextval(SEQ_FAV),'jd222',#{sNum})
+		values (nextval(SEQ_FAV),#{mId},#{sNum})
 	</insert>
 
 	<!-- 즐겨찾기 한 방 즐겨찾기한 테이블에서 삭제 -->
 	<delete id="deletefavor" parameterType="MyStudyVO">
 		DELETE from FAVORITES
-		where mID ='jd222' and sNUM =#{sNum}
+		where mID =#{mId} and sNUM =#{sNum}
 	</delete>
 
 	<!-- 해당 방 번호의 즐겨찾기 개수 체크 -->

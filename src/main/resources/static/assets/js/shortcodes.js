@@ -237,21 +237,48 @@
   var buttonHeart = function () {
     $(".wishlist-button").on("click", function () {
       var iteration = $(this).data("iteration") || 1;
-
+      var seq = $(this).prev().val(); // 23
+      var who = $(this).next().val(); // jd222
+      var check = 0;
+      //alert(who);
+      //alert(seq);
       switch (iteration) {
         case 1:
           $(this).addClass("active");
           var val = parseInt($(this).find("span").text()) + 1;
           //alert("하트 첨누름");
+          check = 2;
           $(this).find("span").text(val);
           break;
         case 2:
           $(this).removeClass("active");
           var val = parseInt($(this).find("span").text()) - 1;
+          check = 1;
           //alert("하트 두번째누름");
           $(this).find("span").text(val);
           break;
       }
+
+      var data = {
+        sNum: seq, // 글 번호
+        check: check, // 체크여부
+        mId: who, // 로그인한 아이디 ( 즐겨찾기 누른 사람 )
+      };
+
+      $.ajax({
+        type: "get",
+        url: "heartcheck",
+        data: data,
+        dataType: "json",
+        success: function (json) {
+          alert("성공");
+          // alert(json.sFavorNum);
+        },
+        error: function () {
+          alert("실패");
+        },
+      });
+
       iteration++;
       if (iteration > 2) iteration = 1;
       $(this).data("iteration", iteration);

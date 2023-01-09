@@ -40,6 +40,10 @@ public class MypageController {
 		System.out.println("체크번호 : " + vo.check);
 		// 로그인한 아이디 가져옴
 		System.out.println("방 번호 : " +vo.sNum);
+		
+		// 방 생성자
+		System.out.println("즐겨찾기누른사람 : " + vo.mId);
+		
 
 		if (vo.check ==1) { // 기존의 즐겨찾기 db에 값이 있는데 클릭했다는 뜻 이므로 db에서 삭제
 			deletefavor(vo);
@@ -47,9 +51,14 @@ public class MypageController {
 		if( vo.check ==2) { // 기존의 즐겨찾기 db에 값이 없는데 클릭했다는 뜻 이므로 db에 추가
 			insertfavor(vo);
 		}
-
-		int ch = mystudyservice.checkheart(vo.getsNum());
-
+		int ch = 0;
+		if(mystudyservice.checkheart(vo.getsNum()) == null) {
+		 ch = 0;
+		}else if (mystudyservice.checkheart(vo.getsNum()) != null) {
+			ch = mystudyservice.checkheart(vo.getsNum());
+		}
+		
+		
 
 		Gson gson = new Gson();
 		JsonObject object = new JsonObject();
@@ -125,7 +134,8 @@ public class MypageController {
 		for( MyStudyVO k : checkdate) {
 			//System.out.println(k.toString());
 		}
-
+		// List<HashMap> cf = checkfavor(vo);
+		
 		Gson gson = new Gson();
 		JsonArray jArray = new JsonArray();
 		Iterator<MyStudyVO> it = checkdate.iterator();
@@ -141,6 +151,7 @@ public class MypageController {
 			object.addProperty("sDate", 	str);
 			object.addProperty("sCategory", msVO.getsCategory());
 			object.addProperty("mId", 		msVO.getmId());
+			//object.addProperty("sFavorNum", );
 
 			jArray.add(object);
 		}

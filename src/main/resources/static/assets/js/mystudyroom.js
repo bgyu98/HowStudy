@@ -3,7 +3,9 @@
   var buttonHeart2 = function () {
     $(".wishlist-button2").on("click", function () {
       var seq = $(this).prev().val(); // 23
+      var who = $(this).next().val();
       // alert(seq);
+      alert(who);
       var check = 0; // 하트 체크 여부
       // 버튼 on of 관련 문
       var iteration = $(this).data("iteration") || 1;
@@ -13,8 +15,8 @@
           var val = parseInt($(this).find("span").text()) - 1;
           // 여기에 처음 눌렀을때 관련 ajax 문 작성
           //alert("하트 첫번째누름");
-          check = 1;
           $(this).find("span").text(val);
+          check = 1;
           break;
         case 2:
           $(this).addClass("active");
@@ -30,6 +32,7 @@
       var data = {
         sNum: seq, // 글 번호
         check: check, // 체크여부
+        mId: who,
       };
 
       $.ajax({
@@ -88,7 +91,7 @@ function checkD(e) {
 
         d += "<a><img src='../assets/images/box-item/image-box-29.jpg' alt='Image'></a>";
         d += "<button class='wishlist-button heart'>";
-        d += "<span class='number-like'> " + 100 + "</span>"; // 즐겨찾기
+        d += "<span class='number-like'> " + value.sFavorNum + "</span>"; // 즐겨찾기
         d += "</button>";
 
         d += "</div>";

@@ -15,7 +15,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -203,7 +202,7 @@
                                                         </div>
                                                         <input type="hidden" value = "${fr.sNum}"/>
                                                         <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2"><span class="number-like">${fr.sFavorNum}</span></button> <!-- 즐겨찾기 개수 -->
-                                                        
+                                                        <input type="hidden" value = '${sessionScope.loginId}'/>
                                                     </div>
                                                 </div> 		
                                             </div><!-- item-->
@@ -253,10 +252,11 @@
                                                 <div class="card-media style2">
                                                     
                                                     <a href="item-details.html"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <input type="hidden" value = "${fr.sNum}"/>
                                                     <button class="wishlist-button heart">
-                                                        <span class="number-like"> 100</span> <!-- 즐겨찾기 개수 -->
+                                                        <span class="number-like"> ${fr.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
                                                     </button>
-                                                   
+                                                    <input type="hidden" value = '${sessionScope.loginId}'/>
                                                     
                                                 </div>
                                                 
