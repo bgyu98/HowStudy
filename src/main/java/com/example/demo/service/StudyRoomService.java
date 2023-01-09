@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.vo.HistoryVO;
+
 import com.example.demo.vo.StudyRoomVO;
 
 public interface StudyRoomService {

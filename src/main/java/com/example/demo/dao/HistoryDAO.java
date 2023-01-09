@@ -21,6 +21,6 @@ public interface HistoryDAO {
 	// Todo List 완료
 	void updateTodo(String hSeq);
 	
-	// Todo List 완료
+	// Todo List 삭제
 	void deleteTodo(String hSeq);
 }

@@ -68,19 +68,22 @@ public class HistoryController {
 	// Todo 완료
 	@RequestMapping("/updateTodo")
 	@ResponseBody
-	public String updateTodo(String hSeq) {
+	public String updateTodo(String hSeq, String mId) {
 		System.out.println("updateTodo 확인 : " + hSeq);
-		String[] test;
-		test = hSeq.split(",");		
-		for (String i : test) {
+		System.out.println("mId:" + mId);
+		String[] hsep = hSeq.split(",");	
+		for (String i : hsep) {
 			System.out.println(i);
 			historyService.updateTodo(i);
 		}
-		
+
 		HistoryVO vo = new HistoryVO();
+		String []mIdValue = mId.split(",");
+		vo.setmId(mIdValue[0]);
 		List<HistoryVO> todolist = historyService.selectCompletion(vo);
+		System.out.println("확인1 : " + todolist);
 		String json = new Gson().toJson(todolist);
-		System.out.println(json);
+		System.out.println("완료json : "+ json);
 		return json;
 		
 		

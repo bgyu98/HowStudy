@@ -5,8 +5,8 @@
 <mapper namespace="com.example.demo.dao.UserDAO">
 	<!-- 회원가입 -->
 	<insert id="insertCustomer" parameterType="UserVO">
-		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail)
-		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail})
+		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail, mTag)
+		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail}, #{mTag})
 	</insert>
 
 	<!-- 로그인 -->

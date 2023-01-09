@@ -18,7 +18,7 @@
 	</select>
 	<!-- Todo 완료 목록 조회 -->
 	<select id="selectCompletion" parameterType="HistoryVO" resultType="HistoryVO">
-		SELECT mId, hSeq, todos, todoTime, completion
+		SELECT  mId, hSeq, todos, todoTime, completion
 		FROM HISTORY 
 		WHERE completion = "Y" AND mId = #{mId}
 		

@@ -66,13 +66,20 @@
                                 <div class="flat-tabs tab-create-item">
                                     <div class="content-tab">
                                         <div class="content-inner">
-                                                <form action="insertRoom" method="post">
+                                                <form action="insertRoom" enctype="multipart/form-data" method="post">
                                                     <h2 class="title-create-item">스터디 만들기</h2><div><br/><br/>
                                                         
                                                     <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
                                                     <h4 class="title-create-item">스터디 이름</h4>
                                                     <input type="text" placeholder="제목을 입력 해 주세요" name="sTitle" id="sTitle">
-    
+
+                                                    <h4 class="title-create-item">Upload file</h4>
+                                                    <label class="uploadFile">
+                                                        <span class="filename">PNG, JPG, GIF, WEBP or MP4. Max 200mb.</span>
+                                                        <input type="file" class="inputfile form-control" name="file" >
+                                                    </label>
+
+                                                    
                                                     <div style="display : inline-block; text-align: left;">
                                                     <h4 class="title-create-item">카테고리</h4>
                                                         <div class="inner-row-form style-2">
@@ -81,11 +88,11 @@
                                                                     <a href="#" class="btn-selector nolink" id="ct" >선택</a>
                                                                     <input type="hidden" name="sCategory" id="sCtaegoly" value="">
                                                                     <ul class="cate">
-                                                                        <li ><span>취업</span></li>
+                                                                        <li><span>취업</span></li>
                                                                         <li><span>독서</span></li>
                                                                         <li><span>어학</span></li>
-                                                                        <li><span >임용</span></li>
-                                                                        <li><span >공무원</span></li>
+                                                                        <li><span>임용</span></li>
+                                                                        <li><span>공무원</span></li>
                                                                         <li><span>대학,수능</span></li>
                                                                         <li><span>자격증</span></li>
                                                                         <li><span>학교공부</span></li>
@@ -134,8 +141,9 @@
                                                     </div>
                                                     <button id="btn" name="btn" >등록</button>
                                                 </form>
+                                                
                                         </div>
-                                       
+                                        
                                         
                                     </div>
                                 </div>
@@ -144,6 +152,7 @@
                     </div>
                 </div>
             </div>
+
 <!-- Footer 넣음-->
 <jsp:include page="../include/footer.jsp"></jsp:include>
         <!-- Bottom -->
