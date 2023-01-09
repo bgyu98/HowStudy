@@ -150,14 +150,15 @@
             </section>
         <!-- Bottom -->
         <!-- header 넣음 -->
-        <jsp:include page="../include/header.jsp"></jsp:include> 
+        <jsp:include page="../include/footer.jsp"></jsp:include> 
         </div>
         <!-- /#page -->
     </div>
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
-
+    <script src="../assets/js/signup.js"></script>
+    <script src="../assets/js/likeTag.js"></script>
 
 </body>
 

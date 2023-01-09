@@ -117,7 +117,7 @@ public class StudyRoomVO {
 
 					this.sFile = uuid.toString() ;
 
-					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile);
+					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile + ".png");
 
 					try {
 						file.transferTo(f); 

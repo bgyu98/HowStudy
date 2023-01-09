@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -180,6 +181,17 @@ public class UserServiceImpl implements UserService {
 			return result;
 		}
 
+	}
+
+	// 관리자 회원 조회
+	@Override
+	public List<UserVO> manageUserList(UserVO uservo){
+		return userDAO.manageUserList(uservo);
+	}
+
+	@Override
+	public UserVO getUserInfoAdmin(String mId) {
+		return userDAO.getUserInfoAdmin(mId);
 	}
 
 

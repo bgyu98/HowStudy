@@ -137,9 +137,11 @@
                                                                 <label for="toggle1">스위치</label>
                                                             </div>
                                                         </div>
-                                                        <input type="text" id="pass" name="sPw" style="display:none;width:300px;" placeholder="비밀번호를 입력해주세요." >
                                                     </div>
-                                                    <button id="btn" name="btn" >등록</button>
+                                                        <input type="text" id="pass" name="sPw" style="display:none;width:300px;" placeholder="비밀번호를 입력해주세요." >
+                                                    
+                                                        <button id="btn" name="btn" >등록</button>
+                                                    
                                                 </form>
                                                 
                                         </div>
@@ -211,7 +213,7 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
-
+    <script src="../assets/js/studyroom.js"></script>
 
 </body>
 

@@ -47,7 +47,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/manageUserList">
+            <a class="nav-link" href="../pages/tables">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -90,7 +90,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/manageUserList">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -308,92 +308,95 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <!-- End Navbar -->
       <div class="container-fluid py-4">
         <div class="row">
-          <div class="col-12">
-            <div class="card mb-4">
-              <div class="card-header pb-0">
-                <h6>공지사항</h6>
-                <a href="../pages/registFaq">
-                  <button
-                    type="button"
-                    class="btn bg-gradient-dark mb-2"
-                    style="float: right; margin-top: -20px"
-                  >
-                    등&nbsp;록
-                  </button>
-                </a>
+          <div class="container-fluid">
+            <div id="memberInfo1" class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">회원정보 상세보기</h6>
               </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
-                    <thead>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <tbody id="memberDetailTbl">
                       <tr>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          글 번호
-                        </th>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                        >
-                          글 제목
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          조회수
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          게시일
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          수정
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          삭제
-                        </th>
+                        <th scope="row">회원명</th>
+                        <td class="mValue">${vo.mName}</td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      <c:forEach items="${faqContent}" var="faqvo">
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div class="d-flex flex-column justify-content-center">
-                                <a href="../board/faq?fTITLE=${faqvo.fTITLE}" style="margin-left: 22px">${faqvo.fNUM}</a></td>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fTITLE}</a>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fCNT}</a>
-                          </td>
-                          <td class="align-middle text-center">
-                            <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fDATE}</a>
-                          </td>
-                          <td class="align-middle text-center">
-                            <a href="../admin/modifyFaq?fNUM=${faqvo.fNUM}">
-                              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
-                              >Edit</a
-                            >
-                          </td>
-                          <td class="align-middle text-center">
-                            <a href="deleteFaq?fNUM=${faqvo.fNUM}" style="color: #dc0000"
-                              ><i class="far fa-trash-alt me-2"></i>Delete</a
-                            >
-                          </td>
-                        </tr>
-                      </c:forEach>
+                      <tr>
+                        <th scope="row">회원ID</th>
+                        <td class="mValue">${vo.mId }</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">가입 날짜</th>
+                        <td class="mValue">${vo.mDate }</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">회원 등급</th>
+                        <td class="mValue">${vo.mGrade }</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">전화번호</th>
+                        <td class="mValue">${vo.mPhone }</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">이메일</th>
+                        <td class="mValue">${vo.mEmail}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">선호태크 내역</th>
+                        <td class="mValue">${vo.mTag}</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
+              </div>
+            </div>
+            <div id="memberInfo2" class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">주문내역</h6>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <td>이용권</td>
+                      <td>결제 일자</td>
+                      <td>남은 기간</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach items="${oList }" var="list1">
+                      <tr>
+                        <td>${list1.order_detail_number }</td>
+                        <td>${list1.product_name }</td>
+                        <td>${list1.order_detail_status }</td>
+                        <td>${list1.order_date }</td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">경고내역</h6>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <td>경고 사유</td>
+                      <td>경고 일자</td>
+                      <td>경고 횟수</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <c:forEach items="${rList}" var="list2">
+                      <tr>
+                        <td>${list2.product_name}</td>
+                        <td>${list2.review_content}</td>
+                        <td>${list2.review_date}</td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

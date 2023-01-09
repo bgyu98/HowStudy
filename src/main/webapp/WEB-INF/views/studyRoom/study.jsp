@@ -29,6 +29,8 @@
     <link rel="shortcut icon" href="../assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
+    <link rel="stylesheet" type="text/css" href="../assets/css/flags.css" />
+
 </head>
 
 <body class="body header-fixed is_dark connect-wal">
@@ -48,7 +50,7 @@
                       <h2 class="tf-title pb-39" style="margin-left: -200px;"> 
                         <c:if test="${sessionScope.loginId!=null}">
                           <%=session.getAttribute("loginId")%> 님의 스터디룸
-                          <a href="#"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
+                          <a href="./createroom?mId=${sessionScope.loginId}"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
                         </c:if>
                       
                       </h2>
@@ -57,7 +59,7 @@
                     </div> 
     
                   </div>
-    
+
                   <!-- 시작 -->
     
                   <section class="tf-section live-auctions">

@@ -43,8 +43,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                       <ul class="sub-menu">
                         <li class="menu-item"><a href="../study/record">RECORD</a></li>
                         <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
-                        <li class="menu-item"><a href="../study/todo">TO-DO</a></li>
-                        <li class="menu-item"><a href="../study/note">NOTE</a></li>
+                        <li class="menu-item"><a href="../study/todo?mId=${sessionScope.loginId}">TO-DO</a></li>
+                        <li class="menu-item"><a href="../study/note?mId=${sessionScope.loginId}">NOTE</a></li>
                       </ul>
                     </li>
                     <li class="menu-item menu-item-has-children">

@@ -47,7 +47,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/manageUserList">
+            <a class="nav-link" href="../pages/tables">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -90,7 +90,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/manageUserList">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -311,16 +311,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
           <div class="col-12">
             <div class="card mb-4">
               <div class="card-header pb-0">
-                <h6>공지사항</h6>
-                <a href="../pages/registFaq">
-                  <button
-                    type="button"
-                    class="btn bg-gradient-dark mb-2"
-                    style="float: right; margin-top: -20px"
-                  >
-                    등&nbsp;록
-                  </button>
-                </a>
+                <h6>회원 관리</h6>
+
               </div>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -328,67 +320,58 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                     <thead>
                       <tr>
                         <th
+                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                      >
+                        회원아이디
+                      </th>
+                        <th
                           class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                         >
-                          글 번호
-                        </th>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                        >
-                          글 제목
+                          회원명
                         </th>
                         <th
                           class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                         >
-                          조회수
+                        가입날짜
                         </th>
                         <th
                           class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                         >
-                          게시일
+                        회원등급
                         </th>
                         <th
                           class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                         >
-                          수정
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          삭제
+                          확인
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                      <c:forEach items="${faqContent}" var="faqvo">
+                      <c:forEach items="${userList}" var="user">
                         <tr>
                           <td>
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                <a href="../board/faq?fTITLE=${faqvo.fTITLE}" style="margin-left: 22px">${faqvo.fNUM}</a></td>
+                                <a href="#" style="margin-left: 22px">${user.mId}</a></td>
                               </div>
                             </div>
                           </td>
                           <td>
-                            <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fTITLE}</a>
+                            <a href="#">${user.mName}</a>
                           </td>
                           <td class="align-middle text-center text-sm">
-                            <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fCNT}</a>
+                            <a href="#">${user.mDate}</a>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fDATE}</a>
+                            <a href="#">${user.mGrade}</a>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="../admin/modifyFaq?fNUM=${faqvo.fNUM}">
+                            <a href="../pages/manageUserDetail?mId=${user.mId}">
                               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
                               >Edit</a
                             >
                           </td>
-                          <td class="align-middle text-center">
-                            <a href="deleteFaq?fNUM=${faqvo.fNUM}" style="color: #dc0000"
-                              ><i class="far fa-trash-alt me-2"></i>Delete</a
-                            >
-                          </td>
+
                         </tr>
                       </c:forEach>
                     </tbody>

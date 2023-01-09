@@ -1,9 +1,11 @@
 package com.example.demo.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.vo.FaqVO;
 import com.example.demo.vo.TestVO;
 import com.example.demo.vo.UserVO;
 
@@ -36,4 +38,12 @@ public interface UserDAO {
 	
 	//카카오 회원 정보 저장
 	public void kakaoinsert(HashMap<String, Object> userInfo);
+	
+	// 관리자 회원정보 조회
+	public List<UserVO> manageUserList(UserVO uservo);
+	
+	// 관리자 회원정보 상세 조회
+	public UserVO getUserInfoAdmin(String mId);
+	
+	
 }
