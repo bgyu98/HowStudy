@@ -34,9 +34,11 @@ public class UserController {
 	// 회원 가입
 	@RequestMapping(value = "insertCustomer", method = RequestMethod.POST)
 	public String insertCustomer(UserVO vo, HttpSession session, HttpServletRequest request) throws IOException {
+		System.out.println("회원가입con : " + vo);
 		int insertResult = userService.insertCustomer(vo);
 		System.out.println("회원가입:" + insertResult);
 		session.setAttribute("sok", 1);
+		
 		return "user/login";
 	}
 

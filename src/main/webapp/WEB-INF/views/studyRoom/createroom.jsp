@@ -352,25 +352,33 @@
                                 <div class="flat-tabs tab-create-item">
                                     <div class="content-tab">
                                         <div class="content-inner">
-                                                <form action="insertRoom" method="post">
+                                                <form action="insertRoom" enctype="multipart/form-data" method="post">
                                                     <h2 class="title-create-item">스터디 만들기</h2><div><br/><br/>
-                                                    <input type="hidden" id="mId" name="mId">
+                                                        
+                                                    <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
                                                     <h4 class="title-create-item">스터디 이름</h4>
                                                     <input type="text" placeholder="제목을 입력 해 주세요" name="sTitle" id="sTitle">
-    
+
+                                                    <h4 class="title-create-item">Upload file</h4>
+                                                    <label class="uploadFile">
+                                                        <span class="filename">PNG, JPG, GIF, WEBP or MP4. Max 200mb.</span>
+                                                        <input type="file" class="inputfile form-control" name="file" >
+                                                    </label>
+
+                                                    
                                                     <div style="display : inline-block; text-align: left;">
                                                     <h4 class="title-create-item">카테고리</h4>
                                                         <div class="inner-row-form style-2">
                                                             <div class="seclect-box">
                                                                 <div id="item-create" class="dropdown">
-                                                                    <a href="#" class="btn-selector nolink" name="sCtaegoly">선택</a>
-                                                                    <input type="hidden" value="">
-                                                                    <ul class="test">
-                                                                        <li ><span>취업</span></li>
+                                                                    <a href="#" class="btn-selector nolink" id="ct" >선택</a>
+                                                                    <input type="hidden" name="sCategory" id="sCtaegoly" value="">
+                                                                    <ul class="cate">
+                                                                        <li><span>취업</span></li>
                                                                         <li><span>독서</span></li>
                                                                         <li><span>어학</span></li>
-                                                                        <li><span >임용</span></li>
-                                                                        <li><span >공무원</span></li>
+                                                                        <li><span>임용</span></li>
+                                                                        <li><span>공무원</span></li>
                                                                         <li><span>대학,수능</span></li>
                                                                         <li><span>자격증</span></li>
                                                                         <li><span>학교공부</span></li>
@@ -388,14 +396,15 @@
                                                         <div class="inner-row-form style-2">
                                                             <div class="seclect-box">
                                                                 <div id="item-create2" class="dropdown">
-                                                                    <a href="#" class="btn-selector nolink">선택</a>
-                                                                    <ul >
-                                                                        <li><span value="1" name="sPeopleNum">1 명</span></li>
-                                                                        <li><span value="2" name="sPeopleNum">2 명</span></li>
-                                                                        <li><span value="3" name="sPeopleNum">3 명</span></li>
-                                                                        <li><span value="4" name="sPeopleNum">4 명</span></li>
-                                                                        <li><span value="5" name="sPeopleNum">5 명</span></li>
-                                                                        <li><span value="6" name="sPeopleNum">6 명</span></li>
+                                                                    <a href="#" class="btn-selector nolink" id="num">선택</a>
+                                                                    <input type="hidden" name="sPeopleNum" id="sPeopleNum" value="">
+                                                                    <ul class="peopleNum">
+                                                                        <li><span>1 명</span></li>
+                                                                        <li><span>2 명</span></li>
+                                                                        <li><span>3 명</span></li>
+                                                                        <li><span>4 명</span></li>
+                                                                        <li><span>5 명</span></li>
+                                                                        <li><span>6 명</span></li>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -418,8 +427,9 @@
                                                     </div>
                                                     <button id="btn" name="btn" >등록</button>
                                                 </form>
+                                                
                                         </div>
-                                       
+                                        
                                         
                                     </div>
                                 </div>
@@ -428,7 +438,7 @@
                     </div>
                 </div>
             </div>
-
+            
            <!-- Footer -->
            <footer id="footer" class="clearfix">
             <div class="themesflat-container">
@@ -503,60 +513,8 @@
                 </div>
             </div>
             </footer><!-- /#footer -->
-        <!-- Bottom -->
-        </div>
-        <!-- /#page -->
-         <!-- Modal Popup Bid -->
-         <div class="modal fade popup" id="popup_bid_success" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="modal-body space-y-20 pd-40">
-                        <h3 class="text-center">Your Bidding
-                            Successfuly Added</h3>
-                        <p class="text-center">your bid <span class="price color-popup">(4ETH) </span> has been listing to our database</p>
-                        <a href class="btn btn-primary"> Watch the listings</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="modal-body space-y-20 pd-40">
-                        <h3>Place a Bid</h3>
-                        <p class="text-center">You must bid at least <span class="price color-popup">4.89 ETH</span>
-                        </p>
-                        <input type="text" class="form-control"
-                            placeholder="00.00 ETH">
-                        <p>Enter quantity. <span class="color-popup">5 available</span>
-                        </p>
-                        <input type="text" class="form-control quantity" value="1">
-                        <div class="hr"></div>
-                        <div class="d-flex justify-content-between">
-                            <p> You must bid at least:</p>
-                            <p class="text-right price color-popup"> 4.89 ETH </p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p> Service free:</p>
-                            <p class="text-right price color-popup"> 0,89 ETH </p>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <p> Total bid amount:</p>
-                            <p class="text-right price color-popup"> 4 ETH </p>
-                        </div>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"> Place a bid</a>
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </div>
-    <!-- /#wrapper -->
+
+        
 
     <a id="scroll-top"></a>
 
@@ -573,7 +531,7 @@
     <script src="../assets/js/web3.min.js"></script>
 	<script src="../assets/js/moralis.js"></script>
 	<script src="../assets/js/nft.js"></script>
-    <script src="../assets/js/test.js"></script>
+    <script src="../assets/js/studyRoom.js"></script>
 
 </body>
 

@@ -5,6 +5,7 @@
   <!--<![endif]-->
   <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
   <head>
     <!-- Basic Page Needs -->
@@ -74,7 +75,7 @@
                           <ul class="sub-menu">
                             <li class="menu-item"><a href="../study/record">RECORD</a></li>
                             <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
-                            <li class="menu-item"><a href="../study/todo">TO-DO</a></li>
+                            <li class="menu-item"><a href="../study/todo?mId=${sessionScope.loginId}">TO-DO</a></li>
                             <li class="menu-item"><a href="../study/note">NOTE</a></li>
                           </ul>
                         </li>
@@ -532,11 +533,13 @@
                               </div>
                               <div class="room-more-view-btn-area">
                                 <button class="room-more-view-btn" tabindex="0" style="padding: 0%">
+                                  
                                   <img
                                     src="../assets/images/icon/menuOpt.png"
                                     alt=""
                                     style="width: 35px; margin-left: 3px"
                                   />
+                                 
                                 </button>
                               </div>
                               <div id="room-more-list" class="room-more-item-list-layer" style="">
@@ -576,8 +579,9 @@
                     <button
                       id="maderoom"
                       style="background-color: unset; border: unset; padding: unset"
-                    >
+                    ><a href="./createroom?mId=${sessionScope.loginId}">
                       <img src="../assets/images/icon/plus.png" alt="" width="40" height="40" />
+                    </a>
                     </button>
                     <p style="margin-top: 20px">나만의&nbsp;스터디를&nbsp;만들어&nbsp;보세요</p>
                   </div>

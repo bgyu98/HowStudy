@@ -56,63 +56,80 @@
           <div class="container-fluid">
             <!-- Page Heading -->
 
-            <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>QnA 응답 등록</b></h1>
+            <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>공지사항 수정</b></h1>
 
             <!-- 입력 폼 -->
-            <form action="insertQna" id="registAnswerFrm">
+            <form action="updateNotice" method="post" id="modifyFaq" enctype="multipart/form-data">
               <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt">
-                <div class="card-header py-3"></div>
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
+                </div>
                 <div class="card-body" style="margin-left: 15px">
                   <div class="inputTitle">
-                    <input type="hidden" name="qna_seq" value="${qna_seq}" />
+                    <input type="hidden" value="${notice.nNUM}" name="nNUM" />
+                    <input type="text" style="width: 70%" placeholder="메인 제목" name="nTITLE" />
+                  </div>
+                  <div class="inputTitle">
                     <input
                       type="text"
                       style="width: 70%"
-                      placeholder="메인 제목"
-                      value="${aTitle}"
-                      name="answer_title"
+                      placeholder="서브 제목"
+                      name="nSUBTITLE"
                     />
                   </div>
-                  <hr />
-                  <div>
-                    상세 설명
-                    <textarea style="width: 100%; height: 300px" name="answer_content"></textarea>
-                  </div>
-                  <div id="registBtn">
-                    <button class="btn btn-primary btn-icon-split" id="registAnswerBtn">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                      </span>
-                      <span class="text">등록</span>
-                    </button>
-                    <a href="../admin/qna" class="btn btn-secondary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="text">취소</span>
-                    </a>
+                </div>
+
+                <hr />
+                <div style="padding-left: 30px">
+                  <label>대표 이미지</label><br />
+                  <label> 이미지 업로드 </label> <input type="file" name="nFILE" />
+                </div>
+                <hr />
+                <div style="padding-left: 30px">
+                  <label>서브 이미지</label><br />
+
+                  <label> 이미지 업로드 </label> <input type="file" name="nFILE1" />
+                </div>
+                <hr />
+                <div>
+                  상세 설명
+                  <textarea style="width: 100%; height: 300px" name="nCOMMENT"></textarea>
+                </div>
+                <hr />
+                <div>
+                  <div class="inputHashTag">
+                    <span> <input type="text" name="nTAG1" /> </span>
+                    <span> <input type="text" name="nTAG2" /> </span>
+                    <span> <input type="text" name="nTAG3" /> </span>
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
-          <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
+            
+            <div class="recommItems">
+              <table class="recommItemsTbl">
+                <tr>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; PetDo 2021</span>
+            <div id="registBtn">
+              <button id="updateBtn" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
+                <span class="text">등록</span>
+              </button>
+              <a href="../admin/faq" class="btn btn-secondary btn-icon-split">
+                <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
+                <span class="text">취소</span>
+              </a>
             </div>
           </div>
-        </footer>
-        <!-- End of Footer -->
+        </form>
+        </div>
       </div>
-      <!-- End of Content Wrapper -->
+      <!-- /.container-fluid -->
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Main Content -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -171,14 +188,5 @@
 
     <!-- font awesome CDN -->
     <script src="https://kit.fontawesome.com/3364ed6976.js" crossorigin="anonymous"></script>
-
-    <!-- custom scripts -->
-    <script type="text/javascript">
-      $(function () {
-        $("#registAnswerBtn").click(function () {
-          $("#registAnswerFrm").submit();
-        });
-      });
-    </script>
   </body>
 </html>

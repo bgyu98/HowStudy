@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/pages")
 public class AdminController {
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
-		return "admin/" + step;
+		return "pages/" + step;
 	}
 }

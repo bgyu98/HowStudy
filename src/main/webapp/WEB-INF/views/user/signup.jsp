@@ -19,6 +19,7 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
@@ -400,14 +401,39 @@
                                         
                                         
                                         <div class="row-form style-1">
-                                            <button class="submit" type="submit" name="submit"  style="margin: auto;">가입하기</button>
+                                            <input type="button" class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup" style="margin: auto;"  value="가입하기"/>
                                         </div>
-
-                                       
-                                       <!-- <input type="submit" class="submit-btn" value="가입하기" name="submit" />-->
-
-
-                                    </form>
+                                        <!-- 모달 시작-->
+                                        <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+                                          <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                  <div class="modal-body space-y-20 pd-40">
+                                                      <h3>나의 관심 주제</h3>
+                                                      <input id="submitName" type="hidden" name="selectName" value="">
+                                                      <input id="submitPrice" type="hidden" name="selectPrice" value="">
+                                                      
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="취업"><span><img src="../assets/images/likeTag/취업.png">취업</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="독서"><span><img src="../assets/images/likeTag/독서.png">독서</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="어학" ><span><img src="../assets/images/likeTag/어학.png">어학</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="임용"><span><img src="../assets/images/likeTag/임용.png">임용</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="공무원"><span><img src="../assets/images/likeTag/공무원.png">공무원</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="대학수능"><span><img src="../assets/images/likeTag/대학수능.png">대학수능</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자격증"><span><img src="../assets/images/likeTag/자격증.png">자격증</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="학교공부"><span><img src="../assets/images/likeTag/학교공부.png">학교공부</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="기타" ><span><img src="../assets/images/likeTag/기타.png">기타</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="코딩"><span><img src="../assets/images/likeTag/코딩.png">코딩</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
+                                                      
+                                                      <button id="likeTag">테스트버튼</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                     </form>
                                 </div>
 
                             </div>
@@ -501,17 +527,20 @@
     <!-- Javascript -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/jquery.easing.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/wow.min.js"></script>
     <script src="../assets/js/plugin.js"></script>
-    <script src="../assets/js/jquery-validate.js"></script>
     <script src="../assets/js/shortcodes.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/count-down.js"></script>
     <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/swiper.js"></script>
+    <script src="../assets/js/price-ranger.js"></script>
     <script src="../assets/js/web3.min.js"></script>
-	<script src="../assets/js/moralis.js"></script>
-	<script src="../assets/js/nft.js"></script>
+    <script src="../assets/js/moralis.js"></script>
+    <script src="../assets/js/nft.js"></script>
     <script src="../assets/js/signup.js"></script>
-    
+    <script src="../assets/js/likeTag.js"></script>
 
 
 

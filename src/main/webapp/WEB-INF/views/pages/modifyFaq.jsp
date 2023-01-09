@@ -17,13 +17,13 @@
       type="text/css"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      href="../assets/resources/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
 
     <!-- Custom styles for this template-->
     <link href="../assets/css/sb-admin-2.min-copy.css" rel="stylesheet" />
-    <link href="../assets/css\customRegistFAQ.css" rel="stylesheet" />
+    <link href="../assets/css/customRegistFAQ.css" rel="stylesheet" />
   </head>
 
   <body id="page-top">
@@ -56,70 +56,41 @@
           <div class="container-fluid">
             <!-- Page Heading -->
 
-            <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>공지사항 등록</b></h1>
+            <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>FAQ 수정</b></h1>
 
-            <!-- faq 입력 폼 -->
-            <form action="../admin/insertFaq" method="post" enctype="multipart/form-data" id="insertFaq">
-              <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
-                  <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
+            <!-- 입력 폼 -->
+            <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">FAQ 게시글 수정</h6>
+              </div>
+              <form action="updateFaq" id="insertNoticeFrm" method="post">
+                <div class="card-body" style="margin-left: 15px">
+                  <div class="inputTitle">
+                    <input type="hidden" value="${notice.nNUM }" name="nNUM" />
+                    <input type="text" style="width: 70%" placeholder="메인 제목" name="nTITLE" />
                   </div>
-                  <div class="card-body" style="margin-left:15px;">
-                      <div class="inputTitle">
-                          <input type="text" name="faq_title" style="width: 70%;" placeholder="메인 제목"/>
-                      </div>
-                      <hr />
+                  <hr />
                   <div>
                     상세 설명
-                    <textarea style="width: 100%; height: 300px" name="notify_content"></textarea>
+                    <textarea style="width: 100%; height: 300px" name="fCOMMENT"></textarea>
                   </div>
-                      <hr/>
-                      <div>
-                          <label> 이미지 업로드 </label> <input type="file" name="file"/>
-                      </div>
-                       <div>
-                          <label> 이미지 업로드 </label> <input type="file" name="file1"/>
-                      </div>
-                      <div class="inputHashTag">
-                          <span> <input type="text" name= "faq_tag1" value="#"/> </span>
-                          <span> <input type="text" name= "faq_tag2" value="#"/> </span>
-                          <span> <input type="text" name= "faq_tag3" value="#"/> </span>
-                      </div>
-                      <div class="recommItems">
-                          <table class="recommItemsTbl">
-                              <tr>
-                                  <td></td>
-                              </tr>
-                          </table>
-                      </div>
-               </form>
-
-
-
-                      <div id="registBtn">
-                          <button class="btn btn-primary btn-icon-split" id="insertBtn">
-                              <span class="icon text-white-50">
-                                  <i class="fas fa-flag"></i>
-                              </span>
-                              <span class="text">등록</span>
-                          </button>
-                          
-                          <a href="../admin/faq" class="btn btn-secondary btn-icon-split">
-                              <span class="icon text-white-50">
-                                  <i class="fas fa-arrow-right"></i>
-                              </span>
-                              <span class="text">취소</span>
-                          </a>
-                      </div>
-               
-                      
-
-
-                      
+                  <div id="registBtn">
+                    <button class="btn btn-primary btn-icon-split" id="insertNoticeBtn">
+                      <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
+                      <span class="text">등록</span>
+                    </button>
+                    <a href="notice.do" class="btn btn-secondary btn-icon-split">
+                      <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
+                      <span class="text">취소</span>
+                    </a>
                   </div>
-              </div>
+                </div>
+              </form>
+            </div>
           </div>
           <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
@@ -192,14 +163,5 @@
 
     <!-- font awesome CDN -->
     <script src="https://kit.fontawesome.com/3364ed6976.js" crossorigin="anonymous"></script>
-
-    <!-- custom scripts -->
-    <script type="text/javascript">
-      $(function () {
-        $("#insertNoticeBtn").click(function () {
-          $("#insertNoticeFrm").submit();
-        });
-      });
-    </script>
   </body>
 </html>
