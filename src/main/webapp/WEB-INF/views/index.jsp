@@ -27,11 +27,7 @@
 </head>
 
 <body class="body bg-section-style3 header-fixed is_dark">
-    <!-- preloade -->
-    <div class="preload preload-container">
-        <div class="preload-logo"></div>
-    </div>
-    <!-- /preload -->
+
 
     <div id="wrapper">
         <div id="page" class="clearfix">
@@ -123,22 +119,11 @@
                     </div>
                 </div>                           
             </section>
+            <!-- Footer 넣음-->
+            <jsp:include page="include/footer.jsp"></jsp:include>
 
 
 
-    <!-- Javascript -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/jquery.easing.js"></script>
-    <script src="/assets/js/popper.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/wow.min.js"></script>
-    <script src="/assets/js/plugin.js"></script>
-    <script src="/assets/js/count-down.js"></script>
-    <script src="/assets/js/shortcodes.js"></script>
-    <script src="/assets/js/swiper-bundle.min.js"></script>
-    <script src="/assets/js/swiper.js"></script>
 </body>
 
 </html>

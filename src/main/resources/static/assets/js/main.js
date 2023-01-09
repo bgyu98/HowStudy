@@ -134,7 +134,7 @@
         $(".tf-text").addClass("s1")
         document.getElementById("logo_header").src = "../assets/images/logo/logo01.png";
         document.getElementById("logo_footer").src = "../assets/images/logo/logo01.png";
-        document.getElementById("moon_dark").src = "assets/images/icon/moon-2.png";
+        document.getElementById("moon_dark").src = "../assets/images/icon/moon-2.png";
     });
 
     $(".light").on('click', function (e) {
@@ -147,7 +147,7 @@
         $(".tf-text").removeClass("s1")
         document.getElementById("logo_header").src = "../assets/images/logo/logo02.png";
         document.getElementById("logo_footer").src = "../assets/images/logo/logo02.png";
-        document.getElementById("moon_dark").src = "assets/images/icon/moon.png";
+        document.getElementById("moon_dark").src = "../assets/images/icon/moon.png";
     });
 
     // Header Connect
@@ -277,9 +277,7 @@
               .children("ul")
               .removeAttr("style")
               .hide()
-              .before('<span class="arrow"></span>')
-              ;
-              
+              .before('<span class="arrow"></span>');
           } else {
             $("#main-nav-mobi")
               .attr("id", "main-nav")

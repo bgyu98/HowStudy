@@ -13,19 +13,19 @@ import com.example.demo.vo.StudyRoomVO;
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
 
-	@Autowired
-	private StudyRoomService studyroomService;
-	
-	@RequestMapping("/{step}")
-	public String viewPage(@PathVariable String step) {
-		return "studyRoom/" + step;
-	}
-	
-	@RequestMapping("/insertRoom")
-	public String insertRoom(StudyRoomVO vo) {
-		studyroomService.insertRoom(vo);
-		System.out.println("controller 확인" + vo);
-	
-		return "redirect:study";
-	}
+   @Autowired
+   private StudyRoomService studyroomService;
+   
+   @RequestMapping("/{step}")
+   public String viewPage(@PathVariable String step) {
+      return "studyRoom/" + step;
+   }
+   
+   @RequestMapping("/insertRoom")
+   public String insertRoom(StudyRoomVO vo) {
+      studyroomService.insertRoom(vo);
+      System.out.println("controller 확인" + vo);
+   
+      return "redirect:study";
+   }
 }

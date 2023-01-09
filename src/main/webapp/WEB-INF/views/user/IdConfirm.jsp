@@ -5,7 +5,6 @@
   <!--<![endif]-->
   <!-- 한글 깨짐 방지-->
   <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-  
 
   <head>
     <!-- Basic Page Needs -->
@@ -65,81 +64,42 @@
           <div class="themesflat-container">
             <div class="row">
               <div class="col-12">
-                <h2 class="tf-title-heading ct style-1">회원정보 수정</h2>
+                <h2 class="tf-title-heading ct style-1">비밀번호 확인</h2>
 
                 <div class="flat-form box-login-email">
                   <div class="form-inner">
-                    <form method="post" id="modifyForm" action="modifyForm">
+                    <form method="post" id="userDelete" action="userDelete">
                       <input
+                        id="mId"
                         name="mId"
                         tabindex="1"
                         aria-required="true"
                         required
-                        type="text"
-                        readonly
-                        value="${userInfo.mId}"
+                        type="hidden"
+                        value="${sessionScope.loginId}"
                       />
                       <input
-                       id="mPw"
+                        id="mPw"
                         name="mPw"
-                        tabindex="2"
+                        tabindex="1"
                         value=""
                         aria-required="true"
-                        type="text"
-                        placeholder="비밀번호"
                         required
-                      />
-                      <input
-                        name="mName"
-                        tabindex="3"
-                        value=""
-                        aria-required="true"
                         type="text"
-                        placeholder="이름"
-                        style="margin-top: 10px;"
-                      />
-                      <input
-                        name="mPhone"
-                        tabindex="4"
-                        value=""
-                        aria-required="true"
-                        type="text"
-                        placeholder="전화번호"
-                      />
-                      <input
-                        name="mEmail"
-                        tabindex="5"
-                        value=""
-                        aria-required="true"
-                        type="text"
-                        placeholder="이메일"
+                        required
                       />
 
                       <button
                         class="submit"
-                        id="modifyBtn"
                         type="submit"
-                        name="modifyBtn"
-                        style="margin-right: 20px; margin-left: 60px; margin-top: 15px"
+                        name="userDelete"
+                        style="margin-left: 105%; margin-top: -75px; width: 17%"
                       >
-                        수정하기
+                        확인
                       </button>
+                      <div style="color: red; font-size: 15px; font-weight: bold">${message}</div>
                     </form>
-                   <a href="../user/passwordConfirm?mId=${userInfo.mId}">
-                    <button
-                          id="delete"
-                          class="submit"
-                          type="submit"
-                          name="delete"
-                          style="margin-top: 15px"
-                        >
-                          회원탈퇴
-                        </button> </a>
-                    
                   </div>
-                  
-                  </div>
-                  
                 </div>
               </div>
             </div>
@@ -154,6 +114,7 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
+
 
   </body>
 </html>

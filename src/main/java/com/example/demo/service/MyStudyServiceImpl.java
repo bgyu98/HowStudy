@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,46 @@ public class MyStudyServiceImpl implements MyStudyService{
 
 	@Autowired
 	private MyStudyDAO mystudyDAO;
-	
-	// 선호 태그 출력
+
+	// 즐겨찾기 값들 출력
 	@Override
-	public List<MyStudyVO> favorRoom(MyStudyVO vo) {
+	public List<HashMap> favorRoom(MyStudyVO vo) {
 		return mystudyDAO.favorRoom(vo);
 	}
-	
+
 	// 체크한 기간 별 해당 값 출력
 	@Override
 	public List<MyStudyVO> checkdate(String date) {
 		return mystudyDAO.checkdate(date);
 	}
 
+	// 즐겨찾기 테이블에 해당 방번호와 아이디 추가
+	@Override
+	public void insertfavor(MyStudyVO vo) {
+		mystudyDAO.insertfavor(vo);
+	}
+
+	// 즐겨찾기 테이블에 해당 방번호와 아이디 삭제
+	@Override
+	public void deletefavor(MyStudyVO vo) {
+		mystudyDAO.deletefavor(vo);
+	}
+
+	//  해당 방 번호의 즐겨찾기 개수 호출 
+	@Override
+	public List<HashMap> checkfavor(MyStudyVO vo) {
+		return mystudyDAO.checkfavor(vo);
+	}
+
+	// 아이디 별 해당 방 번호의 즐겨찾기 개수 호출 
+	@Override
+	public Integer checkheart(Integer sNum) {
+		return mystudyDAO.checkheart(sNum);
+	}
+
+	// 아이디 별 즐겨찾기한 방 번호들 호출 
+	@Override
+	public List<Integer> checkroom(MyStudyVO vo) {
+		return mystudyDAO.checkroom(vo);
+	}		
 }
