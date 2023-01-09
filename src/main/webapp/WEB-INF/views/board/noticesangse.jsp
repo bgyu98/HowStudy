@@ -500,18 +500,16 @@
                     <img src="../assets/images/noticeimage/${notice.nMAINREALNAME}" width="100%" />
                   </div>
                   <div class="inner-post mg-t-40">
-                    <h3 class="heading mg-bt-16">
-                      What is the most fun thing to become a designer?
-                    </h3>
+                    <h3 class="heading mg-bt-16">${notice.nSUBTITLE}</h3>
                     <p class="mg-bt-24">${notice.nCOMMENT}</p>
                   </div>
                   <div class="sc-widget style-1">
                     <div class="widget widget-tag style-2">
                       <h4 class="title-widget">태그</h4>
                       <ul>
-                        <li><a href="#">${notice.nTAG1}</a></li>
-                        <li><a href="#">${notice.nTAG2}</a></li>
-                        <li><a href="#">${notice.nTAG3}</a></li>
+                        <li>${notice.nTAG1}</li>
+                        <li>${notice.nTAG2}</li>
+                        <li>${notice.nTAG3}</li>
                       </ul>
                     </div>
                     <div class="widget widget-social style-2"></div>
@@ -523,33 +521,22 @@
                 <div class="widget widget-recent-post mg-bt-43">
                   <h3 class="title-widget mg-bt-23">다음 글</h3>
                   <ul>
-                    <li class="box-recent-post">
-                      <div class="box-feature">
-                        <a href="blog-details.html"></a>
-                      </div>
-                      <div class="box-content">
-                        <a href="blog-details.html" class="title-recent-post"
-                          >6 Make Mobile Website Faster</a
-                        >
-                        <span
-                          ><span class="sub-recent-post">Lorem ipsum dolor sit amer....</span
-                          ><a href="blog.html" class="day-recent-post">August 10, 2021</a></span
-                        >
-                      </div>
-                    </li>
-                    <li class="box-recent-post">
-                      <div class="box-feature">
-                        <a href="blog-details.html"></a>
-                      </div>
-                      <div class="box-content">
-                        <a href="blog-details.html" class="title-recent-post"
-                          >Avoid These Erros In UI Design</a
-                        >
-                        <span
-                          ><span class="sub-recent-post">Lorem ipsum dolor sit amer....</span
-                          ><a href="blog.html" class="day-recent-post">August 12, 2021</a></span
-                        >
-                      </div>
+                    <li class="box-recent-post" style="flex-direction: row; display: block">
+                      <div class="box-feature"></div>
+                      <c:forEach items="${noticeNext}" var="vo">
+                        <div class="box-content">
+                          <a href="../board/noticesangse?nNUM=${vo.nNUM}" class="title-recent-post"
+                            >${vo.nTITLE}</a
+                          >
+                          <span
+                            ><span class="sub-recent-post">${vo.nSUBTITLE}</span
+                            ><a href="../board/noticesangse?nNUM=${vo.nNUM}" class="day-recent-post"
+                              >${vo.nDATE}</a
+                            ></span
+                          >
+                        </div>
+                        <br />
+                      </c:forEach>
                     </li>
                   </ul>
                 </div>

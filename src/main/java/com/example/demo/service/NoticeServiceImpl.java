@@ -25,8 +25,20 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	
 	public NoticeVO seleteNoticeBoard(NoticeVO noticeVO) {
-		System.out.println("노티스서비스돔");
 		return noticeDAO.seleteNoticeBoard(noticeVO);
+	}
+	
+	public void updateNoticeBoard(NoticeVO noticeVO) {
+		System.out.println("노티스 업데이트 돔");
+		noticeDAO.updateNoticeBoard(noticeVO);
+	}
+	
+	public void deleteNoticeBoard(NoticeVO noticeVO) {
+		noticeDAO.deleteNoticeBoard(noticeVO);
+	}
+	
+	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO) {
+		return noticeDAO.seleteNoticeNext(noticeVO);
 	}
 	
 }

@@ -40,29 +40,31 @@ public class UserController {
 		return "user/login";
 	}
 
-	// 로그인
+
 	@RequestMapping(value = "loginCustomer")
 	public String loginCustomer(UserVO vo, HttpSession session, Model m) {
 		System.out.println("로그인:" + vo);    //로그인 할 때 생성되는 vo 
 		UserVO loginResult = userService.loginCustomer(vo);
 		System.out.println("로그인22:" + loginResult);  //서비스 거쳐서 만들어진 vo
-		if (loginResult != null ) { // 로그인 성공
+		if(loginResult == null) {
+			System.out.println("로그인 실패");
+			session.setAttribute("sok", 5);
+			return "user/login";
+		}else {
+			System.out.println("로그인 성공");
+			//세션에 저장
 			session.setAttribute("loginId", loginResult.getmId());
 			session.setAttribute("loginPass", loginResult.getmPw());
 			session.setAttribute("loginEmail", loginResult.getmEmail());
-			return "studyRoom/study";
-		}else if (vo.getmId() != null){
-			if( vo.getmId().equals("admin") ){
+			
+			if(vo.getmId().equals("admin"))  {
 				System.out.println("관리자 로그인");
-				return "redirect:../admin/adminMain";
-			}
-		}else {
-			// 로그인 실패
-			session.setAttribute("sok", 5);
+				return "redirect:../pages/dashboard";
+				}
 		}
-		return "user/login";  
+		return "studyRoom/study";
 	}
-
+	
 	//로그아웃
 	  @RequestMapping(value="logout")
 	     public String logout(HttpServletRequest request,  Model m) {

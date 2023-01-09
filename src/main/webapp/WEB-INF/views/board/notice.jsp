@@ -472,213 +472,29 @@
         <div class="tf-section sc-card-blog dark-style2">
           <div class="themesflat-container">
             <div class="row">
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <c:forEach items="${noticeContent}" var="noticevo">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/noticeimage/${noticeContent.nREALNAME}" width="100%" /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">PC 이용 가이드</a></h3>
-                    <p>PC 이용자분을 위한 이용 가이드입니다.</p>
-                  </div>
-                  <a href="../board/noticesangse" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </c:forEach>
-                </article>
-              </div>
-
+              <c:forEach items="${noticeContent}" var="noticevo">
               <div class="fl-blog fl-item2 col-lg-4 col-md-6">
                 <article class="sc-card-article">
                   <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-2.jpg" alt=""
-                    /></a>
+                    <img src="../assets/images/noticeimage/${noticevo.nREALNAME}" width="402px" height="280px" />
                   </div>
-
                   <div class="text-article">
-                    <h3><a href="blog-details.html">스터디룸 개설</a></h3>
-                    <p>직접 스터디를 개설하고 스터디원을 모집할 수 있습니다.</p>
+                    <h3>${noticevo.nTITLE}</h3>
+                    <p>${noticevo.nSUBTITLE}</p>
                   </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
+                  <a href="../board/noticesangse?nNUM=${noticevo.nNUM}" class="sc-button fl-button pri-3"
                     ><span>Read More</span></a
                   >
                   <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
+                    <div class="date">${noticevo.nDATE}</div>
                   </div>
                 </article>
               </div>
+            </c:forEach>
 
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-4.jpg" alt=""
-                    /></a>
-                  </div>
+              
+              
 
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">캠스터디를 위한 준비물 & 기본 매너</a></h3>
-                    <p>캠스터디 기본 매너 TIP</p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-2.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-5.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-6-1.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-1.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-4.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
-
-              <div class="fl-blog fl-item2 col-lg-4 col-md-6">
-                <article class="sc-card-article">
-                  <div class="card-media">
-                    <a href="blog-details.html"
-                      ><img src="../assets/images/blog/thumb-5.jpg" alt=""
-                    /></a>
-                  </div>
-
-                  <div class="text-article">
-                    <h3><a href="blog-details.html">The next big trend in crypto</a></h3>
-                    <p>
-                      Dolore officia sint incididunt non excepteur ea mollit commodo ut enim
-                      reprehenderit cupidatat labore ad laborum consectetur consequat...
-                    </p>
-                  </div>
-                  <a href="blog-details.html" class="sc-button fl-button pri-3"
-                    ><span>Read More</span></a
-                  >
-                  <div class="meta-info" style="float: right; margin-right: 6px">
-                    <div class="date">Feb 19, 2021</div>
-                  </div>
-                </article>
-              </div>
               <div class="col-md-12 wrap-inner load-more text-center mg-t-10">
                 <a href="blog.html" id="loadmore" class="sc-button loadmore fl-button pri-3"
                   ><span>더보기</span></a
