@@ -1006,7 +1006,7 @@ label.error { color: red; }
 }
 
 .mg-t32{
-    margin-top: 65px;
+    margin-top: 32px;
 }
 
 .mg-bt-24 {
@@ -1332,7 +1332,7 @@ a:focus {
 
 .hover-ecfect,
 .exp{
-    background: linear-gradient(to right, #97D2EC,#5F6F94,#25316D);
+    background: linear-gradient(to right, #E250E5,#4B50E6,#E250E5);
     background-clip: text;
     -webkit-background-clip:text;
     font-weight: 700;
@@ -1381,9 +1381,9 @@ a:focus {
 
 :root {
     /* color */
-    --primary-color : #fff;;
+    --primary-color : #fff;
     --primary-color2: #1F1F2C;
-    --primary-color3: #f2d1d1;
+    --primary-color3: #5142FC;
     --primary-color4: #7A798A;
     --primary-color5: #F8F8F8;
     --primary-color6: #14141F;
@@ -1419,7 +1419,6 @@ header{
     position: absolute;
     z-index: 100;
     height: 80px;
-    background: #fff;
     width: 100%;
     border-bottom: 1px solid rgba(235, 235, 235, 0.2);
     -webkit-transition: all 0.5s ease;
@@ -1428,14 +1427,6 @@ header{
     -o-transition     : all 0.5s ease;
     transition        : all 0.5s ease;
 }
-
-
-.is_dark .header_1 {
-    box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
-    background: unset;
-}
-
-
 .item .header_1 {
     position: fixed !important;
     top: 0 !important;
@@ -1455,7 +1446,7 @@ header{
 
 .header_1 #main-nav {
     position: absolute;
-    left:18%;
+    left:26%;
     top: 50%;
     z-index: 0;
     -webkit-transform: translateY(-50%);
@@ -1824,6 +1815,7 @@ header{
     line-height  : 26px;
     font-weight  : 700;
     display      : block;
+    color        : #fff;
     padding-right: 15.5px;
 }
 
@@ -2126,7 +2118,7 @@ header{
 /* Search Form */
 .header-search {
     position    : relative;
-    margin-right: 400px;
+    margin-right: 36px;
     padding: 14px 0;
 }
 
@@ -2301,8 +2293,10 @@ header{
     width     : 100%;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 30%);
     z-index   : 9999;
-    background: #F2D1D1;
+    background: linear-gradient(
+        227.3deg, #8A208C 0%, #181B81 100.84%);
     border: none;
+    opacity: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition   : all 0.5s ease;
     -ms-transition    : all 0.5s ease;
@@ -2311,7 +2305,7 @@ header{
 }
 .is_dark .header_1.header_2.style.is-fixed,
 .is_dark .header_1.is-fixed {
-    background:   #0d0d1196;
+    background: #14141F;
     box-shadow: 1px 1px 5px 0px rgb(0 0 0 / 50%);
 }
 .header_1.is-fixed .mode_switcher{
@@ -2416,11 +2410,11 @@ header{
 -------------------------------------------------------------- */
 #footer {
     padding: 80px 0 80px;
-    background-color:  #f2d1d1;
+    background-color: #fff;
 }
 
 #footer.style-2 {
-    background-color:  #64b2cd ;
+    background-color: #ffffff;
 }
 
 .is_dark #footer{
@@ -2513,7 +2507,6 @@ header{
 #footer .widget p {
     font-size  : 14px;
     line-height: 22px;
-    font-weight: bold;
 }
 
 .side-bar .widget p {
@@ -2582,14 +2575,13 @@ header{
     font-weight: bold;
 }
 
-
-
+.widget-logo .logo-footer {
+    margin-bottom: 13px;
+}
 
 .widget-logo .sub-widget-logo {
     padding-right: 35px;
     margin-bottom: 26px;
-    margin-top: -28px;
-
 }
 
 /* widget-social */
@@ -3465,56 +3457,3 @@ span.type::after {
     50% { opacity:0; }
     100% { opacity:1; }
 }
-
-
-.toggle {
-    position: relative;
-    display: inline-block;
-}
-.toggle input {
-    display: none;
-}
-.toggle label {
-    display: block;
-    width: 48px;
-    height: 24px;
-    text-indent: -5000%; /* 라벨 텍스트 왼쪽으로 이동*/
-    user-select: none; /* 라벨 텍스트 선택 차단 */
-}
-.toggle label::before,
-.toggle label::after {
-    content: "";
-    display: block;
-    position: absolute;
-    cursor: pointer;
-}
-.toggle label::before { /* 배경 */
-    width: 100%;
-    height: 100%;
-    background-color: #dedede;
-    border-radius: 1em;
-    -webkit-transition: background-color 0.25s ease;
-    transition: background-color 0.25s ease;/* 배경색 애니메이션*/
-}
-.toggle label::after { /* 스위치 */
-    top: 0;
-    left: 0;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.45);
-    -webkit-transition: left 0.25s ease;
-    transition: left 0.25s ease; /* 스위치 이동 애니메이션 */
-}
-.toggle input:checked + label::before {
-    background-color: skyblue; /* 켠 상태 배경색 */
-}
-.toggle input:checked + label::after { /* 켠 상태 스위치 위치 */
-    left: 24px;
-}
-
-.is_dark .mine {
-   background: #14141f;
-}
-

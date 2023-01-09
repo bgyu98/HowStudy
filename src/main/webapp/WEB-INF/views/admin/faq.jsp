@@ -210,29 +210,30 @@
                                     </thead>
                                 
                                     <tbody>
-                                    	
+                                    	<c:forEach items ="${faqContent}" var="faqvo">
                                        	 <tr>
                                        <!-- insert 폼에서 작성한 값 가져오기 -->
-                                            <td><a href="../admin/blog/faqDetail">${vo.faq_seq}</a></td>
-                                            <td><a href="../admin/blog/faqDetail">${vo.faq_title}</a></td>
-                                            <td><a href="../admin/blog/faqDetail">${vo.faq_date}</a></td>
+                                            <td><a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fNUM}</a></td>
+                                            <td><a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fTITLE}</a></td>
+                                            <td><a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fDATE}</a></td>
 											<td style="text-align:center;">
-												<a href="../admin/modifyFaq"
+												<a href="../admin/modifyFaq?fNUM=${faqvo.fNUM}"
 												class="btn btn-info btn-circle btn-sm">
 													<i class="fas fa-info-circle"></i>
 												</a>
 											</td>
 											<!-- 삭제 버튼 클릭시 클릭한 시퀀스에 해당하는 글 삭제 -->
 											<td style="text-align:center;">
-                                                <a href="../admin/deleteFaq" 
-                                                	class="btn btn-danger btn-circle btn-sm">
+                                                <a href="deleteFaq?fNUM=${faqvo.fNUM}" 
+                                                	class="btn btn-danger btn-circle btn-sm" id="deleteForm">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
                                     
-                                        
+                                      </c:forEach>
                                     </tbody>
+                                    
                                 </table>
                                 </form>
                             </div>
