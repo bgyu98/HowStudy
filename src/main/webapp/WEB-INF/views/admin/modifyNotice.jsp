@@ -59,60 +59,77 @@
             <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>공지사항 수정</b></h1>
 
             <!-- 입력 폼 -->
-            <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">공지사항 게시판 글 관리</h6>
-              </div>
-              <form action="updateNotice" id="insertNoticeFrm">
+            <form action="updateFaq" method="post" id="modifyFaq" enctype="multipart/form-data">
+              <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
+                </div>
                 <div class="card-body" style="margin-left: 15px">
                   <div class="inputTitle">
-                    <input type="hidden" value="${notice.notify_seq }" name="notify_seq" />
                     <input
                       type="text"
                       style="width: 70%"
                       placeholder="메인 제목"
-                      name="notify_title"
-                      value="${notice.notify_title }"
+                      name="faq_title"
+                      value="${faq.faq_title}"
                     />
                   </div>
-                  <hr />
-                  <div>
-                    상세 설명
-                    <textarea style="width: 100%; height: 300px" name="notify_content">
-${notice.notify_content }</textarea
-                    >
-                  </div>
-                  <div id="registBtn">
-                    <button class="btn btn-primary btn-icon-split" id="insertNoticeBtn">
-                      <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
-                      <span class="text">등록</span>
-                    </button>
-                    <a href="../admin/notice" class="btn btn-secondary btn-icon-split">
-                      <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
-                      <span class="text">취소</span>
-                    </a>
+                  <div class="inputTitle">
+                    <input
+                      type="text"
+                      style="width: 70%"
+                      placeholder="서브 제목"
+                      name="faq_writer"
+                      value="${faq.faq_writer}"
+                    />
                   </div>
                 </div>
-              </form>
+                <hr />
+                <div style="padding-left: 30px">
+                  <label>변경 전 이미지</label><br />
+                  <img src="../assets/images/logo/logo01.png" width="30%" />
+                  <label> 이미지 업로드 </label> <input type="file" name="file" />
+                </div>
+                <hr />
+                <div style="padding-left: 30px">
+                  <label>변경 전 이미지</label><br />
+                  <img src="../assets/images/logo/logo01.png" width="30%" />
+                  <label> 이미지 업로드 </label> <input type="file" name="file1" />
+                </div>
+                <hr />
+                <div>
+                  <div class="inputHashTag">
+                    <span> <input type="text" name="faq_tag1" value="${faq.faq_tag1}" /> </span>
+                    <span> <input type="text" name="faq_tag2" value="${faq.faq_tag2}" /> </span>
+                    <span> <input type="text" name="faq_tag3" value="${faq.faq_tag3}" /> </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="recommItems">
+              <table class="recommItemsTbl">
+                <tr>
+                  <td></td>
+                </tr>
+              </table>
             </div>
-          </div>
-          <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; PetDo 2021</span>
+            <div id="registBtn">
+              <button id="updateBtn" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
+                <span class="text">등록</span>
+              </button>
+              <a href="../admin/faq" class="btn btn-secondary btn-icon-split">
+                <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
+                <span class="text">취소</span>
+              </a>
             </div>
           </div>
-        </footer>
-        <!-- End of Footer -->
+        </div>
       </div>
-      <!-- End of Content Wrapper -->
+      <!-- /.container-fluid -->
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Main Content -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

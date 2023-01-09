@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.FaqDAO">
+	<!-- 글 등록 -->
+	<insert id="insertFaqBoard" parameterType="FaqVO">
+		INSERT INTO FAQ
+		(fNUM, fTITLE, fWRITER, fCNT, fCOMMENT, fDATE )
+		VALUES(nextval(howstudy.fNUM) , #{fTITLE}, #{fWRITER}, #{fCNT}, #{fCOMMENT}, NOW())
+	</insert>
+	
+	<!-- 글 리스트 출력 -->
+	 <select id="getFaqBoardList" parameterType="FaqVO" resultType="FaqVO">
+        SELECT  *
+        FROM FAQ
+		ORDER BY fNUM DESC
+    </select> 
+    
+ 	<!-- 글 수정 -->   
+    <update id="updateFaqBoard" parameterType="FaqVO">
+	        UPDATE FAQ SET
+	            fTITLE = #{fTITLE},
+	            fCOMMENT = #{fCOMMENT}
+	        WHERE
+	            fNUM = #{fNUM}
+	 </update> 
+	 
+	 <!-- 글 세부 조회 --> 
+	 <select id="seleteFaqBoard" resultType="FaqVO">
+        SELECT fNUM, fTITLE, fCOMMENT
+			FROM FAQ
+			WHERE fNUM = #{fNUM}
+    </select> 
+
+	 <!-- 글 삭제 -->    
+    <delete id="deleteFaqBoard" parameterType="FaqVO">
+		DELETE FROM FAQ
+		WHERE fNUM = #{fNUM}
+	</delete>
+
+
+</mapper>
