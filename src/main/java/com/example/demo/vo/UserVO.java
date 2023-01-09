@@ -11,6 +11,7 @@ public class UserVO {
 	private String mDelete; // 탈퇴 여부 : 기본값 Default => 탈퇴 시 1로 변경
 	
 	
+	
 	public String getmId() {
 		return mId;
 	}
@@ -58,9 +59,6 @@ public class UserVO {
 		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail
 				+ ", mTag=" + mTag + ", mDelete=" + mDelete + "]";
 	}
-	
-	
-	
 	
 	
 }

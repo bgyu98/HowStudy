@@ -3,21 +3,79 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.dao.MyStudyDAO">
-	<select id="favorRoom" resultType="MyStudyVO" parameterType="MyStudyVO">
-		select *
-		from STUDYROOM
+	<!-- 즐겨찾기한 방 출력 -->
+	<select id="favorRoom" resultType="hashmap"
+		parameterType="MyStudyVO">
+		select DISTINCT s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM sPeoplenum,
+		s.sPW sPw, s.sDATE sDate,
+		s.sCATEGORY sCategory, s.mID mId, s.sCOMMENT
+		sComment
+		from STUDYROOM s left join FAVORITES f on s.sNum = f.sNum
+		where f.mId ='jd222' <!-- 이곳에 로그인 세션 값 올 예정 -->
+		union
+		select DISTINCT s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM
+		sPeoplenum, s.sPW sPw, s.sDATE sDate,
+		s.sCATEGORY sCategory, s.mID mId,
+		s.sCOMMENT sComment
+		from
+		STUDYROOM s right join FAVORITES f on s.sNum =
+		f.sNum
+		where f.mId ='jd222' <!-- 이곳에 로그인 세션값 올 예정 -->
 	</select>
 
 
-
-	<select id="checkdate" resultType="MyStudyVO" parameterType="String">
+	<!-- 날짜 기준 데이터 체크 -->
+	<select id="checkdate" resultType="MyStudyVO"
+		parameterType="String">
 		select *
 		from STUDYROOM
-		
-		<if test="date=='resentd'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND NOW()</if>
-		<if test="date=='resentw'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -7 DAY ) AND NOW()</if>
-		<if test="date=='resentm'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -30 DAY ) AND NOW()</if>
-		<!--  <if test="date=='alld'"></if>-->
-		
+
+		<if test="date=='resentd'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND
+			NOW()</if>
+		<if test="date=='resentw'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -7 DAY ) AND
+			NOW()</if>
+		<if test="date=='resentm'">WHERE sDate BETWEEN DATE_ADD(NOW(),INTERVAL -30 DAY ) AND
+			NOW()</if>
+
 	</select>
+
+	<!-- 즐겨찾기 한 방 즐겨찾기 테이블에 저장 -->
+	<insert id="insertfavor" parameterType="MyStudyVO">
+		insert into FAVORITES
+		values (nextval(SEQ_FAV),#{mId},#{sNum})
+	</insert>
+
+	<!-- 즐겨찾기 한 방 즐겨찾기한 테이블에서 삭제 -->
+	<delete id="deletefavor" parameterType="MyStudyVO">
+		DELETE from FAVORITES
+		where mID =#{mId} and sNUM =#{sNum}
+	</delete>
+
+	<!-- 해당 방 번호의 즐겨찾기 개수 체크 -->
+	<select id="checkfavor" parameterType="MyStudyVO"
+		resultType="hashmap">
+		select count(*) sFavorNum from FAVORITES f
+		group by sNum
+		order by sNum asc
+	</select>
+
+	<!-- 해당 방 번호의 즐겨찾기 개수 체크 -->
+	<select id="checkheart" parameterType="Integer"
+		resultType="Integer">
+		select count(*) sFavorNum from FAVORITES f
+		group by sNum
+		having sNum = #{sNum}
+		order by sNum asc
+	</select>
+
+
+	<!-- 아이디 별 즐겨찾기한 방 번호들 호출 -->
+	<select id="checkroom" parameterType="MyStudyVO"
+		resultType="Integer">
+		select sNum from FAVORITES f
+		where mid = 'jd222'
+		order by sNum asc
+	</select>
+
+
 </mapper>

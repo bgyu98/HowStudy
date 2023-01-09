@@ -21,13 +21,9 @@
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
   </head>
 
-  <body class="body header-fixed is_dark">
-    <!-- preloade -->
-    <!-- <div class="preload preload-container">
-      <div class="preload-logo"></div>
-    </div> -->
-    <!-- /preload -->
-    <!-- 프리로드 빼고싶음 -->
+  
+<body class="body header-fixed is_dark connect-wal">
+
 
     <div id="wrapper">
       <div id="page" class="clearfix">

@@ -85,26 +85,52 @@
                     </a>
                   </div>
                 </div>
-              </form>
+                <hr />
+                <div style="padding-left: 30px">
+                  <label>변경 전 이미지</label><br />
+                  <img src="../assets/images/logo/logo01.png" width="30%" />
+                  <label> 이미지 업로드 </label> <input type="file" name="file" />
+                </div>
+                <hr />
+                <div style="padding-left: 30px">
+                  <label>변경 전 이미지</label><br />
+                  <img src="../assets/images/logo/logo01.png" width="30%" />
+                  <label> 이미지 업로드 </label> <input type="file" name="file1" />
+                </div>
+                <hr />
+                <div>
+                  <div class="inputHashTag">
+                    <span> <input type="text" name="faq_tag1" value="${faq.faq_tag1}" /> </span>
+                    <span> <input type="text" name="faq_tag2" value="${faq.faq_tag2}" /> </span>
+                    <span> <input type="text" name="faq_tag3" value="${faq.faq_tag3}" /> </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="recommItems">
+              <table class="recommItemsTbl">
+                <tr>
+                  <td></td>
+                </tr>
+              </table>
             </div>
-          </div>
-          <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; PetDo 2021</span>
+            <div id="registBtn">
+              <button id="updateBtn" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
+                <span class="text">등록</span>
+              </button>
+              <a href="../admin/faq" class="btn btn-secondary btn-icon-split">
+                <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
+                <span class="text">취소</span>
+              </a>
             </div>
           </div>
-        </footer>
-        <!-- End of Footer -->
+        </div>
       </div>
-      <!-- End of Content Wrapper -->
+      <!-- /.container-fluid -->
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Main Content -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
