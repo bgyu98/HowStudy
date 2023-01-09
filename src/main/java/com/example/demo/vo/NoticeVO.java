@@ -10,10 +10,27 @@ public class NoticeVO {
 
 	private Integer nNUM;
 	private String nTITLE;
+	private String nSUBTITLE;
 	private String nWRITER;
 	private Integer nCNT;
 	private String nCOMMENT;
 	private String nDATE;
+	public String getnSUBTITLE() {
+		return nSUBTITLE;
+	}
+
+	public void setnSUBTITLE(String nSUBTITLE) {
+		this.nSUBTITLE = nSUBTITLE;
+	}
+
+	public void setnNSIZE(long nNSIZE) {
+		this.nNSIZE = nNSIZE;
+	}
+
+	public void setnMAINNSIZE(long nMAINNSIZE) {
+		this.nMAINNSIZE = nMAINNSIZE;
+	}
+
 	private String nTAG1;
 	private String nTAG2;
 	private String nTAG3;

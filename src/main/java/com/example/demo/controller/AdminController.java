@@ -77,15 +77,40 @@ public class AdminController {
 	// Notice 등록
 	@RequestMapping("/insertNotice")
 	public String insertNotice(NoticeVO noticevo, Model m){
-		System.out.println("Notice 글등록");
 		noticeService.insertNotice(noticevo);
-		System.out.println(noticevo.toString());
 		m.addAttribute("noticeList", noticeService.selectAllNotice(noticevo));
 		return "redirect:../admin/notice";
 	}
 	
+	@RequestMapping("/notice")
+	public void selectNoticeList(NoticeVO noticevo, Model m){
+		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
+	}
 	
+	// Notice 수정
+		@RequestMapping("/updateNotice")
+		public String updateNoticeBoard(NoticeVO noticevo) {	
+			 System.out.println("FAQ 글수정");
+			 noticeService.updateNoticeBoard(noticevo);
+			 System.out.println("업데이트트트트트트트틑" + noticevo);
+			return "redirect:../admin/notice";
+		}
 	
+	// Notice 상세 페이지 이동
+		@RequestMapping("/modifyNotice")
+		public void seleteNotice(NoticeVO noticevo, Model m) {	
+			m.addAttribute("notice",noticeService.seleteNoticeBoard(noticevo));
+		}	
+		
+	// Notice 삭제
+		@RequestMapping("/deleteNotice")
+		public String deleteNotice(NoticeVO noticevo, Model m) {
+			noticeService.deleteNoticeBoard(noticevo);
+			System.out.println("노티슺 ㅗ난게시글 삭제");
+			m.addAttribute("noticeDeleteList", noticeService.seleteNoticeBoard(noticevo));
+			return "redirect:../admin/notice";
+		}
+		
 	
 	
 	

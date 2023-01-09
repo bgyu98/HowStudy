@@ -38,6 +38,8 @@ public class BoardController {
 	@RequestMapping("/noticesangse")
 	public void seleteNotice(NoticeVO noticevo, Model m) {	
 		m.addAttribute("notice",noticeService.seleteNoticeBoard(noticevo));
+		m.addAttribute("noticeNext", noticeService.seleteNoticeNext(noticevo));
+		
 	}	
 	
 	// Notice 목록 출력

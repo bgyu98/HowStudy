@@ -85,6 +85,7 @@
                     </a>
                   </div>
                 </div>
+<<<<<<< HEAD
                 <hr />
                 <div style="padding-left: 30px">
                   <label>변경 전 이미지</label><br />
@@ -131,6 +132,28 @@
       <!-- /.container-fluid -->
     </div>
     <!-- End of Main Content -->
+=======
+              </form>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; PetDo 2021</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+>>>>>>> 2052d0f1fc220bb992bbc818e5a87e8d5c40135a
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
