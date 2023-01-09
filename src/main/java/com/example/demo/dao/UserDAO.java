@@ -1,5 +1,7 @@
 package com.example.demo.dao;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.vo.TestVO;
@@ -28,4 +30,10 @@ public interface UserDAO {
 	
 	// 회원 정보 삭제를 위한 비밀번호 체크
 	public boolean checkPw(String mId, String mPw);
+	
+	//카카오 회원 정보 찾기
+	public UserVO findkakao(HashMap<String, Object> userInfo);
+	
+	//카카오 회원 정보 저장
+	public void kakaoinsert(HashMap<String, Object> userInfo);
 }

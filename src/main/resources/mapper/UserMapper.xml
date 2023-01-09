@@ -52,6 +52,19 @@
 		FROM MEMBER
 		WHERE mId=#{mId} AND mPw=#{mPw}
 	</select>
+	
+	
+	<!-- 정보 찾기 -->
+	<select id="findkakao" parameterType="java.util.HashMap" resultType="UserVO">
+		select * from MEMBER where mId=#{nickname} and mEmail=#{email}
+	</select>
+
+	<!-- 정보 저장 -->
+	<insert id="kakaoinsert" parameterType="java.util.HashMap">
+		insert into MEMBER(mId, mEmail) values(#{nickname}, #{email})
+	</insert>
+	
+	
 
 
 </mapper>
