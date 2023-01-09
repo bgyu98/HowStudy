@@ -157,6 +157,8 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
+    <script src="../assets/js/signup.js"></script>
+
 
 
 </body>
