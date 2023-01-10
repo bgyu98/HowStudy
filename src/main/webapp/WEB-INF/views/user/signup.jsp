@@ -72,13 +72,13 @@
                                     <li>
                                         <a href="#" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-google-2"></i>
-                                            <span>Google</span>
+                                            <span>KAKAO</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-facebook"></i>
-                                            <span>Facebook</span>
+                                            <span>NAVER</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -106,9 +106,17 @@
                                         <p id="chkNotice6"  name="chkNotice6" size="2" style="font-size: small;"></p>
                                         
                                         
-                                        <div class="row-form style-1">
+                                        <!-- <div class="row-form style-1">
                                             <input type="button" class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup" style="margin: auto;"  value="가입하기"/>
+                                        </div> -->
+
+                                        <div class="flat-form box-login-social">
+                                            <button class="submit" type="submit" name="submit"  class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup">가입하기</button>
                                         </div>
+                                        
+
+
+                                        
                                         <!-- 모달 시작-->
                                         <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -134,7 +142,9 @@
                                                       <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
                                                       <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
                                                       
-                                                      <button id="likeTag">테스트버튼</button>
+                                                      <div class="flat-form box-login-social">
+                                                      <button class=button id="likeTag">확인</button>
+                                                    </div>
                                                   </div>
                                               </div>
                                           </div>
@@ -158,9 +168,9 @@
 
     <a id="scroll-top"></a>
     <script src="../assets/js/signup.js"></script>
+    <script src="../assets/js/likeTag.js"></script>
 
 
-    <script src="../assets/js/signup.js"></script>
 </body>
 
 </html>
