@@ -12,6 +12,29 @@
 		VALUES ( nextval(howstudy.sq_sNum), #{mId}, #{sPeopleNum}, #{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment}, #{sFile}) 
 
 	</insert>
+	
+	<!--  내가 만든 스터디룸 -->
 
+	<select id="myroomlist" parameterType="StudyRoomVO"  resultType="StudyRoomVO">
+    
+   SELECT *
+   FROM STUDYROOM
+   WHERE mId = #{mId}
+   order by sNum desc
+
+	</select>
+
+
+   <!--내가 만든 스터디룸에 찍히는 하트 -->
+   <select id="checkheart" parameterType="Integer"   resultType="Integer">
+      select count(*) sFavorNum from FAVORITES f
+      group by sNum
+      having sNum = #{sNum}
+      order by sNum asc
+   </select>
+
+
+
+	
 
 </mapper>
