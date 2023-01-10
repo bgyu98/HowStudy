@@ -235,7 +235,7 @@
   // };
 
   var buttonHeart = function () {
-    $(".wishlist-button").on("click", function () {
+    $(document).on("click", ".wishlist-button", function () {
       var iteration = $(this).data("iteration") || 1;
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
