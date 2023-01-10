@@ -269,7 +269,7 @@ public class MyStudyController {
 			jArray.add(object);
 		}
 		String json2 = gson.toJson(jArray);
-		String json = gson.toJson(checkdate);
+
 
 		System.out.println(json2);  // 문자열화 된 json
 
