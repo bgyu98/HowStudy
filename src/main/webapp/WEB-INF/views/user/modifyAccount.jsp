@@ -76,6 +76,7 @@
                         aria-required="true"
                         required
                         type="text"
+                        readonly
                         value="${userInfo.mId}"
                       />
                       <input

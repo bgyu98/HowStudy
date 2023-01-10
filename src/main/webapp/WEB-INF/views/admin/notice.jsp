@@ -191,15 +191,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                         <th>삭제</th>
                       </tr>
                     </thead>
-                    <tfoot>
-                      <tr>
-                        <th>글 번호</th>
-                        <th>글 제목</th>
-                        <th>게시일</th>
-                        <th>수정</th>
-                        <th>삭제</th>
-                      </tr>
-                    </tfoot>
+
                     <tbody>
                       <c:forEach items="${noticeContent}" var="noticevo">
                         <tr>
@@ -219,12 +211,18 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                             >
                           </td>
                           <td style="text-align: center">
-                            <a href="../admin/modifyNotice" class="btn btn-info btn-circle btn-sm">
+                            <a
+                              href="../admin/modifyNotice?nNUM=${noticevo.nNUM}"
+                              class="btn btn-info btn-circle btn-sm"
+                            >
                               <i class="fas fa-info-circle"></i>
                             </a>
                           </td>
                           <td style="text-align: center">
-                            <a href="../admin/deleteNotic" class="btn btn-danger btn-circle btn-sm">
+                            <a
+                              href="deleteNotice?nNUM=${noticevo.nNUM}"
+                              class="btn btn-danger btn-circle btn-sm"
+                            >
                               <i class="fas fa-trash"></i>
                             </a>
                           </td>

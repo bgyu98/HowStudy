@@ -58,10 +58,10 @@
                               <div class="swiper-slide">
                                 <div class="swiper mySwiper1 swiper-v">
                                   <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><img src="assets/images/box-item/item-h5.1.png" alt="Image"></div>
-                                    <div class="swiper-slide"><img src="assets/images/box-item/item-h5.2.png" alt="Image"></div>
-                                    <div class="swiper-slide"><img src="assets/images/box-item/item-h5.3.png" alt="Image"></div>
-                                    <div class="swiper-slide"><img src="assets/images/box-item/item-h5.2.png" alt="Image"></div>
+                                    <div class="swiper-slide"><img src="../assets/images/indexImage/1.jpg" alt="Image" style="height: 400px; width: auto;"></div>
+                                    <div class="swiper-slide"><img src="../assets/images/indexImage/2.jpg" alt="Image" style="height: 400px; width: auto;"></div>
+                                    <div class="swiper-slide"><img src="../assets/images/indexImage/5.jpg" alt="Image" style="height: 400px; width: auto;"></div>
+                                    <div class="swiper-slide"><img src="../assets/images/indexImage/4.jpg" alt="Image" style="height: 400px; width: auto;"></div>
                                   </div>
                                 </div>
                               </div>
@@ -73,7 +73,7 @@
                               <div class="swiper-slide">
                                 <div class="swiper mySwiper2 swiper-v">
                                   <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><img src="assets/images/box-item/item-h5.3.png" alt="Image"></div>
+                                    <div class="swiper-slide"><img src="../assets/images/indexImage/3.jpg" alt="Image" style="height: 400px; width: auto;"></div>
                                     <div class="swiper-slide"><img src="assets/images/box-item/item-h5.2.png" alt="Image"></div>
                                     <div class="swiper-slide"><img src="assets/images/box-item/item-h5.3.png" alt="Image"></div>
                                     <div class="swiper-slide"><img src="assets/images/box-item/item-h5.1.png" alt="Image"></div>

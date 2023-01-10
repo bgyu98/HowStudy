@@ -11,4 +11,10 @@ public interface NoticeService {
 	public List<NoticeVO> selectAllNotice(NoticeVO noticeVO);
 	
 	public NoticeVO seleteNoticeBoard(NoticeVO noticeVO);
+	
+	public void updateNoticeBoard(NoticeVO noticeVO);	
+	
+	public void deleteNoticeBoard(NoticeVO noticeVO);
+	
+	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO);
 }
