@@ -522,6 +522,34 @@
     });
   };
 
+  //정환 드롭다운 추가
+  var dropdownjh = function (id) {
+    var obj = $(id + ".dropdownjh");
+    var btn = obj.find(".btn-selector");
+    var dd = obj.find("ul");
+    var opt = dd.find("li");
+    dd.hide();
+    obj
+      .on("mouseenter", function () {
+        dd.show();
+        dd.addClass("show");
+        $(this).css("z-index", 1000);
+      })
+      .on("mouseleave", function () {
+        dd.hide();
+        $(this).css("z-index", "auto");
+        dd.removeClass("show");
+      });
+
+    opt.on("click", function () {
+      dd.hide();
+      var txt = $(this).text();
+      opt.removeClass("active");
+      $(this).addClass("active");
+      btn.val(txt);
+    });
+  };
+
   var no_link = function () {
     $("a.nolink").on("click", function (e) {
       e.preventDefault();
@@ -674,6 +702,19 @@
     dropdown("#item-create");
     dropdown("#item-create2");
     dropdown("#item-create3");
+    //정환추가
+    dropdownjh("#item_category");
+    dropdownjh("#buy");
+    dropdownjh("#all-items");
+    dropdownjh("#artworks");
+    dropdownjh("#sort-by");
+    dropdownjh("#sort-by2");
+    dropdownjh("#sort-by3");
+    dropdownjh("#sort-by4");
+    dropdownjh("#item-create");
+    dropdownjh("#item-create2");
+    dropdownjh("#item-create3");
+    //여까지
     flcustominput();
     copycode();
     swiper_tab();

@@ -87,7 +87,7 @@
                                  <c:forEach items="${myroom}" var = "mr">
                                    <!-- 한 블럭 시작 -->
                                   <div class="swiper-slide">
-                                      <div class="slider-item">										
+                                      <div class="slider-item">                              
                                           <div class="sc-card-product menu_card style-h7">
                                               <div class="meta-info style">
                                                   <div class="author">
@@ -142,7 +142,7 @@
                                                   <!-- 카테고리-->
                                                   <div class="tags" >${mr.sCategory}</div>
                                               </div>
-                                          </div>    	
+                                          </div>       
                                       </div>
                                   </div>
                                   <!--끝-->
@@ -503,14 +503,14 @@ $('#selectStudyRoom #selectTag li').click(function(url){
         alert("데이터전송 성공:" + data) + ">";
         var form = "" ;
         for(var d of data){
-											
+                                 
                        form = "<div class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
               
                         form += "<div class='sc-card-product'>";
                         form += "<div class='card-media'>";
                         form += "<a href='item-details.html'/><img src=''../assets/images/box-item/card-item-3.jpg' alt='Image'/></a>";
                         form += "<button class='wishlist-button heart'><span class='number-like'> 100</span></button>";
-                        form +=	"</div>";
+                        form +=   "</div>";
                         form += "<div class='card-title'>";
                         form += "<h5 class='style2'><a href='item-details.html'>"+d.sTitle+"</a></h5>";
                         form += "<div class='tags'>"+d.sCategory+"</div>";
@@ -540,8 +540,8 @@ $('#selectStudyRoom #selectTag li').click(function(url){
     error: function (request,status, error){
       alert("에러");
       console.log("상태코드: " + request.status);
-			console.log("메세지: " + request.responseText);
-			console.log("에러설명: " + error);
+         console.log("메세지: " + request.responseText);
+         console.log("에러설명: " + error);
     }
   });
 });

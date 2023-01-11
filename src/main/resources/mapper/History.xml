@@ -6,33 +6,58 @@
 
 	<!-- Todo 등록 -->
 	<insert id='insertTodo' parameterType='HistoryVO'>
-		INSERT INTO HISTORY ( hSeq, mId, todos, todoTime, completion )
-		VALUES ( nextval(howstudy.sq_hSEQ), #{mId},  #{todos}, CURDATE(), "N")
+		INSERT INTO HISTORY (
+		hSeq, mId, todos, todoTime, completion )
+		VALUES (
+		nextval(howstudy.sq_hSEQ), #{mId}, #{todos}, CURDATE(), "N")
 
 	</insert>
 	<!-- Todo 목록 조회 -->
-	<select id="todo" parameterType="HistoryVO" resultType="HistoryVO">
+	<select id="todo" parameterType="HistoryVO"
+		resultType="HistoryVO">
 		SELECT mId, hSeq, todos, todoTime, completion
-		FROM HISTORY 
+		FROM HISTORY
 		WHERE completion = "N" AND mId = #{mId}
 	</select>
 	<!-- Todo 완료 목록 조회 -->
-	<select id="selectCompletion" parameterType="HistoryVO" resultType="HistoryVO">
-		SELECT  mId, hSeq, todos, todoTime, completion
-		FROM HISTORY 
+	<select id="selectCompletion" parameterType="HistoryVO"
+		resultType="HistoryVO">
+		SELECT mId, hSeq, todos, todoTime, completion
+		FROM HISTORY
 		WHERE completion = "Y" AND mId = #{mId}
-		
+
 	</select>
 	<!-- Todo 완료등록 -->
 	<update id="updateTodo" parameterType="HistoryVO">
-	UPDATE HISTORY SET 
-	completion = "Y"
-	WHERE hSeq = ${hSeq} 
+		UPDATE HISTORY SET
+		completion = "Y"
+		WHERE hSeq = ${hSeq}
 	</update>
 	<!-- Todo 삭제 -->
 	<delete id="deleteTodo" parameterType="HistoryVO">
-	DELETE FROM HISTORY
-	WHERE hSeq = ${hSeq}
+		DELETE FROM HISTORY
+		WHERE hSeq = ${hSeq}
 	</delete>
 
+	<!-- NoteTopic 등록 -->
+	<insert id='insertNoteTopic' parameterType='HistoryVO'>
+		INSERT INTO HISTORY (
+		hSeq, mId, gTopic, gDate )
+		VALUES (
+		nextval(howstudy.sq_hSEQ), #{mId}, #{gTopic}, now())
+	</insert>
+	<!-- 노트 목록 조회 -->
+	<select id="selectNote" parameterType="HistoryVO"
+		resultType="HistoryVO">
+		SELECT  *
+		FROM HISTORY
+		where MID = 'abc'
+	</select>
+		<!-- NoteTitle 등록 -->
+	<insert id='insertNoteTitle' parameterType='HistoryVO'>
+		INSERT INTO HISTORY (
+		hSeq, mId, gTopic, gTitle, gDate, gComment)
+		VALUES (
+		nextval(howstudy.sq_hSEQ), #{mId}, #{gTopic}, #{gTitle}, now(), #{gComment})
+	</insert>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.service.StudyRoomService;
+import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -20,6 +21,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
+
 
 	@Autowired
 	private StudyRoomService studyroomService;
@@ -108,6 +110,7 @@ public class StudyRoomController {
 			Integer crh = studyroomService.checkRoomHeart(vo);
 			return crh;
 		}
+
 
 
 }

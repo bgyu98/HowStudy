@@ -136,14 +136,12 @@ public class StudyRoomVO {
 		this.file = file;
 		// 업로드 파일이 있을 경우
 				if (!file.isEmpty()) {
-					System.out.println("dafs;dlkgjbf");
-
-
+					System.out.println("이미지 확인");
 					UUID uuid = UUID.randomUUID();
 
 					this.sFile = uuid.toString() ;
 
-					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile);
+					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile + ".png");
 
 					try {
 						file.transferTo(f); 
