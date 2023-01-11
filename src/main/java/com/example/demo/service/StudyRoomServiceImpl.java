@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +20,15 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 		System.out.println("insertRoomS 확인"+ vo);
 		studyroomDAO.insertRoom(vo);
 		
+	}
+
+	//  내가 만든 스터디룸
+	public List<StudyRoomVO> myroomlist(StudyRoomVO vo) {
+		return studyroomDAO.myroomlist(vo);
+	}
+
+	// 내가 만든 스터디룸에 찍히는 하트
+	public Integer checkheart(Integer sNum) {
+		return studyroomDAO.checkheart(sNum);
 	}
 }
