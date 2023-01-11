@@ -12,6 +12,9 @@ public interface UserService {
 
 	// 로그인
 	public UserVO loginCustomer(UserVO vo);
+	
+	// 구매 뭐시기
+	public UserVO payCustomer(UserVO vo);
 
 	// 아이디 중복확인
 	public int mIdCheck(String mId);

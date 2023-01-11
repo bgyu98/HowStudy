@@ -173,7 +173,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                             <h4><%=session.getAttribute("loginId")%></h4>
                             <div class="d-flex align-items-center mt-20 mg-bt-12">
                               <div class="info">
-                                <p>등급: ㅇㅇㅇ</p>
+                                <p>등급: <%=session.getAttribute("memberGrade")%></p>
                                 <p class="style"><%=session.getAttribute("loginEmail")%></p>
                               </div>
                             </div>
