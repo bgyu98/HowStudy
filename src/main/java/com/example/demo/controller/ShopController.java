@@ -63,6 +63,7 @@ public class ShopController {
 	   return "shop/paySuccess";
 	   }
 	
+	// 스터디룸으로
 	@RequestMapping("/goHome")
 	public String goHome() {
 		return "redirect:../studyRoom/study";
