@@ -48,5 +48,24 @@ public class HistoryServiceImpl implements HistoryService {
 		System.out.println("todo서비스 확인 : " + hSeq );
 		historyDAO.deleteTodo(hSeq);
 	}
+	// Note 주제 등록
+	@Override
+	public void insertNoteTopic(HistoryVO vo) {
+		historyDAO.insertNoteTopic(vo);
+	}
+
+	// Note 목록
+	@Override
+	public List<HistoryVO> selectNote(HistoryVO vo) {
+		return  historyDAO.selectNote(vo);
+	}
+
+	// Note 내용 등록
+	@Override
+	public void insertNoteTitle(HistoryVO vo) {
+		historyDAO.insertNoteTitle(vo);
+	}
+	
+	
 
 }

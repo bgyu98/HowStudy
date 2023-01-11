@@ -7225,6 +7225,14 @@ section.today-picks {
 	max-width: 17.1875%;
 }
 
+.col-box-40 {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 30.1875%;
+	-ms-flex: 0 0 30.1875%;
+	flex: 0 0 30.1875%;
+	max-width: 30.1875%;
+}
+
 .col-box-83 {
 	-webkit-box-flex: 0;
 	-webkit-flex: 0 0 82.8125%;
@@ -7261,11 +7269,12 @@ section.today-picks {
 	padding-right: 0;
 }
 
+/* 아름누나꺼 */
 .side-bar.item {
 	background-color: #fff;
 	padding: 14px 0 30px;
 	margin-top: 83px;
-	width: 330px;
+	width: 233px;
 	z-index: 9;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;

@@ -5,43 +5,47 @@
 <mapper namespace="com.example.demo.dao.StudyRoomDAO">
 
 	<!-- 스터디룸 등록 -->
-  	<insert id='insertRoom' parameterType='StudyRoomVO'>
-		INSERT INTO STUDYROOM (sNUM,mId,sPeopleNum, sCategory, sTitle,sPw,sDate,sComment, sFile) 
-           
-		
-		VALUES ( nextval(howstudy.sq_sNum), #{mId}, #{sPeopleNum}, #{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment}, #{sFile}) 
+	<insert id='insertRoom' parameterType='StudyRoomVO'>
+		INSERT INTO STUDYROOM
+		(sNUM,mId,sPeopleNum, sCategory, sTitle,sPw,sDate,sComment, sFile)
+
+
+		VALUES ( nextval(howstudy.sq_sNum), #{mId}, #{sPeopleNum},
+		#{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment}, #{sFile})
 
 	</insert>
-	
-	<!--  내가 만든 스터디룸 -->
 
-	<select id="myroomlist" parameterType="StudyRoomVO"  resultType="StudyRoomVO">
-    
-   SELECT *
-   FROM STUDYROOM
-   WHERE mId = #{mId}
-   order by sNum desc
+	<!-- 내가 만든 스터디룸 -->
+
+	<select id="myroomlist" parameterType="StudyRoomVO"
+		resultType="StudyRoomVO">
+
+		SELECT *
+		FROM STUDYROOM
+		WHERE mId = #{mId}
+		order by sNum desc
 
 	</select>
 
 
-   <!--내가 만든 스터디룸에 찍히는 하트 -->
-   <select id="checkheart" parameterType="Integer"   resultType="Integer">
-      select count(*) sFavorNum from FAVORITES f
-      group by sNum
-      having sNum = #{sNum}
-      order by sNum asc
-   </select>
-   
-   	<!-- 방 번호별 즐겨찾기 여부 확인 -->
+	<!--내가 만든 스터디룸에 찍히는 하트 -->
+	<select id="checkheart" parameterType="Integer"
+		resultType="Integer">
+		select count(*) sFavorNum from FAVORITES f
+		group by sNum
+		having sNum = #{sNum}
+		order by sNum asc
+	</select>
+
+	<!-- 방 번호별 즐겨찾기 여부 확인 -->
 	<select id="checkRoomHeart" parameterType="StudyRoomVO"
 		resultType="Integer">
 		select sNum from FAVORITES
-		where mID =#{mId} and sNUM =#{sNum}
-	</select>	
+		where mID =#{mId} and sNUM
+		=#{sNum}
+	</select>
 
 
 
-	
 
 </mapper>

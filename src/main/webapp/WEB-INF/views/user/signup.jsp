@@ -142,9 +142,7 @@
                                                       <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
                                                       <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
                                                       
-                                                      <div class="flat-form box-login-social">
-                                                      <button class=button id="likeTag">확인</button>
-                                                    </div>
+                                                      <button id="likeTag">선택 완료</button>
                                                   </div>
                                               </div>
                                           </div>

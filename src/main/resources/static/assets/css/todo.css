@@ -34,7 +34,7 @@ ul {
 }
 
 /* Style the list items */
-ul li {
+ul li.a {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
@@ -53,7 +53,7 @@ ul li {
 
 
 /* Darker background-color on hover */
-ul li:hover {
+#todoForm ul li:hover {
   background: #FFD24C;
 }
 

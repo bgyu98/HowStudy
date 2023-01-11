@@ -18,12 +18,11 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 	// 스터디룸 생성
 	@Override
 	public void insertRoom(StudyRoomVO vo) {
-		System.out.println("insertRoomS 확인"+ vo);
+		System.out.println("insertRoomS 확인" + vo);
 		studyroomDAO.insertRoom(vo);
-		
 	}
 
-	//  내가 만든 스터디룸
+	// 내가 만든 스터디룸
 	public List<StudyRoomVO> myroomlist(StudyRoomVO vo) {
 		return studyroomDAO.myroomlist(vo);
 	}
@@ -32,11 +31,11 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 	public Integer checkheart(Integer sNum) {
 		return studyroomDAO.checkheart(sNum);
 	}
-	
-	
+
 	// 아이디 별 즐겨찾기 여부 체크
 	@Override
 	public Integer checkRoomHeart(StudyRoomVO vo) {
 		return studyroomDAO.checkRoomHeart(vo);
 	}
+
 }

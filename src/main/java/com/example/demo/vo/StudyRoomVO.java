@@ -10,16 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 public class StudyRoomVO {
-	private Integer sNum;
-	public Integer getCheck() {
-		return check;
-	}
-
-	public void setCheck(Integer check) {
-		this.check = check;
-	}
-
-
+	private Integer sNum;  
 	private String mId;
 	private String sTitle;
 	private Integer sPeopleNum;
@@ -31,9 +22,9 @@ public class StudyRoomVO {
 	private Integer sFavorNum;
 	private Integer check;
 
-	
-	
 
+
+	
 	@Override
 	public String toString() {
 		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sPeopleNum=" + sPeopleNum
@@ -41,6 +32,15 @@ public class StudyRoomVO {
 				+ ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", check=" + check + ", file=" + file + "]";
 	}
 
+	public Integer getCheck() {
+		return check;
+	}
+
+	public void setCheck(Integer check) {
+		this.check = check;
+	}
+		
+	
 	public Integer getsFavorNum() {
 		return sFavorNum;
 	}
@@ -136,14 +136,12 @@ public class StudyRoomVO {
 		this.file = file;
 		// 업로드 파일이 있을 경우
 				if (!file.isEmpty()) {
-					System.out.println("dafs;dlkgjbf");
-
-
+					System.out.println("이미지 확인");
 					UUID uuid = UUID.randomUUID();
 
 					this.sFile = uuid.toString() ;
 
-					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile);
+					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile + ".png");
 
 					try {
 						file.transferTo(f); 

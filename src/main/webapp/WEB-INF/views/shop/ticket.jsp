@@ -19,7 +19,8 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png" />
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+    <!-- 스윗알럿 cdn인데 헤더에 넣을까? -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"> -->
   </head>
 
   
@@ -197,6 +198,9 @@
 
     <!-- 페이 api -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
+    <!-- 여기 js -->
+    <script src="../assets/js/ticket.js"></script>
     <!-- script end -->
   </body>
 </html>

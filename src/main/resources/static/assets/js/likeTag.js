@@ -12,5 +12,3 @@ $('.likeTag').change(function() {
 
 		
 });
-	
-k
