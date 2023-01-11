@@ -30,123 +30,173 @@
     <link rel="shortcut icon" href="../assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="../assets/css/flags.css" />
-
 </head>
 
 <body class="body header-fixed is_dark connect-wal">
 
 
-    <div id="wrapper">
-        <div id="page" class="clearfix">
-          <!-- header 넣음 -->
-          <jsp:include page="../include/header.jsp"></jsp:include> 
-            <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
-              <br /><br /><br /><br /><br /><br /><br /><br /><br />
-    
-              <div class="themesflat-container">
-                <div class="row" style="margin-top: 20px;">
-                  <div class="col-md-12">
-                    <div class="heading-live-auctions" style="margin-bottom: -10px">
-                      <h2 class="tf-title pb-39" style="margin-left: -200px;"> 
-                        <c:if test="${sessionScope.loginId!=null}">
-                          <%=session.getAttribute("loginId")%> 님의 스터디룸
-                          <a href="./createroom?mId=${sessionScope.loginId}"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
-                        </c:if>
-                      
-                      </h2>
-    
-                        
-                    </div> 
-    
-                  </div>
+  <div id="wrapper">
+    <div id="page" class="clearfix">
+      <!-- header 넣음 -->
+      <jsp:include page="../include/header.jsp"></jsp:include> 
+      <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-                  <!-- 시작 -->
-    
-                  <section class="tf-section live-auctions">
-                    <div class="themesflat-container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="swiper-container carousel-overflow2 auctions">
-                                    <div class="swiper-wrapper">
-                                      <!-- 한 블럭 시작 -->
-                                        <div class="swiper-slide">
-                                            <div class="slider-item">										
-                                                <div class="sc-card-product explode style2">
-                                                    <div class="type-title">
-                                                        <h3>방 제목 : 집가자</h3>
-                                                    </div>
-                                                    <div class="card-media">
-                                                        <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                    </div>                                      
-                                                </div>  	
-                                            </div><!-- item-->
-                                        </div>
-                                        <!-- 한 블럭 끝 -->
-                                        <!-- 한 블럭 시작 -->
-                                        <div class="swiper-slide">
-                                          <div class="slider-item">										
-                                              <div class="sc-card-product explode style2">
-                                                  <div class="type-title">
-                                                      <h3>방 제목 : 집가자1</h3>
+        <div class="themesflat-container">
+          <div class="row" style="margin-top: 20px;">
+
+            <div class="col-md-12">
+              <div class="heading-live-auctions" style="margin-bottom: -10px">
+                <h2 class="tf-title pb-39" style="margin-left: -200px;"> 
+                  <c:if test="${sessionScope.loginId!=null}">
+                    <%=session.getAttribute("loginId")%> 님의 스터디룸
+                    <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
+                  </c:if>
+                </h2>
+              </div> 
+            </div>
+              </div>
+              </div>
+
+
+              <div class="image" style=" display: flex;   flex-direction: column; background-image: url('../assets/img/curved-images/curved0.jpg');" >
+                <p style="text-shadow: 1px 1px 2px color = white; padding-top: 107px; text-align:center;">이히히히ㅣㅎ</p>
+              </div>
+  
+            </section>
+
+
+            
+
+
+
+
+            <section class="tf-section live-auctions home7">
+              <div class="themesflat-container">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="swiper-container show-shadow carousel10 pad-t-17 auctions">
+                              <div class="swiper-wrapper">
+                                 <c:forEach items="${myroom}" var = "mr">
+                                   <!-- 한 블럭 시작 -->
+                                  <div class="swiper-slide">
+                                      <div class="slider-item">                              
+                                          <div class="sc-card-product menu_card style-h7">
+                                              <div class="meta-info style">
+                                                  <div class="author">
+                                                       <!-- 스터디 정원 -->
+                                                      <div class="info"> 
+                                                        <span class="study-item-info-personnel present">스터디 정원</span>
+                                                        <span class="study-item-info-personnel present">${mr.sPeopleNum}</span>
+                                                        <span class="study-item-info-personnel maximum">/ 4</span>
+                                                      </div>
                                                   </div>
-                                                  <div class="card-media">
-                                                      <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                  </div>                                      
-                                              </div>  	
-                                          </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
-                                      <!-- 한 블럭 시작 -->
-                                      <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product explode style2">
-                                                <div class="type-title">
-                                                    <h3>방 제목 : 집가자2</h3>
+                                                  <c:set var="cf" value="${mr.check}" />
+                                            
+                                                     <!-- 방 번호 ( 히든으로 바꿀 것)-->
+                                            <input type="hidden" value = "${mr.sNum}"/>
+                                            
+                                            <c:set var="cf" value="${mr.check}" />
+                                              <c:if test = "${cf eq 0}">
+                                            <!-- 하트 갯수-->
+                                            <button class="wishlist-button heart">
+                                              <span class="number-like">${mr.sFavorNum}</span>
+                                            </button>
+                                              </c:if>
+                                              <c:if test = "${cf eq 1}">
+                                                <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
+                                                  <span class="number-like"> ${mr.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                                              </button>
+                                              </c:if> 
+
+                                            <!-- 로그인 아이디 ( 히든으로 바꿀 것)-->
+                                            <input type="hidden" value = '${sessionScope.loginId}'/>
                                                 </div>
-                                                <div class="card-media">
-                                                    <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                </div>                                      
-                                            </div>  	
-                                        </div><!-- item-->
+                                                  <!-- 사진 -->
+                                              <div class="card-media">
+                                                 <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
+                                                  <!--상세보기-->
+                                                  <div class="button-place-bid">
+                                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle} class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                                                  </div>
+                                              </div>
+                                               <!--방 이름-->
+                                              <div class="card-title">
+                                                  <h5>${mr.sTitle}</h5>
+                                              </div>
+                                              <div class="meta-info">
+                                                 <!-- 만든 사람-->
+                                                  <div class="author">
+                                                      <div class="info">
+                                                          <span>CREATE BY</span>
+                                                          <span class="pricing">${mr.mId}</span>
+                                                      </div>
+                                                  </div>
+                                                  <!-- 카테고리-->
+                                                  <div class="tags" >${mr.sCategory}</div>
+                                              </div>
+                                          </div>       
                                       </div>
-                                      <!-- 한 블럭 끝 -->
-                                      <!-- 한 블럭 시작 -->
-                                      <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product explode style2">
-                                                <div class="type-title">
-                                                    <h3>방 제목 : 집가자2</h3>
-                                                </div>
-                                                <div class="card-media">
-                                                    <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                </div>                                      
-                                            </div>  	
-                                        </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
-                                      <!-- 한 블럭 시작 -->
-                                      <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product explode style2">
-                                                <div class="type-title">
-                                                    <h3>방 제목 : 집가자2</h3>
-                                                </div>
-                                                <div class="card-media">
-                                                    <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                </div>                                      
-                                            </div>  	
-                                        </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
-                                    </div>
-                                    <div class="swiper-button-next btn-slide-next active"></div>
-                    <div class="swiper-button-prev btn-slide-prev"></div>
-                                </div>
+                                  </div>
+                                  <!--끝-->
+                                  </c:forEach>
+
                               </div>
-                            </div>
-                    </div>
-                </section>
+                              <div class="swiper-pagination mg-t-13"></div>
+                              <div class="swiper-button-next btn-slide-next active"></div>
+                              <div class="swiper-button-prev btn-slide-prev"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+
+
+
+
+  <!-- 눌렀을때 상세보기 모달 시작-->
+  <c:forEach items="${myroom}" var = "mr">
+  <div class="modal fade popup ${mr.sTitle}" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body space-y-20 pd-40">
+                <h3>${mr.sTitle}</h3>
+                <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
+                </p>
+                <hr>
+                <p>스터디 에티켓</p>
+                <input type="text" class="form-control"
+                    placeholder="00.00 ETH" value="${mr.sComment}"  style="height: 200px;" readonly >
+                <hr>
+                <div class="hr"></div>
+                <div class="d-flex justify-content-between">
+                    <p>카테고리</p>
+                    <p class="text-right price color-popup">${mr.sCategory}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>스터디 정원</p>
+                    <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
+                </div>
+             
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close">입장하기</a>
+            </div>
+        </div>
+    </div>
+</div>  
+</c:forEach>
+
+ <!-- 눌렀을때 상세보기 모달 끝-->
+
+
+
+
+
+
+
+
 
                 <!-- 랭킹목록 (슬라이더) -->
         <section class="tf-section category">
@@ -445,14 +495,14 @@ $('#selectStudyRoom #selectTag li').click(function(url){
         alert("데이터전송 성공:" + data) + ">";
         var form = "" ;
         for(var d of data){
-											
+                                 
                        form = "<div class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
               
                         form += "<div class='sc-card-product'>";
                         form += "<div class='card-media'>";
                         form += "<a href='item-details.html'/><img src=''../assets/images/box-item/card-item-3.jpg' alt='Image'/></a>";
                         form += "<button class='wishlist-button heart'><span class='number-like'> 100</span></button>";
-                        form +=	"</div>";
+                        form +=   "</div>";
                         form += "<div class='card-title'>";
                         form += "<h5 class='style2'><a href='item-details.html'>"+d.sTitle+"</a></h5>";
                         form += "<div class='tags'>"+d.sCategory+"</div>";
@@ -482,8 +532,8 @@ $('#selectStudyRoom #selectTag li').click(function(url){
     error: function (request,status, error){
       alert("에러");
       console.log("상태코드: " + request.status);
-			console.log("메세지: " + request.responseText);
-			console.log("에러설명: " + error);
+         console.log("메세지: " + request.responseText);
+         console.log("에러설명: " + error);
     }
   });
 });
