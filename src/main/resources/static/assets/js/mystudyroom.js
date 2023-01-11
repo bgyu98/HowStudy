@@ -1,9 +1,5 @@
 (function ($) {
   "use strict";
-  $(".icon-fl-search-filled").click(function () {
-    alert("ok");
-  });
-
   var buttonHeart2 = function () {
     $(document).on("click", ".wishlist-button2", function () {
       var seq = $(this).prev().val(); // 23
@@ -61,6 +57,7 @@
   // $(function () {
   buttonHeart2();
   // });
+  */
 })(jQuery);
 
 function checkD(e) {
@@ -84,6 +81,7 @@ function checkD(e) {
       alert("성공");
       //alert(checkdate);
       $("#favor").empty(); // 날짜 선택 하단부분의 방부분 초기화
+
       var c = "";
       c += "<div class='col-md-12' id='favor'>";
       c += " <div class='swiper-container show-shadow carousel6 pad-t-17 auctions' >";

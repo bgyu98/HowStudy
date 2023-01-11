@@ -209,30 +209,59 @@
     activeLayout();
     activePattern();
   };
-  // var buttonHeart2 = function () {
-  //   $(".wishlist-button2").on("click", function () {
-  //     var iteration = $(this).data("iteration") || 1;
-  //     // var seq = $(this).prev().val(); // 23
-  //     // alert(seq);
-  //     switch (iteration) {
-  //       case 1:
-  //         $(this).removeClass("active");
-  //         var val = parseInt($(this).find("span").text()) - 1;
-  //         //alert("하트 첫번째누름");
-  //         $(this).find("span").text(val);
-  //         break;
-  //       case 2:
-  //         $(this).addClass("active");
-  //         var val = parseInt($(this).find("span").text()) + 1;
-  //         //alert("하트 두번째누름");
-  //         $(this).find("span").text(val);
-  //         break;
-  //     }
-  //     iteration++;
-  //     if (iteration > 2) iteration = 1;
-  //     $(this).data("iteration", iteration);
-  //   });
-  // };
+  var buttonHeart2 = function () {
+    $(document).on("click", ".wishlist-button2", function () {
+      var seq = $(this).prev().val(); // 23
+      var who = $(this).next().val();
+      // alert(seq);
+      alert(who);
+      var check = 0; // 하트 체크 여부
+      // 버튼 on of 관련 문
+      var iteration = $(this).data("iteration") || 1;
+      switch (iteration) {
+        case 1:
+          $(this).removeClass("active");
+          var val = parseInt($(this).find("span").text()) - 1;
+          // 여기에 처음 눌렀을때 관련 ajax 문 작성
+          //alert("하트 첫번째누름");
+          $(this).find("span").text(val);
+          check = 1;
+          break;
+        case 2:
+          $(this).addClass("active");
+          var val = parseInt($(this).find("span").text()) + 1;
+          // 여기에 두번째 눌렀을 때 관련 ajax문 작성
+          //alert("하트 두번째누름");
+          $(this).find("span").text(val);
+          check = 2;
+          break;
+      }
+
+      //alert(check);
+      var data = {
+        sNum: seq, // 글 번호
+        check: check, // 체크여부
+        mId: who,
+      };
+
+      $.ajax({
+        type: "get",
+        url: "/mypage/heartcheck",
+        data: data,
+        dataType: "json",
+        success: function (json) {
+          alert("성공");
+          // alert(json.sFavorNum);
+        },
+        error: function () {
+          alert("실패");
+        },
+      });
+      iteration++;
+      if (iteration > 2) iteration = 1;
+      $(this).data("iteration", iteration);
+    });
+  };
 
   var buttonHeart = function () {
     $(document).on("click", ".wishlist-button", function () {
@@ -240,8 +269,8 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
       var check = 0;
-      //alert(who);
-      //alert(seq);
+      alert(who);
+      alert(seq);
       switch (iteration) {
         case 1:
           $(this).addClass("active");
@@ -267,7 +296,7 @@
 
       $.ajax({
         type: "get",
-        url: "heartcheck",
+        url: "/mypage/heartcheck",
         data: data,
         dataType: "json",
         success: function (json) {
@@ -627,7 +656,7 @@
     flatCounter();
     tabs();
     buttonHeart();
-    // buttonHeart2();
+    buttonHeart2();
     flatProgressBar();
     donatProgress();
     clearcheckbox();

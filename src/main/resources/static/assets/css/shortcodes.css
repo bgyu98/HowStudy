@@ -1068,8 +1068,9 @@
     transition        : all 0.3s ease;
 }
 
+/*width 바꿈*/
 .sc-card-product .tags {
-    width           : 49px;
+    width           : 75px;
     height          : 24px;
     line-height     : 24px;
     text-align      : center;
