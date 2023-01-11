@@ -19,9 +19,25 @@ public class StudyRoomVO {
 	private String sCategory;
 	private String sComment;
 	private String sFile;
+	private Integer sFavorNum;
 
 	
 	
+
+	@Override
+	public String toString() {
+		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sPeopleNum=" + sPeopleNum
+				+ ", sPw=" + sPw + ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment=" + sComment
+				+ ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", file=" + file + "]";
+	}
+
+	public Integer getsFavorNum() {
+		return sFavorNum;
+	}
+
+	public void setsFavorNum(Integer sFavorNum) {
+		this.sFavorNum = sFavorNum;
+	}
 
 	public Integer getsNum() {
 		return sNum;

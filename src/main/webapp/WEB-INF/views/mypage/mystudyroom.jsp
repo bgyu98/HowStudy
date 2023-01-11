@@ -131,25 +131,34 @@
                         <div class="col-md-12" id="favor">
                             <div class="swiper-container show-shadow carousel6 pad-t-17 auctions" >
                                 <div class="swiper-wrapper" >
-                                    <c:forEach items="${favorRoom}" var = "fr" >
+                                    <c:forEach items="${resentRoom}" var = "rR" >
                                     <div class="swiper-slide">
                                         <div class="slider-item">										
                                             <div class="sc-card-product menu_card style2">
                                                 
                                                 <div class="card-media style2">
-                                                    
+                                                   
                                                     <a href="item-details.html"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <input type="hidden" value = "${fr.sNum}"/>
+                                                    <input type="text" value = "${rR.sNum}"/>
+                                                    <c:set var="cf" value="${rR.checkFavor}" />
+                                                    <c:if test = "${cf eq 0}">
                                                     <button class="wishlist-button heart">
-                                                        <span class="number-like"> ${fr.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                                                        <span class="number-like"> ${rR.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
                                                     </button>
+                                                    </c:if>
+                                                    <c:if test = "${cf eq 1}">
+                                                    <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
+                                                        <span class="number-like"> ${rR.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                                                    </button>
+                                                    </c:if>
+                                                   
                                                     <input type="hidden" value = '${sessionScope.loginId}'/>
                                                     
                                                 </div>
                                                 
                                                 <div class="card-title">
-                                                    <h3><a href="item-details.html">${fr.sTitle}</a></h3> <!-- 제목 -->
-                                                    <div class="tags">${fr.sCategory}</div>
+                                                    <h3><a href="item-details.html">${rR.sTitle}</a></h3> <!-- 제목 -->
+                                                    <div class="tags">${rR.sCategory}</div>
                                                 </div>
 
                                                 <div class="meta-info style2">
@@ -160,7 +169,7 @@
                                                         
                                                         <div class="info">
                                                             <span>Creator</span>
-                                                            <h4 ><a>${fr.mId} <!-- 로그인한 아이디 -->
+                                                            <h4 ><a>${rR.mId} <!-- 로그인한 아이디 -->
                                                             </a> </h4>
                                                         </div>
 
@@ -168,7 +177,7 @@
 
                                                     <div class="fdate">
                                                         <span>Date</span>
-                                                        <h5> ${fr.sDate}</h5>       <!-- 날짜-->
+                                                        <h5> ${rR.sDate}</h5>       <!-- 날짜-->
                                                     </div>
 
                                                 </div>

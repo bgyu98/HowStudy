@@ -6,6 +6,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <head>
     <meta charset="UTF-8" />
 
+    <link rel="stylesheet" type="text/css" href="../assets/css/flags.css" />
     <title>Header</title>
   </head>
   <body>

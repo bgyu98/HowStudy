@@ -11,11 +11,12 @@ import com.example.demo.vo.MyStudyVO;
 public interface MyStudyDAO {
 
 	public List<HashMap> favorRoom(MyStudyVO vo);
-	public List<MyStudyVO> checkdate(String date);
+	public List<HashMap> checkdate(MyStudyVO vo);
 	public void insertfavor(MyStudyVO vo);
 	public void deletefavor(MyStudyVO vo);
-	public List<HashMap> checkfavor(MyStudyVO vo);
 	public Integer checkheart(Integer sNum);
-	public List<Integer> checkroom(MyStudyVO vo);
+	public List<Integer> checkroom(String mId);
+	public List<MyStudyVO> rogRoom(MyStudyVO vo);
+	public Integer checkRoomHeart(MyStudyVO vo);
 	
 }

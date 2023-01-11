@@ -10,7 +10,7 @@ public class MyStudyVO {
 	public Date sDate;			// 방 생성 날짜
 	public String sCategory;	// 선호태그
 	public String mId;			// 로그인한 아이디
-	public Integer checkDate; // 선택 기간
+	public String checkDate; // 선택 기간
 	public Integer sFavorNum; // 즐겨찾기 개수
 	public Integer check;	// 즐겨찾기 클릭 여부 확인용
 	
@@ -37,12 +37,12 @@ public class MyStudyVO {
 	}
 
 
-	public Integer getCheckDate() {
+	public String getCheckDate() {
 		return checkDate;
 	}
 
 
-	public void setCheckDate(Integer checkDate) {
+	public void setCheckDate(String checkDate) {
 		this.checkDate = checkDate;
 	}
 

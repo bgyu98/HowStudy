@@ -35,6 +35,16 @@ public interface UserService {
 	// 회원 정보 삭제를 위한 비밀번호 체크
 	public boolean checkPw(String mId, String mPw);
 
+	//전화번호와 이름으로 아이디 찾기
+	public UserVO findbytelandname(UserVO vo);
+
+	// 비번 ----------
+	//아이디로 회원정보 찾기
+	
+	public UserVO findById(UserVO vo);
+	//임시 비밀번호 발송
+	public Integer tempPw(UserVO vo);
+
 	
 
 	

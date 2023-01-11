@@ -63,76 +63,54 @@
                             <div class="col-md-12">
                                 <div class="swiper-container carousel-overflow2 auctions">
                                     <div class="swiper-wrapper">
+                                    
+                                      <c:forEach items="${myroom}" var = "mr">
+                                        
                                       <!-- 한 블럭 시작 -->
-                                        <div class="swiper-slide">
-                                            <div class="slider-item">										
-                                                <div class="sc-card-product explode style2">
-                                                    <div class="type-title">
-                                                        <h3>방 제목 : 집가자</h3>
-                                                    </div>
-                                                    <div class="card-media">
-                                                        <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                    </div>                                      
-                                                </div>  	
-                                            </div><!-- item-->
+                                      <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="sc-card-product">
+                                          <div class="card-media">
+                                            <!--사진-->
+                                            <a href="item-details.html"><img src="../assets/images/studyRoom/f8062210-02ca-43ff-810b-772772303d98_스크린샷(1).png" alt="Image"/></a>
+                                            <!-- 하트 갯수-->
+                                            <button class="wishlist-button heart">
+                                              <span class="number-like">${mr.sFavorNum}</span>
+                                            </button>
+                                          </div>
+                                          <div>
+                                            <span>${mr.sNum}</span>
+                                          </div>
+                                          <div class="card-title">
+                                             <!--방 이름-->
+                                            <h5 class="style2">
+                                              <span>${mr.sTitle}</span>
+                                            </h5>
+
+                                             <!-- 카테고리-->
+                                            <div class="tags">${mr.sCategory}</div>
+                                          </div>
+                                          <div class="meta-info">
+                                            <div class="author">
+                                              <!-- 만든 사람-->
+                                              <div class="info">
+                                                <span>Made By</span>
+                                                <h6><span>${mr.mId}</span></h6>
+                                              </div>
+                                            </div>
+                                               <!--방 인원-->
+                                            <div class="price">
+                                              <i class="fa-solid fa-user"></i>
+                                              <span class="study-item-info-personnel present">${mr.sPeopleNum}</span>
+                                              <span class="study-item-info-personnel maximum">4</span>
+                                            </div>
+                                          </div>
                                         </div>
+                                      </div>
                                         <!-- 한 블럭 끝 -->
-                                        <!-- 한 블럭 시작 -->
-                                        <div class="swiper-slide">
-                                          <div class="slider-item">										
-                                              <div class="sc-card-product explode style2">
-                                                  <div class="type-title">
-                                                      <h3>방 제목 : 집가자1</h3>
-                                                  </div>
-                                                  <div class="card-media">
-                                                      <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                  </div>                                      
-                                              </div>  	
-                                          </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
-                                      <!-- 한 블럭 시작 -->
-                                      <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product explode style2">
-                                                <div class="type-title">
-                                                    <h3>방 제목 : 집가자2</h3>
-                                                </div>
-                                                <div class="card-media">
-                                                    <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                </div>                                      
-                                            </div>  	
-                                        </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
-                                      <!-- 한 블럭 시작 -->
-                                      <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product explode style2">
-                                                <div class="type-title">
-                                                    <h3>방 제목 : 집가자2</h3>
-                                                </div>
-                                                <div class="card-media">
-                                                    <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                </div>                                      
-                                            </div>  	
-                                        </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
-                                      <!-- 한 블럭 시작 -->
-                                      <div class="swiper-slide">
-                                        <div class="slider-item">										
-                                            <div class="sc-card-product explode style2">
-                                                <div class="type-title">
-                                                    <h3>방 제목 : 집가자2</h3>
-                                                </div>
-                                                <div class="card-media">
-                                                    <a href="item-details.html"><img src="../assets/images/avatar/avt-1.jpg" alt="Image"></a>
-                                                </div>                                      
-                                            </div>  	
-                                        </div><!-- item-->
-                                      </div>
-                                      <!-- 한 블럭 끝 -->
+                                      </c:forEach>
+                               
+                               
+                                 
                                     </div>
                                     <div class="swiper-button-next btn-slide-next active"></div>
                     <div class="swiper-button-prev btn-slide-prev"></div>
