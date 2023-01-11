@@ -18,4 +18,7 @@ public interface StudyRoomDAO {
 
 	// 내가 만든 스터디룸에 찍히는 하트
 	public Integer checkheart(Integer sNum);
+
+	// 즐겨찾기 여부 확인
+	public Integer checkRoomHeart(StudyRoomVO vo);
 }
