@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -32,8 +31,6 @@
 </head>
 
 <body class="body header-fixed is_dark connect-wal">
-
-
     <div id="wrapper">
         <div id="page" class="clearfix">
           <!-- header 넣음 -->

@@ -35,6 +35,11 @@ public class UserServiceImpl implements UserService {
 	public UserVO loginCustomer(UserVO vo) {
 		return userDAO.loginCustomer(vo);
 	}
+	
+	// 구매후~~
+	public UserVO payCustomer(UserVO vo) {
+		return userDAO.payCustomer(vo);
+	}
 
 	// 아이디 중복 체크
 	public int mIdCheck(String mId) {

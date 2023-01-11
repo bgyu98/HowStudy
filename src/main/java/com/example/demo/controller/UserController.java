@@ -56,6 +56,9 @@ public class UserController {
             session.setAttribute("loginId", loginResult.getmId());
             session.setAttribute("loginPass", loginResult.getmPw());
             session.setAttribute("loginEmail", loginResult.getmEmail());
+//            session.setAttribute("memberGrade", loginResult.getmGrade());
+            System.out.println(loginResult.getmGrade());
+            m.addAttribute("memberGrade", loginResult.getmGrade());
             
             if(vo.getmId().equals("admin"))  {
                System.out.println("관리자 로그인");
@@ -64,6 +67,8 @@ public class UserController {
          }
          return "redirect:../studyRoom/study";
       }
+   
+   
 
 
    
