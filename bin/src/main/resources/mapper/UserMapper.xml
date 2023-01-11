@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.UserDAO">
+	<!-- 회원가입 -->
+	<insert id="insertCustomer" parameterType="UserVO">
+		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail)
+		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail})
+	</insert>
+
+	<!-- 로그인 -->
+	<select id="loginCustomer" parameterType="UserVO"
+		resultType="UserVO">
+		SELECT * FROM MEMBER
+		WHERE mId=#{mId} and mPw =#{mPw}
+	</select>
+
+
+	<!-- 아이디 중복체크 -->
+	<select id="mIdCheck" parameterType="String" resultType="int">
+		SELECT count(*) FROM MEMBER WHERE mId = #{mId}
+	</select>
+
+	<!-- 회원정보 가져오기 -->
+	<select id="getUserInfo" parameterType="String" resultType="UserVO">
+		SELECT *
+		FROM MEMBER
+		WHERE mId=#{mId}
+	</select>
+
+	<!-- 회원정보 수정 -->
+	<update id="updateCustomer" parameterType="UserVO">
+		UPDATE MEMBER SET
+		mPw=#{mPw},
+		mName=#{mName},
+		mPhone=#{mPhone},
+		mEmail=#{mEmail}
+		WHERE mId=#{mId}
+	</update>
+	
+	<!-- 회원정보 삭제 -->
+	<delete id="deleteInfo" parameterType="UserVO">
+		UPDATE MEMBER SET
+		mDelete = true
+		WHERE mId=#{mId}
+	</delete>
+	
+	<!-- 비밀번호 확인 -->
+	<select id="checkPw" resultType="boolean">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE mId=#{mId} AND mPw=#{mPw}
+	</select>
+
+
+</mapper>

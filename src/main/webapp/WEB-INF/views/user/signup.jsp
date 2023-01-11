@@ -134,7 +134,7 @@
                                                       <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
                                                       <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
                                                       
-                                                      <button id="likeTag">테스트버튼</button>
+                                                      <button id="likeTag">선택 완료</button>
                                                   </div>
                                               </div>
                                           </div>
@@ -157,8 +157,10 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
+
     <script src="../assets/js/signup.js"></script>
     <script src="../assets/js/likeTag.js"></script>
+
 
 </body>
 

@@ -58,53 +58,27 @@
         <%
             String selectName = request.getParameter("selectName");
             String selectPrice = request.getParameter("selectPrice");
+            String selectPay = request.getParameter("selectPay");
         %>
-        <!-- 넘겨받은 파라미터 출력 -->
-        <div>이용권이름 : <%= selectName %></div>
-        <div>이용권가격 : <%= selectPrice %></div>
-
-
-        <!--구매제품 설명 시작-->
-            <div class="col-xl-3 col-lg-6 col-md-6 col-12">
-                <h4 class="title-create-item">구매하신 제품</h4>
-               <div class="sc-card-product">
-                   <div class="card-media">
-                       <a href="item-details.html"><img src="..assets/images/box-item/image-box-6.jpg" alt="Image"></a>
-                       <button class="wishlist-button heart"><span class="number-like"> 100</span></button>
-                       <div class="featured-countdown">
-                           <span class="slogan"></span>
-                           <span class="js-countdown" data-timer="716400" data-labels=" :  ,  : , : , "></span>
-                       </div>
-                   </div>
-                   <div class="card-title">
-                       <h5><a href="item-details.html">"Cyber Doberman #766”</a></h5>
-                       <div class="tags">bsc</div>
-                   </div>
-                   <div class="meta-info">
-                       <div class="author">
-                           <div class="avatar">
-                               <img src="assets/images/avatar/avt-9.jpg" alt="Image">
-                           </div>
-                           <div class="info">
-                               <span>Owned By</span>
-                               <h6> <a href="author02.html">Freddie Carpenter</a></h6>
-                           </div>
-                       </div>
-                       <div class="price">
-                           <span>Current Bid</span>
-                           <h5> 4.89 ETH</h5>
-                       </div>
-                   </div>
-                   <div class="card-bottom">
-                       <a href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style bag fl-button pri-3"><span>구매하기</span></a>
-                       <a href="activity1.html" class="view-history reload">View History</a>
-                   </div>
-               </div>
-            </div>
-            <!-- 구매제품 설명 끝 -->
-
-        <a href="main"><button type="button" class="btn btn-success">메인 화면으로</button></a>
         
+        <!--구매제품 설명 시작-->
+        <div class="sc-card-activity style1" style="place-content: center;">
+          <div class="content">
+            <div class="infor">
+              <!-- 세션에 있는 id값 불러와서 출력 -->
+              <div class="status">구매자 아이디 : <span class="author"><%=session.getAttribute("loginId")%></span></div>
+              <!-- 넘겨받은 파라미터 출력 -->
+                          <div class="status">이용권이름 : <span class="author"><%= selectName %></span></div>
+                          <div class="status">이용권가격 : <span class="author"><%= selectPrice %></span></div>
+                          <div class="status">구매수단 : <span class="author"><%= selectPay %></span></div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="btn-activity mg-t-40 center">
+                  <a href="../index" class="sc-button loadmore fl-button pri-3"><span>메인 화면으로</span></a>
+              </div>
+            <!-- 구매제품 설명 끝 -->
     </section>
         
         <!-- 주문완료 끝 -->

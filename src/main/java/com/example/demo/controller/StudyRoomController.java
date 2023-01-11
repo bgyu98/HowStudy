@@ -21,6 +21,7 @@ public class StudyRoomController {
       return "studyRoom/" + step;
    }
    
+   // 스터디룸 생성
    @RequestMapping("/insertRoom")
    public String insertRoom(StudyRoomVO vo) {
       studyroomService.insertRoom(vo);
@@ -28,4 +29,6 @@ public class StudyRoomController {
    
       return "redirect:study";
    }
+   
+   
 }

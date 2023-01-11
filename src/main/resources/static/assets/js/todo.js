@@ -30,7 +30,7 @@ $('#addBtn').click(function(evt) {
 			var test = '';				   // 푼 내용을 담을 변수
 			$.each(str, function(k, v) {
 
-				test += '<li class="' + v.hSeq + '"><span>' + v.todos + '</span><span class="date"> ' + v.todoTime +
+				test += '<li class="a" value="' + v.hSeq + '"><span>' + v.todos + '</span><span class="date"> ' + v.todoTime +
 					'</span >';
 				test += '</li>';
 			});
@@ -38,6 +38,7 @@ $('#addBtn').click(function(evt) {
 			
 			$("#myUL").empty();			//화면 ul태그의 내용 삭제
 			$('#myUL').append(test);	// 삭제된 ul태그에 내용 붙이기
+			$('#tText').val('');
 		},
 		error: function() {
 
@@ -59,19 +60,16 @@ $("#deleteTodo").click(function(evt) {
 	var oUlcheck = document.querySelector("#myUL");				
 	var oChecked = oUlcheck.querySelectorAll('.checked');		// checked 클래스 를 찾아서 함수에 저장
 	var arr = [];		// 클릭한 값을 담을 리스트
-	for (i = 0; i < oChecked.length; i++) {					
+	for (i = 0; i < oChecked.length; i++) {			
+		console.log($(oChecked[i]).val());		
 		arr.push($(oChecked[i]).val());			// 클릭한 값의 내용을 arr변수에 하나씩 담기
-
 	}
-	console.log(arr);
-
 
 	var parms = '?hSeq=' + arr;					//  파라메터로 보낼 값 변수에 저장
-	var formData = $("#todoForm").serialize();		// todoForm의 데이터를 가져와 저장
 	$.ajax({
 		url: "./deleteTodo" + parms,		
 		type: "post",
-		data: formData,				// 저장한 데이터 보내기ㅐ
+
 
 		success: function() {
 			for (i = 0; i < oChecked.length; i++) {			
@@ -96,18 +94,18 @@ $("#updateTodo").click(function(evt) {
 	var oUlcheck = document.querySelector("#myUL");
 	var oChecked = oUlcheck.querySelectorAll('.checked');		// checked 클래스 를 찾아서 함수에 저장
 	var arr = [];
+
 	for (i = 0; i < oChecked.length; i++) {
 		arr.push($(oChecked[i]).val());
 
 	}
 
+	var mId = $("#mId").val();
 
-	var parms = '?hSeq=' + arr + "&mId="+"abc";
+	var parms = '?hSeq=' + arr + "&mId="+mId;
 
 	$.ajax({
 		url: "./updateTodo" + parms,
-		//type: "post",
-		data: formData,
 
 		success: function(result) {
 
@@ -118,7 +116,7 @@ $("#updateTodo").click(function(evt) {
 			var test = '';
 
 			$.each(str, function(k, v) {
-				test += '<li class="' + v.hSeq + '"><span>' + v.todos + '</span><span class="date"> ' + v.todoTime +
+				test += '<li class="a checked" vlaue=' + v.hSeq + '"><span>' + v.todos + '</span><span class="date"> ' + v.todoTime +
 					'</span >';
 				test += '</li>';
 

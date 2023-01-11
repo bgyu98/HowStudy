@@ -94,7 +94,15 @@
   <script src="../assets/js/web3.min.js"></script>
   <script src="../assets/js/moralis.js"></script>
   <script src="../assets/js/nft.js"></script>
+<<<<<<< HEAD
  
+=======
+  <script src="../assets/js/ticket.js"></script>
+  <script src="../assets/js/mystudyroom.js"></script>
+  <script src="../assets/js/studyRoom.js"></script>
+  
+
+>>>>>>> c25e39a7f9de7cabe24e6c7fb62f18d24114afba
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
   <!--번역관련 스크립트-->
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
