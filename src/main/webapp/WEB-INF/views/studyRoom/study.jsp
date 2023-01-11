@@ -48,16 +48,35 @@
             <div class="col-md-12">
               <div class="heading-live-auctions" style="margin-bottom: -10px">
                 <h2 class="tf-title pb-39" style="margin-left: -200px;"> 
-                  <c:if test="${sessionScope.loginId!=null}">
+                 
                     <%=session.getAttribute("loginId")%> 님의 스터디룸
                     <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
-                  </c:if>
+                 
                 </h2>
               </div> 
             </div>
               </div>
               </div>
+                <!-- 사진 ........ -->
+              <c:if test="${sessionScope.loginId==null}">
+              <div class="image" style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block;"  >
+                <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이 등록됩니다. <br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
+              </div>
+            </c:if>
+
+            <c:if test="">
+              <div class="image" style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block;"  >
+                <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이 등록됩니다. <br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
+              </div>
+            </c:if>
+
+         
             </section>
+
+
+            
+            
+
 
             <section class="tf-section live-auctions home7">
               <div class="themesflat-container">
@@ -99,14 +118,6 @@
 
                                             <!-- 로그인 아이디 ( 히든으로 바꿀 것)-->
                                             <input type="hidden" value = '${sessionScope.loginId}'/>
-
-
-
-
-
-
-                                                  
-                                                
                                                 </div>
                                                   <!-- 사진 -->
                                               <div class="card-media">
@@ -138,6 +149,7 @@
                                   </c:forEach>
 
                               </div>
+                              
                               <div class="swiper-pagination mg-t-13"></div>
                               <div class="swiper-button-next btn-slide-next active"></div>
                               <div class="swiper-button-prev btn-slide-prev"></div>

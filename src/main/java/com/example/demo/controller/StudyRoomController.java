@@ -83,6 +83,8 @@ public class StudyRoomController {
 		     
 
 			m.addAttribute("myroom", list); //화면에 찍어야 하니까!!
+			System.out.println("listchekc : " + list);
+			
 			
 		}
 
