@@ -56,6 +56,7 @@ public class UserController {
             session.setAttribute("loginId", loginResult.getmId());
             session.setAttribute("loginPass", loginResult.getmPw());
             session.setAttribute("loginEmail", loginResult.getmEmail());
+            session.setAttribute("memberGrade", loginResult.getmGrade());
 
             
             if(vo.getmId().equals("admin"))  {
