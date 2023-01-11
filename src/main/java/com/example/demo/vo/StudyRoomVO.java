@@ -11,6 +11,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class StudyRoomVO {
 	private Integer sNum;
+	public Integer getCheck() {
+		return check;
+	}
+
+	public void setCheck(Integer check) {
+		this.check = check;
+	}
+
+
 	private String mId;
 	private String sTitle;
 	private Integer sPeopleNum;
@@ -20,6 +29,7 @@ public class StudyRoomVO {
 	private String sComment;
 	private String sFile;
 	private Integer sFavorNum;
+	private Integer check;
 
 	
 	
@@ -28,7 +38,7 @@ public class StudyRoomVO {
 	public String toString() {
 		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sPeopleNum=" + sPeopleNum
 				+ ", sPw=" + sPw + ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment=" + sComment
-				+ ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", file=" + file + "]";
+				+ ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", check=" + check + ", file=" + file + "]";
 	}
 
 	public Integer getsFavorNum() {

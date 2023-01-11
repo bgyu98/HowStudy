@@ -72,10 +72,25 @@
                                           <div class="card-media">
                                             <!--사진-->
                                             <a href="item-details.html"><img src="../assets/images/studyRoom/f8062210-02ca-43ff-810b-772772303d98_스크린샷(1).png" alt="Image"/></a>
+                                            
+                                            <!-- 방 번호 ( 히든으로 바꿀 것)-->
+                                            <input type="text" value = "${mr.sNum}"/>
+                                            
+                                            <c:set var="cf" value="${mr.check}" />
+                                              <c:if test = "${cf eq 0}">
                                             <!-- 하트 갯수-->
                                             <button class="wishlist-button heart">
                                               <span class="number-like">${mr.sFavorNum}</span>
                                             </button>
+                                              </c:if>
+                                              <c:if test = "${cf eq 1}">
+                                                <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
+                                                  <span class="number-like"> ${mr.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                                              </button>
+                                              </c:if> 
+
+                                            <!-- 로그인 아이디 ( 히든으로 바꿀 것)-->
+                                            <input type="text" value = '${sessionScope.loginId}'/>
                                           </div>
                                           <div>
                                             <span>${mr.sNum}</span>

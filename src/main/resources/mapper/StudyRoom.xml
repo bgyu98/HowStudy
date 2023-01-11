@@ -32,6 +32,13 @@
       having sNum = #{sNum}
       order by sNum asc
    </select>
+   
+   	<!-- 방 번호별 즐겨찾기 여부 확인 -->
+	<select id="checkRoomHeart" parameterType="StudyRoomVO"
+		resultType="Integer">
+		select sNum from FAVORITES
+		where mID =#{mId} and sNUM =#{sNum}
+	</select>	
 
 
 

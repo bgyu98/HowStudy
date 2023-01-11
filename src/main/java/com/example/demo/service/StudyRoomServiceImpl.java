@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.StudyRoomDAO;
+import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
 
 @Service
@@ -30,5 +31,12 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 	// 내가 만든 스터디룸에 찍히는 하트
 	public Integer checkheart(Integer sNum) {
 		return studyroomDAO.checkheart(sNum);
+	}
+	
+	
+	// 아이디 별 즐겨찾기 여부 체크
+	@Override
+	public Integer checkRoomHeart(StudyRoomVO vo) {
+		return studyroomDAO.checkRoomHeart(vo);
 	}
 }
