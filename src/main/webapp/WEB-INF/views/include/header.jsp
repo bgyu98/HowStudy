@@ -6,7 +6,9 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <head>
     <meta charset="UTF-8" />
 
+    <link rel="stylesheet" type="text/css" href="../assets/css/flags.css" />
     <title>Header</title>
+    <link rel="stylesheet" href="../assets/css/sweet-alert.css">
   </head>
   <body>
     <header id="header_main" class="header_1 js-header">
@@ -172,7 +174,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                             <h4><%=session.getAttribute("loginId")%></h4>
                             <div class="d-flex align-items-center mt-20 mg-bt-12">
                               <div class="info">
-                                <p>등급: ㅇㅇㅇ</p>
+                                <p>등급: <%=session.getAttribute("memberGrade")%></p>
                                 <p class="style"><%=session.getAttribute("loginEmail")%></p>
                               </div>
                             </div>
@@ -253,6 +255,21 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                                   />
                                 </svg>
                                 <span>마이페이지</span>
+                              </a>
+                              <a class="mt-10" href="../user/userReport">
+                                <svg
+                                  width="20"
+                                  height="18"
+                                  viewBox="0 0 20 18"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z"
+                                    fill="white"
+                                  />
+                                </svg>
+                                <span>신고하기</span>
                               </a>
                               <a class="mt-10" href="../board/notice">
                                 <svg

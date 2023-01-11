@@ -1,7 +1,7 @@
 (function ($) {
   "use strict";
   var buttonHeart2 = function () {
-    $(".wishlist-button2").on("click", function () {
+    $(document).on("click", ".wishlist-button2", function () {
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val();
       // alert(seq);
@@ -57,13 +57,16 @@
   // $(function () {
   buttonHeart2();
   // });
+  */
 })(jQuery);
 
 function checkD(e) {
   // select 선택시 실행
   // alert(d);
+  var who = $(this).next().val();
   var day = {
-    date: e.value, // 선택한 옵션의 value 값
+    checkDate: e.value, // 선택한 옵션의 value 값
+    mId: who, // 로그인id
   };
 
   d = "";
@@ -78,6 +81,7 @@ function checkD(e) {
       alert("성공");
       //alert(checkdate);
       $("#favor").empty(); // 날짜 선택 하단부분의 방부분 초기화
+
       var c = "";
       c += "<div class='col-md-12' id='favor'>";
       c += " <div class='swiper-container show-shadow carousel6 pad-t-17 auctions' >";
@@ -90,9 +94,18 @@ function checkD(e) {
         d += "<div class='card-media style2'>";
 
         d += "<a><img src='../assets/images/box-item/image-box-29.jpg' alt='Image'></a>";
-        d += "<button class='wishlist-button heart'>";
-        d += "<span class='number-like'> " + value.sFavorNum + "</span>"; // 즐겨찾기
-        d += "</button>";
+        d += "<input type='text' value = '" + value.sNum + "'/>";
+        if (value.checkFavor == 0) {
+          // 즐겨찾기 안한 경우
+          d += "<button class='wishlist-button heart'>";
+          d += "<span class='number-like'> " + value.sFavorNum + "</span>"; // 즐겨찾기
+          d += "</button>";
+        } else if (value.checkFavor == 1) {
+          // 즐겨찾기 한 경우
+          d += "<button class='wishlist-button2 public heart mg-t-6 active' id='wishlist-button2'>";
+          d += "<span class='number-like'> " + value.sFavorNum + "</span>"; // 즐겨찾기
+          d += "</button>";
+        }
 
         d += "</div>";
 

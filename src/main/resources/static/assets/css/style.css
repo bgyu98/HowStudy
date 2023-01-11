@@ -3456,7 +3456,6 @@ span.type::after {
     50% { opacity:0; }
     100% { opacity:1; }
 }
-
 .toggle {
     position: relative;
     display: inline-block;
@@ -3504,3 +3503,5 @@ span.type::after {
 .toggle input:checked + label::after { /*켠 상태 스위치 위치*/
     left: 24px;
 }
+
+

@@ -1,11 +1,11 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-  <!--<![endif]-->
-  <!-- 한글 깨짐 방지-->
-  <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!--<![endif]-->
+<!-- 한글 깨짐 방지 -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
@@ -24,6 +24,7 @@
 
     <!-- Reponsive -->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/flags.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="../assets/icon/Favicon.png">
@@ -150,6 +151,7 @@
                 <!-- 랭킹목록 (슬라이더) -->
         <section class="tf-section category">
           <div class="themesflat-container">
+          
             <div class="row" >
               <div class="col-md-12">
                 <div class="heading-live-auctions" style="margin-top: 26px;">
@@ -326,524 +328,75 @@
 
 
 
-        <section class="tf-section live-auctions style3 pad-b-54 no-pt-mb mobie-pb-70">
+        <section id="tf-sectionId" class="tf-section live-auctions style3 pad-b-54 no-pt-mb mobie-pb-70 mine">
           <div class="themesflat-container">
             <div class="row">
               <div class="col-md-12" style="margin-top: 30px">
                 <div class="heading-live-auctions mg-bt-21" style="margin-bottom: -20px">
-                  <h2 class="tf-title pad-l-7">선호 스터디룸</h2>
+                  <h2 class="tf-title pad-l-7">전체 스터디룸</h2>
                 </div>
               </div>
               <div class="col-md-12">
-                <div class="tf-soft">
-                  <div class="soft-right">
-                    <div class="dropdown">
-                      <button
-                        class="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        id="dropdownMenuButton4"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        style="margin-left: 950%"
-                      >
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M3 7H21"
-                            stroke="white"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                          />
-                          <path
-                            d="M6 12H18"
-                            stroke="white"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                          />
-                          <path
-                            d="M10 17H14"
-                            stroke="white"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                          />
-                        </svg>
-                        <span>태그설정</span>
+                <div class="tf-soft" style="display: inline-block; float: right;">
+                  <div class="seclect-box style-1">
+                    <div id="item_category" class="dropdown" >
+                      <a href="#" class="btn-selector nolink" >태그설정</a>
+                      <form id="selectStudyRoom" action="selectStudyRoom" method="post">
+                        <ul id="selectTag">
+                          <li><span id="job" name="keyword">취업</span></li>
+                          <li><span id="book" name="keyword">독서</span></li>
+                          <li><span id="lan" name="keyword">어학</span></li>
+                          <li><span id="teac" name="keyword">임용</span></li>
+                          <li><span id="Offi" name="keyword">공무원</span></li>
+                          <li><span id="stu" name="keyword">대학수능</span></li>
+                          <li><span id="cer" name="keyword">자격증</span></li>
+                          <li><span id="scstu" name="keyword">학교공부</span></li>
+                          <li><span id="etc" name="keyword">기타</span></li>
+                          <li><span id="cord" name="keyword">코딩</span></li>
+                          <li><span id="Turn" name="keyword">이직</span></li>
+                        </ul>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <c:forEach items="${tagList}" var="vo">
+              <form id="studyTagList">
+                <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                  <div class="sc-card-product">
+                    <div class="card-media">
+                      <a href="item-details.html"
+                        ><img src="../assets/images/box-item/card-item-3.jpg" alt="Image"
+                      /></a>
+                      <button class="wishlist-button heart">
+                        <span class="number-like"> 100</span>
                       </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <h6>분야</h6>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>어학</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer active" href="#">
-                            <span>자격증</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>취미</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>자기계발</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>독서</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>코딩</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>임용</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>공무원</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="sort-filer" href="#">
-                            <span>학교</span>
-                            <i class="fal fa-check"></i>
-                          </div>
-                        </a>
+                    </div>
+                    <div class="card-title">
+                      <h5 class="style2">
+                        <a href="item-details.html">${vo.sTitle}</a>
+                      </h5>
+                      <div class="tags">${vo.sCategory}</div>
+                    </div>
+                    <div class="meta-info">
+                      <div class="author">
+                        <div class="info">
+                          <h6><a href="author02.html">${vo.sComment}</a></h6>
+                        </div>
                       </div>
+                      <div class="price">
+                        <span>총 인원수 : ${vo.sPeopleNum}</span>
+                      </div>
+                    </div>
+                    <div class="card-bottom">
+                      <a href="activity1.html" class="view-history reload">View</a>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-3.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-4.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-7.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item8.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-9.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/image-box-11.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item8.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-3.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-4.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-2.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item-7.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="sc-card-product">
-                  <div class="card-media">
-                    <a href="item-details.html"
-                      ><img src="../assets/images/box-item/card-item8.jpg" alt="Image"
-                    /></a>
-                    <button class="wishlist-button heart">
-                      <span class="number-like"> 100</span>
-                    </button>
-                  </div>
-                  <div class="card-title">
-                    <h5 class="style2">
-                      <a href="item-details.html">자율 스터디룸</a>
-                    </h5>
-                    <div class="tags">어학</div>
-                  </div>
-                  <div class="meta-info">
-                    <div class="author">
-                      <div class="avatar">
-                        <img src="../assets/images/avatar/avt-1.jpg" alt="Image" />
-                      </div>
-                      <div class="info">
-                        <span>Owned By</span>
-                        <h6><a href="author02.html">SalvadorDali</a></h6>
-                      </div>
-                    </div>
-                    <div class="price">
-                      <i class="fa-solid fa-user"></i>
-                      <span class="study-item-info-personnel present">&nbsp&nbsp0&nbsp/&nbsp</span>
-                      <span class="study-item-info-personnel maximum">&nbsp4 </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </form>
+            </c:forEach>
+             
 
               <div class="col-md-12 wrap-inner load-more text-center mg-t-4">
                 <a href="#" id="loadmore" class="sc-button loadmore fl-button pri-3"
@@ -854,402 +407,7 @@
           </div>
         </section>
 
-      <section class="tf-section live-auctions top-picks style3 home7 mobie-pb-70">
-          <div class="themesflat-container">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="heading-live-auctions mg-bt-24">
-                  <h2 class="tf-title">전체 스터디룸</h2>
-                  <p class="roomlist">총 개 스터디 </p>
-                </div>
-              </div>
-
-              <div class="col-md-12">
-                <div class="top-pick-box">
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-                  <div class="sc-card-product menu_card style-h7">
-                    <div class="meta-info style">
-                      <div class="author">
-                        <div class="tags">자격증</div>
-                      </div>
-                      <button class="wishlist-button heart">
-                        <span class="number-like"> 100</span>
-                      </button>
-                    </div>
-                    <div class="card-media">
-                      <a href="item-details.html"
-                        ><img src="../assets/images/box-item/image-box-46.jpg" alt="Image"
-                      /></a>
-                      <div class="button-place-bid">
-                        <a
-                          href="#"
-                          data-toggle="modal"
-                          data-target="#popup_bid"
-                          class="sc-button style-place-bid style bag fl-button pri-3"
-                          ><span>Place Bid</span></a
-                        >
-                      </div>
-                    </div>
-                    <div class="card-title">
-                      <h5><a href="item-details.html">자격증 합격 스터디룸</a></h5>
-                    </div>
-                    <div class="card-bottom">
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#popup_bid"
-                        class="sc-button style bag fl-button pri-3"
-                        ><span>Place Bid</span></a
-                      >
-                      <a href="activity1.html" class="view-history reload">View History</a>
-                    </div>
-                  </div>
-              <div class="col-md-12 wrap-inner load-more text-center mg-t17">
-                <a href="#" class="sc-button loadmore fl-button pri-3"><span>더보기</span></a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-
-
-
-
+   
             <!-- Footer -->
             <jsp:include page="../include/footer.jsp"></jsp:include> <!-- header include -->
             
@@ -1262,8 +420,74 @@
 
     <a id="scroll-top"></a>
 
+<script>
+ 
+ $('#selectStudyRoom ul li').click(function(){
+            var keyword = this.innerText
+            alert("keyword = " + keyword)
+           
 
+        });
 
+</script>
+
+<script>
+$('#selectStudyRoom #selectTag li').click(function(url){ 
+  var keyword = this.innerText 
+  alert(this.innerText);
+  
+  $.ajax({
+    url: '../studyRoom/study',
+    type: 'post',
+    data: JSON.stringify({sCategory : keyword}),
+    contentType: 'application/json',
+    success: function (data){
+        alert("데이터전송 성공:" + data) + ">";
+        var form = "" ;
+        for(var d of data){
+											
+                       form = "<div class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
+              
+                        form += "<div class='sc-card-product'>";
+                        form += "<div class='card-media'>";
+                        form += "<a href='item-details.html'/><img src=''../assets/images/box-item/card-item-3.jpg' alt='Image'/></a>";
+                        form += "<button class='wishlist-button heart'><span class='number-like'> 100</span></button>";
+                        form +=	"</div>";
+                        form += "<div class='card-title'>";
+                        form += "<h5 class='style2'><a href='item-details.html'>"+d.sTitle+"</a></h5>";
+                        form += "<div class='tags'>"+d.sCategory+"</div>";
+                        form += "</div>";
+                        form += " <div class='meta-info'>";
+                        form += "<div class='author'>";
+                        form += "<div class='info'>";
+                        form += "<h6><a href='author02.html'>"+d.sComment+"</a></h6>";
+                        form += "</div>";
+                        form += "</div>";
+                        form += "<div class='price'>";
+                        form += "<span>총 인원수 : "+d.sPeopleNum+"</span>";
+                        form += "</div>";
+                        form += "</div>";
+                        form += "<div class='card-bottom'>";
+                        form += "<a href='activity1.html' class='view-history reload'>View</a>";
+                        form += "</div>";
+                        form += "</div>";
+                        form += "</div>";
+                          
+                        form = "";
+                        
+                      }
+                      $('#tf-sectionId').append(form);
+                                  
+                    },
+    error: function (request,status, error){
+      alert("에러");
+      console.log("상태코드: " + request.status);
+			console.log("메세지: " + request.responseText);
+			console.log("에러설명: " + error);
+    }
+  });
+});
+</script>
 
 
 

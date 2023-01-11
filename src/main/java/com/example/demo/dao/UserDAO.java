@@ -18,6 +18,9 @@ public interface UserDAO {
 	// 로그인
 	public UserVO loginCustomer(UserVO vo);
 	
+	//구매 뭐시기
+	public UserVO payCustomer(UserVO vo);
+	
 	//아이디 중복 체크
 	public int mIdCheck(String mId);
 
@@ -38,6 +41,16 @@ public interface UserDAO {
 	
 	//카카오 회원 정보 저장
 	public void kakaoinsert(HashMap<String, Object> userInfo);
+
+    //전화번호와 이름으로 아이디 찾기
+	public UserVO findbytelandname(UserVO vo);
+
+	//---비번
+	//아이디로 회원정보 찾기
+	public UserVO findById(UserVO vo);
+	//임시 비밀번호 발송
+	public Integer updateTempPw(UserVO vo);
+
 	
 	// 관리자 회원정보 조회
 	public List<UserVO> manageUserList(UserVO uservo);

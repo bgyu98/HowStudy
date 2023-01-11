@@ -56,9 +56,9 @@
 
         <!-- 파라미터 넘긴거 받기 -->
         <%
-            String selectName = request.getParameter("selectName");
-            String selectPrice = request.getParameter("selectPrice");
-            String selectPay = request.getParameter("selectPay");
+            String selectName = request.getParameter("tClass");
+            String selectPrice = request.getParameter("pAmount");
+            String selectPay = request.getParameter("payWith");
         %>
         
         <!--구매제품 설명 시작-->
@@ -66,17 +66,18 @@
           <div class="content">
             <div class="infor">
               <!-- 세션에 있는 id값 불러와서 출력 -->
-              <div class="status">구매자 아이디 : <span class="author"><%=session.getAttribute("loginId")%></span></div>
+              <hr><div class="status">구매자 아이디 : <span class="author"><%=session.getAttribute("loginId")%></span></div>
+              <hr>
               <!-- 넘겨받은 파라미터 출력 -->
-                          <div class="status">이용권이름 : <span class="author"><%= selectName %></span></div>
-                          <div class="status">이용권가격 : <span class="author"><%= selectPrice %></span></div>
-                          <div class="status">구매수단 : <span class="author"><%= selectPay %></span></div>
+                          <div class="status">이용권이름 : <span class="author"><%= selectName %></span></div><hr>
+                          <div class="status">이용권가격 : <span class="author"><%= selectPrice %>원</span></div><hr>
+                          <div class="status">구매수단 : <span class="author"><%= selectPay %></span></div><hr>
                       </div>
                   </div>
               </div>
               
               <div class="btn-activity mg-t-40 center">
-                  <a href="../index" class="sc-button loadmore fl-button pri-3"><span>메인 화면으로</span></a>
+                  <a href="goHome" class="sc-button loadmore fl-button pri-3"><span>메인 화면으로</span></a>
               </div>
             <!-- 구매제품 설명 끝 -->
     </section>

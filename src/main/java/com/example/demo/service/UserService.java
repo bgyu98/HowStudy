@@ -13,6 +13,9 @@ public interface UserService {
 
 	// 로그인
 	public UserVO loginCustomer(UserVO vo);
+	
+	// 구매 뭐시기
+	public UserVO payCustomer(UserVO vo);
 
 	// 아이디 중복확인
 	public int mIdCheck(String mId);
@@ -33,6 +36,16 @@ public interface UserService {
 
 	// 회원 정보 삭제를 위한 비밀번호 체크
 	public boolean checkPw(String mId, String mPw);
+
+	//전화번호와 이름으로 아이디 찾기
+	public UserVO findbytelandname(UserVO vo);
+
+	// 비번 ----------
+	//아이디로 회원정보 찾기
+		public UserVO findById(UserVO vo);
+	//임시 비밀번호 발송
+	public Integer tempPw(UserVO vo);
+
 
 	// 관리자 회원정보 조회
 	public List<UserVO> manageUserList(UserVO uservo);
