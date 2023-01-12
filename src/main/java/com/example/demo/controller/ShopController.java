@@ -25,7 +25,7 @@ public class ShopController {
 	private ShopService service;
 	
 	@Autowired
-	  private UserService userService;
+	private UserService userService;
 	
 	@Autowired
 	private MembershipService mService;
@@ -58,10 +58,20 @@ public class ShopController {
 		
 		// 사용자 정보 검색 및
 		UserVO loginResult = userService.payCustomer(vo);
-	   session.setAttribute("memberGrade", loginResult.getmGrade());
-	   m.addAttribute("memberGrade", loginResult.getmGrade());
+	    session.setAttribute("memberGrade", loginResult.getmGrade());
+	     m.addAttribute("memberGrade", loginResult.getmGrade());
+	   
 	   return "shop/paySuccess";
+	   
+	
+	   	  
+	   
+	    
+	   
 	   }
+	
+		
+	
 	
 	// 스터디룸으로
 	@RequestMapping("/goHome")

@@ -66,10 +66,7 @@ public class UserController {
          return "redirect:../studyRoom/study";
       }
    
-   
 
-
-   
 
    // 아이디 중복체크
    @RequestMapping(value = "mIdCheck")

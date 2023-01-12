@@ -7,4 +7,6 @@ public interface MembershipService {
 
 	public void buyTicket(MembershipVO vo);
 
+
+
 }
