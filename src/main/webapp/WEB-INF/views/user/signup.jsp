@@ -19,6 +19,7 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
@@ -71,13 +72,13 @@
                                     <li>
                                         <a href="#" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-google-2"></i>
-                                            <span>Google</span>
+                                            <span>KAKAO</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" class="sc-button style-2 fl-button pri-3">
                                             <i class="icon-fl-facebook"></i>
-                                            <span>Facebook</span>
+                                            <span>NAVER</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -105,15 +106,48 @@
                                         <p id="chkNotice6"  name="chkNotice6" size="2" style="font-size: small;"></p>
                                         
                                         
-                                        <div class="row-form style-1">
-                                            <button class="submit" type="submit" name="submit"  style="margin: auto;">가입하기</button>
+                                        <!-- <div class="row-form style-1">
+                                            <input type="button" class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup" style="margin: auto;"  value="가입하기"/>
+                                        </div> -->
+
+                                        <div class="flat-form box-login-social">
+                                            <button class="submit" type="submit" name="submit"  class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup">가입하기</button>
                                         </div>
-
-                                       
-                                       <!-- <input type="submit" class="submit-btn" value="가입하기" name="submit" />-->
+                                        
 
 
-                                    </form>
+                                        
+                                        <!-- 모달 시작-->
+                                        <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+                                          <div class="modal-dialog modal-dialog-centered" role="document">
+                                              <div class="modal-content">
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                                  <div class="modal-body space-y-20 pd-40">
+                                                      <h3>나의 관심 주제</h3>
+                                                      <input id="submitName" type="hidden" name="selectName" value="">
+                                                      <input id="submitPrice" type="hidden" name="selectPrice" value="">
+                                                      
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="취업"><span><img src="../assets/images/likeTag/취업.png">취업</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="독서"><span><img src="../assets/images/likeTag/독서.png">독서</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="어학" ><span><img src="../assets/images/likeTag/어학.png">어학</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="임용"><span><img src="../assets/images/likeTag/임용.png">임용</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="공무원"><span><img src="../assets/images/likeTag/공무원.png">공무원</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="대학수능"><span><img src="../assets/images/likeTag/대학수능.png">대학수능</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자격증"><span><img src="../assets/images/likeTag/자격증.png">자격증</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="학교공부"><span><img src="../assets/images/likeTag/학교공부.png">학교공부</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="기타" ><span><img src="../assets/images/likeTag/기타.png">기타</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="코딩"><span><img src="../assets/images/likeTag/코딩.png">코딩</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
+                                                      <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
+                                                      
+                                                      <button id="likeTag">선택 완료</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                     </form>
                                 </div>
 
                             </div>
@@ -124,13 +158,15 @@
             </section>
         <!-- Bottom -->
         <!-- header 넣음 -->
-        <jsp:include page="../include/header.jsp"></jsp:include> 
+        <jsp:include page="../include/footer.jsp"></jsp:include> 
         </div>
         <!-- /#page -->
     </div>
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
+    <script src="../assets/js/signup.js"></script>
+    <script src="../assets/js/likeTag.js"></script>
 
 
 </body>

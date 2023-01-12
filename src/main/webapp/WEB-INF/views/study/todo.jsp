@@ -1,15 +1,11 @@
-<!-- 한글 깨짐 방지-->
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if IE 8]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<!--<![endif]-->
-<!-- 한글 깨짐 방지-->
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  <!--<![endif]-->
+  <!-- 한글 깨짐 방지-->
+  <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 
 <head>
     <!-- Basic Page Needs -->
@@ -25,58 +21,29 @@
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/todo.css">
-    <style>
-        .btn{  <!-- 모든 버튼에대한 css설정 -->
-          text-decoration: none;
-          font-size:14px;
-          color:white;
-          padding:5px 8px 5px 8px;
-          margin:15px;
-          display:inline-block;
-          border-radius: 10px;
-          transition:all 0.1s;
-          text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-          font-family: 'Lobster', cursive; <!-- google font -->
-        }
-        .btn:active{
-          transform: translateY(3px);
-        }
-        .btn.blue{
-          background-color: #1f75d9;
-          border-bottom:5px solid #165195;
-        }
-        .btn.blue:active{
-          border-bottom:2px solid #165195;
-        }
-        .btn.red{
-          background-color: #ff521e;
-          border-bottom:5px solid #c1370e;
-        }
-        .btn.red:active{
-          border-bottom:2px solid #c1370e;
-        }
-      </style>
-
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
 
 </head>
 
-
-    <body class="body header-fixed is_dark connect-wal">
-
+<body class="body header-fixed is_dark">
 
 
     <div id="wrapper">
         <div id="page" class="clearfix">
             <!-- header 넣음 -->
           <jsp:include page="../include/header.jsp"></jsp:include> 
+            <!-- Header -->      
+            
             <section class="tf-item tf-section">
                 <div class="themesflat-container">
-                    <div>
-                        <div >
+                    <div class="row">
+                        <div class="col-box-10">
+
+                        </div>
+                        
+                        <div class="col-box-83">
                             <div class="flat-tabs items">
                                 <ul class="menu-tab">
                                     <li><a href="record"><span>RECORD</span></a></li>
@@ -84,70 +51,58 @@
                                     <li><a href="todo"><span>TO-DO</span></a></li>
                                     <li><a href="note"><span>NOTE</span></a></li>
                                 </ul>
-                            </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><div id="test"  style="border-radius : 75px; margin-left : 400px; margin-right : 400px; background: #f5f7f9; "
-                            ><br/>
-                            
-                            <!-- 조ㅏ측-->
-                            
-                            <div id="grid" style="margin-top: 35px; margin-left: 50px; margin-right: 50px; margin-bottom: -35px;">
-                                
-                                <form action="insertTodo" id="todoForm" method="post">
-                                    <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
-                                  <div id="myDIV" class="header">
-                                    <h2>My To Do List</h2>
-
-                                    <input id="tText" type="text" name="todos" style="width: 200;" placeholder="Title...">
-                                    <input type="submit" id="addBtn" class="addBtn">
-                                  </div>
-                                
-                                  
-                                  <ul id="myUL">
-                                    <c:forEach items="${selectTodo}" var="temp">
-                                    
-                                    <li class="a aLine" value="${temp.hSeq}"><span>${temp.todos}</span><span>${temp.todos}</span><span class='date'>${temp.todoTime}</span></li>
-                                    
-                                    </c:forEach>
-                                  </ul>
-                            
-                                  <div class="button_area">
-
-                                    <div>
-                                      
-                                    <button class="btn red" id="updateTodo" >완료</button>
-                                      <button class="btn red" id="deleteTodo">삭제</button>
-
+                                <div class="content-tab">
+                                    <div class="content-inner">
+                                        <div class="content-item">
+                                            <div class="sc-box-icon no-box-shadown mgbt-0 none">
+                                            </div>
+                                            <!-- 여기임 -->
+                                            <form action="insertTodo" id="todoForm" method="post">
+                                                <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
+                                              <div id="myDIV" class="header">
+                                                <h1>My To Do List</h1><br/><br/><br/>
+                                                <input id="tText" type="text" style="background: #fff;" name="todos"  placeholder="Title...">
+                                                <button id="addBtn" class="btn">등록</button>                  
+                                              </div>
+                                              <ul id="myUL">
+                                                <c:forEach items="${selectTodo}" var="temp">
+                                                <li class="a" value="${temp.hSeq}"><span>${temp.todos}</span><span class='date'>${temp.todoTime}</span></li>
+                                                </c:forEach>
+                                              </ul>
+                                              <div class="button_area">
+                                                <div style="text-align: center;">
+                                                  <button id="updateTodo" class="btn">완료</button>
+                                                  <button  id="deleteTodo" class="btn">삭제</button>
+                                                </div>
+                                              </div>
+                                            </form>
+                                            <form action="selectCompletion" id="completion" method="post" style="margin-left: 22px;">
+                                            <!-- 오른쪽 박스 -->
+                                            <div>
+                                              <div id="myDIV2" class="header2">
+                                                <h1>Complete To Do List</h1>
+                                              </div>
+                                              <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
+                                              <ul id="myUL2">
+                                                <c:forEach items="${completion}" var="com">
+                                                
+                                                <li class="a checked" value="${com.hSeq}"><span>${com.todos}</span><span class='date'>${com.todoTime}</span></li>
+                                                </c:forEach>
+                                              </ul>
+                                              </ul>
+                                            </div>
+                                            </form>
+                                        </div>
                                     </div>
-
-                                  </div>
-                               
-                                </form>
-                                
-                                <form action="selectCompletion" id="completion" method="post" style="margin-left: 20px;">
-                                <!-- 오른쪽 박스 -->
-                                <div>
-                                  <div id="myDIV2" class="header2">
-                                    <h2>Complete To Do List</h2>
-                                  </div>
+                                </div>    
+                            </div>
                             
-                                  <ul id="myUL2">
-                                    <c:forEach items="${completion}" var="com">
-                                    
-                                    <li class="a checked aLine" value="${com.hSeq}" style="max-height: 30px;"><span>${com.todos}</span><span class='date'>${com.todoTime}</span></li>
-                                    </c:forEach>
-                                  </ul>
-                                  </ul>
-                                </div>
-                                </form>
-                            </div>
-                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </section>
 
-            <!-- Footer 넣음-->
-            <jsp:include page="../include/footer.jsp"></jsp:include>
+            <!-- Footer -->
         </div>
         <!-- /#page -->
 
@@ -167,6 +122,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Footer 넣음-->
+        <jsp:include page="../include/footer.jsp"></jsp:include>
         <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -204,10 +162,8 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
-
-    <!-- Javascript -->
+    <script src="../assets/js/todo.js"></script>
     
-
 
 </body>
 

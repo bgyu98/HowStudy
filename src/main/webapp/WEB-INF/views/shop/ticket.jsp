@@ -19,7 +19,8 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png" />
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+    <!-- 스윗알럿 cdn인데 헤더에 넣을까? -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"> -->
   </head>
 
   
@@ -80,7 +81,6 @@
                       </div>
                       <hr/>
                       <!-- 주의사항 끝 -->
-
                 <div class="swiper-container show-shadow carousel2 pad-t-20 button-arow-style">
                   <div class="swiper-wrapper">
                     <!--여기부터 한 블럭 forEach-->
@@ -100,7 +100,7 @@
                                         <div class="author-avatar">
                                         </div>
                                       </div>
-                                      <div class="content">
+                                      <div class="content" style="width: 205px;">
                                         <h4 class="ticketName">${list.tClass}</h4>
                                         <br/>
                                        <div class="infor">
@@ -112,9 +112,11 @@
                                       <span>구매하기</span>
                                     </button> -->
                                     <!-- 위에거 쓸라다가 다크모드 호환 안 돼서 바꿈-->
-                                    <div><h3 class="ticketPrice" style="position: relative;left: 44px;top: 15px;"> ${list.tPrice}원</h3>
-                                    <a name="ticketBuy" href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style bag fl-button pri-3" style="position: relative; top: 34px;"><span>구매하기</span></a>
-                                  </div></div>
+                                    <!-- style="position: relative;left: 44px;top: 15px;" -->
+                                    <div style="position: relative;left: 16px;top: 10px;"><h3 class="ticketPrice" style="display: inline;left: 45px;position: relative;"> ${list.tPrice}</h3><h3 style="display: inline;position: relative;left: 50px;">원</h3>
+                                    <a name="ticketBuy" href="#" data-toggle="modal" data-target="#popup_bid" class="sc-button style bag fl-button pri-3" style="position: relative; top: 23px;left: 8px;"><span>구매하기</span></a>
+                                  </div>
+                                </div>
                                 </div>
                               </div>
                             </div>
@@ -159,7 +161,8 @@
           </div>
       </div> 
       <!--모달 끝-->
-
+      
+      
       <!-- 결제 모달 창 시작 -->
       <form action="paySuccess" id="paySuccess" method="post" >
       <div class="modal fade popup" id="pay_bid" tabindex="-1" role="dialog" aria-hidden="true">
@@ -170,11 +173,14 @@
                 </button>
                 <div class="modal-body space-y-20 pd-40">
                     <h3>결제 방식을 선택해주세요</h3>
-                    <input id="submitName" type="hidden" name="selectName" value="">
-                    <input id="submitPrice" type="hidden" name="selectPrice" value="">
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button" id="kakaoPay"><img src="../assets/images/pay/payment_icon_yellow_medium.png"></button></a>
-                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button"  id="tossPay"><img src="../assets/images/pay/tosspay.png"></button></a>
-                    <button type="submit">테스트버튼</button>
+                    <input id="submitName" type="hidden" name="tClass" value="">
+                    <input id="submitPrice" type="hidden" name="pAmount" value="">
+                    <input id="submitPayment" type="hidden" name="payWith" value="">
+                    <input id="submitId" type="hidden" name="mId" value='<%=session.getAttribute("loginId")%>'>
+                    
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button" id="kakaoPay" name="kakaoPay" value="카카오페이"><img src="../assets/images/pay/payment_icon_yellow_medium.png"></button></a>
+                    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success" data-dismiss="modal" aria-label="Close"><button class="sc-button style bag fl-button"  id="tossPay" name="tossPay" value="토스페이"><img src="../assets/images/pay/tosspay.png"></button></a>
+                    <button id="testbtn" type="submit" name="testbtn">테스트버튼</button>
                 </div>
             </div>
         </div>
@@ -192,6 +198,9 @@
 
     <!-- 페이 api -->
     <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
+    <!-- 여기 js -->
+    <script src="../assets/js/ticket.js"></script>
     <!-- script end -->
   </body>
 </html>

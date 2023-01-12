@@ -5,25 +5,32 @@
 <mapper namespace="com.example.demo.dao.UserDAO">
 	<!-- 회원가입 -->
 	<insert id="insertCustomer" parameterType="UserVO">
-		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail)
-		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail})
+		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail, mTag, mGrade, mDate)
+		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail}, #{mTag}, "일반회원", now())
 	</insert>
-
 	<!-- 로그인 -->
-	<select id="loginCustomer" parameterType="UserVO"
-		resultType="UserVO">
+	<select id="loginCustomer" parameterType="UserVO" resultType="UserVO">
 		SELECT * FROM MEMBER
 		WHERE mId=#{mId} and mPw =#{mPw}
 	</select>
+	
+	<select id="payCustomer" parameterType="UserVO" resultType="UserVO">
+		SELECT * FROM MEMBER
+		WHERE mId=#{mId}
+	</select>
+	
+
 
 
 	<!-- 아이디 중복체크 -->
 	<select id="mIdCheck" parameterType="String" resultType="int">
-		SELECT count(*) FROM MEMBER WHERE mId = #{mId}
+		SELECT
+		count(*) FROM MEMBER WHERE mId = #{mId}
 	</select>
 
 	<!-- 회원정보 가져오기 -->
-	<select id="getUserInfo" parameterType="String" resultType="UserVO">
+	<select id="getUserInfo" parameterType="String"
+		resultType="UserVO">
 		SELECT *
 		FROM MEMBER
 		WHERE mId=#{mId}
@@ -36,35 +43,72 @@
 		mName=#{mName},
 		mPhone=#{mPhone},
 		mEmail=#{mEmail}
-		WHERE mId=#{mId}
+		WHERE
+		mId=#{mId}
 	</update>
-	
+
 	<!-- 회원정보 삭제 -->
 	<delete id="deleteInfo" parameterType="UserVO">
 		UPDATE MEMBER SET
-		mDelete = true
+		mDelete =
+		true
 		WHERE mId=#{mId}
 	</delete>
-	
+
 	<!-- 비밀번호 확인 -->
 	<select id="checkPw" resultType="boolean">
 		SELECT COUNT(*)
 		FROM MEMBER
-		WHERE mId=#{mId} AND mPw=#{mPw}
+		WHERE
+		mId=#{mId} AND mPw=#{mPw}
 	</select>
-	
-	
+
+
 	<!-- 정보 찾기 -->
-	<select id="findkakao" parameterType="java.util.HashMap" resultType="UserVO">
-		select * from MEMBER where mId=#{nickname} and mEmail=#{email}
+	<select id="findkakao" parameterType="java.util.HashMap"
+		resultType="UserVO">
+		select * from MEMBER where mId=#{nickname} and
+		mEmail=#{email}
 	</select>
 
 	<!-- 정보 저장 -->
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">
-		insert into MEMBER(mId, mEmail) values(#{nickname}, #{email})
+		insert into MEMBER(mId,
+		mEmail) values(#{nickname}, #{email})
 	</insert>
-	
-	
 
+	<!-- 관리지 회원정보 목록 -->
+	<select id="manageUserList" parameterType="UserVO"
+		resultType="UserVO">
+		SELECT *
+		FROM MEMBER
+		ORDER BY mDate DESC
+	</select>
+
+	<!-- 이름이랑 전화번호로 아이디 찾기 -->
+	<select id="findbytelandname" parameterType="UserVO" resultType="UserVO">
+		SELECT * FROM MEMBER WHERE mPhone=#{mPhone} AND mName=#{mName}
+	</select>
+		<!-- 관리자 회원정보 상세 -->
+	<select id="getUserInfoAdmin" parameterType="UserVO"
+		resultType="UserVO">
+		SELECT *
+		FROM MEMBER
+		WHERE mId = #{mId}
+	</select>
+	
+	<!-- 비번 찾기 -->
+	
+	<!-- 임시 비밀번호 발송 -->
+	<update id="updateTempPw" parameterType="UserVO">
+		UPDATE MEMBER
+		SET mPw=#{mPw}
+		WHERE mId=#{mId} AND mEmail=#{mEmail}
+	</update>
+
+	<!-- 아이디로 회원정보 찾기 -->
+	<select id="findById" parameterType="UserVO" resultType="UserVO">
+		SELECT * FROM MEMBER WHERE mId=#{mId}
+	</select>
 
 </mapper>

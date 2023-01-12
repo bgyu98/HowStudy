@@ -23,8 +23,8 @@ public class MyStudyServiceImpl implements MyStudyService{
 
 	// 체크한 기간 별 해당 값 출력
 	@Override
-	public List<MyStudyVO> checkdate(String date) {
-		return mystudyDAO.checkdate(date);
+	public List<HashMap> checkdate(MyStudyVO vo) {
+		return mystudyDAO.checkdate(vo);
 	}
 
 	// 즐겨찾기 테이블에 해당 방번호와 아이디 추가
@@ -39,11 +39,7 @@ public class MyStudyServiceImpl implements MyStudyService{
 		mystudyDAO.deletefavor(vo);
 	}
 
-	//  해당 방 번호의 즐겨찾기 개수 호출 
-	@Override
-	public List<HashMap> checkfavor(MyStudyVO vo) {
-		return mystudyDAO.checkfavor(vo);
-	}
+
 
 	// 아이디 별 해당 방 번호의 즐겨찾기 개수 호출 
 	@Override
@@ -53,7 +49,19 @@ public class MyStudyServiceImpl implements MyStudyService{
 
 	// 아이디 별 즐겨찾기한 방 번호들 호출 
 	@Override
-	public List<Integer> checkroom(MyStudyVO vo) {
-		return mystudyDAO.checkroom(vo);
+	public List<Integer> checkroom(String mId) {
+		return mystudyDAO.checkroom(mId);
+	}	
+	
+	// 아이디 별 방문한 방 번호들 호출 
+	@Override
+	public List<MyStudyVO> rogRoom(MyStudyVO vo) {
+		return mystudyDAO.rogRoom(vo);
+	}		
+	
+	// 방 번호 별 즐겨찾기 여부 확인
+	@Override
+	public Integer checkRoomHeart(MyStudyVO vo) {
+		return mystudyDAO.checkRoomHeart(vo);
 	}		
 }

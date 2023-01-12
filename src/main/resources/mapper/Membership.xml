@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.MembershipDAO">
+	<insert id="buyTicket" parameterType="MembershipVO">
+		insert into MEMBERSHIP (TICKET, tClASS, mID, PAYWITH, pAMOUNT, tStart, tEnd) 
+		<choose>
+			<when test='tClass.equals("프리미엄 7일 이용권")'>
+				values(nextval(sq_ticketSEQ), #{tClass}, #{mId}, #{payWith}, #{pAmount}, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY))
+			</when>
+			<when test='tClass.equals("프리미엄 30일 이용권")'>
+				values(nextval(sq_ticketSEQ), #{tClass}, #{mId}, #{payWith}, #{pAmount}, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY))
+			</when>
+			<when test='tClass.equals("프리미엄 365일 이용권")'>
+				values(nextval(sq_ticketSEQ), #{tClass}, #{mId}, #{payWith}, #{pAmount}, NOW(), DATE_ADD(NOW(), INTERVAL 365 DAY))
+			</when>
+		</choose>
+	</insert>
+	
+	
+	
+</mapper>

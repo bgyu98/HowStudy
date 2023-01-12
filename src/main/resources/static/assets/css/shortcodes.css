@@ -1068,8 +1068,9 @@
     transition        : all 0.3s ease;
 }
 
+/*width 바꿈*/
 .sc-card-product .tags {
-    width           : 49px;
+    width           : 75px;
     height          : 24px;
     line-height     : 24px;
     text-align      : center;
@@ -2975,6 +2976,65 @@ section.today-picks {
     -o-transform     : translateY(-50%);
     transform        : translateY(-50%);
 }
+
+/* 정환 추가 */
+.dropdown>input {
+    position             : relative;
+    display              : inline-block;
+    padding              : 12px 17px 10px 16px;
+    min-width            : 142px;
+    border-radius        : 6px;
+    -moz-border-radius   : 6px;
+    -webkit-border-radius: 6px;
+    background           : #f8f8f8;
+    font-size            : 15px;
+    line-height          : 24px;
+    color                : var(--primary-color2);
+    font-weight          : 400;
+    -webkit-transition   : all 0.3s ease-in-out;
+    -moz-transition      : all 0.3s ease-in-out;
+    -ms-transition       : all 0.3s ease-in-out;
+    -o-transition        : all 0.3s ease-in-out;
+    transition           : all 0.3s ease-in-out;
+    z-index              : 10;
+}
+.is_dark .dropdown>input {
+    background: #343444;
+}
+.seclect-box.style-2 .dropdown>input:after {
+    right: 15px;
+}
+
+.dropdown:hover>input {
+    color                : var(--primary-color2);
+    border-radius        : 6px 6px 0 0;
+    -moz-border-radius   : 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-box-shadow      : 0px -1px 4px rgba(28, 24, 24, 0.25);
+    -webkit-box-shadow   : 0px -1px 4px rgba(28, 24, 24, 0.25);
+    box-shadow           : 0px -1px 4px rgba(28, 24, 24, 0.25);
+}
+
+.dropdown>input:focus,
+.dropdown>input:hover {
+    color: var(--primary-color2);
+}
+
+.dropdown>input:after {
+    font-family      : 'Font Awesome 5 Pro';
+    font-size        : 12px;
+    font-weight      : 600;
+    content          : "\f078";
+    position         : absolute;
+    color            : var(--primary-color2);
+    right            : 11px;
+    top              : 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform    : translateY(-50%);
+    -o-transform     : translateY(-50%);
+    transform        : translateY(-50%);
+}
+/* 여기까지 */
 
 .dropdown ul.show {
     opacity           : 1;
@@ -7197,7 +7257,7 @@ section.today-picks {
     background-color: #fff;
     padding: 14px 0 30px;
     margin-top: 83px;
-    width: 330px;
+    width: 223px;
     z-index: 9;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -8014,37 +8074,6 @@ section.today-picks {
 .swiper-slide {
     height: auto !important;
 }
-.flag {
-	display: inline-block;
-	width: 30px;
-	height: 20px;
-	margin-left: 35px;
-	margin-top: 21px;
-	font-size: 14px;
-    line-height: 22px;
-    position: relative;
-}
-
-.Korean {
-	display: inline;
-}
-
-.english {
-	display: inline;
-}
-
-.spanish {
-	display: inline;
-}
-
-.japanese {
-	display: inline;
-}
-
-.language {
-	margin-top: -20px;
-	margin-left: -34px;
-}
 
 .is_dark .sc-card-product.explode.style2 {
 	background: #343444;
@@ -8151,5 +8180,4 @@ div.tf-soft {
   font-weight: bold;
   font-family: 'Roboto';
 }
-
 

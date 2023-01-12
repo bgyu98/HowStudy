@@ -56,6 +56,8 @@ public class UserController {
             session.setAttribute("loginId", loginResult.getmId());
             session.setAttribute("loginPass", loginResult.getmPw());
             session.setAttribute("loginEmail", loginResult.getmEmail());
+            session.setAttribute("memberGrade", loginResult.getmGrade());
+
             
             if(vo.getmId().equals("admin"))  {
                System.out.println("관리자 로그인");
@@ -64,6 +66,8 @@ public class UserController {
          }
          return "redirect:../studyRoom/study";
       }
+   
+   
 
 
    
@@ -147,5 +151,43 @@ public class UserController {
       }
 
    }
+   
+   
+   
+   //아이디 찾기
+   @RequestMapping(value="findId")
+   @ResponseBody	//ajax 쓸 때 필요
+   public String findId(UserVO vo) {
+   	String id = null;
+     	UserVO result = userService.findbytelandname(vo);	
+		if (result != null) {
+			id = result.getmId();
+			return id;
+		} else {
+			id = "0";
+			return id;
+		}
+
+	}
+   
+   //비밀번호 찾기
+	@RequestMapping(value = "findPw")
+	@ResponseBody
+	public String findPw(UserVO vo) {
+		String message = null;
+		UserVO result = userService.findById(vo);
+		if (result != null) {
+			System.out.println("**1**: 아이디 존재" );
+			Integer mailResult =userService.tempPw(result);
+			System.out.println("**2**: 디비에 임시비밀번호 저장" + mailResult );
+			message = result.getmId() + "님의 이메일인 " + result.getmEmail() + "로 임시 비밀번호를 전송해 드렸습니다.";
+			System.out.println("**3**:" + message);
+			return "success";
+		} else {
+			message = "일치하는 정보가 없습니다.";
+			return "fail";
+		}
+	}
+   
 
 }

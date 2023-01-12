@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+      //test
+  $("#testbtn").click(function () {
+    var test = $(this).text();
+
+    $("#submitPayment").val(test);
+  })
+
       //결제수단으로 넘어갈때
    
         $("#nextModal").click(function(){
@@ -59,6 +66,8 @@ $(document).ready(function () {
       },
       function (rsp) {
         if (rsp.success) {
+          var kakao = $("#kakaoPay").val();
+          $("#submitPayment").val(kakao);
           $("#paySuccess").submit();
         } else {
           Swal.fire({
@@ -75,8 +84,8 @@ $(document).ready(function () {
         pg: "tosspay",
         //pay_method: "card",
         merchant_uid: "HOWSTUDY_"+ new Date().getTime(),
-        name: "노르웨이 회전 의자",
-        amount: 64900,
+        name: $("#selectName").val(),
+        amount: $("#selectPrice").val(),
         buyer_email: "gildong@gmail.com",
         buyer_name: "홍길동",
         buyer_tel: "010-4242-4242",
@@ -85,6 +94,8 @@ $(document).ready(function () {
       },
       function (rsp) {
         if (rsp.success) {
+          var toss = $("#tossPay").val();
+          $("#submitPayment").val(toss);
           $("#paySuccess").submit();
         } else {
           Swal.fire({
