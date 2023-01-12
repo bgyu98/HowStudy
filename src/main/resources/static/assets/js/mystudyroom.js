@@ -1,5 +1,10 @@
+
 (function ($) {
   "use strict";
+  $(".icon-fl-search-filled").click(function () {
+    alert("ok");
+  });
+  /*
   var buttonHeart2 = function () {
     $(document).on("click", ".wishlist-button2", function () {
       var seq = $(this).prev().val(); // 23
@@ -190,3 +195,4 @@ function swiper_fn2() {
     },
   });
 }
+

@@ -19,6 +19,7 @@ import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -199,6 +200,9 @@ public class UserServiceImpl implements UserService {
 	
 	
 	
+	
+	
+	
 	//-----비번
 	
 	//아이디로 회원정보 찾기
@@ -271,7 +275,18 @@ public class UserServiceImpl implements UserService {
 		return str;
 		
 	}
-	
+		// 관리자 회원 조회
+	@Override
+	public List<UserVO> manageUserList(UserVO uservo){
+		return userDAO.manageUserList(uservo);
+	}
+
+	@Override
+	public UserVO getUserInfoAdmin(String mId) {
+		return userDAO.getUserInfoAdmin(mId);
+	}
+
+
 	//전화번호와 이름으로 아이디 찾기
 		public UserVO findbytelandname(UserVO vo) {
 			return userDAO.findbytelandname(vo);
@@ -298,4 +313,5 @@ public class UserServiceImpl implements UserService {
 	
 
 	}
+
 

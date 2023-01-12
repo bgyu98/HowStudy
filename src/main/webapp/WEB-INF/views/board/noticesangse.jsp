@@ -30,12 +30,10 @@
   </head>
 
   <body class="body header-fixed is_dark connect-wal">
-
-
     <div id="wrapper">
       <div id="page" class="clearfix">
         <!-- header 넣음 -->
-        <jsp:include page="../include/header.jsp"></jsp:include> 
+        <jsp:include page="../include/header.jsp"></jsp:include>
         <!-- title page -->
         <section class="flat-title-page inner">
           <div class="overlay"></div>
@@ -68,10 +66,10 @@
                     <div class="box"></div>
                     <div class="box left">
                       <div class="inner boder pad-r-50">
-                        <p>조회수 : ${notice.nCNT}</p>
+                        <p style="font-size: 15px">조회수 : ${ncnt.nCNT}</p>
                       </div>
                       <div class="inner mg-l-39 mg-r-1">
-                        <p>${notice.nDATE}</p>
+                        <p style="font-size: 15px">${notice.nDATE}</p>
                       </div>
                     </div>
                   </div>
@@ -122,9 +120,21 @@
                 <div class="widget widget-tag style-1">
                   <h3 class="title-widget mg-bt-23">태그</h3>
                   <ul>
-                    <li><a href="blog.html" class="box-widget-tag">${notice.nTAG1}</a></li>
-                    <li><a href="blog.html" class="box-widget-tag">${notice.nTAG2}</a></li>
-                    <li><a href="blog.html" class="box-widget-tag">${notice.nTAG3}</a></li>
+                    <li>
+                      <a href="blog.html" class="box-widget-tag" style="font-size: 15px"
+                        >${notice.nTAG1}</a
+                      >
+                    </li>
+                    <li>
+                      <a href="blog.html" class="box-widget-tag" style="font-size: 15px"
+                        >${notice.nTAG2}</a
+                      >
+                    </li>
+                    <li>
+                      <a href="blog.html" class="box-widget-tag" style="font-size: 15px"
+                        >${notice.nTAG3}</a
+                      >
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -141,7 +151,5 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
-
-    
   </body>
 </html>

@@ -12,11 +12,12 @@ public class HistoryVO {
 	private String	todos;			// 투두리스트
 	private String	todoTime;		// 투두시간
 	private String	completion;		// 투두완료
-	private String  gToplc;			// 글주제
+	private String  gTopic;			// 글주제
 	private String	gTitle;			// 글제목
 	private String  gComment;		// 글내용
 	private String  gDate;			// 글작성 날짜
-
+	
+	
 	
 	// setter and getter
 	public Integer gethSeq() {
@@ -67,11 +68,11 @@ public class HistoryVO {
 	public void setCompletion(String completion) {
 		this.completion = completion;
 	}
-	public String getgToplc() {
-		return gToplc;
+	public String getgTopic() {
+		return gTopic;
 	}
-	public void setgToplc(String gToplc) {
-		this.gToplc = gToplc;
+	public void setgTopic(String gTopic) {
+		this.gTopic = gTopic;
 	}
 	public String getgTitle() {
 		return gTitle;
@@ -92,14 +93,15 @@ public class HistoryVO {
 		this.gDate = gDate;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "HistoryVO [hSeq=" + hSeq + ", mId=" + mId + ", todayTime=" + todayTime + ", dayAvgTime=" + dayAvgTime
 				+ ", tagTime=" + tagTime + ", todos=" + todos + ", todoTime=" + todoTime + ", completion=" + completion
-				+ ", gToplc=" + gToplc + ", gTitle=" + gTitle + ", gComment=" + gComment + ", gDate=" + gDate + "]";
+				+ ", gTopic=" + gTopic + ", gTitle=" + gTitle + ", gComment=" + gComment + ", gDate=" + gDate + "]";
 	}
-	
+
+
+
 
 	
 

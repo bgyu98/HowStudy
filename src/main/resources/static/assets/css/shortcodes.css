@@ -236,8 +236,8 @@
 --------------------------------------------------*/
 .sc-button {
     display      : inline-block;
-    border       : 2px solid var(--primary-color3);
-    color        : var(--primary-color3);
+    border       : 2px solid #FF8787;
+    color        : #FF8787;
     box-sizing   : border-box;
     padding      : 11px 35px;
     border-radius: 30px;
@@ -375,8 +375,8 @@
 
 /* style loadmore */
 .sc-button.loadmore {
-    background-color: #eeecff;
-    border          : 2px solid #eeecff;
+    background-color: #ffe8c8;
+    border          : 2px solid #ffe8c8;
     padding         : 14px 40px;
 }
 
@@ -1077,7 +1077,7 @@
     font-weight     : bold;
     font-size       : 12px;
     color           : #fff;
-    background-color: var(--primary-color3);
+    background-color: #FF8787;
     border-radius   : 10px;
     letter-spacing  : 0.1em;
     text-transform  : uppercase;
@@ -2054,15 +2054,16 @@
     max-width    : 70%;
 }
 
+/* 선아가 변경 */
 .sc-card-product .card-title .tags {
-    width           : 49px;
+    width           : 70px;
     height          : 24px;
     line-height     : 24px;
     text-align      : center;
     font-weight     : bold;
     font-size       : 12px;
     color           : #fff;
-    background-color: var(--primary-color3);
+    background-color: #FF8787;
     border-radius   : 10px;
     letter-spacing  : 0.1em;
     text-transform  : uppercase;
@@ -7256,7 +7257,7 @@ section.today-picks {
     background-color: #fff;
     padding: 14px 0 30px;
     margin-top: 83px;
-    width: 330px;
+    width: 223px;
     z-index: 9;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -8073,37 +8074,110 @@ section.today-picks {
 .swiper-slide {
     height: auto !important;
 }
-.flag {
-	display: inline-block;
-	width: 30px;
-	height: 20px;
-	margin-left: 35px;
-	margin-top: 21px;
-	font-size: 14px;
-    line-height: 22px;
+
+.is_dark .sc-card-product.explode.style2 {
+	background: #343444;
+}
+
+.is_dark .header_1 {
+	background: unset;
+}
+
+.is_dark .sc-card-product{
+	background: #343444;	
+}
+
+.is_dark .sc-card-product .tags {
+	background: #5142fc;
+}
+
+.is_dark .sc-button {
+	background: #5142fc;
+	border: #5142fc;
+}
+
+/* 밝은 모드일때 selectBox - 선아 */
+
+.is_dark div.tf-soft {
     position: relative;
-}
-
-.Korean {
-	display: inline;
-}
-
-.english {
-	display: inline;
-}
-
-.spanish {
-	display: inline;
-}
-
-.japanese {
-	display: inline;
-}
-
-.language {
-	margin-top: -20px;
-	margin-left: -34px;
+    border: 1px solid #5142fc;
+    border-radius: 10px;
 }
 
 
+.is_dark #selectStudyRoom{
+    width: 200px;
+    border: 1px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    background: unset;
+ 
+}
+
+.is_dark #selectStudyRoom:focus{
+    border: 1px solid #EEEEEE;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #EEEEEE;
+    color:#5142fc;
+    border-radius: 10px;
+}
+
+.is_dark .selectOpt {
+  background: black;
+  color: #fff;
+  padding: 25px 0;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'Roboto';
+}
+
+/* 밝은 모드일때 selectBox - 선아 */
+
+div.tf-soft {
+    position: relative;
+    border: 2px solid #ffe8c8;
+    border-radius: 10px;
+}
+
+
+#selectStudyRoom{
+    width: 200px;
+    border: 2px solid #ffe8c8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #ff8787;
+    font-size: 16px;
+    line-height: 16px;
+    background: unset;
+ 
+}
+
+#selectStudyRoom:focus{
+    border: 2px solid #ffe8c8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #ffe8c8;
+    color:#ff8787;
+    border-radius: 10px;
+}
+
+.selectOpt {
+  background: #F7F5EB;
+  border:#F7F5EB;
+  color: #ff8787;
+  padding: 25px 0;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'Roboto';
+}
 

@@ -47,7 +47,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/manageUserList">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -379,7 +379,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                             <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fDATE}</a>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="../admin/modifyFaq?fNUM=${faqvo.fNUM}">
+                            <a href="../pages/modifyFaq?fNUM=${faqvo.fNUM}">
                               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
                               >Edit</a
                             >

@@ -36,10 +36,16 @@ public class BoardController {
 	
 	// Notice 상세 페이지 이동
 	@RequestMapping("/noticesangse")
-	public void seleteNotice(NoticeVO noticevo, Model m) {	
+	public void seleteNotice(NoticeVO noticevo, Model m, NoticeVO vo) {	
 		m.addAttribute("notice",noticeService.seleteNoticeBoard(noticevo));
 		m.addAttribute("noticeNext", noticeService.seleteNoticeNext(noticevo));
 		
+		// 조회수 증가 구문
+		noticeService.hitsplus(vo.getnNUM());	// 조회수 증가
+		System.out.println(vo);
+		NoticeVO ncnt = noticeService.seleteNoticeBoard(vo);
+		m.addAttribute("ncnt", ncnt);
+
 	}	
 	
 	// Notice 목록 출력

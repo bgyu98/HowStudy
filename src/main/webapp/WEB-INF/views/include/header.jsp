@@ -55,15 +55,17 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                       <ul class="sub-menu">
                         <li class="menu-item"><a href="../study/record">RECORD</a></li>
                         <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
-                        <li class="menu-item"><a href="../study/todo">TO-DO</a></li>
-                        <li class="menu-item"><a href="../study/note">NOTE</a></li>
+                        <li class="menu-item"><a href="../study/todo?mId=${sessionScope.loginId}">TO-DO</a></li>
+                        <li class="menu-item"><a href="../study/note?mId=${sessionScope.loginId}">NOTE</a></li>
                       </ul>
                     </li>
                     <li class="menu-item menu-item-has-children">
                       <a href="#">게시판</a>
                       <ul class="sub-menu">
-                        <li class="menu-item"><a href="../board/notice">공지사항</a></li>
-                        <li class="menu-item"><a href="../board/faq">FAQ</a></li>
+                        <li class="menu-item">
+                          <a href="../board/notice?cate=notice">공지사항</a>
+                        </li>
+                        <li class="menu-item"><a href="../board/faq?cate=faq">FAQ</a></li>
                       </ul>
                     </li>
                     <li class="menu-item current-menu-item">
@@ -80,6 +82,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                   </ul>
                 </nav>
                 <!-- /#main-nav -->
+                <!-- 넘겨받는 param 값이 studyroom 일때만 검색 아이콘 출력-->
+
                 <div class="flat-search-btn flex">
                   <div class="header-search flat-show-search" id="s1">
                     <a href="#" class="show-search header-search-trigger">
@@ -151,19 +155,17 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                       </svg>
                     </a>
                     <div class="top-search">
-                      <form action="#" method="get" role="search" class="search-form">
+                      <form role="search" class="search-form" id="searchFrm">
                         <input
-                          type="search"
+                          type="text"
                           id="s"
                           class="search-field"
-                          placeholder="Search..."
-                          value=""
-                          name="s"
-                          title="Search for"
+                          placeholder="검색어를 입력하세요"
+                          name="items"
                           required=""
                         />
-                        <button class="search search-submit" type="submit" title="Search">
-                          <i class="icon-fl-search-filled"></i>
+                        <button class="search-submit" id="searchItemBtn">
+                          <i class="icon-fl-search-filled" id="searchItemI"></i>
                         </button>
                       </form>
                     </div>
@@ -191,7 +193,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                             <div class="divider"></div>
                             <div class="hr"></div>
                             <div class="links mt-20">
-                              <a class="mt-10" href="../user/modifyAccount">
+                              <a
+                                class="mt-10"
+                                href="../user/modifyAccount?mId=${sessionScope.loginId}"
+                              >
                                 <svg
                                   width="20"
                                   height="20"
