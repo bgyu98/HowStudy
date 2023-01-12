@@ -100,13 +100,6 @@
                                             <!-- 로그인 아이디 ( 히든으로 바꿀 것)-->
                                             <input type="hidden" value = '${sessionScope.loginId}'/>
 
-
-
-
-
-
-                                                  
-                                                
                                                 </div>
                                                   <!-- 사진 -->
                                               <div class="card-media">
@@ -474,6 +467,7 @@
            
 
         });
+        
 
 </script>
 

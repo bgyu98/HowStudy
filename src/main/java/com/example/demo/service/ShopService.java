@@ -6,5 +6,6 @@ import com.example.demo.vo.ShopVO;
 
 public interface ShopService {
 
+	//티켓 리스트 반환
 	public List<ShopVO> selectTicketVOList(ShopVO vo);
 }

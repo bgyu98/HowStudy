@@ -4,11 +4,21 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Header</title>
     <meta charset="UTF-8" />
 
+    <meta name="author" content="themesflat.com" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" type="text/css" href="../assets/css/flags.css" />
-    <title>Header</title>
     <link rel="stylesheet" href="../assets/css/sweet-alert.css">
+    <!-- 스타일 -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <!-- 파비콘  -->
+    <link rel="shortcut icon" href="assets/icon/Favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
+
   </head>
   <body>
     <header id="header_main" class="header_1 js-header">

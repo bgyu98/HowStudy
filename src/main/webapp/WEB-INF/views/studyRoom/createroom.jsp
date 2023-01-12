@@ -211,7 +211,7 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
-
+    <script src="../assets/js/studyRoom.js"></script>
 
 </body>
 
