@@ -6,11 +6,14 @@ import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
 
-
+import org.springframework.web.multipart.MultipartFile;
 
 public class StudyRoomVO {
-	private Integer sNum;  
+	private Integer sNum;
 	private String mId;
 	private String sTitle;
 	private Integer sPeopleNum;
@@ -23,7 +26,11 @@ public class StudyRoomVO {
 	private Integer check;
 	private Integer check2;
 
+	// 스터디룸 검색 타이틀
+	private String items;
 
+	// 스터디룸 클릭 태그
+	private String keyword;
 
 	
 	public Integer getCheck2() {
@@ -49,8 +56,7 @@ public class StudyRoomVO {
 	public void setCheck(Integer check) {
 		this.check = check;
 	}
-		
-	
+
 	public Integer getsFavorNum() {
 		return sFavorNum;
 	}
@@ -131,41 +137,33 @@ public class StudyRoomVO {
 		this.sFile = sFile;
 	}
 
-
-
-
-
 	public MultipartFile getFile() {
 		return file;
 	}
 
-	
 	MultipartFile file;
-	
+
 	public void setFile(MultipartFile file) {
 		this.file = file;
 		// 업로드 파일이 있을 경우
-				if (!file.isEmpty()) {
-					System.out.println("이미지 확인");
-					UUID uuid = UUID.randomUUID();
+		if (!file.isEmpty()) {
+			System.out.println("이미지 확인");
+			UUID uuid = UUID.randomUUID();
 
-					this.sFile = uuid.toString() ;
+			this.sFile = uuid.toString();
 
-					File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\" + sFile + ".png");
+			File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\"
+					+ sFile + ".png");
 
-					try {
-						file.transferTo(f); 
-					} catch (IllegalStateException e) {
-						e.printStackTrace();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+			try {
+				file.transferTo(f);
+			} catch (IllegalStateException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
-				}
+		}
 	}
 
-
-
-	
-	
 }

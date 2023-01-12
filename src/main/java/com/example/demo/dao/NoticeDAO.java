@@ -28,4 +28,7 @@ public interface NoticeDAO {
 	// 다음 글 보기
 	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO);
 	
+	// 게시물 조회수 증가
+	public void hitsplus(Integer product_number);
+	
 }

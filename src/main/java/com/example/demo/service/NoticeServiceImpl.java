@@ -29,7 +29,6 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	
 	public void updateNoticeBoard(NoticeVO noticeVO) {
-		System.out.println("노티스 업데이트 돔");
 		noticeDAO.updateNoticeBoard(noticeVO);
 	}
 	
@@ -39,6 +38,10 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO) {
 		return noticeDAO.seleteNoticeNext(noticeVO);
+	}
+	
+	public void hitsplus(Integer product_number) {
+		noticeDAO.hitsplus(product_number);
 	}
 	
 }

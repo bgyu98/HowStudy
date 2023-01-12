@@ -3,12 +3,6 @@ package com.example.demo.controller;
 import java.util.Iterator;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
@@ -18,10 +12,29 @@ import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpSession;
 
+import java.util.List;
+import java.util.Map;
+
+import org.json.simple.JSONArray;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.example.demo.service.StudyRoomService;
+import com.example.demo.service.StudyRoomServiceImpl;
+import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.StudyRoomVO;
+import com.google.gson.Gson;
+
 @Controller
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
-
 
 	@Autowired
 	private StudyRoomService studyroomService;
@@ -108,5 +121,27 @@ public class StudyRoomController {
 		return crh;
 	}
 
+	@RequestMapping("searchItems")
+	public String searchItems(String items, Model m) {
+		m.addAttribute("searchList", studyroomService.searchItems(items));
+		return "studyRoom/searchItems";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/study2", produces = "application/text;charset=utf-8")
+	public String searchStudy(String sCategory) {
+		System.out.println("sCategory : " + sCategory);
+		String json = new Gson().toJson(studyroomService.searchStudy(sCategory));
+		System.out.println("json = " + json);
+		return json;
+
+	}
+
+	@RequestMapping("/study")
+	public void allStudy(StudyRoomVO vo, Model m) {
+		m.addAttribute("studyall", studyroomService.allStudy(vo));
+		System.out.println(m);
+
+	}
 
 }
