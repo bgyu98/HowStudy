@@ -113,21 +113,22 @@ public class UserController {
          return "redirect:../index";
       }
    
+  	// 회원정보 조회
+  	@RequestMapping("/modifyAccount")
+  	public void myPage(String mId, Model m) {
+  		System.out.println("select 성공");
+  		UserVO vo = userService.getUserInfo(mId);
+  		m.addAttribute("userInfo", vo);
+  	}
 
-   
-   // 회원정보 조회
-   @RequestMapping("/modifyAccount")
-   public void myPage(String mId, Model m) {
-      UserVO vo = userService.getUserInfo(mId);
-      m.addAttribute("userInfo", vo);
-   }
-
-   // 회원정보 수정
-   @RequestMapping("/modifyForm")
-   public String modify(UserVO vo) {
-      userService.updateCustomer(vo);
-      return "redirect:../studyRoom/study?mId=" + vo.getmId();
-   }
+  	// 회원정보 수정
+  	@RequestMapping("/modifyForm")  	
+  	public String modify(UserVO vo) {
+  		System.out.println("update 성공");
+  		userService.updateCustomer(vo);
+  		System.out.println(vo.toString());
+  		return "redirect:../studyRoom/study?mId=" + vo.getmId();
+  	}
 
    // 비밀번호 확인 & 회원정보 삭제
    @RequestMapping("/userDelete")

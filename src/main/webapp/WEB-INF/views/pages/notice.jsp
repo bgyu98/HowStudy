@@ -389,7 +389,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                             >
                           </td>
                           <td class="align-middle text-center">
-                            <a href="../admin/modifyNotice?nNUM=${noticevo.nNUM}">
+                            <a href="../pages/modifyNotice?nNUM=${noticevo.nNUM}">
                               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
                               >Edit</a
                             >

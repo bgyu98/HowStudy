@@ -5,10 +5,32 @@
 <mapper namespace="com.example.demo.dao.StudyRoomDAO">
 
 	<!-- 스터디룸 등록 -->
-  	<insert id='insertRoom' parameterType='StudyRoomVO'>
-		INSERT INTO STUDYROOM (sNUM,mId,sPeopleNum, sCategory, sTitle,sPw,sDate,sComment) 
-		VALUES ( nextval(howstudy.sq_sNum), "abc", #{sPeopleNum}, #{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment})
-	</insert>
+     <insert id='insertRoom' parameterType='StudyRoomVO'>
+      INSERT INTO STUDYROOM (sNUM,mId,sPeopleNum, sCategory, sTitle,sPw,sDate,sComment, sFile) 
+      VALUES ( nextval(howstudy.sq_sNum), #{mId}, #{sPeopleNum}, #{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment}, #{sFile}) 
+   </insert>
+	
+	<!-- 스터디룸 검색 -->
+	<select id="searchItems" parameterType="String" resultType="StudyRoomVO">	
+	SELECT *
+	FROM STUDYROOM
+	WHERE sTitle LIKE CONCAT('%',#{items},'%')
+	</select>
+	
+	<!-- 분류별 스터디룸 출력 -->
+	<select id="searchStudy" parameterType="String" resultType="StudyRoomVO">	
+	SELECT *
+	FROM STUDYROOM
+	WHERE sCategory = #{keyword}
+	</select>
+
+	<!-- 전체 스터디룸 출력 -->
+	<select id="allStudy" resultType="StudyRoomVO">	
+	SELECT *
+	FROM STUDYROOM
+	ORDER BY sDate DESC
+	</select>
+
 
 
 </mapper>

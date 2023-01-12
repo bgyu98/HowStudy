@@ -104,6 +104,14 @@
 			WHERE nNUM = #{nNUM}+1 OR nNUM = #{nNUM}+2
     </select> 
     
+    <!-- 조회수 증가 -->
+   <update id="hitsplus" parameterType="NoticeVO">
+      UPDATE NOTICE 
+      SET   nCNT = nCNT+1
+      WHERE nNUM = #{nNUM}
+   </update>
+    
+    
 
 	
 	

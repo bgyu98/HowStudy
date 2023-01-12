@@ -210,7 +210,7 @@ var swiper = new Swiper(".carousel-overflow2", {
   //     },
   slidesPerView: 1,
   spaceBetween: 30,
-  loop: true,
+  loop: false,
   breakpoints: {
     768: {
       slidesPerView: 2,

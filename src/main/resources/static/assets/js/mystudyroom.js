@@ -1,3 +1,4 @@
+
 (function ($) {
   "use strict";
   var buttonHeart2 = function () {
@@ -177,3 +178,4 @@ function swiper_fn2() {
     },
   });
 }
+

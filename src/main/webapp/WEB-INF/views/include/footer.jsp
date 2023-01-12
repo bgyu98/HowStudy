@@ -64,10 +64,10 @@
           <!-- "새 번역 링크 UI" -->
           <div class="language">
           <ul class="translation-links">
-            <li><a href="javascript:void(0)" class="Korean" data-lang="ko"><span class="flag ko">한국어</span></a></li>
-            <li><a href="javascript:void(0)" class="english" data-lang="en"><span class="flag en">영어</span></a></li>
-            <li><a href="javascript:void(0)" class="spanish" data-lang="zh-CN"><span class="flag zh-CN">중국어</span></a></li>
-            <li><a href="javascript:void(0)" class="japanese" data-lang="ja"><span class="flag ja">일본어</span></a></li>
+              <li><a href="javascript:void(0)" class="Korean" data-lang="ko"><span class="flag ko">한국어</span></a></li>
+              <li><a href="javascript:void(0)" class="english" data-lang="en"><span class="flag en">영어</span></a></li>
+              <li><a href="javascript:void(0)" class="spanish" data-lang="zh-CN"><span class="flag zh-CN">중국어</span></a></li>
+              <li><a href="javascript:void(0)" class="japanese" data-lang="ja"><span class="flag ja">일본어</span></a></li>
           </ul>
         </div>
           </div>

@@ -379,7 +379,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                             <a href="../board/faq?fTITLE=${faqvo.fTITLE}">${faqvo.fDATE}</a>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="../admin/modifyFaq?fNUM=${faqvo.fNUM}">
+                            <a href="../pages/modifyFaq?fNUM=${faqvo.fNUM}">
                               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
                               >Edit</a
                             >
