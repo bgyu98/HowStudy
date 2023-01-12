@@ -10,20 +10,11 @@
 
     <title>PetDo - 관리자 페이지</title>
 
-    <!-- Custom fonts for this template-->
-    <link
-      href="../assets/vendor/fontawesome-free/css/all.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="../assets/resources/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet"
-    />
-
     <!-- Custom styles for this template-->
     <link href="../assets/css/sb-admin-2.min-copy.css" rel="stylesheet" />
     <link href="../assets/css/customRegistFAQ.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../assets/css/summernote-lite.css" />
   </head>
 
   <body id="page-top">
@@ -72,7 +63,7 @@
                   <hr />
                   <div>
                     상세 설명
-                    <textarea style="width: 100%; height: 300px" name="fCOMMENT"></textarea>
+                    <textarea id="summernote" name="nCOMMENT"></textarea>
                   </div>
                   <div id="registBtn">
                     <button class="btn btn-primary btn-icon-split" id="insertNoticeBtn">
@@ -203,14 +194,21 @@
     <!-- Custom scripts for all pages-->
     <script src="../assets/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../assets/vendor/chart.js/Chart.min.js"></script>
+    <script src="../assets/js/summernote-lite.js"></script>
+    <script src="../assets/js/summernote-ko-KR.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../assets/js/demo/chart-area-demo.js"></script>
-    <script src="../assets/js/demo/chart-pie-demo.js"></script>
-
-    <!-- font awesome CDN -->
-    <script src="https://kit.fontawesome.com/3364ed6976.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //여기 아래 부분
+        $("#summernote").summernote({
+          height: 300, // 에디터 높이
+          minHeight: null, // 최소 높이
+          maxHeight: null, // 최대 높이
+          focus: true, // 에디터 로딩후 포커스를 맞출지 여부
+          lang: "ko-KR", // 한글 설정
+          placeholder: "최대 2048자까지 쓸 수 있습니다", //placeholder 설정
+        });
+      });
+    </script>
   </body>
 </html>

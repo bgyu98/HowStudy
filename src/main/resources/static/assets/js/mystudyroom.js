@@ -1,3 +1,4 @@
+
 (function ($) {
   "use strict";
   $(".icon-fl-search-filled").click(function () {
@@ -194,3 +195,4 @@ function swiper_fn2() {
     },
   });
 }
+

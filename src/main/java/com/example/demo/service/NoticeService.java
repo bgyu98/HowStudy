@@ -17,4 +17,6 @@ public interface NoticeService {
 	public void deleteNoticeBoard(NoticeVO noticeVO);
 	
 	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO);
+	
+	public void hitsplus(Integer product_number);
 }

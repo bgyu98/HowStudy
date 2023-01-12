@@ -4,11 +4,21 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Header</title>
     <meta charset="UTF-8" />
 
+    <meta name="author" content="themesflat.com" />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" type="text/css" href="../assets/css/flags.css" />
-    <title>Header</title>
     <link rel="stylesheet" href="../assets/css/sweet-alert.css">
+    <!-- 스타일 -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <!-- 파비콘  -->
+    <link rel="shortcut icon" href="assets/icon/Favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
+
   </head>
   <body>
     <header id="header_main" class="header_1 js-header">
@@ -52,8 +62,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                     <li class="menu-item menu-item-has-children">
                       <a href="#">게시판</a>
                       <ul class="sub-menu">
-                        <li class="menu-item"><a href="../board/notice">공지사항</a></li>
-                        <li class="menu-item"><a href="../board/faq">FAQ</a></li>
+                        <li class="menu-item">
+                          <a href="../board/notice?cate=notice">공지사항</a>
+                        </li>
+                        <li class="menu-item"><a href="../board/faq?cate=faq">FAQ</a></li>
                       </ul>
                     </li>
                     <li class="menu-item current-menu-item">
@@ -70,6 +82,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                   </ul>
                 </nav>
                 <!-- /#main-nav -->
+                <!-- 넘겨받는 param 값이 studyroom 일때만 검색 아이콘 출력-->
+
                 <div class="flat-search-btn flex">
                   <div class="header-search flat-show-search" id="s1">
                     <a href="#" class="show-search header-search-trigger">
@@ -141,19 +155,17 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                       </svg>
                     </a>
                     <div class="top-search">
-                      <form action="#" method="get" role="search" class="search-form">
+                      <form role="search" class="search-form" id="searchFrm">
                         <input
-                          type="search"
+                          type="text"
                           id="s"
                           class="search-field"
-                          placeholder="Search..."
-                          value=""
-                          name="s"
-                          title="Search for"
+                          placeholder="검색어를 입력하세요"
+                          name="items"
                           required=""
                         />
-                        <button class="search search-submit" type="submit" title="Search">
-                          <i class="icon-fl-search-filled"></i>
+                        <button class="search-submit" id="searchItemBtn">
+                          <i class="icon-fl-search-filled" id="searchItemI"></i>
                         </button>
                       </form>
                     </div>
@@ -181,7 +193,10 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                             <div class="divider"></div>
                             <div class="hr"></div>
                             <div class="links mt-20">
-                              <a class="mt-10" href="../user/modifyAccount">
+                              <a
+                                class="mt-10"
+                                href="../user/modifyAccount?mId=${sessionScope.loginId}"
+                              >
                                 <svg
                                   width="20"
                                   height="20"
