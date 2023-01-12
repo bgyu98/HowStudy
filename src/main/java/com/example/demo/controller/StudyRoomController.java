@@ -95,6 +95,7 @@ public class StudyRoomController {
 
 		m.addAttribute("myroom", list); // 내가만든 스터디룸 화면에 찍는거
 		m.addAttribute("myroomcnt", list.size()); // 스터디룸 안 만들었을때 화면에 찍는거
+		m.addAttribute("studyall", studyroomService.allStudy(vo)); //선아
 
 		System.out.println("listcheck : " + list);
 		System.out.println("listcheck2 방갯수확인 : " + list.size());
@@ -137,11 +138,11 @@ public class StudyRoomController {
 
 	}
 
-	@RequestMapping("/study")
-	public void allStudy(StudyRoomVO vo, Model m) {
-		m.addAttribute("studyall", studyroomService.allStudy(vo));
-		System.out.println(m);
-
-	}
+//	@RequestMapping("/study")
+//	public void allStudy(StudyRoomVO vo, Model m) {
+//		
+//		System.out.println(m);
+//
+//	}
 
 }

@@ -51,7 +51,7 @@
                 <h2 class="tf-title pb-39" style="margin-left: -200px;"> 
                   <!--로그인 안했을 때 님의 스터디룸-->
                   <c:if test="${sessionScope.loginId==null}">
-                                        님의 스터디룸
+                                       스터디룸 만들기
                     <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
                   </c:if>
                   <c:if test="${sessionScope.loginId!=null}">
