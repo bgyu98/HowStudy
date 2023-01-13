@@ -91,7 +91,7 @@ function addzero3(num) {
   var check = function () {
     $(document).on("click", ".checkbutton", function () {
       // alert("체크버튼 누름");
-      var ck = $("#totalstudytime").val();
+      var ck = $("#totalstudytime").text();
       alert(ck);
     });
   };
