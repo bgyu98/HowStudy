@@ -51,10 +51,10 @@ public class ReportVO {
 	public void setrClass(String rClass) {
 		this.rClass = rClass;
 	}
-	public Date getrDate() {
+	public String getrDate() {
 		return rDate;
 	}
-	public void setrDate(Date rDate) {
+	public void setrDate(String rDate) {
 		this.rDate = rDate;
 	}
 	public String getrReason() {

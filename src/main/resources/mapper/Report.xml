@@ -8,6 +8,13 @@
 		values(nextval(sq_REPORT_SEQ), #{rClass}, #{mId}, #{rTitle}, #{rOpponent}, NOW(), #{rReason}, #{rFile})
 	</insert>
 	
+	<!-- 글 리스트 출력 -->
+	 <select id="getReportList" parameterType="ReportVO" resultType="ReportVO">
+        SELECT  *
+        FROM REPORT
+		ORDER BY rNUM DESC
+		LIMIT 7
+    </select> 
 	
 	
 </mapper>

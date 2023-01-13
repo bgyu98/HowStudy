@@ -15,6 +15,17 @@ public class NoticeVO {
 	private Integer nCNT;
 	private String nCOMMENT;
 	private String nDATE;
+	private Integer nCount;
+	
+	
+	public Integer getnCount() {
+		return nCount;
+	}
+
+	public void setnCount(Integer nCount) {
+		this.nCount = nCount;
+	}
+
 	public String getnSUBTITLE() {
 		return nSUBTITLE;
 	}

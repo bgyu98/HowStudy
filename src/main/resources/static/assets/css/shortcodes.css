@@ -8075,6 +8075,39 @@ section.today-picks {
     height: auto !important;
 }
 
+/* 선아 수정 : 페이지 번역 나라 국기 위치 조정 */
+.flag {
+   display: inline-block;
+   height: 20px;
+   margin-left: 35px;
+   margin-top: 21px;
+   font-size: 14px;
+    line-height: 22px;
+    position: relative;
+}
+
+.Korean {
+   display: inline;
+}
+
+.english {
+   display: inline;
+}
+
+.spanish {
+   display: inline;
+}
+
+.japanese {
+   display: inline;
+}
+
+.language {
+   margin-top: -20px;
+   margin-left: -34px;
+}
+
+
 .is_dark .sc-card-product.explode.style2 {
 	background: #343444;
 }
@@ -8171,6 +8204,7 @@ div.tf-soft {
     border-radius: 10px;
 }
 
+/* 선아가 바꿈 : 스터디룸 font color 바꿈*/
 .selectOpt {
   background: #F7F5EB;
   border:#F7F5EB;
@@ -8180,4 +8214,19 @@ div.tf-soft {
   font-weight: bold;
   font-family: 'Roboto';
 }
+
+#creatby {
+   font-size: 15px;
+   color: #8a8aa0;
+   }
+
+#createMid {
+	color: #5142fc;
+	font-weight: bold;
+    }
+          
+#countNum {
+	font-size: 13px;
+    color: #8a8aa0;
+	}          
 
