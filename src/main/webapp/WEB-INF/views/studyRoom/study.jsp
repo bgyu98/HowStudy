@@ -46,25 +46,23 @@
               <div class="themesflat-container">
                 <div class="row" style="margin-top: 20px;">
 
-                  <div class="col-md-12">
-                    <div class="heading-live-auctions" style="margin-bottom: -10px">
-                      <h2 class="tf-title pb-39" style="margin-left: -200px;">
-                        <!--로그인 안했을 때 님의 스터디룸-->
-                        <c:if test="${sessionScope.loginId==null}">
-                          스터디룸 만들기
-                          <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image"
-                              style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
-                        </c:if>
-                        <c:if test="${sessionScope.loginId!=null}">
-                          <!--로그인 했을때 ㅇㅇㅇ님의 스터디룸-->
-                          <%=session.getAttribute("loginId")%> 님의 스터디룸
-                            <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image"
-                                style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
-                        </c:if>
-                      </h2>
-                    </div>
-                  </div>
-                </div>
+            <div class="col-md-12">
+              <div class="heading-live-auctions" style="margin-bottom: -10px">
+                <h2 class="tf-title pb-39" style="margin-left: -200px;"> 
+                  <!--로그인 안했을 때 님의 스터디룸-->
+                  <c:if test="${sessionScope.loginId==null}">
+                                       스터디룸 만들기
+                    <a href="../user/login"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
+                  </c:if>
+                  <c:if test="${sessionScope.loginId!=null}">
+                    <!--로그인 했을때 ㅇㅇㅇ님의 스터디룸-->
+                    <%=session.getAttribute("loginId")%> 님의 스터디룸
+                    <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
+                  </c:if>
+                </h2>
+              </div> 
+            </div>
+              </div>
               </div>
               <!-- 방 안 만들었을때 이미지 뜨는거-->
               <c:if test="${myroomcnt eq 0}">
@@ -77,6 +75,7 @@
 
 
             </section>
+
 
 
 
@@ -129,9 +128,9 @@
                                   <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
-                                    <c:if test="${mr.sPw == ''}>
-                                      <a id=" sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
-                                      class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                                    <c:if test="${mr.sPw == ''}">
+                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
+                                        class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
                                     <c:if test="${mr.sPw != ''}">
                                       <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm

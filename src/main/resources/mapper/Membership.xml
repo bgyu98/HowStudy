@@ -3,6 +3,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.dao.MembershipDAO">
+
+	<!-- 티켓 구매 -->
 	<insert id="buyTicket" parameterType="MembershipVO">
 		insert into MEMBERSHIP (TICKET, tClASS, mID, PAYWITH, pAMOUNT, tStart, tEnd) 
 		<choose>
@@ -17,6 +19,13 @@
 			</when>
 		</choose>
 	</insert>
+	
+	
+	<!-- 결제내역 이메일 발송 -->
+	<!-- 아이디로 회원정보 찾기 -->
+	<select id="findById" parameterType="MembershipVO" resultType="MembershipVO">
+	  SELECT m.mID mId , m.mPhone mPhone , m.mNAME mName , m.mEMAIL mEmail, m.mGRADE mGrade , m2.tSTART tStart , m2.tEND tEnd, m2.tCLASS tClass, m2.pAMOUNT pAmount  FROM MEMBER m right JOIN MEMBERSHIP m2 on m.mId = m2.mId where m.mId = #{mId}
+	</select>
 	
 	
 	

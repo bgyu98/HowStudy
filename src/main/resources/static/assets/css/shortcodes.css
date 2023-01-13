@@ -8077,34 +8077,34 @@ section.today-picks {
 
 /* 선아 수정 : 페이지 번역 나라 국기 위치 조정 */
 .flag {
-	display: inline-block;
-	height: 20px;
-	margin-left: 35px;
-	margin-top: 21px;
-	font-size: 14px;
+   display: inline-block;
+   height: 20px;
+   margin-left: 35px;
+   margin-top: 21px;
+   font-size: 14px;
     line-height: 22px;
     position: relative;
 }
 
 .Korean {
-	display: inline;
+   display: inline;
 }
 
 .english {
-	display: inline;
+   display: inline;
 }
 
 .spanish {
-	display: inline;
+   display: inline;
 }
 
 .japanese {
-	display: inline;
+   display: inline;
 }
 
 .language {
-	margin-top: -20px;
-	margin-left: -34px;
+   margin-top: -20px;
+   margin-left: -34px;
 }
 
 

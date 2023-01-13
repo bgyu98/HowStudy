@@ -217,10 +217,10 @@ public class UserServiceImpl implements UserService {
       p.put("mail.smtp.auth", "true"); // gmail은 true 고정
       p.put("mail.smtp.port", "587"); // 네이버 포트
 
-      Authenticator auth = new MyAuthentication();
-      // session 생성 및 MimeMessage생성
-      Session session = Session.getDefaultInstance(p, auth);
-      MimeMessage msg = new MimeMessage(session);
+		Authenticator auth = new MyAuthentication();
+		// session 생성 및 MimeMessage생성
+		Session session = Session.getInstance(p, auth);
+		MimeMessage msg = new MimeMessage(session);
 
       try {
          // 편지보낸시간
@@ -297,8 +297,8 @@ public class UserServiceImpl implements UserService {
       PasswordAuthentication pa;
       public MyAuthentication(){
 
-         String id = "jaedong222@naver.com";       //네이버 이메일 아이디 ( 위에 발신자 이메일 )
-         String pw = "ss369369";        //네이버 비밀번호
+			String id = "jaedong222@naver.com";       //네이버 이메일 아이디 ( 위에 발신자 이메일 )
+			String pw = "ss159357^^";        //네이버 비밀번호
 
          // ID와 비밀번호를 입력한다.
          pa = new PasswordAuthentication(id, pw);
