@@ -138,8 +138,8 @@
                                                 
                                                 <div class="card-media style2">
                                                    
-                                                    <a href="item-details.html"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <input type="hidden" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
+                                                    <a href="#"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <input type="hidden"  class= "sNum" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
 
                                                     
                                                     <c:set var="cf" value="${rR.checkFavor}" />

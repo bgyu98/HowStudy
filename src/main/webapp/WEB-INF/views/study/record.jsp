@@ -94,6 +94,7 @@
                                                     <div class="author" style="margin: 0 auto;" >
                                                         <div class="content" >
                                                             <h4><span id = "todaystudytimes"></span></h4>
+                                                            <input type="hidden" class = "sNum" value="27"><!-- 방번호 체크용-->
                                                             <div> <button class ="checkbutton">체크버튼</button></div>
                                                         </div>
                                                         

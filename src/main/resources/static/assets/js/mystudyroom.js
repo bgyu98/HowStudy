@@ -1,9 +1,17 @@
-
 (function ($) {
   "use strict";
   $(".icon-fl-search-filled").click(function () {
     alert("ok");
   });
+
+  $(".sc-card-product").on("click", function () {
+    alert("방 클릭");
+    var seq = $(this).find(".sNum").val();
+    alert(seq);
+    var url = "http://localhost:4000" + "/" + seq;
+    window.open(url, "width=100%", "height=100%");
+  });
+
   /*
   var buttonHeart2 = function () {
     $(document).on("click", ".wishlist-button2", function () {
@@ -195,4 +203,3 @@ function swiper_fn2() {
     },
   });
 }
-
