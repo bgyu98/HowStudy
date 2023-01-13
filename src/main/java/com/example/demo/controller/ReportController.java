@@ -20,7 +20,6 @@ public class ReportController {
    @RequestMapping("insertReport")
    public String insertReport(ReportVO vo) {
 	   rService.insertReportVO(vo);
-	   System.out.println("###################현재시간 : " + new Date());
 	   return "studyRoom/study";
    }
 
