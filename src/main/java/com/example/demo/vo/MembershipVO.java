@@ -11,11 +11,19 @@ public class MembershipVO {
 	private Date tEnd;			//종료일
 	private String payWith;		//결제방법
 	private Integer pAmount;	//결제금액
+	private String mEmail;      //이메일
+	
 	
 	
 	//getter setter
 	public Integer getTicket() {
 		return ticket;
+	}
+	public String getmEmail() {
+		return mEmail;
+	}
+	public void setmEmail(String mEmail) {
+		this.mEmail = mEmail;
 	}
 	public void setTicket(Integer ticket) {
 		this.ticket = ticket;
@@ -61,8 +69,10 @@ public class MembershipVO {
 	@Override
 	public String toString() {
 		return "MembershipVO [ticket=" + ticket + ", tClass=" + tClass + ", mId=" + mId + ", tStart=" + tStart
-				+ ", tEnd=" + tEnd + ", payWith=" + payWith + ", pAmount=" + pAmount + "]";
+				+ ", tEnd=" + tEnd + ", payWith=" + payWith + ", pAmount=" + pAmount + ", mEmail=" + mEmail + "]";
 	}
+	
+	
 	
 	
 	

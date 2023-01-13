@@ -295,21 +295,6 @@
 				mId: who, // 로그인한 아이디 ( 즐겨찾기 누른 사람 )
 			};
 
-
-			$.ajax({
-				type: "get",
-				url: "/mypage/heartcheck",
-				data: data,
-				dataType: "json",
-				success: function(json) {
-					alert("성공");
-					// alert(json.sFavorNum);
-				},
-				error: function() {
-					alert("실패");
-				},
-			});
-
       $.ajax({
         type: "get",
         url: "/mypage/heartcheck",
@@ -939,59 +924,6 @@
 		items();
 	});
 
-  // Dom Ready
-  $(function () {
-    goTop();
-    flatContentBox();
-    topSearch();
-    flatIsotopeCase();
-    flatAccordion();
-    flatAccordion2();
-    swClick();
-    popUpLightBox();
-    toggleMenu();
-    Parallax();
-    flatCounter();
-    tabs();
-    buttonHeart();
-    buttonHeart2();
-    flatProgressBar();
-    donatProgress();
-    clearcheckbox();
-    clearcheckbox2();
-    flatAccordions();
-    no_link();
-    dropdown("#item_category");
-    dropdown("#buy");
-    dropdown("#all-items");
-    dropdown("#artworks");
-    dropdown("#sort-by");
-    dropdown("#sort-by2");
-    dropdown("#sort-by3");
-    dropdown("#sort-by4");
-    dropdown("#item-create");
-    dropdown("#item-create2");
-    dropdown("#item-create3");
-    //정환추가
-    dropdownjh("#item_category");
-    dropdownjh("#buy");
-    dropdownjh("#all-items");
-    dropdownjh("#artworks");
-    dropdownjh("#sort-by");
-    dropdownjh("#sort-by2");
-    dropdownjh("#sort-by3");
-    dropdownjh("#sort-by4");
-    dropdownjh("#item-create");
-    dropdownjh("#item-create2");
-    dropdownjh("#item-create3");
-    //여까지
-    flcustominput();
-    copycode();
-    swiper_tab();
-    viewShop();
-    Preloader();
-	items();
-  });
 
 })(jQuery);
 

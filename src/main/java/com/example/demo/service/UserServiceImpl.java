@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	// 회원 정보 삭제를 위한 비밀번호 체크
-	public boolean checkPw(String mId, String mPw) {
+	public Integer checkPw(String mId, String mPw) {
 		System.out.println("checkPw=>" + mId + mPw);
 		return userDAO.checkPw(mId, mPw);
 	}
@@ -221,7 +221,7 @@ public class UserServiceImpl implements UserService {
 
 		Authenticator auth = new MyAuthentication();
 		// session 생성 및 MimeMessage생성
-		Session session = Session.getDefaultInstance(p, auth);
+		Session session = Session.getInstance(p, auth);
 		MimeMessage msg = new MimeMessage(session);
 
 		try {
@@ -299,7 +299,7 @@ public class UserServiceImpl implements UserService {
 		public MyAuthentication(){
 
 			String id = "jaedong222@naver.com";       //네이버 이메일 아이디 ( 위에 발신자 이메일 )
-			String pw = "ss369369";        //네이버 비밀번호
+			String pw = "ss159357^^";        //네이버 비밀번호
 
 			// ID와 비밀번호를 입력한다.
 			pa = new PasswordAuthentication(id, pw);

@@ -135,8 +135,8 @@ public class UserController {
    @RequestMapping("/userDelete")
    public String confirm(String mId, String mPw, UserVO vo, Model m, HttpSession session) {
 
-      boolean result = userService.checkPw(mId, mPw);
-      if (result) {
+      Integer result = userService.checkPw(mId, mPw);
+      if (result == 1) {
          userService.deleteInfo(vo);
          String id = (String) session.getAttribute("loginId");
          String pwd = (String) session.getAttribute("loginPass");

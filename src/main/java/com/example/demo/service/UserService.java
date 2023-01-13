@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.example.demo.vo.MembershipVO;
 import com.example.demo.vo.TestVO;
 import com.example.demo.vo.UserVO;
 
@@ -35,14 +36,14 @@ public interface UserService {
 	public int deleteInfo(UserVO vo);
 
 	// 회원 정보 삭제를 위한 비밀번호 체크
-	public boolean checkPw(String mId, String mPw);
+	public Integer checkPw(String mId, String mPw);
 
 	//전화번호와 이름으로 아이디 찾기
 	public UserVO findbytelandname(UserVO vo);
 
 	// 비번 ----------
 	//아이디로 회원정보 찾기
-		public UserVO findById(UserVO vo);
+	public UserVO findById(UserVO vo);
 	//임시 비밀번호 발송
 	public Integer tempPw(UserVO vo);
 
@@ -52,5 +53,7 @@ public interface UserService {
 	
 	// 관리자 회원정보 상세 조회
 	public UserVO getUserInfoAdmin(String mId);
+
+
 
 }

@@ -52,7 +52,7 @@
                   <!--로그인 안했을 때 님의 스터디룸-->
                   <c:if test="${sessionScope.loginId==null}">
                                        스터디룸 만들기
-                    <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
+                    <a href="../user/login"><img src="../assets/images/icon/plus.png" alt="Image" style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
                   </c:if>
                   <c:if test="${sessionScope.loginId!=null}">
                     <!--로그인 했을때 ㅇㅇㅇ님의 스터디룸-->
@@ -73,6 +73,7 @@
               
 
             </section>
+
 
 
 
@@ -125,8 +126,15 @@
                                   <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
-                                    <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
-                                      class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                                    <c:if test="${mr.sPw == null}">
+                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
+                                        class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                                    </c:if>
+                                    <c:if test="${mr.sPw != null}">
+                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
+                                        class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                                    </c:if>
+
                                   </div>
                                 </div>
                                 <!--방 이름-->
@@ -165,38 +173,74 @@
 
 
             <!-- 눌렀을때 상세보기 모달 시작-->
-            <c:forEach items="${myroom}" var="mr">
-              <div class="modal fade popup ${mr.sTitle}" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="modal-body space-y-20 pd-40">
-                      <h3>${mr.sTitle}</h3>
-                      <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
-                      </p>
-                      <hr>
-                      <p>스터디 에티켓</p>
-                      <input type="text" class="form-control" placeholder="00.00 ETH" value="${mr.sComment}"
-                        style="height: 200px;" readonly>
-                      <hr>
-                      <div class="hr"></div>
-                      <div class="d-flex justify-content-between">
-                        <p>카테고리</p>
-                        <p class="text-right price color-popup">${mr.sCategory}</p>
-                      </div>
-                      <div class="d-flex justify-content-between">
-                        <p>스터디 정원</p>
-                        <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
-                      </div>
 
-                      <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success"
-                        data-dismiss="modal" aria-label="Close">입장하기</a>
+            <c:forEach items="${myroom}" var="mr">
+              <c:if test="${mr.sPw == null}">
+                <div class="modal fade popup ${mr.sTitle}" id="popup_bid" tabindex="-1" role="dialog"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <div class="modal-body space-y-20 pd-40">
+                        <h3>${mr.sTitle}</h3>
+                        <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
+                        </p>
+                        <hr>
+                        <p>스터디 에티켓</p>
+                        <input type="text" class="form-control" placeholder="00.00 ETH" value="${mr.sComment}"
+                          style="height: 200px;" readonly>
+                        <hr>
+                        <div class="hr"></div>
+                        <div class="d-flex justify-content-between">
+                          <p>카테고리</p>
+                          <p class="text-right price color-popup">${mr.sCategory}</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <p>스터디 정원</p>
+                          <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success"
+                          data-dismiss="modal" aria-label="Close">입장하기</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </c:if>
+
+              <c:if test="${mr.sPw != null}">
+                <div class="modal fade popup sPwConfirm" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <div class="modal-body space-y-20 pd-40">
+                        <h3>${mr.sTitle}</h3>
+                        <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
+                        </p>
+                        <hr>
+                        <p>스터디 에티켓</p>
+                        <input type="text" class="form-control" placeholder="00.00 ETH" value="${mr.sComment}"
+                          style="height: 200px;" readonly>
+                        <hr>
+                        <div class="hr"></div>
+                        <div class="d-flex justify-content-between">
+                          <p>카테고리</p>
+                          <p class="text-right price color-popup">${mr.sCategory}</p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <p>스터디 정원</p>
+                          <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
+                        </div>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".sPwConfirm"
+                          data-dismiss="modal" aria-label="Close">입장하기</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </c:if>
             </c:forEach>
 
             <!-- 눌렀을때 상세보기 모달 끝-->
@@ -422,13 +466,21 @@
                   </div>
 
 
+
                   <c:forEach items="${studyall}" var="vo">
                     <div id="tagListForm" class="fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6">
                       <div class="sc-card-product">
                         <form id="studyTagList">
+                          <div class="price" style="margin-bottom: 7px; margin-top: -5px;">
+                            <span id="countNum">스터디 정원 &nbsp;${vo.sPeopleNum}&nbsp;/&nbsp;4</span>
+                          </div>
                           <div class="card-media">
                             <a href="item-details.html"><img src="../assets/images/box-item/card-item-3.jpg"
                                 alt="Image" /></a>
+                            <div class="button-place-bid">
+                              <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
+                                class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                            </div>
                             <button class="wishlist-button heart">
                               <span class="number-like"> 100</span>
                             </button>
@@ -440,18 +492,12 @@
                             <div class="tags">${vo.sCategory}</div>
                           </div>
                           <div class="meta-info">
-                            <div class="author">
-                              <div class="info">
-                                <h6><a href="author02.html">${vo.sComment}</a></h6>
-                              </div>
+                            <div class="author" id="creatby">
+                              <span>CREATE BY&nbsp; &nbsp; </span>
+                              <span class="pricing" id="createMid">${vo.mId}</span>
                             </div>
                           </div>
-                          <div class="card-bottom">
-                            <a href="activity1.html" class="view-history reload">View</a>
-                            <div class="price">
-                              <span>총 인원수 : ${vo.sPeopleNum}</span>
-                            </div>
-                          </div>
+
                         </form>
                       </div>
                     </div>
@@ -482,7 +528,6 @@
         <!-- /#wrapper -->
 
         <a id="scroll-top"></a>
-
 
 
 
