@@ -24,6 +24,7 @@ public class StudyRoomVO {
 	private String sFile;
 	private Integer sFavorNum;
 	private Integer check;
+	private Integer check2;
 
 	// 스터디룸 검색 타이틀
 	private String items;
@@ -31,14 +32,21 @@ public class StudyRoomVO {
 	// 스터디룸 클릭 태그
 	private String keyword;
 
-	// Setter and Getter
-
-	public String getKeyword() {
-		return keyword;
+	
+	public Integer getCheck2() {
+		return check2;
 	}
 
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
+	public void setCheck2(Integer check2) {
+		this.check2 = check2;
+	}
+
+	@Override
+	public String toString() {
+		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sPeopleNum=" + sPeopleNum
+				+ ", sPw=" + sPw + ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment=" + sComment
+				+ ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", check=" + check + ", check2=" + check2
+				+ ", file=" + file + "]";
 	}
 
 	public Integer getCheck() {

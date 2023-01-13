@@ -68,6 +68,9 @@ public class UserVO {
 	public void setmDelete(String mDelete) {
 		this.mDelete = mDelete;
 	}
+
+	
+	
 	@Override
 	public String toString() {
 		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail

@@ -32,10 +32,7 @@
 
     <div id="wrapper">
         <div id="page" class="clearfix">
-            <!-- header 넣음 -->
-          <jsp:include page="../include/header.jsp"></jsp:include> 
-            <!-- Header -->      
-            
+            <jsp:include page="../include/header.jsp"></jsp:include> <!-- header include -->
             <section class="tf-item tf-section">
                 <div class="themesflat-container">
                     <div class="row">
@@ -46,10 +43,10 @@
                         <div class="col-box-83">
                             <div class="flat-tabs items">
                                 <ul class="menu-tab">
-                                    <li><a href="record"><span>RECORD</span></a></li>
-                                    <li><a href="ranking"><span>RANKING</span></a></li>
-                                    <li><a href="todo"><span>TO-DO</span></a></li>
-                                    <li><a href="note"><span>NOTE</span></a></li>
+                                    <li><a href="../study/record"><span>RECORD</span></a></li>
+                                    <li><a href="../study/ranking"><span>RANKING</span></a></li>
+                                    <li><a href="../study/todo"><span>TO-DO</span></a></li>
+                                    <li><a href="../study/note"><span>NOTE</span></a></li>
                                 </ul>
                                 <div class="content-tab">
                                     <div class="content-inner">

@@ -62,9 +62,6 @@ public class StudyRoomController {
 		vo.setmId(loginId);
 		// id별 방번호 출력 - 리스트로
 		List<StudyRoomVO> list = studyroomService.myroomlist(vo);
-		// System.out.println("list : " + list);
-		// Integer crh = studyroomService.checkheart(list.get(0).getsNum());
-		// System.out.println(crh);
 
 		Integer[] temp = new Integer[list.size()]; // 방 별로 좋아요 수 저장
 		Integer[] temp2 = new Integer[list.size()]; // 방 별로 기존에 좋아요 눌렀는지 체크
@@ -91,12 +88,17 @@ public class StudyRoomController {
 				temp2[i] = 1; // 기존에 즐겨찾기를 했다는 의미로 1 저장
 			}
 			list.get(i).setCheck(temp2[i]);
+			list.get(i).setCheck2(list.size());
 
 			System.out.println("list : " + list);
 		}
-		
-		m.addAttribute("myroom", list); // 화면에 찍어야 하니까!!
-		m.addAttribute("studyall", studyroomService.allStudy(vo));
+
+		m.addAttribute("myroom", list); // 내가만든 스터디룸 화면에 찍는거
+		m.addAttribute("myroomcnt", list.size()); // 스터디룸 안 만들었을때 화면에 찍는거
+		m.addAttribute("studyall", studyroomService.allStudy(vo)); //선아
+
+		System.out.println("listcheck : " + list);
+		System.out.println("listcheck2 방갯수확인 : " + list.size());
 
 	}
 
@@ -133,6 +135,11 @@ public class StudyRoomController {
 
 	}
 
-
+//	@RequestMapping("/study")
+//	public void allStudy(StudyRoomVO vo, Model m) {
+//		
+//		System.out.println(m);
+//
+//	}
 
 }

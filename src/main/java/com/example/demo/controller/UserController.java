@@ -68,6 +68,7 @@ public class UserController {
       }
    
 
+
    // 아이디 중복체크
    @RequestMapping(value = "mIdCheck")
    @ResponseBody

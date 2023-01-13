@@ -49,30 +49,29 @@
                   <div class="col-md-12">
                     <div class="heading-live-auctions" style="margin-bottom: -10px">
                       <h2 class="tf-title pb-39" style="margin-left: -200px;">
-
-                        <%=session.getAttribute("loginId")%> 님의 스터디룸
+                        <!--로그인 안했을 때 님의 스터디룸-->
+                        <c:if test="${sessionScope.loginId==null}">
+                          스터디룸 만들기
                           <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image"
                               style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
-
+                        </c:if>
+                        <c:if test="${sessionScope.loginId!=null}">
+                          <!--로그인 했을때 ㅇㅇㅇ님의 스터디룸-->
+                          <%=session.getAttribute("loginId")%> 님의 스터디룸
+                            <a href="../studyRoom/createroom"><img src="../assets/images/icon/plus.png" alt="Image"
+                                style="width: 4.5%;position: relative;top: -3px;margin-left: 7px;"></a>
+                        </c:if>
                       </h2>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- 사진 ........ -->
-              <c:if test="${sessionScope.loginId==null}">
+              <!-- 방 안 만들었을때 이미지 뜨는거-->
+              <c:if test="${myroomcnt eq 0}">
                 <div class="image"
-                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block;">
+                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; ">
                   <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이
-                    등록됩니다. <br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
-                </div>
-              </c:if>
-
-              <c:if test="">
-                <div class="image"
-                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block;">
-                  <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이
-                    등록됩니다. <br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
+                    등록됩니다.<br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
                 </div>
               </c:if>
 
@@ -532,6 +531,7 @@
         <!-- /#wrapper -->
 
         <a id="scroll-top"></a>
+
 
 
 
