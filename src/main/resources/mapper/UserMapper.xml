@@ -87,7 +87,7 @@
 		SELECT * FROM MEMBER WHERE mPhone=#{mPhone} AND mName=#{mName}
 	</select>
 		<!-- 관리자 회원정보 상세 -->
-	<select id="getUserInfoAdmin" parameterType="UserVO"
+	<select id="manageUserDetail" parameterType="UserVO"
 		resultType="UserVO">
 		SELECT *
 		FROM MEMBER

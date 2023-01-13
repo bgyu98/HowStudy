@@ -148,7 +148,7 @@
                                             
                                     </div>
                                 </div>
-                                <form action="seleteEndNote" method="post" style='display:block' id="FormSelete">
+                                <form action="updateNote" method="post"  id="FormSelete">
                                     <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
                                         <div class="card-header py-3">
                                             <h6 class="m-0 font-weight-bold text-primary">${seleteEndNote.gTopic}</h6>
@@ -165,10 +165,11 @@
                                             <textarea id="summernote2" name="gComment" class="gComment">${seleteEndNote.gComment}</textarea>
                                         </div>
                                         </div><br/><br/><br/>
+                                        
                                         <div>
-                                        <button id="updateBtn" class="btn ">수정</button> 
-                                        <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${seleteEndNote.hSeq}&mId=${sessionScope.loginId}">삭제</a></button>
-                                         </div><br/><br/><br/>
+                                            <button id="updateBtn" class="btn ">수정</button> 
+                                            <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${seleteEndNote.hSeq}&mId=${sessionScope.loginId}">삭제</a></button>
+                                             </div><br/><br/><br/>
                                 </form>
                             </div>
                         </div>

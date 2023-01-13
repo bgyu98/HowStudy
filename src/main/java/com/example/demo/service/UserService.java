@@ -52,7 +52,7 @@ public interface UserService {
 	public List<UserVO> manageUserList(UserVO uservo);
 	
 	// 관리자 회원정보 상세 조회
-	public UserVO getUserInfoAdmin(String mId);
+	public UserVO manageUserDetail(String mId);
 
 
 

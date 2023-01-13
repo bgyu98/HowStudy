@@ -53,18 +53,8 @@ public class UserVO {
 	public void setmDelete(String mDelete) {
 		this.mDelete = mDelete;
 	}
-	public String getmGrade() {
-		return mGrade;
-	}
-	public void setmGrade(String mGrade) {
-		this.mGrade = mGrade;
-	}
-	public String getmDate() {
-		return mDate;
-	}
-	public void setmDate(String mDate) {
-		this.mDate = mDate;
-	}
+
+	
 	@Override
 	public String toString() {
 		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail

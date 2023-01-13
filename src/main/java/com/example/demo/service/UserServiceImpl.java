@@ -279,16 +279,17 @@ public class UserServiceImpl implements UserService {
          return userDAO.findbytelandname(vo);
       }
 
+    // 관리자 회원 목록
 	@Override
 	public List<UserVO> manageUserList(UserVO uservo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return userDAO.manageUserList(uservo);
 	}
 
+	// 관리자 회원 상세
 	@Override
-	public UserVO getUserInfoAdmin(String mId) {
-		// TODO Auto-generated method stub
-		return null;
+	public UserVO manageUserDetail(String mId) {
+		return userDAO.manageUserDetail(mId);
 	}
 }
 
