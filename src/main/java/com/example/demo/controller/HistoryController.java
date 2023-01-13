@@ -198,7 +198,7 @@ public class HistoryController {
 		List<String> list = new ArrayList<String>(); // hSeqs 값을 담을 변수
 
 		// result : DB에서 가져온 List< HistoryVO >
-		// finalResult : 뷰단으로 중독제거하고 보낼 List< HistoryVO >
+		// finalResult : 뷰단으로 중복제거하고 보낼 List< HistoryVO >
 
 		for (int i = 0; i < result.size(); i++) {
 			HistoryVO willVO = result.get(i); // willVO : DB에서 가져온 List의 HistoryVO
@@ -209,6 +209,7 @@ public class HistoryController {
 				boolean flag = false;
 
 				for (HistoryVO finalVO : finalResult) {
+					
 					if (finalVO.getgTopic().equals(exGTopic)) { // finalVO 의 gTopic 값이 exGTopic gTopic 값이 같은경우
 
 						String seqTitle = willVO.getgTitle(); // vo 의 gTitle 값
