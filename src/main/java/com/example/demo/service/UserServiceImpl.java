@@ -76,7 +76,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	// 회원 정보 삭제를 위한 비밀번호 체크
-	public Integer checkPw(String mId, String mPw) {
+	public boolean checkPw(String mId, String mPw) {
 		System.out.println("checkPw=>" + mId + mPw);
 		return userDAO.checkPw(mId, mPw);
 	}

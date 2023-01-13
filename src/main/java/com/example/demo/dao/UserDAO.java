@@ -34,7 +34,7 @@ public interface UserDAO {
 	public int deleteInfo(UserVO vo);
 	
 	// 회원 정보 삭제를 위한 비밀번호 체크
-	public Integer checkPw(String mId, String mPw);
+	public boolean checkPw(String mId, String mPw);
 	
 	//카카오 회원 정보 찾기
 	public UserVO findkakao(HashMap<String, Object> userInfo);

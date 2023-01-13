@@ -36,7 +36,7 @@ public interface UserService {
 	public int deleteInfo(UserVO vo);
 
 	// 회원 정보 삭제를 위한 비밀번호 체크
-	public Integer checkPw(String mId, String mPw);
+	public boolean checkPw(String mId, String mPw);
 
 	//전화번호와 이름으로 아이디 찾기
 	public UserVO findbytelandname(UserVO vo);
