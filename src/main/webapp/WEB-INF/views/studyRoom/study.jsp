@@ -64,13 +64,15 @@
             </div>
               </div>
               </div>
-                <!-- 방 안 만들었을때 이미지 뜨는거-->
-             <c:if test="${myroomcnt eq 0}">
-              <div class="image" style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; "   >
-                <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이 등록됩니다.<br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
-              </div>
-            </c:if>
-              
+              <!-- 방 안 만들었을때 이미지 뜨는거-->
+              <c:if test="${myroomcnt eq 0}">
+                <div class="image"
+                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; ">
+                  <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이
+                    등록됩니다.<br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
+                </div>
+              </c:if>
+
 
             </section>
 

@@ -11,15 +11,13 @@
 	<!-- 로그인 -->
 	<select id="loginCustomer" parameterType="UserVO" resultType="UserVO">
 		SELECT * FROM MEMBER
-		WHERE mId=#{mId} and mPw =#{mPw}
+		WHERE mId=#{mId} and mPw =#{mPw} and mDelete != 1
 	</select>
 	
 	<select id="payCustomer" parameterType="UserVO" resultType="UserVO">
 		SELECT * FROM MEMBER
 		WHERE mId=#{mId}
 	</select>
-	
-
 
 
 	<!-- 아이디 중복체크 -->
@@ -49,9 +47,8 @@
 
 	<!-- 회원정보 삭제 -->
 	<delete id="deleteInfo" parameterType="UserVO">
-		UPDATE MEMBER SET
-		mDelete =
-		true
+		UPDATE MEMBER 
+		SET	mDelete =1
 		WHERE mId=#{mId}
 	</delete>
 

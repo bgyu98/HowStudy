@@ -76,6 +76,9 @@ public class UserVO {
 		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail
 				+ ", mTag=" + mTag + ", mDelete=" + mDelete + ", mGrade=" + mGrade + ", mDate=" + mDate + "]";
 	}
+
+	
+	
 	
 
 }

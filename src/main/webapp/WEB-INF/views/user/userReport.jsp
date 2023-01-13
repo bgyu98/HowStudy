@@ -61,17 +61,17 @@
                                 <div class="flat-tabs tab-create-item">
                                     <div class="content-tab">
                                         <div class="content-inner">
-                                                <form id="report" action="../studyRoom/study" enctype="multipart/form-data" method="post">
+                                                <form id="insertReport" action="insertReport" enctype="multipart/form-data" method="post">
                                                     <h2 class="title-create-item">신고 접수하기</h2><br/><br/>
                                                         
-                                                    <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}">
+                                                    <!-- <input type="hidden" id="mId" name="mId" value="${sessionScope.loginId}"> -->
                                                     <h4 class="title-create-item">제목</h4>
-                                                    <input type="text" placeholder="제목을 입력 해 주세요" name="sTitle" id="sTitle">
+                                                    <input type="text" placeholder="제목을 입력 해 주세요" name="rTitle" id="rTitle">
 
                                                     <h4 class="title-create-item">파일 첨부</h4>
                                                     <label class="uploadFile">
-                                                        <span class="filename">PNG, JPG, GIF, WEBP 또는 MP4. 최대 200mb.</span>
-                                                        <input type="file" class="inputfile form-control" name="file" >
+                                                        <span class="filename">PNG, JPG, GIF, WEBP 또는 MP4. 최대 50mb.</span>
+                                                        <input type="file" multiple="multiple" class="inputfile form-control" name="rFile" id="rFile">
                                                     </label>
 
                                                     
@@ -80,8 +80,8 @@
                                                         <div class="inner-row-form style-2">
                                                             <div class="seclect-box">
                                                                 <div id="item-create" class="dropdown">
-                                                                    <a href="#" class="btn-selector nolink" id="ct" >선택</a>
-                                                                    <input type="hidden" name="sCategory" id="sCtaegoly" value="">
+                                                                    <a href="#" class="btn-selector nolink" >선택</a>
+                                                                    <input type="hidden" name="rClass" id="rClass" value="">
                                                                     <ul class="cate">
                                                                         <li><span>비속어 사용</span></li>
                                                                         <li><span>음란 행위</span></li>
@@ -96,16 +96,16 @@
                                                     
                                                         <div style="float: left; width: 48%;">
                                                             <h4 class="title-create-item">작성자 아이디</h4>
-                                                            <input type="text" placeholder="${sessionScope.loginId}" name="sTitle" id="sTitle" readonly>
+                                                            <input type="text" name="mId" id="mId" value="${sessionScope.loginId}" readonly>
                                                         </div>
                                                         <div style="float: right; width: 48%;">
                                                             <h4 class="title-create-item">신고할 아이디</h4>
-                                                            <input type="text" placeholder="${sessionScope.loginId}" name="sTitle" id="sTitle" readonly>
+                                                            <input type="text" name="rOpponent" id="rOpponent">
                                                         </div><div style="clear:both"></div>
                                                     
 
                                                     <div><h4 class="title-create-item">신고 내용</h4>
-                                                    <textarea placeholder="신고 내용을 적어주세요!" name="sComment" style="height: 240px;" name></textarea></div>
+                                                    <textarea placeholder="신고 내용을 적어주세요!" name="rReason" style="height: 240px;" id="rReason"></textarea></div>
                                                     
                                                     
                                                     <button class="tf-button-submit mg-t-15 insertReport" type="button" style="float: right;">
@@ -135,6 +135,15 @@
     <a id="scroll-top"></a>
 
     <script>
+        //분류 설정해주기
+        $('.cate > li').click(function(){
+            var is = $(this).text();
+            $('#rClass').val(is);
+
+        });
+
+
+        // 알럿창 스윗알럿
         $('.insertReport').click(function(){
             
             Swal.fire({
@@ -154,14 +163,14 @@
                 if(result.isConfirmed){
                     Swal.fire('신고가 완료되었습니다.', '신고 내역을 확인하시려면 마이페이지 > 신고 내역 에서 확인해주세요.', 'success')
                     $('.swal2-confirm').click(function(){
-                        $('#report').submit();
+                        $('#insertReport').submit();
                     })
                 }else if(result.isDismissed){
                     Swal.fire('취소하였습니다.', '', 'error')
                 }
             })
             
-        })
+        });
 
     </script>
 

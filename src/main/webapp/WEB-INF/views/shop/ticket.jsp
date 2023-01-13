@@ -8,19 +8,11 @@
     <meta charset="utf-8" />
     <title>HOWSTUDY - 구매페이지</title>
 
-    <meta name="author" content="themesflat.com" />
+    
 
-    <!-- Mobile Specific Metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   
 
-    <!-- Theme Style -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
-    <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png" />
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
-    <!-- 스윗알럿 cdn인데 헤더에 넣을까? -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"> -->
+    
   </head>
 
   

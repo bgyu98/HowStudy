@@ -10,6 +10,9 @@ public interface NoticeService {
 	
 	public List<NoticeVO> selectAllNotice(NoticeVO noticeVO);
 	
+	// 게시물 리스트 조회 (5개만)
+	public List<NoticeVO> selectFiveNotice(NoticeVO noticeVO);
+	
 	public NoticeVO seleteNoticeBoard(NoticeVO noticeVO);
 	
 	public void updateNoticeBoard(NoticeVO noticeVO);	
@@ -19,4 +22,6 @@ public interface NoticeService {
 	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO);
 	
 	public void hitsplus(Integer product_number);
+	
+	public Integer selectCount(Integer nCount);
 }
