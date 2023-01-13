@@ -1,6 +1,5 @@
 package com.example.demo.vo;
 
-import java.io.File;
 import java.util.Date;
 
 public class ReportVO {
@@ -10,7 +9,7 @@ public class ReportVO {
 	private String  rTitle;
 	private String  rOpponent;
 	private String  rClass;
-	private Date    rDate;
+	private String    rDate;
 	private String  rReason;
 //	private File	rFile;
 	
@@ -45,10 +44,10 @@ public class ReportVO {
 	public void setrClass(String rClass) {
 		this.rClass = rClass;
 	}
-	public Date getrDate() {
+	public String getrDate() {
 		return rDate;
 	}
-	public void setrDate(Date rDate) {
+	public void setrDate(String rDate) {
 		this.rDate = rDate;
 	}
 	public String getrReason() {

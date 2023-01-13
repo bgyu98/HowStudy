@@ -15,7 +15,7 @@ public interface NoticeDAO {
 	// 게시물 리스트 조회
 	public List<NoticeVO> selectAllNotice(NoticeVO noticeVO);
 	
-	// 게시물 리스트 조회
+	// 게시물 리스트 조회 (5개만)
 	public List<NoticeVO> selectFiveNotice(NoticeVO noticeVO);
 	
 	//글 상세조회

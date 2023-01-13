@@ -10,9 +10,11 @@ import org.springframework.ui.Model;
 import com.example.demo.dao.UserDAO;
 import com.example.demo.service.FaqService;
 import com.example.demo.service.NoticeService;
+import com.example.demo.service.ReportService;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.FaqVO;
 import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.ReportVO;
 import com.example.demo.vo.UserVO;
 
 @Controller
@@ -27,6 +29,9 @@ public class AdminController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ReportService reportService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -88,11 +93,12 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = {"/notice" , "/dashboard"})
-	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount) {
+	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount, ReportVO vo) {
 		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
 		m.addAttribute("noticeFive", noticeService.selectFiveNotice(noticevo));
 		System.out.println("총 개수 : " + nCount);
 		m.addAttribute("cnt", noticeService.selectCount(nCount));
+		m.addAttribute("reportList", reportService.getReportList(vo));
 	}
 	
 
@@ -137,6 +143,8 @@ public class AdminController {
 		  UserVO vo = userService.getUserInfoAdmin(mId);
 		  m.addAttribute("vo",vo);
 	}
+	
+
 	
 
 }

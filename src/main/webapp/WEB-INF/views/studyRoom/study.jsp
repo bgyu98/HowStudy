@@ -129,11 +129,11 @@
                                   <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
-                                    <c:if test="${mr.sPw == null}">
-                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
-                                        class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                                    <c:if test="${mr.sPw == ''}>
+                                      <a id=" sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
+                                      class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
-                                    <c:if test="${mr.sPw != null}">
+                                    <c:if test="${mr.sPw != ''}">
                                       <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
@@ -178,7 +178,7 @@
             <!-- 눌렀을때 상세보기 모달 시작-->
 
             <c:forEach items="${myroom}" var="mr">
-              <c:if test="${mr.sPw == null}">
+              <c:if test="${mr.sPw == ''}">
                 <div class="modal fade popup ${mr.sTitle}" id="popup_bid" tabindex="-1" role="dialog"
                   aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -212,7 +212,7 @@
                 </div>
               </c:if>
 
-              <c:if test="${mr.sPw != null}">
+              <c:if test="${mr.sPw != ''}">
                 <div class="modal fade popup sPwConfirm" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
