@@ -90,9 +90,30 @@ function addzero3(num) {
 (function ($) {
   var check = function () {
     $(document).on("click", ".checkbutton", function () {
-      // alert("체크버튼 누름");
+      alert("체크버튼 누름");
       var ck = $("#totalstudytime").text();
-      alert(ck);
+      //alert("시간 : " + ck);
+      var sNum = $(this).parent().parent().find(".sNum").val();
+      //alert("방 번호 : " + sNum);
+
+      data = {
+        sNum: sNum,
+        sTime: ck,
+      };
+      $.ajax({
+        type: "get",
+        url: "/study/saveTime",
+        data: data,
+        dataType: "json",
+        success: function (json) {
+          alert("성공");
+          // alert(json.sFavorNum);
+        },
+        error: function (e) {
+          alert("실패");
+          console.log(e);
+        },
+      });
     });
   };
 
