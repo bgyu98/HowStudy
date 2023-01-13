@@ -116,7 +116,6 @@ public class StudyRoomController {
 
 	public Integer checkRoomHeart(StudyRoomVO vo, HttpSession session) throws Exception {
 		String loginId = (String) session.getAttribute("loginId");
-		System.out.println("로그인 아이디 : " + loginId);
 		vo.setmId(loginId);
 		Integer crh = studyroomService.checkRoomHeart(vo);
 		return crh;
@@ -131,9 +130,7 @@ public class StudyRoomController {
 	@ResponseBody
 	@RequestMapping(value = "/study2", produces = "application/text;charset=utf-8")
 	public String searchStudy(String sCategory) {
-		System.out.println("sCategory : " + sCategory);
 		String json = new Gson().toJson(studyroomService.searchStudy(sCategory));
-		System.out.println("json = " + json);
 		return json;
 
 	}

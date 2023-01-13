@@ -39,7 +39,7 @@
 </head>
 
 
-  <body class="body header-fixed is_dark">
+<body class="body header-fixed is_dark connect-wal">
     <div id="wrapper">
         <div id="page" class="clearfix">
           <!-- header 넣음 -->

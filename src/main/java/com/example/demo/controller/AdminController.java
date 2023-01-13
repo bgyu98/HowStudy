@@ -4,14 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
 import com.example.demo.dao.UserDAO;
 import com.example.demo.service.FaqService;
 import com.example.demo.service.NoticeService;
+import com.example.demo.service.ReportService;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.FaqVO;
 import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.ReportVO;
 import com.example.demo.vo.UserVO;
 
 @Controller
@@ -26,6 +29,9 @@ public class AdminController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ReportService reportService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -40,7 +46,7 @@ public class AdminController {
 		System.out.println("faq 글등록");
 		faqService.insertFaqBoard(faqvo);
 		m.addAttribute("faqList", faqService.getFaqBoardList(faqvo));
-		return "redirect:../admin/faq";
+		return "redirect:../pages/faq";
 	}
 
 	// Faq 목록 출력
@@ -54,7 +60,7 @@ public class AdminController {
 	@RequestMapping("/modifyFaq")
 	public String seleteFaqBoard(FaqVO faqvo, Model m) {
 		m.addAttribute("faq", faqService.seleteFaqBoard(faqvo));
-		return "admin/modifyFaq";
+		return "pages/modifyFaq";
 	}
 
 	// Faq 수정
@@ -63,7 +69,7 @@ public class AdminController {
 		System.out.println("FAQ 글수정");
 		faqService.updateFaqBoard(faqvo);
 		System.out.println(faqvo);
-		return "redirect:../admin/faq";
+		return "redirect:../pages/faq";
 	}
 
 	// Faq 삭제
@@ -72,7 +78,7 @@ public class AdminController {
 		faqService.deleteFaqBoard(faqvo);
 		System.out.println("게시글 삭제");
 		m.addAttribute("faqDeleteList", faqService.seleteFaqBoard(faqvo));
-		return "redirect:../admin/faq";
+		return "redirect:../pages/faq";
 	}
 
 	// ******************** Notice
@@ -80,15 +86,22 @@ public class AdminController {
 	// Notice 등록
 	@RequestMapping("/insertNotice")
 	public String insertNotice(NoticeVO noticevo, Model m) {
+		System.out.println("게시물등록록ㄹ고록로고"+noticevo);
 		noticeService.insertNotice(noticevo);
 		m.addAttribute("noticeList", noticeService.selectAllNotice(noticevo));
-		return "redirect:../admin/notice";
+		return "redirect:../pages/notice";
 	}
 
-	@RequestMapping("/notice")
-	public void selectNoticeList(NoticeVO noticevo, Model m) {
+	@RequestMapping(value = {"/notice" , "/dashboard"})
+	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount, ReportVO vo) {
 		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
+		m.addAttribute("noticeFive", noticeService.selectFiveNotice(noticevo));
+		System.out.println("총 개수 : " + nCount);
+		m.addAttribute("cnt", noticeService.selectCount(nCount));
+		m.addAttribute("reportList", reportService.getReportList(vo));
 	}
+	
+
 
 	// Notice 수정
 	@RequestMapping("/updateNotice")
@@ -96,7 +109,7 @@ public class AdminController {
 		System.out.println("FAQ 글수정");
 		noticeService.updateNoticeBoard(noticevo);
 		System.out.println("업데이트트트트트트트틑" + noticevo);
-		return "redirect:../admin/notice";
+		return "redirect:../pages/notice";
 	}
 
 	// Notice 상세 페이지 이동
@@ -111,7 +124,7 @@ public class AdminController {
 		noticeService.deleteNoticeBoard(noticevo);
 		System.out.println("노티슺 ㅗ난게시글 삭제");
 		m.addAttribute("noticeDeleteList", noticeService.seleteNoticeBoard(noticevo));
-		return "redirect:../admin/notice";
+		return "redirect:../pages/notice";
 	}
 
 	// ****************** manageUser
@@ -130,5 +143,8 @@ public class AdminController {
 		  UserVO vo = userService.getUserInfoAdmin(mId);
 		  m.addAttribute("vo",vo);
 	}
+	
+
+	
 
 }

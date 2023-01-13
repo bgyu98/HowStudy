@@ -50,7 +50,7 @@ public class UserController {
             System.out.println("로그인 실패");
             session.setAttribute("sok", 5);
             return "user/login";
-         }else {
+         }else  {
             System.out.println("로그인 성공");
             //세션에 저장
             session.setAttribute("loginId", loginResult.getmId());
@@ -134,10 +134,12 @@ public class UserController {
    // 비밀번호 확인 & 회원정보 삭제
    @RequestMapping("/userDelete")
    public String confirm(String mId, String mPw, UserVO vo, Model m, HttpSession session) {
-
+	  System.out.println("비밀번호 체킹");
       boolean result = userService.checkPw(mId, mPw);
+      System.out.println("***************" + mId + "******" + mPw);
       if (result) {
          userService.deleteInfo(vo);
+         System.out.println("비밀번호 확인 페이지 이동 mid : " + mId + "mPw : " + mPw);
          String id = (String) session.getAttribute("loginId");
          String pwd = (String) session.getAttribute("loginPass");
          session.invalidate();

@@ -32,10 +32,7 @@
 
     <div id="wrapper">
         <div id="page" class="clearfix">
-            <!-- header 넣음 -->
-          <jsp:include page="../include/header.jsp"></jsp:include> 
-            <!-- Header -->      
-            
+            <jsp:include page="../include/header.jsp"></jsp:include> <!-- header include -->
             <section class="tf-item tf-section">
                 <div class="themesflat-container">
                     <div class="row">
