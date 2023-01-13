@@ -759,7 +759,6 @@
 // 태그별 스터디룸 출력
 
 	$(document).on('change','#selectStudyRoom',function(url) {
-		alert($(this).val())
 		var keyword = $(this).val()
 
 
@@ -772,7 +771,6 @@
 			contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
 			dataType: 'json',
 			success: function(result) {
-				alert("데이터전송 성공:" + result);
 				//console.log(result);
 				var d = "";
 				var c = "";
@@ -807,8 +805,14 @@
 					d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
 					d += "<div class='sc-card-product'>";
 					d += "<form id='studyTagList'>";
+					d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
+					d += "<span id='countNum'>스터디 정원 &nbsp; " + value.sPeopleNum + " &nbsp;/&nbsp;4</span>";
+					d += "</div>";
 					d += "<div class='card-media'>";
 					d += "<a href='item-details.html'/><img src='../assets/images/box-item/card-item-3.jpg' alt='Image'/></a>";
+					d += "<div class='button-place-bid'>";
+					d += "<a id='sangsae' href='#' data-toggle='modal' data-target=.${mr.sTitle} class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+					d += "</div>";
 					d += "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
 					d += "</div>";
 					d += "<div class='card-title'>";
@@ -816,25 +820,16 @@
 					d += "<div class='tags'>" + value.sCategory + "</div>";
 					d += "</div>";
 					d += "<div class='meta-info'>";
-					d += "<div class='author'>";
-					d += "<div class='info'>";
-					d += "<h6><a href='author02.html'>" + value.sComment + "</a></h6>";
-					d += "</div>";
-					d += "</div>";
-					d += "</div>";
-					d += "<div class='card-bottom'>";
-					d += "<a href='activity1.html' class='view-history reload'>View</a>";
-					d += "<div class='price'>";
-					d += "<span>총 인원수 : " + value.sPeopleNum + "</span>";
+					d += "<div class='author' id='creatby'>";
+					d += "<span>CREATE BY&nbsp; &nbsp; </span>";
+					d += "<span class='pricing' id='createMid'>"+ value.smId +"</span>";
 					d += "</div>";
 					d += "</div>";
 					d += "</form>";
 					d += "</div>";
 					d += "</div>";
-
 					c += d
 					d = "";
-					//alert(c)
 				});
 
 
@@ -850,7 +845,6 @@
 				loadmore();
 				
 				$('#selectStudyRoom').change(function(url) {
-					alert($(this).val())
 					var keyword = $(this).val()
 				});
 			},
@@ -895,50 +889,40 @@
 	       }
 	     });
 	 };
+	 
+	
+      $("#deletecus").click(function (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var mId = $("#mId").val();
+        var mPw = document.querySelector('input[name="mPw"]').value;
+
+        $.ajax({
+          url: "./passwordConfirm?mId=" + mId,
+          type: "post",
+		  data: { 'mId': mId , 'mPw': mPw},	
+
+          success: function () {
+			alert(mId)
+			alert(mPw)
+            var url = "./passwordConfirm?mId=" + mId
+            location.replace(url)
+          },
+          error: function () {
+
+            alert("서버요청실패");
+          }
+        });
+
+
+      });
+
+
 		
 
 
-	// Dom Ready
-	$(function() {
-		goTop();
-		flatContentBox();
-		topSearch();
-		flatIsotopeCase();
-		flatAccordion();
-		flatAccordion2();
-		swClick();
-		popUpLightBox();
-		toggleMenu();
-		Parallax();
-		flatCounter();
-		tabs();
-		buttonHeart();
-		buttonHeart2();
-		flatProgressBar();
-		donatProgress();
-		clearcheckbox();
-		clearcheckbox2();
-		flatAccordions();
-		no_link();
-		dropdown("#item_category");
-		dropdown("#buy");
-		dropdown("#all-items");
-		dropdown("#artworks");
-		dropdown("#sort-by");
-		dropdown("#sort-by2");
-		dropdown("#sort-by3");
-		dropdown("#sort-by4");
-		dropdown("#item-create");
-		dropdown("#item-create2");
-		dropdown("#item-create3");
-		flcustominput();
-		copycode();
-		swiper_tab();
-		viewShop();
-		Preloader();
-		items();
-	});
-
+	
   // Dom Ready
   $(function () {
     goTop();
