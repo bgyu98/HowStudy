@@ -22,10 +22,23 @@ public interface HistoryService {
 	void deleteTodo(String hSeq);
 
 	// Note 주제 등록
-	public void insertNoteTopic(HistoryVO vo);
+	void insertNoteTopic(HistoryVO vo);
 
 	// Note 내용 등록
-	public void insertNoteTitle(HistoryVO vo);
+	void insertNoteTitle(HistoryVO vo);
 
-	public List<HistoryVO> selectNote(HistoryVO vo);
+	// Note 목록
+	List<HistoryVO> selectNote(HistoryVO vo);
+
+	// Note 상세조회
+	HistoryVO seleteGetNote(HistoryVO vo);
+	
+	// Note 마지막 내역 조회
+	HistoryVO seleteEndNote(HistoryVO vo);
+	
+	// Note 삭제
+	void deleteNote(HistoryVO vo);
+	
+	// Note 수정
+	void updateNote(HistoryVO vo);
 }

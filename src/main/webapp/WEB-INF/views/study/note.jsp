@@ -58,7 +58,7 @@
                             <div id="side-bar" class="side-bar style-3 item">
                                 <div class="widget widget-filter style-1 mgbt-0">
                                     <div class="header-widget-filter">
-                                        <h4 class="title-widget">새글 등록</h4>
+                                        <h4 class="title-widget">주제 등록</h4>
                                         <a href="#" class="clear-checkbox btn-filter style-2" data-toggle="modal" data-target="#popup_bid"  name="signup"  id="signup">
                                             클릭
                                         </a>
@@ -67,6 +67,7 @@
                                 <div class="divider"></div>   
                                  
                                 <div class="wrap-category">
+                                    <c:set var="temp" value="0"/>
                                     <c:forEach items="${selectNote}" var="note">
                                     <c:set var="cf" value="${note.gTopic}" />
                                     <c:if test = "${cf ne null}">
@@ -80,12 +81,14 @@
                                         <div class="content-wg-category topic3">
                                             <form action="#" class="form-checkbox topic4">
                                                 <label>
-                                                    <span><a href="#" class="test">새글 등록2</a></span>
+                                                    <span><a href="#" class="test">새글 등록</a></span>
                                                 </label><br>
                                                 <c:forEach var="stemp" items="${fn:split(note.gTitle,'/')}">
-                                                <label> 
-                                                         <span class="clk">${stemp}</span>
-                                                </label><br>
+                                                    <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
+                                                        <label> 
+                                                            <span class="clk"  value="${selectHSeqs[temp]}"><a href="seleteGetNote?hSeq=${selectHSeqs[temp]}&mId=${sessionScope.loginId}">${stemp}</a></span>
+                                                   </label><br>
+                                                   <c:set var="temp" value="${temp+1}"/>
                                             </c:forEach>
                                             </form>
                                         </div>
@@ -94,8 +97,8 @@
                                     </c:forEach>
                                 </div>
                                 <!-- 모달 시작-->
-                                <form action="insertNoteTopic" method="post" id="FormTopic"></form>
-                                <div class="modal fade popup" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
+                                <form action="insertNoteTopic" method="post" id="FormTopic">
+                                <div class="modal fade popup modal-bootstrap" id="popup_bid" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -105,11 +108,11 @@
                                             <div class="modal-body space-y-20 pd-40">
                                                 <h3>주제입력</h3>
                                                 <input id="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
-
+                                                
                                                 
                                                <input type="text" id="gTopic" name="gTopic" >
+                                               <button type="submit" id="topicBtn" >등록</button>
                                                 
-                                                <input type="button" id="topicBtn" value="등록">
                                             </div>
                                             
                                         </div>
@@ -121,23 +124,52 @@
                         
                         <div class="col-box-83">
                             <div class="flat-tabs items">
-                               
                                 <div class="content-tab">
                                     <div class="content-inner">
-                                        <!-- <div class="content-item"><div class="sc-box-icon no-box-shadown mgbt-0 none">
-                                        </div> -->
                                             <!-- 여기 -->
-                                            <form action="insertNoteTitle" method="post" id="FormTitle"  style='display:none'>
-                                                <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
-                                                <input type="hidden" id="TopicName" name="gTopic"  class="gTopic">
-                                                <input type="text" id="gTitle" name="gTitle" style="width: 40%;" class="gTitle" placeholder="제목" />
-                                                <br><br> 
-                                                <textarea id="summernote" name="gComment" class="gComment"></textarea>
-                                                <button id="titleBtn">test</button>
+                                            <form action="insertNoteTitle" method="post" style='display:none' id="FormTitle">
+                                                <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
+                                                    <div class="card-header py-3">
+                                                        <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
+                                                    </div><br/>
+                                                    <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
+                                                    <input type="hidden" id="TopicName" name="gTopic"  class="gTopic">
+                                                    <div class="card-body" style="margin-left:15px;">
+                                                        <div class="inputTitle">
+                                                        <input type="text" id="gTitle" name="gTitle" style="width: 40%;" class="gTitle" placeholder="제목"/>
+                                                      </div>
+                                                        <hr />
+                                                    <div>
+                                                        <textarea id="summernote" name="gComment" class="gComment"></textarea>
+                                                    </div>
+                                                        <hr/>
+                                                        <button id="titleBtn">test</button><br/>
                                             </form>
-                                        </div>
+                                            
                                     </div>
                                 </div>
+                                <form action="seleteEndNote" method="post" style='display:block' id="FormSelete">
+                                    <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary">${seleteEndNote.gTopic}</h6>
+                                        </div><br/>
+                                        <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
+                                        <input type="hidden" id="hSeq" name="hSeq"  class="hSeq" value="${seleteEndNote.hSeq}">
+                                        <div id="result">
+                                        <div class="card-body" id="result" style="margin-left:15px;">
+                                            <div class="inputTitle">
+                                            <input type="text" id="gTitle" name="gTitle" style="width: 40%;" class="gTitle" placeholder="제목" value="${seleteEndNote.gTitle}"/>
+                                        </div>
+                                            <hr />
+                                        <div>
+                                            <textarea id="summernote2" name="gComment" class="gComment">${seleteEndNote.gComment}</textarea>
+                                        </div>
+                                        </div><br/><br/><br/>
+                                        <div>
+                                        <button id="updateBtn" class="btn ">수정</button> 
+                                        <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${seleteEndNote.hSeq}&mId=${sessionScope.loginId}">삭제</a></button>
+                                         </div><br/><br/><br/>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -207,7 +239,20 @@
     <script src="../assets/js/summernote-lite.js"></script>
     <script src="../assets/js/summernote-ko-KR.js"></script>
     <script src="../assets/js/note.js"></script>
- 
+    <style> .btn {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        background-color: #394867;
+        color: #fff;
+        border-radius: 25px;
+        padding: 15px 25px;
+        display: inline-block;
+        -webkit-appearance: none;
+        -webkit-transition: all ease 0.3s;
+        -moz-transition: all ease 0.3s;
+        transition: all ease 0.3s;
+    }</style>
 
 
 </body>

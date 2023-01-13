@@ -16,9 +16,10 @@ public class HistoryVO {
 	private String	gTitle;			// 글제목
 	private String  gComment;		// 글내용
 	private String  gDate;			// 글작성 날짜
+	private String  hSeqs;
 	
 	
-	
+
 	// setter and getter
 	public Integer gethSeq() {
 		return hSeq;
@@ -92,14 +93,21 @@ public class HistoryVO {
 	public void setgDate(String gDate) {
 		this.gDate = gDate;
 	}
-	
+	public String gethSeqs() {
+		return hSeqs;
+	}
+	public void sethSeqs(String hSeqs) {
+		this.hSeqs = hSeqs;
+	}
 	@Override
 	public String toString() {
 		return "HistoryVO [hSeq=" + hSeq + ", mId=" + mId + ", todayTime=" + todayTime + ", dayAvgTime=" + dayAvgTime
 				+ ", tagTime=" + tagTime + ", todos=" + todos + ", todoTime=" + todoTime + ", completion=" + completion
-				+ ", gTopic=" + gTopic + ", gTitle=" + gTitle + ", gComment=" + gComment + ", gDate=" + gDate + "]";
+				+ ", gTopic=" + gTopic + ", gTitle=" + gTitle + ", gComment=" + gComment + ", gDate=" + gDate
+				+ ", hSeqs=" + hSeqs + "]";
 	}
 
+	
 
 
 

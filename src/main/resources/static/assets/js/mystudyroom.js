@@ -57,7 +57,7 @@
   // $(function () {
   buttonHeart2();
   // });
-  */
+ 
 })(jQuery);
 
 function checkD(e) {
