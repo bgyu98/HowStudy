@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.service.FaqService;
 import com.example.demo.service.NoticeService;
-import com.example.demo.service.UserService;
 import com.example.demo.vo.FaqVO;
 import com.example.demo.vo.NoticeVO;
 
@@ -36,10 +35,16 @@ public class BoardController {
 	
 	// Notice 상세 페이지 이동
 	@RequestMapping("/noticesangse")
-	public void seleteNotice(NoticeVO noticevo, Model m) {	
+	public void seleteNotice(NoticeVO noticevo, Model m, NoticeVO vo) {	
 		m.addAttribute("notice",noticeService.seleteNoticeBoard(noticevo));
 		m.addAttribute("noticeNext", noticeService.seleteNoticeNext(noticevo));
 		
+		// 조회수 증가 구문
+		noticeService.hitsplus(vo.getnNUM());	// 조회수 증가
+		System.out.println(vo);
+		NoticeVO ncnt = noticeService.seleteNoticeBoard(vo);
+		m.addAttribute("ncnt", ncnt);
+
 	}	
 	
 	// Notice 목록 출력

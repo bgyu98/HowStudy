@@ -24,12 +24,16 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.selectAllNotice(noticeVO);
 	}
 	
+	public List<NoticeVO> selectFiveNotice(NoticeVO noticeVO) {
+		System.out.println(noticeVO.toString());
+		return noticeDAO.selectFiveNotice(noticeVO);
+	}
+	
 	public NoticeVO seleteNoticeBoard(NoticeVO noticeVO) {
 		return noticeDAO.seleteNoticeBoard(noticeVO);
 	}
 	
 	public void updateNoticeBoard(NoticeVO noticeVO) {
-		System.out.println("노티스 업데이트 돔");
 		noticeDAO.updateNoticeBoard(noticeVO);
 	}
 	
@@ -39,6 +43,15 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	public List<NoticeVO> seleteNoticeNext(NoticeVO noticeVO) {
 		return noticeDAO.seleteNoticeNext(noticeVO);
+	}
+	
+	public void hitsplus(Integer product_number) {
+		noticeDAO.hitsplus(product_number);
+	}
+	
+	public Integer selectCount(Integer nCount) {
+		System.out.println("총 개수 : " + nCount);
+		return (Integer) noticeDAO.selectCount(nCount);
 	}
 	
 }

@@ -264,13 +264,13 @@
   };
 
   var buttonHeart = function () {
-    $(document).on("click", ".wishlist-button", function () {
+    $(".wishlist-button").on("click", function () {
       var iteration = $(this).data("iteration") || 1;
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
       var check = 0;
-      alert(who);
-      alert(seq);
+      //alert(who);
+      //alert(seq);
       switch (iteration) {
         case 1:
           $(this).addClass("active");
@@ -546,7 +546,44 @@
       var txt = $(this).text();
       opt.removeClass("active");
       $(this).addClass("active");
+      btn.text(txt);
+    });
+  };
+
+  //정환 드롭다운 추가
+  var dropdownjh = function (id) {
+    var obj = $(id + ".dropdownjh");
+    var btn = obj.find(".btn-selector");
+    var dd = obj.find("ul");
+    var opt = dd.find("li");
+    dd.hide();
+    obj
+      .on("mouseenter", function () {
+        dd.show();
+        dd.addClass("show");
+        $(this).css("z-index", 1000);
+      })
+      .on("mouseleave", function () {
+        dd.hide();
+        $(this).css("z-index", "auto");
+        dd.removeClass("show");
+      });
+
+    opt.on("click", function () {
+      dd.hide();
+      var txt = $(this).text();
+      opt.removeClass("active");
+      $(this).addClass("active");
       btn.val(txt);
+    });
+  };
+
+  var no_link = function () {
+    $("a.nolink").on("click", function (e) {
+      e.preventDefault();
+    });
+    $(".icon_menu .icon a").on("click", function (e) {
+      e.preventDefault();
     });
   };
 
@@ -648,6 +685,29 @@
     });
   };
 
+  var items = function () {
+    $(".icon-fl-search-filled").click(function () {
+      var items = $('#searchFrm input[name="items"]').val();
+
+      if (items == null) {
+      } else {
+        $("#searchFrm")
+          .attr("action", "../studyRoom/searchItems?items=" + items)
+          .submit();
+      }
+    });
+  };
+
+  // 	Enter 시 검색 기능 구현
+  $("#searchFrm").on("submit", function () {
+    var items = $('#searchFrm input[name="items"]').val();
+    // event keyCode가 13번 (enter) 일때
+    if (items == null) {
+    } else {
+      $("#searchFrm").attr("action", "../studyRoom/searchItems?items=" + items);
+    }
+  });
+
   var copycode = function () {
     $(".btn-copycode").on("click", function () {
       $(".inputcopy").select();
@@ -669,6 +729,174 @@
     fasterPreview(this);
   });
 
+  // 태그별 스터디룸 출력
+
+	$(document).on('change','#selectStudyRoom',function(url) {
+		var keyword = $(this).val()
+
+
+		$.ajax({
+			url: 'study2',
+			data: { 'sCategory': keyword },
+			type: "post",
+			cache: "false",
+			async: false,
+			contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			dataType: 'json',
+			success: function(result) {
+				//console.log(result);
+				var d = "";
+				var c = "";
+				$('#sectionId').empty();
+				c += "<div class='themesflat-container'>";
+				c += "<div class='row'>";
+				c += "<div class='col-md-12' style='margin-top: 30px'>";
+				c += "<div class='heading-live-auctions mg-bt-21' style='margin-bottom: -20px'>";
+				c += "<h2 class='tf-title pad-l-7'>선호 스터디룸</h2>";
+				c += "</div>";
+				c += "</div>";
+				c += "<div class='col-md-12'>";
+				c += "<div class='tf-soft' style='display: inline-block; float: right; width: 12%; height: 60%;'>";
+				c += "<select id='selectStudyRoom' style='width: 100%; height: 100%;'>";
+				c += "<option class='selectOpt' hidden='' disabled='disabled' selected='selected' value='' style = 'color: rgb(0, 0, 0);' >태그선택</option > ";
+				c += "<option class='selectOpt' id='job' name='keyword'>취업</option>";
+				c += "<option class='selectOpt' id='book' name='keyword'>독서</option>";
+				c += "<option class='selectOpt' id='lan' name='keyword'>어학</option>";
+				c += "<option class='selectOpt' id='teac' name='keyword'>임용</option>";
+				c += "<option class='selectOpt' id='Offi' name='keyword'>공무원</option>";
+				c += "<option class='selectOpt' id='stu' name='keyword'>대학수능</option>";
+				c += "<option class='selectOpt' id='cer' name='keyword'>자격증</option>";
+				c += "<option class='selectOpt' id='scstu' name='keyword'>학교공부</option>";
+				c += "<option class='selectOpt' id='etc' name='keyword'>기타</option>";
+				c += "<option class='selectOpt' id='cord' name='keyword'>코딩</option>";
+				c += "<option class='selectOpt' id='Turn' name='keyword'>이직</option>";
+				c += "</select>";
+				c += "</div>";
+				c += "</div>";
+
+				$.each(result, function(key, value) {
+					d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
+					d += "<div class='sc-card-product'>";
+					d += "<form id='studyTagList'>";
+					d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
+					d += "<span id='countNum'>스터디 정원 &nbsp; " + value.sPeopleNum + " &nbsp;/&nbsp;4</span>";
+					d += "</div>";
+					d += "<div class='card-media'>";
+					d += "<a href='item-details.html'/><img src='../assets/images/box-item/card-item-3.jpg' alt='Image'/></a>";
+					d += "<div class='button-place-bid'>";
+					d += "<a id='sangsae' href='#' data-toggle='modal' data-target=.${mr.sTitle} class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+					d += "</div>";
+					d += "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
+					d += "</div>";
+					d += "<div class='card-title'>";
+					d += "<h5 class='style2'><a href='item-details.html'>" + value.sTitle + "</a></h5>";
+					d += "<div class='tags'>" + value.sCategory + "</div>";
+					d += "</div>";
+					d += "<div class='meta-info'>";
+					d += "<div class='author' id='creatby'>";
+					d += "<span>CREATE BY&nbsp; &nbsp; </span>";
+					d += "<span class='pricing' id='createMid'>"+ value.smId +"</span>";
+					d += "</div>";
+					d += "</div>";
+					d += "</form>";
+					d += "</div>";
+					d += "</div>";
+					c += d
+					d = "";
+				});
+
+
+        c += "<div class='col-md-12 wrap-inner load-more text-center mg-t-4'>";
+        c += "<a href='#'' id='loadmore' class='sc-button loadmore fl-button pri-3'>";
+        c += "<span>더보기</span></a>";
+        c += "</div>";
+        c += "</div>";
+        c += "</div>";
+
+
+				$('#sectionId').append(c);
+				loadmore();
+				
+				$('#selectStudyRoom').change(function(url) {
+					var keyword = $(this).val()
+				});
+			},
+			error: function(request, status, error) {
+				alert("에러");
+				console.log("상태코드: " + request.status);
+				console.log("메세지: " + request.responseText);
+				console.log("에러설명: " + error);
+			}
+		});
+	});
+
+  var loadmore = function () {
+    $(".fl-item").slice(0, 8).show();
+    $(".fl-blog.fl-item2").slice(0, 6).show();
+    $(".fl-collection.fl-item3").slice(0, 3).show();
+    $(".fl-item.fl-item4").slice(0, 15).show();
+    $(".fl-item.fl-item5").slice(0, 7).show();
+
+    $("#loadmore").on("click", function (e) {
+      e.preventDefault();
+
+	       $(".fl-item:hidden").slice(0, 4).slideDown();
+	       $(".fl-item2:hidden").slice(0, 3).slideDown();
+	       $(".fl-item3:hidden").slice(0, 3).slideDown();
+	       $(".fl-item4:hidden").slice(0, 5).slideDown();
+	       $(".fl-item5:hidden").slice(0, 13).slideDown();
+	       if($(".fl-item:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	       if($(".fl-item2:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	       if($(".fl-item3:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	       if($(".fl-item4:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	      if($(".fl-item5:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	     });
+	 };
+	 
+	
+      $("#deletecus").click(function (evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var mId = $("#mId").val();
+        var mPw = document.querySelector('input[name="mPw"]').value;
+
+        $.ajax({
+          url: "./passwordConfirm?mId=" + mId,
+          type: "post",
+		  data: { 'mId': mId , 'mPw': mPw},	
+
+          success: function () {
+			alert(mId)
+			alert(mPw)
+            var url = "./passwordConfirm?mId=" + mId
+            location.replace(url)
+          },
+          error: function () {
+
+            alert("서버요청실패");
+          }
+        });
+
+
+
+      });
+
+
+		
+
+
+	
   // Dom Ready
   $(function () {
     goTop();
@@ -702,23 +930,11 @@
     dropdown("#item-create");
     dropdown("#item-create2");
     dropdown("#item-create3");
-    //정환추가
-    dropdownjh("#item_category");
-    dropdownjh("#buy");
-    dropdownjh("#all-items");
-    dropdownjh("#artworks");
-    dropdownjh("#sort-by");
-    dropdownjh("#sort-by2");
-    dropdownjh("#sort-by3");
-    dropdownjh("#sort-by4");
-    dropdownjh("#item-create");
-    dropdownjh("#item-create2");
-    dropdownjh("#item-create3");
-    //여까지
     flcustominput();
     copycode();
     swiper_tab();
     viewShop();
     Preloader();
+    items();
   });
 })(jQuery);

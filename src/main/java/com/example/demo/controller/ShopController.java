@@ -25,7 +25,7 @@ public class ShopController {
 	private ShopService service;
 	
 	@Autowired
-	  private UserService userService;
+	private UserService userService;
 	
 	@Autowired
 	private MembershipService mService;
@@ -56,12 +56,33 @@ public class ShopController {
 			e.printStackTrace();
 		}
 		
-		// 사용자 정보 검색 및
+		// 사용자 정보 검색 
 		UserVO loginResult = userService.payCustomer(vo);
-	   session.setAttribute("memberGrade", loginResult.getmGrade());
-	   m.addAttribute("memberGrade", loginResult.getmGrade());
-	   return "shop/paySuccess";
+	    session.setAttribute("memberGrade", loginResult.getmGrade());
+	     m.addAttribute("memberGrade", loginResult.getmGrade());
+	     
+	    //아이디로 사용자 정보 검색 후 이메일 발송
+	     String msg = null;
+	     MembershipVO result = mService.findById(mvo);
+	     if (result != null) {
+	    	 System.out.println("아이디 존재함");
+	    	 String mail = mService.sendemail(result);
+	    	 System.out.println("성공하면 뜬당" + mail);
+	    	 msg = result.getmId() + "님의 이메일인" + result.getmEmail() + "로 결제 내역을 전송해 드렸습니다!";
+	    	 System.out.println("****성공**** : " + msg);
+	    	  return "shop/paySuccess";
+	     }else {
+	    	 msg = "일치하는 정보가 없습니다..";
+	    	 return "fail";
+	     }
+	     
+	    
+	    
+	   
 	   }
+	
+		
+	
 	
 	// 스터디룸으로
 	@RequestMapping("/goHome")

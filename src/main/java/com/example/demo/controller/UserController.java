@@ -50,7 +50,7 @@ public class UserController {
             System.out.println("로그인 실패");
             session.setAttribute("sok", 5);
             return "user/login";
-         }else {
+         }else  {
             System.out.println("로그인 성공");
             //세션에 저장
             session.setAttribute("loginId", loginResult.getmId());
@@ -67,10 +67,7 @@ public class UserController {
          return "redirect:../studyRoom/study";
       }
    
-   
 
-
-   
 
    // 아이디 중복체크
    @RequestMapping(value = "mIdCheck")
@@ -117,29 +114,32 @@ public class UserController {
          return "redirect:../index";
       }
    
+  	// 회원정보 조회
+  	@RequestMapping("/modifyAccount")
+  	public void myPage(String mId, Model m) {
+  		System.out.println("select 성공");
+  		UserVO vo = userService.getUserInfo(mId);
+  		m.addAttribute("userInfo", vo);
+  	}
 
-   
-   // 회원정보 조회
-   @RequestMapping("/modifyAccount")
-   public void myPage(String mId, Model m) {
-      UserVO vo = userService.getUserInfo(mId);
-      m.addAttribute("userInfo", vo);
-   }
-
-   // 회원정보 수정
-   @RequestMapping("/modifyForm")
-   public String modify(UserVO vo) {
-      userService.updateCustomer(vo);
-      return "redirect:../studyRoom/study?mId=" + vo.getmId();
-   }
+  	// 회원정보 수정
+  	@RequestMapping("/modifyForm")  	
+  	public String modify(UserVO vo) {
+  		System.out.println("update 성공");
+  		userService.updateCustomer(vo);
+  		System.out.println(vo.toString());
+  		return "redirect:../studyRoom/study?mId=" + vo.getmId();
+  	}
 
    // 비밀번호 확인 & 회원정보 삭제
    @RequestMapping("/userDelete")
    public String confirm(String mId, String mPw, UserVO vo, Model m, HttpSession session) {
-
+	  System.out.println("비밀번호 체킹");
       boolean result = userService.checkPw(mId, mPw);
+      System.out.println("***************" + mId + "******" + mPw);
       if (result) {
          userService.deleteInfo(vo);
+         System.out.println("비밀번호 확인 페이지 이동 mid : " + mId + "mPw : " + mPw);
          String id = (String) session.getAttribute("loginId");
          String pwd = (String) session.getAttribute("loginPass");
          session.invalidate();

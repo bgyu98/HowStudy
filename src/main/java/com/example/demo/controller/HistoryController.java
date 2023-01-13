@@ -19,10 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.service.HistoryService;
 import com.example.demo.vo.HistoryVO;
-import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.RecordVO;
 import com.google.gson.Gson;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/study")
@@ -263,5 +264,21 @@ public class HistoryController {
 		System.out.println(list);
 
 	}
+	
+	
+	
+	// Record (공부기록)
+	@RequestMapping("/saveTime")
+	@ResponseBody
+	public void saveTime(RecordVO vo,Model m, HttpSession session ) {
+		System.out.println("시간 체크 ajax 실행");
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디, 방 번호, 공부한 시간*/
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인 아이디 : " + loginId);
+		System.out.println("방 번호 : " +vo.getsNum());
+		System.out.println("공부한 시간 : "+vo.getsTime());
+		
+	}
+	
 
 }

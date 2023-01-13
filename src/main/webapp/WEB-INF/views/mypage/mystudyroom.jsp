@@ -138,8 +138,10 @@
                                                 
                                                 <div class="card-media style2">
                                                    
-                                                    <a href="item-details.html"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
-                                                    <input type="text" value = "${rR.sNum}"/>
+                                                    <a href="#"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <input type="hidden"  class= "sNum" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
+
+                                                    
                                                     <c:set var="cf" value="${rR.checkFavor}" />
                                                     <c:if test = "${cf eq 0}">
                                                     <button class="wishlist-button heart">
@@ -152,7 +154,7 @@
                                                     </button>
                                                     </c:if>
                                                    
-                                                    <input type="hidden" value = '${sessionScope.loginId}'/>
+                                                    <input type="hidden" value = '${sessionScope.loginId}'/> <!-- 즐겨찾기 체크용 로그인 아이디-->
                                                     
                                                 </div>
                                                 

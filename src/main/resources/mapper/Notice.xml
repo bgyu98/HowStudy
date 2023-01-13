@@ -45,6 +45,13 @@
 			ORDER BY nNUM DESC
 	</select>
 	
+	<select id="selectFiveNotice" resultType="NoticeVO">
+			SELECT nNUM,nTITLE,nSUBTITLE,nDATE,nNAME,nREALNAME,nNSIZE,nCNT
+			FROM NOTICE
+			ORDER BY nNUM DESC
+			LIMIT 6
+	</select>
+	
 		 <!-- 글 세부 조회 --> 
 	 <select id="seleteNoticeBoard" resultType="NoticeVO">
         SELECT 
@@ -103,6 +110,20 @@
 			FROM NOTICE
 			WHERE nNUM = #{nNUM}+1 OR nNUM = #{nNUM}+2
     </select> 
+    
+    <!-- 조회수 증가 -->
+   <update id="hitsplus" parameterType="NoticeVO">
+      UPDATE NOTICE 
+      SET   nCNT = nCNT+1
+      WHERE nNUM = #{nNUM}
+   </update>
+   
+   <!-- 총 개수 가져오기 -->
+   <select id="selectCount" resultType="int">
+   SELECT COUNT(*)
+   FROM NOTICE;
+   </select>
+    
     
 
 	

@@ -45,12 +45,12 @@
             
             <section class="tf-item tf-section">
                 <div class="flat-tabs items">
-                <ul class="menu-tab">
-                    <li><a href="record"><span>RECORD</span></a></li>
-                    <li><a href="ranking"><span>RANKING</span></a></li>
-                    <li><a href="todo"><span>TO-DO</span></a></li>
-                    <li><a href="note"><span>NOTE</span></a></li>
-                </ul></div>
+                    <ul class="menu-tab">
+                        <li><a href="../study/record"><span>RECORD</span></a></li>
+                        <li><a href="../study/ranking"><span>RANKING</span></a></li>
+                        <li><a href="../study/todo"><span>TO-DO</span></a></li>
+                        <li><a href="../study/note"><span>NOTE</span></a></li>
+                    </ul></div>
                 <div class="themesflat-container">
                     <div class="row">
                         
