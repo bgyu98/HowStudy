@@ -65,6 +65,31 @@ public class HistoryServiceImpl implements HistoryService {
 	public void insertNoteTitle(HistoryVO vo) {
 		historyDAO.insertNoteTitle(vo);
 	}
+
+	// Note 상세 조회
+	@Override
+	public HistoryVO seleteGetNote(HistoryVO vo) {
+		return historyDAO.seleteGetNote(vo);
+	}
+
+	// Note 수정
+	@Override
+	public void updateNote(HistoryVO vo) {
+		historyDAO.updateNote(vo);
+	}
+
+	// Note 마지막 내역 조회
+	@Override
+	public HistoryVO seleteEndNote(HistoryVO vo) {
+		return 	historyDAO.seleteEndNote(vo);
+	}
+
+	// Note 삭제
+	@Override
+	public void deleteNote(HistoryVO vo) {
+		historyDAO.deleteNote(vo);
+		
+	}
 	
 	
 

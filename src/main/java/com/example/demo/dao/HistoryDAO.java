@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.vo.FaqVO;
 import com.example.demo.vo.HistoryVO;
 
 @Mapper
@@ -32,4 +33,16 @@ public interface HistoryDAO {
 
 	// Note 목록
 	public List<HistoryVO> selectNote(HistoryVO vo);
+	
+	// Note 상세조회
+	public HistoryVO seleteGetNote(HistoryVO vo);
+	
+	// Note 마지막 내역 조회
+	public HistoryVO seleteEndNote(HistoryVO vo);
+	
+	// Note 삭제
+	public void deleteNote(HistoryVO vo);
+	
+	// Note 수정
+	public void updateNote(HistoryVO vo);
 }

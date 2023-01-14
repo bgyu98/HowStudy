@@ -36,7 +36,8 @@
 	<!-- Todo 삭제 -->
 	<delete id="deleteTodo" parameterType="HistoryVO">
 		DELETE FROM HISTORY
-		WHERE hSeq = ${hSeq}
+		WHERE
+		hSeq = ${hSeq}
 	</delete>
 
 	<!-- NoteTopic 등록 -->
@@ -44,20 +45,51 @@
 		INSERT INTO HISTORY (
 		hSeq, mId, gTopic, gDate )
 		VALUES (
-		nextval(howstudy.sq_hSEQ), #{mId}, #{gTopic}, now())
+		nextval(howstudy.sq_hSEQ), #{mId},
+		#{gTopic}, now())
 	</insert>
 	<!-- 노트 목록 조회 -->
 	<select id="selectNote" parameterType="HistoryVO"
 		resultType="HistoryVO">
-		SELECT  *
+		SELECT *
 		FROM HISTORY
-		where MID = 'abc'
+		where mId = #{mId}
 	</select>
-		<!-- NoteTitle 등록 -->
+	<!-- NoteTitle 등록 -->
 	<insert id='insertNoteTitle' parameterType='HistoryVO'>
 		INSERT INTO HISTORY (
 		hSeq, mId, gTopic, gTitle, gDate, gComment)
 		VALUES (
-		nextval(howstudy.sq_hSEQ), #{mId}, #{gTopic}, #{gTitle}, now(), #{gComment})
+		nextval(howstudy.sq_hSEQ), #{mId}, #{gTopic}, #{gTitle}, now(),
+		#{gComment})
 	</insert>
+	<!-- 노트 상세 조회 -->
+	<select id="seleteGetNote" parameterType="HistoryVO"
+		resultType="HistoryVO">
+		SELECT *
+		FROM HISTORY
+		where hSeq = #{hSeq}
+	</select>
+	<!-- 노트 상세 조회22 -->
+	<select id="seleteEndNote" parameterType="HistoryVO"
+		resultType="HistoryVO">
+		SELECT *
+		FROM HISTORY
+		Where mId = #{mId}
+		ORDER BY hSeq DESC
+         LIMIT 1
+	</select>
+	<!-- 노트 수정 -->
+	<update id="updateNote" parameterType="NoticeVO">
+		UPDATE HISTORY SET
+		gComment = #{gComment}, gTitle = #{gTitle}
+		WHERE hSeq = ${hSeq}
+	</update>
+	<!-- 노트 삭제 -->
+	<delete id="deleteNote" parameterType="NoticeVO">
+		DELETE FROM HISTORY
+		WHERE
+		hSeq = ${hSeq}
+	</delete>
+
 </mapper>

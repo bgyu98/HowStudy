@@ -140,7 +140,7 @@ public class AdminController {
 	@RequestMapping("/manageUserDetail")
 	public void manageUserDetail(String mId, Model m) {
 		 //회원정보 저장
-		  UserVO vo = userService.getUserInfoAdmin(mId);
+		  UserVO vo = userService.manageUserDetail(mId);
 		  m.addAttribute("vo",vo);
 	}
 	
