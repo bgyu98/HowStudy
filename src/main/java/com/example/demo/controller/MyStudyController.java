@@ -96,13 +96,21 @@ public class MyStudyController {
 		for(int i =0; i<cr.size(); i++ ) {
 			 System.out.println("cr : " + cr.get(i));
 			 System.out.println("방 번호별 좋아요 수 : " + mystudyservice.checkheart(cr.get(i)));
-			 temp[i] = mystudyservice.checkheart(cr.get(i));
+			 if(mystudyservice.checkheart(cr.get(i)) != 0){
+				 temp[i] = mystudyservice.checkheart(cr.get(i)); 
+			 }
+			 else {
+				 temp[i] = 0;
+			 }
 		}
 
 
 		// 아이디에 따른 해당 값들 호출
 		List<HashMap> result = mystudyservice.favorRoom(vo);
-		// System.out.println("해당 쿼리문 개수 : " + result.size());
+		System.out.println("해당 쿼리문 개수 : " + result.size());
+		System.out.println("템프개수 : " + temp.length);
+		
+		
 		/* 즐겨찾기 값들 저장 후 모델에 붙이기 */
 		Iterator<HashMap> it = result.iterator();
 		int j =0;

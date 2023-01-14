@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.RecordDAO">
+	<!-- 즐겨찾기한 방 출력 -->
+	<insert id="saveTime" parameterType="RecordVO">
+		
+		INSERT into SaveTime (saveNum,nowday, sTime , mID, sNUM, sCATEGORY )(
+		select 	nextval(sTimeNum),#{nowDay},#{sTime},s.mID, s.sNUM, s.sCATEGORY 
+		from STUDYROOM s	where s.mID = #{mId} and s.sNum = #{sNum}) 
+		
+	</insert>
+
+
+
+
+
+</mapper>

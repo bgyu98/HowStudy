@@ -1,76 +1,28 @@
 (function ($) {
   "use strict";
   $(".icon-fl-search-filled").click(function () {
-    alert("ok");
+    //alert("ok");
   });
-
-  $(".sc-card-product").on("click", function () {
-    alert("방 클릭");
+  $(".sc-card-product > div > img").on("click", function () {
+    //alert("방 클릭");
     var seq = $(this).find(".sNum").val();
-    alert(seq);
+    // alert(seq);
+    var url = "http://localhost:4000" + "/" + seq;
+    window.open(url, "width=100%", "height=100%");
+  });
+  $(".content> h4 > a").on("click", function () {
+    alert("방 클릭");
+    var seq = $(this).parents().find(".sNum").val();
+    // alert(seq);
     var url = "http://localhost:4000" + "/" + seq;
     window.open(url, "width=100%", "height=100%");
   });
 
-  /*
-  var buttonHeart2 = function () {
-    $(document).on("click", ".wishlist-button2", function () {
-      var seq = $(this).prev().val(); // 23
-      var who = $(this).next().val();
-      // alert(seq);
-      alert(who);
-      var check = 0; // 하트 체크 여부
-      // 버튼 on of 관련 문
-      var iteration = $(this).data("iteration") || 1;
-      switch (iteration) {
-        case 1:
-          $(this).removeClass("active");
-          var val = parseInt($(this).find("span").text()) - 1;
-          // 여기에 처음 눌렀을때 관련 ajax 문 작성
-          //alert("하트 첫번째누름");
-          $(this).find("span").text(val);
-          check = 1;
-          break;
-        case 2:
-          $(this).addClass("active");
-          var val = parseInt($(this).find("span").text()) + 1;
-          // 여기에 두번째 눌렀을 때 관련 ajax문 작성
-          //alert("하트 두번째누름");
-          $(this).find("span").text(val);
-          check = 2;
-          break;
-      }
-
-      //alert(check);
-      var data = {
-        sNum: seq, // 글 번호
-        check: check, // 체크여부
-        mId: who,
-      };
-
-      $.ajax({
-        type: "get",
-        url: "heartcheck",
-        data: data,
-        dataType: "json",
-        success: function (json) {
-          alert("성공");
-          // alert(json.sFavorNum);
-        },
-        error: function () {
-          alert("실패");
-        },
-      });
-      iteration++;
-      if (iteration > 2) iteration = 1;
-      $(this).data("iteration", iteration);
-    });
-  };
   // Dom Ready
   // $(function () {
   buttonHeart2();
+
   // });
-  */
 })(jQuery);
 
 function checkD(e) {
@@ -91,7 +43,7 @@ function checkD(e) {
     dataType: "json",
 
     success: function (json) {
-      alert("성공");
+      //alert("성공");
       //alert(checkdate);
       $("#favor").empty(); // 날짜 선택 하단부분의 방부분 초기화
 
@@ -106,7 +58,7 @@ function checkD(e) {
 
         d += "<div class='card-media style2'>";
 
-        d += "<a><img src='../assets/images/box-item/image-box-29.jpg' alt='Image'></a>";
+        d += "<img src='../assets/images/box-item/image-box-29.jpg' alt='Image'>";
         d += "<input type='text' value = '" + value.sNum + "'/>";
         if (value.checkFavor == 0) {
           // 즐겨찾기 안한 경우
@@ -165,12 +117,24 @@ function checkD(e) {
       c += "</div>";
       $(" #favor").append(c); // 날짜 선택 하단부분의 방부분에 해당 값들 출력
       swiper_fn2();
+      goRoom();
     },
     error: function () {
       alert("실패");
     },
   });
 }
+// 방 이동하는 function
+function goRoom() {
+  $(".sc-card-product > div > img").on("click", function () {
+    alert("방 클릭");
+    var seq = $(this).find(".sNum").val();
+    alert(seq);
+    var url = "http://localhost:4000" + "/" + seq;
+    window.open(url, "width=100%", "height=100%");
+  });
+}
+
 //swiper function
 function swiper_fn2() {
   var swiper = new Swiper(".carousel6", {
