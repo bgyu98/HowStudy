@@ -150,6 +150,8 @@ function sendFile(file, editor) {
 		$("#TopicName").val(test)
 		
 		$('#FormSelete').css('display', 'none');
+		
+		$('#sTopic').text(test)
 });
 
 

@@ -106,13 +106,13 @@
                                         <p id="chkNotice6"  name="chkNotice6" size="2" style="font-size: small;"></p>
                                         
                                         
-                                        <!-- <div class="row-form style-1">
+                                        <div class="row-form style-1">
                                             <input type="button" class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup" style="margin: auto;"  value="가입하기"/>
-                                        </div> -->
-
-                                        <div class="flat-form box-login-social">
-                                            <button class="submit" type="submit" name="submit"  class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup">가입하기</button>
                                         </div>
+
+                                        <!-- <div class="flat-form box-login-social">
+                                            <button class="submit" type="submit" name="submit"  class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup">가입하기</button>
+                                        </div> -->
                                         
 
 
