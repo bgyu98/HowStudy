@@ -112,7 +112,7 @@
                                                 
                                                <input type="text" id="gTopic" name="gTopic" >
                                                 
-                                                <input type="button" id="topicBtn" value="등록">
+                                                <input type="submit" id="topicBtn" value="등록">
                                             </div>
                                             
                                         </div>
