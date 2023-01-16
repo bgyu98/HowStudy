@@ -46,10 +46,10 @@
             <section class="tf-item tf-section">
                 <div class="flat-tabs items">
                     <ul class="menu-tab">
-                        <li><a href="../study/record"><span>RECORD</span></a></li>
+                        <li><a href="../study/record?mId=${sessionScope.loginId}"><span>RECORD</span></a></li>
                         <li><a href="../study/ranking"><span>RANKING</span></a></li>
-                        <li><a href="../study/todo"><span>TO-DO</span></a></li>
-                        <li><a href="../study/note"><span>NOTE</span></a></li>
+                        <li><a href="../study/todo?mId=${sessionScope.loginId}"><span>TO-DO</span></a></li>
+                        <li><a href="../study/note?mId=${sessionScope.loginId}"><span>NOTE</span></a></li>
                     </ul></div>
                 <div class="themesflat-container">
                     <div class="row">
@@ -130,7 +130,7 @@
                                             <form action="insertNoteTitle" method="post" style='display:none' id="FormTitle">
                                                 <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
                                                     <div class="card-header py-3">
-                                                        <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
+                                                        <h6 class="m-0 font-weight-bold text-primary" id="sTopic" style="color: #fff;"></h6>
                                                     </div><br/>
                                                     <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
                                                     <input type="hidden" id="TopicName" name="gTopic"  class="gTopic">
@@ -141,9 +141,10 @@
                                                         <hr />
                                                     <div>
                                                         <textarea id="summernote" name="gComment" class="gComment"></textarea>
+                                                    </div><br/><br/><br/>
+                                                        <div style=" text-align: center">
+                                                        <button id="titleBtn" class="btn">등록</button><br/><br/><br/>
                                                     </div>
-                                                        <hr/>
-                                                        <button id="titleBtn">test</button><br/>
                                             </form>
                                             
                                     </div>
@@ -151,7 +152,7 @@
                                 <form action="updateNote" method="post"  id="FormSelete">
                                     <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">${seleteEndNote.gTopic}</h6>
+                                            <h6 class="m-0 font-weight-bold text-primary"  style="color: #fff;">${seleteEndNote.gTopic}</h6>
                                         </div><br/>
                                         <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
                                         <input type="hidden" id="hSeq" name="hSeq"  class="hSeq" value="${seleteEndNote.hSeq}">
@@ -166,7 +167,7 @@
                                         </div>
                                         </div><br/><br/><br/>
                                         
-                                        <div>
+                                        <div style=" text-align: center">
                                             <button id="updateBtn" class="btn ">수정</button> 
                                             <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${seleteEndNote.hSeq}&mId=${sessionScope.loginId}">삭제</a></button>
                                              </div><br/><br/><br/>

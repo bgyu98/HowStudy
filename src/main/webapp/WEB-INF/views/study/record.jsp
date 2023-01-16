@@ -52,20 +52,12 @@
 
               <div class="col-box-83">
                 <div class="flat-tabs items">
-                  <ul class="menu-tab">
-                    <li>
-                      <a href="../study/record"><span>RECORD</span></a>
-                    </li>
-                    <li>
-                      <a href="../study/ranking"><span>RANKING</span></a>
-                    </li>
-                    <li>
-                      <a href="../study/todo"><span>TO-DO</span></a>
-                    </li>
-                    <li>
-                      <a href="../study/note"><span>NOTE</span></a>
-                    </li>
-                  </ul>
+                    <ul class="menu-tab">
+                        <li><a href="../study/record?mId=${sessionScope.loginId}"><span>RECORD</span></a></li>
+                        <li><a href="../study/ranking"><span>RANKING</span></a></li>
+                        <li><a href="../study/todo?mId=${sessionScope.loginId}"><span>TO-DO</span></a></li>
+                        <li><a href="../study/note?mId=${sessionScope.loginId}"><span>NOTE</span></a></li>
+                    </ul></div>
                   <div class="content-tab">
                     <div class="content-inner">
                         <div class="content-item">

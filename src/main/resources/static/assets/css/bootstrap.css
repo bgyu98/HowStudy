@@ -9158,7 +9158,7 @@ a.text-muted:focus, a.text-muted:hover {
 }
 
 .text-primary {
-  color: #0275d8 !important;
+  color: #0275d8 ;
 }
 
 a.text-primary:focus, a.text-primary:hover {

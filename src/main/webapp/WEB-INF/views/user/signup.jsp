@@ -158,11 +158,14 @@
                         />
                       </div>
 
-                      <!--<div class="flat-form box-login-social">
+                      <!-- <div class="flat-form box-login-social">
                                             <button class="submit" type="submit" name="submit"  class="sc-button.fl-button.pri-3:hover" data-toggle="modal" data-target="#popup_bid" name="signup"  id="signup">가입하기</button>
-                                        </div>-->
+                                        </div>
+                                        
 
-                      <!-- 모달 시작-->
+
+                                        
+                                        <!-- 모달 시작-->
                       <div
                         class="modal fade popup"
                         id="popup_bid"
