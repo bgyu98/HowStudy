@@ -72,19 +72,20 @@ public class ReportVO {
 		this.rFile = rFile;
 	}
 	
-	//파일업로드
+	//다중 파일 업로드
 	public void setFile(List<MultipartFile> files) {
-		this.file = file;
+		int i = 1;
 		for(MultipartFile file : files) {
 			if (!file.isEmpty()) {
-				UUID uuid = UUID.randomUUID();
-	
+				UUID uuid = UUID.randomUUID(); //랜덤 uuid
+				
 				this.rFile = uuid.toString();
-	
+				
 				File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\reportFile\\"
-						+ rFile + "_" + mId + "의 신고사진.png");
+						+ rFile + "_" + mId + "의 신고사진" + i + ".png"); // f = 경로
 				try {
-					((MultipartFile) file).transferTo(f);
+					((MultipartFile) file).transferTo(f); // 서버로 전송
+					i++;
 				} catch (IllegalStateException e) {
 					e.printStackTrace();
 				} catch (IOException e) {

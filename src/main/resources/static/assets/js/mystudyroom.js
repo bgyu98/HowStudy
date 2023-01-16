@@ -7,14 +7,16 @@
     //alert("방 클릭");
     var seq = $(this).find(".sNum").val();
     // alert(seq);
-    var url = "http://localhost:4000" + "/" + seq;
+    var url = "http://192.168.0.86:4000" + "/" + seq;
     window.open(url, "width=100%", "height=100%");
-  });
+  }); //되는거
+
+
   $(".content> h4 > a").on("click", function () {
     //alert("방 클릭");
     var seq = $(this).parents().find(".sNum").val();
     // alert(seq);
-    var url = "http://localhost:4000" + "/" + seq;
+    var url = "http://192.168.0.86:3000" + "/" + seq;
     window.open(url, "width=100%", "height=100%");
   });
 
@@ -125,15 +127,15 @@ function checkD(e) {
   });
 }
 // 방 이동하는 function
-function goRoom() {
-  $(".goRoom").on("click", function () {
-    // alert("방 클릭");
-    var seq = $(this).find(".sNum").val();
-    // alert(seq);
-    var url = "http://localhost:4000" + "/" + seq;
-    window.open(url, "width=100%", "height=100%");
-  });
-}
+// function goRoom() {
+//   $(".goRoom").on("click", function () {
+//     // alert("방 클릭");
+//     var seq = $(this).find(".sNum").val();
+//     // alert(seq);
+//     var url = "http://192.168.0.86:3000" + "/" + seq;
+//     window.open(url, "width=100%", "height=100%");
+//   });
+// }
 
 //swiper function
 function swiper_fn2() {

@@ -237,7 +237,7 @@
                           <p>스터디 정원</p>
                           <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
                         </div>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target=".sPwConfirm"
+                        <a href="#" class="btn btn-primary goRoom" data-toggle="modal" data-target=".sPwConfirm"
                           data-dismiss="modal" aria-label="Close">입장하기</a>
                       </div>
                     </div>
