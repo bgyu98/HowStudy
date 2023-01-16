@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.service.MembershipService;
 import com.example.demo.service.UserService;
+import com.example.demo.vo.MembershipVO;
 import com.example.demo.vo.UserVO;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -24,6 +26,9 @@ public class UserController {
 
    @Autowired
    private UserService userService;
+   
+   @Autowired
+   private MembershipService memberService;
 
    // 화면만 띄우는 것들!
    @RequestMapping("/{step}")
@@ -45,7 +50,7 @@ public class UserController {
       public String loginCustomer(UserVO vo, HttpSession session, Model m) {
          System.out.println("로그인:" + vo);    //로그인 할 때 생성되는 vo 
          UserVO loginResult = userService.loginCustomer(vo);
-         System.out.println("로그인22:" + loginResult);  //서비스 거쳐서 만들어진 vo
+         System.out.println("로그인22:" + loginResult);  //서비스 거쳐서 만들어진 vo       
          if(loginResult == null) {
             System.out.println("로그인 실패");
             session.setAttribute("sok", 5);
@@ -57,6 +62,7 @@ public class UserController {
             session.setAttribute("loginPass", loginResult.getmPw());
             session.setAttribute("loginEmail", loginResult.getmEmail());
             session.setAttribute("memberGrade", loginResult.getmGrade());
+           
 
             
             if(vo.getmId().equals("admin"))  {
@@ -91,10 +97,12 @@ public class UserController {
       System.out.println("###nickname#### : " + userInfo.getmId());
        System.out.println("###email#### : " + userInfo.getmEmail());
 
-       //    클라이언트의 아이디가 존재할 때 세션에 해당 아이디와 이메일 토큰 등록
+       //    클라이언트의 아이디가 존재할 때 세션에 해당 아이디, 이메일, 등급 ,토큰 등록
            if (userInfo.getmId() != null) {
                session.setAttribute("loginId", userInfo.getmId());
                session.setAttribute("loginEmail", userInfo.getmEmail());
+               session.setAttribute("memberGrade", userInfo.getmGrade());
+        
                session.setAttribute("access_Token", access_Token);
            }
        

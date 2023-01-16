@@ -91,23 +91,35 @@ function addzero3(num) {
   var check = function () {
     $(document).on("click", ".checkbutton", function () {
       alert("체크버튼 누름");
-      var ck = $("#totalstudytime").text();
+
+      // 누른 시간 체크
+      var ck = $("#todaystudytimes").text();
       //alert("시간 : " + ck);
+
+      // 방 번호 체크
       var sNum = $(this).parent().parent().find(".sNum").val();
       //alert("방 번호 : " + sNum);
+
+      // 현재 시간 체크
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = ("0" + (today.getMonth() + 1)).slice(-2);
+      var day = ("0" + today.getDate()).slice(-2);
+      var dateString = year + "-" + month + "-" + day;
+      // alert( 현재 날짜 : dateString);
 
       data = {
         sNum: sNum,
         sTime: ck,
+        nowDay: dateString,
       };
       $.ajax({
         type: "get",
         url: "/study/saveTime",
         data: data,
-        dataType: "json",
+        dataType: "text",
         success: function (json) {
           alert("성공");
-          // alert(json.sFavorNum);
         },
         error: function (e) {
           alert("실패");

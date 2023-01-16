@@ -114,9 +114,10 @@
                                       <span class="number-like">${mr.sFavorNum}</span>
                                     </button>
                                   </c:if>
+                                  <!-- 즐겨찾기 개수 -->
                                   <c:if test="${cf eq 1}">
                                     <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
-                                      <span class="number-like"> ${mr.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                                      <span class="number-like"> ${mr.sFavorNum}</span> 
                                     </button>
                                   </c:if>
 
@@ -162,7 +163,7 @@
 
                       </div>
 
-                      <div class="swiper-pagination mg-t-13"></div>
+                      <!-- <div class="swiper-pagination mg-t-13"></div> -->
                       <div class="swiper-button-next btn-slide-next active"></div>
                       <div class="swiper-button-prev btn-slide-prev"></div>
                     </div>

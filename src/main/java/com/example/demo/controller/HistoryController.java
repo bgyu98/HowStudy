@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.service.HistoryService;
+import com.example.demo.service.RecordService;
 import com.example.demo.vo.HistoryVO;
 import com.example.demo.vo.RecordVO;
 import com.google.gson.Gson;
@@ -31,6 +32,9 @@ public class HistoryController {
 
 	@Autowired
 	private HistoryService historyService;
+	
+	@Autowired
+	private RecordService recordService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -198,7 +202,7 @@ public class HistoryController {
 		List<String> list = new ArrayList<String>(); // hSeqs 값을 담을 변수
 
 		// result : DB에서 가져온 List< HistoryVO >
-		// finalResult : 뷰단으로 중독제거하고 보낼 List< HistoryVO >
+		// finalResult : 뷰단으로 중복제거하고 보낼 List< HistoryVO >
 
 		for (int i = 0; i < result.size(); i++) {
 			HistoryVO willVO = result.get(i); // willVO : DB에서 가져온 List의 HistoryVO
@@ -209,6 +213,7 @@ public class HistoryController {
 				boolean flag = false;
 
 				for (HistoryVO finalVO : finalResult) {
+					
 					if (finalVO.getgTopic().equals(exGTopic)) { // finalVO 의 gTopic 값이 exGTopic gTopic 값이 같은경우
 
 						String seqTitle = willVO.getgTitle(); // vo 의 gTitle 값
@@ -270,13 +275,22 @@ public class HistoryController {
 	// Record (공부기록)
 	@RequestMapping("/saveTime")
 	@ResponseBody
-	public void saveTime(RecordVO vo,Model m, HttpSession session ) {
+	public String saveTime(RecordVO vo,Model m, HttpSession session ) {
+		
 		System.out.println("시간 체크 ajax 실행");
-		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디, 방 번호, 공부한 시간*/
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디, 방 번호, 공부한 시간, 현재 날짜*/
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인 아이디 : " + loginId);
+		vo.setmId(loginId);
 		System.out.println("방 번호 : " +vo.getsNum());
 		System.out.println("공부한 시간 : "+vo.getsTime());
+		System.out.println("현재 날짜 : " + vo.getNowDay());
+		
+		/* 잘 넘어왔는지 확인했으니 관련 입력문 실행 */
+		recordService.saveTime(vo);
+		
+		return "";
+		
 		
 	}
 	
