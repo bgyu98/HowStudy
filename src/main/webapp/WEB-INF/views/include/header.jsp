@@ -181,22 +181,27 @@
                                   <span>이용권 구매</span>
                                 </a>
                                 <a class="mt-10" href="../mypage/mystudyroom">
-                                  <img width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                  <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
+                                  src="../assets/images/icon/hashtag.png" />
+                                  <span>선호태그</span>
+                                </a>
+                                <a class="mt-10" href="../mypage/mystudyroom">
+                                  <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
                                   src="../assets/images/icon/bookmark.png" />
                                   <span>즐겨찾기</span>
                                 </a>
                                 <a class="mt-10" href="../user/userReport">
-                                  <img width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                  <img width="20" height="18" viewBox="0 0 20 18"  style="filter: invert();"
                                   src="../assets/images/icon/siren.png" />
                                   <span>신고하기</span>
                                 </a>
                                 <a class="mt-10" href="../board/notice">
-                                  <img width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                  <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
                                   src="../assets/images/icon/user-guide.png" />
                                   <span>이용가이드</span>
                                 </a>
                                 <a class="mt-10" href="../user/logout" id="logout">
-                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                       d="M9.9668 18.3057H2.49168C2.0332 18.3057 1.66113 17.9335 1.66113 17.4751V2.52492C1.66113 2.06644 2.03324 1.69437 2.49168 1.69437H9.9668C10.4261 1.69437 10.7973 1.32312 10.7973 0.863828C10.7973 0.404531 10.4261 0.0332031 9.9668 0.0332031H2.49168C1.11793 0.0332031 0 1.15117 0 2.52492V17.4751C0 18.8488 1.11793 19.9668 2.49168 19.9668H9.9668C10.4261 19.9668 10.7973 19.5955 10.7973 19.1362C10.7973 18.6769 10.4261 18.3057 9.9668 18.3057Z"
