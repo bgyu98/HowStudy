@@ -61,7 +61,28 @@
 	ORDER BY sDate DESC
 	</select>
 
-
+	<!-- 조회수 증가 -->
+   <update id="stdHitsplus" parameterType="int">
+      UPDATE STUDYROOM 
+      SET   sCnt = sCnt+1
+      WHERE sNum = #{sNum}
+   </update>
+   
+   <!-- sNum 잘 받아오는지 test -->
+   <select id="seleteStudyRoom" parameterType="int" resultType="StudyRoomVO">
+        SELECT *
+		FROM STUDYROOM
+		WHERE sNum = #{sNum}
+   </select> 
+   
+   <!-- 랭킹 별 스터디룸 -->
+   <select id="selectScnt" parameterType="StudyRoomVO" resultType="StudyRoomVO">
+        SELECT *
+		FROM STUDYROOM
+		ORDER BY sCnt DESC
+		LIMIT 10
+   </select> 
+   
 
 
 </mapper>

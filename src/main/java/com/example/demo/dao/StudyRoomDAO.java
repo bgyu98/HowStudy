@@ -29,5 +29,14 @@ public interface StudyRoomDAO {
 
 	// 전체 스터디룸 출력
 	public List<StudyRoomVO> allStudy(StudyRoomVO vo);
+	
+	// 스터디룸 조회수 증가
+	public void stdHitsplus(Integer sNum);
+	
+	// 방 생성 후 채팅 페이지 (조회수 증가 test)
+	public StudyRoomVO seleteStudyRoom(Integer sNum);
+	
+	// 랭킹 별 스터디룸 출력
+	public List<StudyRoomVO> selectScnt(StudyRoomVO vo);
 
 }

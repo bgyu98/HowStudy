@@ -3,7 +3,7 @@
   $(".icon-fl-search-filled").click(function () {
     //alert("ok");
   });
-  $(".sc-card-product > div > img").on("click", function () {
+  $(".goRoom").on("click", function () {
     //alert("방 클릭");
     var seq = $(this).find(".sNum").val();
     // alert(seq);
@@ -126,7 +126,7 @@ function checkD(e) {
 }
 // 방 이동하는 function
 function goRoom() {
-  $(".sc-card-product > div > img").on("click", function () {
+  $(".goRoom").on("click", function () {
     // alert("방 클릭");
     var seq = $(this).find(".sNum").val();
     // alert(seq);

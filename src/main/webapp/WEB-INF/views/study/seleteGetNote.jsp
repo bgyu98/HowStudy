@@ -45,12 +45,12 @@
             
             <section class="tf-item tf-section">
                 <div class="flat-tabs items">
-                <ul class="menu-tab">
-                    <li><a href="record"><span>RECORD</span></a></li>
-                    <li><a href="ranking"><span>RANKING</span></a></li>
-                    <li><a href="todo"><span>TO-DO</span></a></li>
-                    <li><a href="note"><span>NOTE</span></a></li>
-                </ul></div>
+                    <ul class="menu-tab">
+                        <li><a href="../study/record?mId=${sessionScope.loginId}"><span>RECORD</span></a></li>
+                        <li><a href="../study/ranking"><span>RANKING</span></a></li>
+                        <li><a href="../study/todo?mId=${sessionScope.loginId}"><span>TO-DO</span></a></li>
+                        <li><a href="../study/note?mId=${sessionScope.loginId}"><span>NOTE</span></a></li>
+                    </ul></div>
                 <div class="themesflat-container">
                     <div class="row">
                         
@@ -112,7 +112,7 @@
                                                 
                                                <input type="text" id="gTopic" name="gTopic" >
                                                 
-                                                <input type="button" id="topicBtn" value="등록">
+                                                <input type="submit" id="topicBtn" value="등록">
                                             </div>
                                             
                                         </div>
@@ -130,7 +130,7 @@
                                             <form action="insertNoteTitle" method="post" style='display:none' id="FormTitle">
                                                 <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
                                                     <div class="card-header py-3">
-                                                        <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                                        <h6 class="m-0 font-weight-bold text-primary" id="sTopic"  style="color: #fff;"></h6>
                                                     </div><br/>
                                                     <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
                                                     <input type="hidden" id="TopicName" name="gTopic"  class="gTopic">
@@ -141,9 +141,10 @@
                                                         <hr />
                                                     <div>
                                                         <textarea id="summernote" name="gComment" class="gComment"></textarea>
-                                                    </div>
-                                                        <hr/>
-                                                        <button id="titleBtn">test</button><br/>
+                                                    </div><br/><br/><br/>
+                                                        <div style=" text-align: center">
+                                                            <button id="titleBtn" class="btn">등록</button><br/><br/><br/>
+                                                        </div>
                                             </form>
 
                                     </div>
@@ -151,7 +152,7 @@
                                 <form action="updateNote" method="post"  id="FormSelete">
                                     <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt;">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">${note.gTopic}</h6>
+                                            <h6 class="m-0 font-weight-bold text-primary"  style="color: #fff;">${note.gTopic}</h6>
                                         </div><br/>
                                         <input id="mId" class="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
                                         <input type="hidden" id="hSeq" name="hSeq"  class="hSeq" value="${note.hSeq}">
@@ -166,8 +167,8 @@
                                         </div>
                                         </div><br/><br/><br/>
                                         
-                                        <div>
-                                            <button id="updateBtn" class="btn ">수정</button> 
+                                        <div style=" text-align: center">
+                                            <button id="updateBtn" class="btn ">등록</button> 
                                             <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${note.hSeq}&mId=${sessionScope.loginId}">삭제</a></button>
                                              </div><br/><br/><br/>
                                 </form>
@@ -255,6 +256,7 @@
         -webkit-transition: all ease 0.3s;
         -moz-transition: all ease 0.3s;
         transition: all ease 0.3s;
+        display :inline-block;
     }</style>
 
 
