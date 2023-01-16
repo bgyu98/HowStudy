@@ -26,7 +26,8 @@ public class StudyRoomVO {
 	private Integer sFavorNum;
 	private Integer check;
 	private Integer check2;
-
+	private MultipartFile file;
+	
 	// 스터디룸 검색 타이틀
 	private String items;
 
@@ -160,7 +161,7 @@ public class StudyRoomVO {
 		return file;
 	}
 
-	MultipartFile file;
+	
 
 	public void setFile(MultipartFile file) {
 		this.file = file;
@@ -173,7 +174,6 @@ public class StudyRoomVO {
 
 			File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\studyRoom\\"
 					+ sFile + ".png");
-
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException e) {

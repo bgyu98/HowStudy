@@ -177,7 +177,7 @@ box-shadow: none;
     
 }
       
-.btn {
+button.btn {
 	font-weight: 700;
     font-size: 15px;
     line-height: 22px;

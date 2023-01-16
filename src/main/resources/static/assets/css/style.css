@@ -3522,3 +3522,16 @@ span.type::after {
 .sc-card-product {
 	background: #a5c9cae0;
 }
+
+/* 아름 변경*/
+.is_dark div.card {
+	background: #505050	;
+}
+
+.is_dark div.card-header {
+	background: #3c3c3c;	
+}
+
+.is_dark div.note-toolbar{
+	background: #3c3c3c;
+}

@@ -4,8 +4,8 @@
 
 <mapper namespace="com.example.demo.dao.ReportDAO">
 	<insert id="insertReport" parameterType="ReportVO">
-		insert into REPORT (rNum, rClass, mID, rTitle, rOpponent, rDate, rReason) 
-		values(nextval(sq_REPORT_SEQ), #{rClass}, #{mId}, #{rTitle}, #{rOpponent}, NOW(), #{rReason})
+		insert into REPORT (rNum, rClass, mID, rTitle, rOpponent, rDate, rReason, rFile) 
+		values(nextval(sq_REPORT_SEQ), #{rClass}, #{mId}, #{rTitle}, #{rOpponent}, NOW(), #{rReason}, #{rFile})
 	</insert>
 	
 	<!-- 글 리스트 출력 -->

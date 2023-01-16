@@ -52,20 +52,12 @@
 
               <div class="col-box-83">
                 <div class="flat-tabs items">
-                  <ul class="menu-tab">
-                    <li>
-                      <a href="../study/record"><span>RECORD</span></a>
-                    </li>
-                    <li>
-                      <a href="../study/ranking"><span>RANKING</span></a>
-                    </li>
-                    <li>
-                      <a href="../study/todo"><span>TO-DO</span></a>
-                    </li>
-                    <li>
-                      <a href="../study/note"><span>NOTE</span></a>
-                    </li>
-                  </ul>
+                    <ul class="menu-tab">
+                        <li><a href="../study/record?mId=${sessionScope.loginId}"><span>RECORD</span></a></li>
+                        <li><a href="../study/ranking"><span>RANKING</span></a></li>
+                        <li><a href="../study/todo?mId=${sessionScope.loginId}"><span>TO-DO</span></a></li>
+                        <li><a href="../study/note?mId=${sessionScope.loginId}"><span>NOTE</span></a></li>
+                    </ul></div>
                   <div class="content-tab">
                     <div class="content-inner">
                         <div class="content-item">
@@ -87,13 +79,14 @@
                                         <!-- 오늘 공부한 시간 출력 -->
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
-                                                <div class = "card-header" style="color : red">
+                                                <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem">
                                                     <h3>오늘 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
                                                     <div class="author" style="margin: 0 auto;" >
                                                         <div class="content" >
                                                             <h4><span id = "todaystudytimes"></span></h4>
+                                                            <input type="hidden" class = "sNum" value="27"><!-- 방번호 체크용-->
                                                             <div> <button class ="checkbutton">체크버튼</button></div>
                                                         </div>
                                                         
@@ -104,7 +97,7 @@
                                         <!-- 일 평균 공부한 시간 출력 -->
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
-                                                <div class = "card-header" style="color : red">
+                                                <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem;">
                                                     <h3>일 평균 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
@@ -119,7 +112,7 @@
                                     <!-- 전체 공부한 시간 출력 -->
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
-                                                <div class = "card-header" style="color : red">
+                                                <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem">
                                                     <h3>전체 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >

@@ -6,8 +6,8 @@
 
 	<!-- 스터디룸 등록 -->
   	<insert id='insertRoom' parameterType='StudyRoomVO'>
-		INSERT INTO STUDYROOM (sNUM,mId,sPeopleNum, sCategory, sTitle,sPw,sDate,sComment) 
-		VALUES ( nextval(howstudy.sq_sNum), #{mId}, #{sPeopleNum}, #{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment})
+		INSERT INTO STUDYROOM (sNUM,mId,sPeopleNum, sCategory, sTitle,sPw,sDate,sComment, sFile) 
+		VALUES ( nextval(howstudy.sq_sNum), #{mId}, #{sPeopleNum}, #{sCategory}, #{sTitle}, #{sPw}, NOW(), #{sComment}, #{sFile})
 	</insert>
 
 	<!-- 내가 만든 스터디룸 -->

@@ -5,8 +5,8 @@
 <mapper namespace="com.example.demo.dao.UserDAO">
 	<!-- 회원가입 -->
 	<insert id="insertCustomer" parameterType="UserVO">
-		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail, mTag, mGrade, mDate)
-		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail}, #{mTag}, "일반회원", now())
+		INSERT INTO MEMBER (mId, mPw, mName, mPhone, mEmail, mTag)
+		VALUES (#{mId}, #{mPw}, #{mName}, #{mPhone},#{mEmail}, #{mTag})
 	</insert>
 	<!-- 로그인 -->
 	<select id="loginCustomer" parameterType="UserVO" resultType="UserVO">
@@ -87,7 +87,7 @@
 		SELECT * FROM MEMBER WHERE mPhone=#{mPhone} AND mName=#{mName}
 	</select>
 		<!-- 관리자 회원정보 상세 -->
-	<select id="getUserInfoAdmin" parameterType="UserVO"
+	<select id="manageUserDetail" parameterType="UserVO"
 		resultType="UserVO">
 		SELECT *
 		FROM MEMBER
@@ -103,7 +103,7 @@
 		WHERE mId=#{mId} AND mEmail=#{mEmail}
 	</update>
 
-	<!-- 아이디로 회원정보 찾기 -->
+	<!--   아이디로 회원정보 찾기 -->
 	<select id="findById" parameterType="UserVO" resultType="UserVO">
 		SELECT * FROM MEMBER WHERE mId=#{mId}
 	</select>
