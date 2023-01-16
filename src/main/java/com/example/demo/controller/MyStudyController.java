@@ -78,26 +78,31 @@ public class MyStudyController {
    }
 
 
-   /*
-     제일 처음 마이페이지 누르면, 즐겨찾기 된 페이지와 (상단부) 방문 했던 페이지 ( 하단부 ) 출력
-    * */
-   @RequestMapping("/mystudyroom")
-   public void myStudyRoom(MyStudyVO vo , Model m, HttpSession session) throws Exception{
-      System.out.println("mypage 요청");
-      /* 로그인 한 아이디의 세션 값 받기*/
-      //HttpSession session = request.getSession();
-      String loginId = (String) session.getAttribute("loginId");
-      System.out.println("로그인 아이디 : " + loginId);
-      vo.setmId(loginId);
-      
-      List<Integer> cr = checkroom(loginId); // 아이디에 따른 즐겨찾기 한 방번호 호출
-      // System.out.println("아이디에 따른 방 번호 개수 :"  + cr.size());
-      Integer [] temp = new Integer[cr.size()];
-      for(int i =0; i<cr.size(); i++ ) {
-          System.out.println("cr : " + cr.get(i));
-          System.out.println("방 번호별 좋아요 수 : " + mystudyservice.checkheart(cr.get(i)));
-          temp[i] = mystudyservice.checkheart(cr.get(i));
-      }
+	/*
+	  제일 처음 마이페이지 누르면, 즐겨찾기 된 페이지와 (상단부) 방문 했던 페이지 ( 하단부 ) 출력
+	 * */
+	@RequestMapping("/mystudyroom")
+	public void myStudyRoom(MyStudyVO vo , Model m, HttpSession session) throws Exception{
+		System.out.println("mypage 요청");
+		/* 로그인 한 아이디의 세션 값 받기*/
+		//HttpSession session = request.getSession();
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인 아이디 : " + loginId);
+		vo.setmId(loginId);
+		
+		List<Integer> cr = checkroom(loginId); // 아이디에 따른 즐겨찾기 한 방번호 호출
+		// System.out.println("아이디에 따른 방 번호 개수 :"  + cr.size());
+		Integer [] temp = new Integer[cr.size()];
+		for(int i =0; i<cr.size(); i++ ) {
+			 System.out.println("cr : " + cr.get(i));
+			 System.out.println("방 번호별 좋아요 수 : " + mystudyservice.checkheart(cr.get(i)));
+			 if(mystudyservice.checkheart(cr.get(i)) != 0){
+				 temp[i] = mystudyservice.checkheart(cr.get(i)); 
+			 }
+			 else {
+				 temp[i] = 0;
+			 }
+		}
 
 
       // 아이디에 따른 해당 값들 호출

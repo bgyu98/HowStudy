@@ -68,7 +68,7 @@
                                         <div class="swiper-slide">
                                             <div class="slider-item">	<!-- item start -->									
                                                 <div class="sc-card-collection style-2 home2">
-                                                    <div class="card-header" style="border-radius: 15px;">
+                                                    <div class="card-header" style="border-radius: 15px; background-color: var(--primary-color);">
                                                         <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
                                                     </div>
                                                     <div class="card-bottom">
@@ -138,7 +138,7 @@
                                                 
                                                 <div class="card-media style2">
                                                    
-                                                    <a href="#"><img src="../assets/images/box-item/image-box-29.jpg" alt="Image"></a>
+                                                    <img src="../assets/images/box-item/image-box-29.jpg" alt="Image">
                                                     <input type="hidden"  class= "sNum" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
 
                                                     

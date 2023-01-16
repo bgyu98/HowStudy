@@ -11,16 +11,7 @@
 		s.sCATEGORY sCategory, s.mID mId, s.sCOMMENT
 		sComment
 		from STUDYROOM s left join FAVORITES f on s.sNum = f.sNum
-		where f.mId =#{mId} <!-- 이곳에 로그인 세션 값 올 예정 -->
-		union
-		select DISTINCT s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM
-		sPeoplenum, s.sPW sPw, s.sDATE sDate,
-		s.sCATEGORY sCategory, s.mID mId,
-		s.sCOMMENT sComment
-		from
-		STUDYROOM s right join FAVORITES f on s.sNum =
-		f.sNum
-		where f.mId =#{mId} <!-- 이곳에 로그인 세션값 올 예정 -->
+		where f.mId =#{mId}
 	</select>
 
 
