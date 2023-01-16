@@ -16,6 +16,7 @@ public class StudyRoomVO {
 	private Integer sNum;
 	private String mId;
 	private String sTitle;
+	private Integer sCnt;
 	private Integer sPeopleNum;
 	private String sPw;
 	private String sDate;
@@ -33,20 +34,38 @@ public class StudyRoomVO {
 	private String keyword;
 
 	
+	
+
+	public Integer getsCnt() {
+		return sCnt;
+	}
+
+	public void setsCnt(Integer sCnt) {
+		this.sCnt = sCnt;
+	}
+
 	public Integer getCheck2() {
 		return check2;
 	}
 
-	public void setCheck2(Integer check2) {
-		this.check2 = check2;
+	public String getItems() {
+		return items;
 	}
 
-	@Override
-	public String toString() {
-		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sPeopleNum=" + sPeopleNum
-				+ ", sPw=" + sPw + ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment=" + sComment
-				+ ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", check=" + check + ", check2=" + check2
-				+ ", file=" + file + "]";
+	public void setItems(String items) {
+		this.items = items;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public void setCheck2(Integer check2) {
+		this.check2 = check2;
 	}
 
 	public Integer getCheck() {
@@ -166,4 +185,14 @@ public class StudyRoomVO {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sCnt=" + sCnt + ", sPeopleNum="
+				+ sPeopleNum + ", sPw=" + sPw + ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment="
+				+ sComment + ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", check=" + check + ", check2=" + check2
+				+ ", items=" + items + ", keyword=" + keyword + ", file=" + file + "]";
+	}
+
+	
+	
 }

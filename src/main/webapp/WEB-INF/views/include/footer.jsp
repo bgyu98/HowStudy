@@ -17,9 +17,9 @@
         <div class="row">
           <div class="col-lg-3 col-md-12 col-12">
             <div class="widget widget-logo">
-              <div class="logo-footer" id="logo-footer" style="margin-top: -40px">
-                <img id="logo_header" src="../assets/images/logo/logo01.png" alt="nft-gaming" width="220"
-                  height="120" />
+              <div class="logo-footer" style="margin-top: -40px">
+                <img id="logo_footer" src="../assets/images/logo/logo02.png" alt="nft-gaming" width="220"
+                  height="120"  />
                 <p class="sub-widget-logo">
                   (주)HowStudy<br />
                   서울특별시 강남구 선릉로 112길 34
@@ -31,7 +31,7 @@
             <div class="widget widget-menu style-1">
               <h5 class="title-widget">캠 스터디</h5>
               <ul>
-                <li><a href="author01.html">이용가이드</a></li>
+                <li><a href="../board/noticesangse?nNUM=1006">이용가이드</a></li>
               </ul>
             </div>
           </div>
