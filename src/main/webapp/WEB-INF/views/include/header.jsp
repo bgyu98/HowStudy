@@ -52,12 +52,22 @@
                     </li>
                     <li class="menu-item menu-item-has-children">
                       <a href="#">공부기록</a>
+                      <c:if test="${sessionScope.memberGrade == '일반회원' or sessionScope.loginId == null}">
+                        <ul class="sub-menu">
+                          <li class="menu-item"><a href="../shop/ticket">RECORD</a></li>
+                          <li class="menu-item"><a href="../study/ranking">RANKING</a></li> 
+                          <li class="menu-item"><a href="../shop/ticket">TO-DO</a></li>
+                          <li class="menu-item"><a href="../shop/ticket">NOTE</a></li>
+                        </ul>
+                        </c:if>
+                    <c:if test="${sessionScope.memberGrade == '프리미엄 회원'}">
                       <ul class="sub-menu">
                         <li class="menu-item"><a href="../study/record">RECORD</a></li>
                         <li class="menu-item"><a href="../study/ranking">RANKING</a></li>
                         <li class="menu-item"><a href="../study/todo?mId=${sessionScope.loginId}">TO-DO</a></li>
                         <li class="menu-item"><a href="../study/note?mId=${sessionScope.loginId}">NOTE</a></li>
                       </ul>
+                    </c:if>
                     </li>
                     <li class="menu-item menu-item-has-children">
                       <a href="#">게시판</a>
@@ -74,11 +84,7 @@
                     <li class="menu-item current-menu-item">
                       <a href="../offline/off">위치안내</a>
                     </li>
-                    <li class="menu-item current-menu-item">
-                      <c:if test="${sessionScope.loginId==null}">
-                        <a id="login" class="login" href="../user/login">로그인</a>
-                      </c:if>
-                    </li>
+                    
                   </ul>
                 </nav>
                 <!-- /#main-nav -->
@@ -129,6 +135,12 @@
 
                     <!--유저 아이콘 시작-->
 
+                     <!--로그인 버튼-->
+                      <c:if test="${sessionScope.loginId==null}">
+                          <button onclick="location.href='../user/login'">로그인</button> 
+                      </c:if>
+                    <!--로그인 버튼 끝-->
+
                     <c:if test="${sessionScope.loginId!=null}">
                       <div class="admin_active" id="header_admin">
                         <div class="header_avatar">
@@ -140,7 +152,7 @@
                               </h4>
                               <div class="d-flex align-items-center mt-20 mg-bt-12">
                                 <div class="info">
-                                  <p>등급: <%=session.getAttribute("memberGrade")%>
+                                  <p>등급: <%=session.getAttribute("memberGrade")%> 
                                   </p>
                                   <p class="style">
                                     <%=session.getAttribute("loginEmail")%>
@@ -159,15 +171,6 @@
                                   </svg>
                                   <span>내 프로필</span>
                                 </a>
-                                <a class="mt-10" href="#">
-                                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z"
-                                      fill="white" />
-                                  </svg>
-                                  <span>결제 내역</span>
-                                </a>
                                 <a class="mt-10" href="../shop/ticket">
                                   <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -177,44 +180,28 @@
                                   </svg>
                                   <span>이용권 구매</span>
                                 </a>
-                                <a class="mt-10" href="../study/todo">
-                                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z"
-                                      fill="white" />
-                                  </svg>
-                                  <span>공부 기록</span>
+                                <a class="mt-10" href="../mypage/mystudyroom">
+                                  <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
+                                  src="../assets/images/icon/hashtag.png" />
+                                  <span>선호태그</span>
                                 </a>
                                 <a class="mt-10" href="../mypage/mystudyroom">
-                                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z"
-                                      fill="white" />
-                                  </svg>
-                                  <span>마이페이지</span>
+                                  <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
+                                  src="../assets/images/icon/bookmark.png" />
+                                  <span>즐겨찾기</span>
                                 </a>
                                 <a class="mt-10" href="../user/userReport">
-                                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z"
-                                      fill="white" />
-                                  </svg>
+                                  <img width="20" height="18" viewBox="0 0 20 18"  style="filter: invert();"
+                                  src="../assets/images/icon/siren.png" />
                                   <span>신고하기</span>
                                 </a>
                                 <a class="mt-10" href="../board/notice">
-                                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M17.1154 0.730469H2.88461C1.29402 0.730469 0 2.02449 0 3.61508V14.3843C0 15.9749 1.29402 17.2689 2.88461 17.2689H17.1154C18.706 17.2689 20 15.9749 20 14.3843V3.61508C20 2.02449 18.706 0.730469 17.1154 0.730469ZM18.7529 10.6035H14.6154C13.6611 10.6035 13 9.95407 13 8.99969C13 8.04532 13.661 7.34544 14.6154 7.34544H18.7529V10.6035ZM18.7529 6.11508H14.6154C13.0248 6.11508 11.7308 7.40911 11.7308 8.99969C11.7308 10.5903 13.0248 11.8843 14.6154 11.8843H18.7529V14.3843C18.7529 15.3386 18.0698 15.9996 17.1154 15.9996H2.88461C1.93027 15.9996 1.29231 15.3387 1.29231 14.3843V3.61508C1.29231 2.66074 1.93023 1.99963 2.88461 1.99963H17.1266C18.0809 1.99963 18.7529 2.6607 18.7529 3.61508V6.11508Z"
-                                      fill="white" />
-                                  </svg>
+                                  <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
+                                  src="../assets/images/icon/user-guide.png" />
                                   <span>이용가이드</span>
                                 </a>
                                 <a class="mt-10" href="../user/logout" id="logout">
-                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="white"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                       d="M9.9668 18.3057H2.49168C2.0332 18.3057 1.66113 17.9335 1.66113 17.4751V2.52492C1.66113 2.06644 2.03324 1.69437 2.49168 1.69437H9.9668C10.4261 1.69437 10.7973 1.32312 10.7973 0.863828C10.7973 0.404531 10.4261 0.0332031 9.9668 0.0332031H2.49168C1.11793 0.0332031 0 1.15117 0 2.52492V17.4751C0 18.8488 1.11793 19.9668 2.49168 19.9668H9.9668C10.4261 19.9668 10.7973 19.5955 10.7973 19.1362C10.7973 18.6769 10.4261 18.3057 9.9668 18.3057Z"

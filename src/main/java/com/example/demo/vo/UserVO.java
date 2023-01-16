@@ -60,6 +60,13 @@ public class UserVO {
 		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail
 				+ ", mTag=" + mTag + ", mDelete=" + mDelete + ", mGrade=" + mGrade + ", mDate=" + mDate + "]";
 	}
+	public String getmGrade() {
+		return mGrade;
+	}
+	public void setmGrade(String mGrade) {
+		this.mGrade = mGrade;
+	}
+
 	
 	
 	
