@@ -3,6 +3,7 @@ package com.example.demo.vo;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -17,7 +18,7 @@ public class ReportVO {
 	private Date    rDate;			//신고날짜
 	private String  rReason;		//이유
 	private String	rFile;			//파일이름
-	private MultipartFile file;		//파일저장
+	private List<MultipartFile> file;		//파일저장
 
 	
 	//getter setter
@@ -72,26 +73,28 @@ public class ReportVO {
 	}
 	
 	//파일업로드
-	public void setFile(MultipartFile file) {
+	public void setFile(List<MultipartFile> files) {
 		this.file = file;
-		if (!file.isEmpty()) {
-			UUID uuid = UUID.randomUUID();
-
-			this.rFile = uuid.toString();
-
-			File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\reportFile\\"
-					+ rFile + "_" + mId + "의 신고사진.png");
-			try {
-				file.transferTo(f);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
+		for(MultipartFile file : files) {
+			if (!file.isEmpty()) {
+				UUID uuid = UUID.randomUUID();
+	
+				this.rFile = uuid.toString();
+	
+				File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\reportFile\\"
+						+ rFile + "_" + mId + "의 신고사진.png");
+				try {
+					((MultipartFile) file).transferTo(f);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+	
 			}
-
 		}
 	}
-	public MultipartFile getFile() {
+	public List<MultipartFile> getFile() {
 		return file;
 	}
 	
