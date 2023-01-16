@@ -87,7 +87,7 @@
                                         <!-- 오늘 공부한 시간 출력 -->
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
-                                                <div class = "card-header" style="color : red">
+                                                <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem">
                                                     <h3>오늘 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
@@ -105,7 +105,7 @@
                                         <!-- 일 평균 공부한 시간 출력 -->
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
-                                                <div class = "card-header" style="color : red">
+                                                <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem;">
                                                     <h3>일 평균 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
@@ -120,7 +120,7 @@
                                     <!-- 전체 공부한 시간 출력 -->
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
-                                                <div class = "card-header" style="color : red">
+                                                <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem">
                                                     <h3>전체 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
