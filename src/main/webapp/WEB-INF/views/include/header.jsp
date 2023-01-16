@@ -54,7 +54,7 @@
                       <a href="#">공부기록</a>
                       <c:if test="${sessionScope.memberGrade == '일반회원' or sessionScope.loginId == null}">
                         <ul class="sub-menu">
-                          <li class="menu-item"><a href="../shop/ticket">RECORD</a></li>
+                          <li class="menu-item"><a href="../study/record">RECORD</a></li>
                           <li class="menu-item"><a href="../study/ranking">RANKING</a></li> 
                           <li class="menu-item"><a href="../shop/ticket">TO-DO</a></li>
                           <li class="menu-item"><a href="../shop/ticket">NOTE</a></li>
