@@ -36,7 +36,47 @@
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
 
+    <!-- 타이머 -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script type="text/javascript" src="record.js"></script>
 </head>
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+  	body{
+		height: 100vh;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+ 	}
+ 	.box{
+		width: 200px;
+		height: 200px;
+	}
+	.timerBox{
+		width: 200px;
+		outline: 2px solid black;
+	}
+	.timerBox .time{
+		font-size: 30pt;
+		color: #4C4C4C;
+		text-align: center;
+		font-family: sans-serif;
+	}
+	.btnBox{
+		margin: 20px auto;
+		text-align: center;
+	}
+	.btnBox .fa{
+		margin: 0px 5px;
+		font-size: 30pt;
+		color: #FAED7D;
+		cursor: pointer;
+	}
+</style>
 
 
 <body class="body header-fixed is_dark connect-wal">
@@ -80,14 +120,12 @@
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
                                                 <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem">
-                                                    <h3>오늘 공부 시간</h3>
+                                                    <h3 style="color: white;">오늘 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
                                                     <div class="author" style="margin: 0 auto;" >
                                                         <div class="content" >
-                                                            <h4><span id = "todaystudytimes"></span></h4>
-                                                            <input type="hidden" class = "sNum" value="27"><!-- 방번호 체크용-->
-                                                            <div> <button class ="checkbutton">체크버튼</button></div>
+                                                            <h4><span id = "todaystudytimes">${time.todayStudyTime}</span></h4>
                                                         </div>
                                                         
                                                     </div>
@@ -98,12 +136,12 @@
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
                                                 <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem;">
-                                                    <h3>일 평균 공부 시간</h3>
+                                                    <h3 style="color: white;">일 평균 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
                                                     <div class="author" style="margin: 0 auto;" >
                                                         <div class="content " >
-                                                            <h4><span id = "todayaveragetimes"></span></h4>
+                                                            <h4><span id = "todayaveragetimes">${time.todayAvgTime}</span></h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,17 +151,35 @@
                                         <div class="fl-collection fl-item3 col-box-4">
                                             <div class="sc-card-collection style-2 sc-card-style7">
                                                 <div class = "card-header" style="color : var(--primary-color); border-radius: 1rem">
-                                                    <h3>전체 공부 시간</h3>
+                                                    <h3 style="color: white;">전체 공부 시간</h3>
                                                 </div>
                                                 <div class="card-bottom" >
                                                     <div class="author" style="margin: 0 auto;" >
                                                         <div class="content " >
-                                                            <h4><span id = "totalstudytime"></span></h4>
+                                                            <h4><span id = "totalstudytime">${time.totalStudyTime}</span></h4>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>                                        
                                         </div>
+
+                                        <!-- 타이머 -->
+                                     
+                                        <div>
+                                            <div id='box' class="box">
+                                                    <div id='timerBox' class="timerBox">
+                                                        <div id="time" class="time" style="color: white;">00:00:00</div>
+                                                    </div>
+                                                    <div class="btnBox">
+                                                        <i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
+                                                        <i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
+                                                        <i id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
+                                                    </div>
+                                            </div>
+                                                <input type="hidden" class = "sNum" value="29"><!-- 방번호 체크용-->
+                                            <div> <button class ="checkbutton">체크버튼</button></div>
+                                        </div>
+
                                     
                                     </div>
                                 </div>

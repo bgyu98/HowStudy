@@ -29,10 +29,10 @@
 
 </head>
 
-<body class="body header-fixed is_dark">
+<body class="body header-fixed is_dark  connect-wal">
 
     <!-- preloade -->
-    <div class="preload preload-container">
+    <div class="preload preload-container ">
         <div class="preload-logo"></div>
     </div>
     <!-- /preload -->
@@ -59,7 +59,7 @@
                                 <div class="widget widget-filter style-1 mgbt-0">
                                     <div class="header-widget-filter">
                                         <h4 class="title-widget">새글 등록</h4>
-                                        <a href="#" class="clear-checkbox btn-filter style-2" data-toggle="modal" data-target="#popup_bid"  name="signup"  id="signup">
+                                        <a href="#" class="clear-checkbox btn-filter style-2" data-toggle="modal" data-target="#popup_bid">
                                             클릭
                                         </a>
                                     </div>
