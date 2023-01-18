@@ -53,7 +53,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="heading-live-auctions">
-                                <h2 class="tf-title pb-23 text-left">
+                                <h2 class="tf-title pb-23 text-left" style="margin-top: 3%;">
                                     즐겨 찾기 한 스터디룸 목록</h2>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                         <div class="swiper-slide">
                                             <div class="slider-item">	<!-- item start -->									
                                                 <div class="sc-card-collection style-2 home2">
-                                                    <div class="card-header" style="border-radius: 15px; background-color: var(--primary-color);">
+                                                    <div class="card-header sunho" style="border-radius: 15px;">
                                                         <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
                                                     </div>
                                                     <div class="card-bottom">
@@ -115,17 +115,20 @@
                     <!-- 날짜 선택 select 문-->
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="heading-live-auctions">
-                                <h2 class="tf-title pb-23">
-                                   방문한 목록 </h2>
-                                <select class="checkdate" style="color: red;" onchange="javascript:checkD(this);">
-                                    <option value="alld"> 전체</option>
-                                    <option value="resentd">최근 하루</option>
-                                    <option value="resentw">최근 일주일</option>
-                                    <option value="resentm">최근 한 달</option>
+                            <h2 class="tf-title pb-23 text-left">
+                                방문한 목록 </h2>
+                            <div class="tf-soft" style="display: inline-block; float: right; width: 12%; ">
+                                <select class="checkdate" onchange="javascript:checkD(this);">
+                                    <option class="checkdate"  value="alld">전체</option>
+                                    <option class="checkdate" value="resentd">최근 하루</option>
+                                    <option class="checkdate" value="resentw">최근 일주일</option>
+                                    <option class="checkdate" value="resentm">최근 한 달</option>
                                 </select>
                             </div>
                         </div>
+        
+
+
                         
                         <!-- 날짜 선택 끝-->
                         <div class="col-md-12" id="favor">
