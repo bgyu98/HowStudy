@@ -291,6 +291,13 @@ public class UserServiceImpl implements UserService {
 	public UserVO manageUserDetail(String mId) {
 		return userDAO.manageUserDetail(mId);
 	}
+
+	// 선호태그 수정
+	@Override
+	public void updatelikeTag(UserVO uservo) {
+		userDAO.updatelikeTag(uservo);	
+	}
+	
 }
 
    class MyAuthentication extends Authenticator {

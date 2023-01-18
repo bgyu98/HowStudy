@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,10 +11,12 @@ import org.springframework.ui.Model;
 
 import com.example.demo.dao.UserDAO;
 import com.example.demo.service.FaqService;
+import com.example.demo.service.MembershipService;
 import com.example.demo.service.NoticeService;
 import com.example.demo.service.ReportService;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.FaqVO;
+import com.example.demo.vo.MembershipVO;
 import com.example.demo.vo.NoticeVO;
 import com.example.demo.vo.ReportVO;
 import com.example.demo.vo.UserVO;
@@ -26,12 +30,15 @@ public class AdminController {
 
 	@Autowired
 	private NoticeService noticeService;
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private ReportService reportService;
+	
+	@Autowired
+	private MembershipService membershipService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -86,13 +93,13 @@ public class AdminController {
 	// Notice 등록
 	@RequestMapping("/insertNotice")
 	public String insertNotice(NoticeVO noticevo, Model m) {
-		System.out.println("게시물등록록ㄹ고록로고"+noticevo);
+		System.out.println("게시물등록록ㄹ고록로고" + noticevo);
 		noticeService.insertNotice(noticevo);
 		m.addAttribute("noticeList", noticeService.selectAllNotice(noticevo));
 		return "redirect:../pages/notice";
 	}
 
-	@RequestMapping(value = {"/notice" , "/dashboard"})
+	@RequestMapping(value = { "/notice", "/dashboard" })
 	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount, ReportVO vo) {
 		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
 		m.addAttribute("noticeFive", noticeService.selectFiveNotice(noticevo));
@@ -100,8 +107,6 @@ public class AdminController {
 		m.addAttribute("cnt", noticeService.selectCount(nCount));
 		m.addAttribute("reportList", reportService.getReportList(vo));
 	}
-	
-
 
 	// Notice 수정
 	@RequestMapping("/updateNotice")
@@ -133,18 +138,39 @@ public class AdminController {
 	@RequestMapping("/manageUserList")
 	public void manageUserList(UserVO uservo, Model m) {
 		System.out.println("userList확인 : " + uservo);
-		m.addAttribute("userList",userService.manageUserList(uservo));
+		m.addAttribute("userList", userService.manageUserList(uservo));
 	}
-	
+
 	// 관리자 회원정보 상세 조회
 	@RequestMapping("/manageUserDetail")
 	public void manageUserDetail(String mId, Model m) {
-		 //회원정보 저장
-		  UserVO vo = userService.manageUserDetail(mId);
-		  m.addAttribute("vo",vo);
+		// 회원정보 저장
+		UserVO vo = userService.manageUserDetail(mId);
+		m.addAttribute("vo", vo);
+		
+		// 관리자 회원상세내역
+		List<MembershipVO> mvo = membershipService.managerUserMembership(mId);
+
+		System.out.println("확인mvo : " + mvo);
+		m.addAttribute("mvo", mvo);
 	}
 	
+	// 관리자 신고 현황
+	@RequestMapping("/report")
+	public void manageReportList(ReportVO rvo, Model m) {
+		List<ReportVO> result = reportService.manageReportList(rvo);
+		System.out.println("manageReportList확인 : " +result);
+		m.addAttribute("reportList", result);
+	}
 
+	// 관리자 신고 상세
+	@RequestMapping("/getReport")
+	public void getReport(Integer rNum, Model m) {
+		ReportVO vo = reportService.getReport(rNum);
+		System.out.println("getReport 확인 : " + vo);
+		m.addAttribute("getReport", vo);
+		
+	}
 	
 
 }

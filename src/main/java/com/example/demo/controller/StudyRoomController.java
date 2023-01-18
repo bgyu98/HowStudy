@@ -3,9 +3,11 @@ package com.example.demo.controller;
 import java.util.Iterator;
 import java.util.List;
 
+import com.example.demo.dao.UserDAO;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
+import com.example.demo.vo.UserVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.service.StudyRoomServiceImpl;
+import com.example.demo.service.UserService;
 import com.example.demo.vo.NoticeVO;
 import com.example.demo.vo.StudyRoomVO;
 import com.google.gson.Gson;
@@ -38,6 +41,9 @@ public class StudyRoomController {
 
 	@Autowired
 	private StudyRoomService studyroomService;
+	
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -135,11 +141,12 @@ public class StudyRoomController {
 
 	}
 
-//	@RequestMapping("/study")
-//	public void allStudy(StudyRoomVO vo, Model m) {
-//		
-//		System.out.println(m);
-//
-//	}
+//	// 선호테그 수정
+	@RequestMapping("/updatelikeTag")
+	public String updatelikeTag(UserVO vo) {
+		System.out.println("updatelikeTag : " +vo);
+		userService.updatelikeTag(vo);
+		return "redirect:study";
+	}
 
 }

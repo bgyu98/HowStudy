@@ -23,4 +23,16 @@ public class ReportServiceImpl implements ReportService {
 	public List<ReportVO> getReportList(ReportVO vo) {
 		return reportDAO.getReportList(vo);
 	}
+
+	// 관리자 신고 리스트 
+	@Override
+	public List<ReportVO> manageReportList(ReportVO vo) {
+		return reportDAO.manageReportList(vo);
+	}
+
+	// 관리자 신고 상세
+	@Override
+	public ReportVO getReport(Integer rNum) {
+		return reportDAO.getReport(rNum);
+	}
 }

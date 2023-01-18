@@ -107,5 +107,12 @@
 	<select id="findById" parameterType="UserVO" resultType="UserVO">
 		SELECT * FROM MEMBER WHERE mId=#{mId}
 	</select>
+	
+	<!-- 선호태그 수정 -->
+	<update id="updatelikeTag" parameterType="UserVO">
+		UPDATE MEMBER SET
+		mTag=#{mTag}
+		WHERE mId=#{mId}
+	</update>
 
 </mapper>

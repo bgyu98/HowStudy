@@ -11,6 +11,8 @@ public class UserVO {
 	private String mDelete; // 탈퇴 여부 : 기본값 Default => 탈퇴 시 1로 변경
 	private String mGrade;  //회원등급
 	private String mDate; 	//가입날짜
+	
+	
 	public String getmId() {
 		return mId;
 	}
@@ -53,19 +55,28 @@ public class UserVO {
 	public void setmDelete(String mDelete) {
 		this.mDelete = mDelete;
 	}
-
-	
-	@Override
-	public String toString() {
-		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail
-				+ ", mTag=" + mTag + ", mDelete=" + mDelete + ", mGrade=" + mGrade + ", mDate=" + mDate + "]";
-	}
 	public String getmGrade() {
 		return mGrade;
 	}
 	public void setmGrade(String mGrade) {
 		this.mGrade = mGrade;
 	}
+	public String getmDate() {
+		return mDate;
+	}
+	public void setmDate(String mDate) {
+		this.mDate = mDate;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail
+				+ ", mTag=" + mTag + ", mDelete=" + mDelete + ", mGrade=" + mGrade + ", mDate=" + mDate + "]";
+	}
+	
+	
+
 
 	
 	

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
-prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +21,20 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    <style type="text/css">
+      input[type="text"] {
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+      input[type="text"]:focus {
+        outline: none;
+      }
+
+      .table-bordered td, .table-bordered th {
+    border: 1px solid #e3e6f0;
+}   
+    </style>
   </head>
 
   <body class="g-sidenav-show bg-gray-100">
@@ -34,7 +48,11 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
           aria-hidden="true"
           id="iconSidenav"
         ></i>
-        <a class="navbar-brand m-0" href="../pages/dashboard" target="_blank">
+        <a
+          class="navbar-brand m-0"
+          href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
+          target="_blank"
+        >
           <img
             src="../assets/img/logo-ct-dark.png"
             class="navbar-brand-img h-100"
@@ -47,7 +65,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/manageUserList">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -90,7 +108,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/manageUserList">
+            <a class="nav-link" href="../pages/tables">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -129,7 +147,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/notice">
+            <a class="nav-link" href="../pages/tables">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -168,7 +186,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/faq">
+            <a class="nav-link" href="../pages/tables">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -309,74 +327,83 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
-            <div class="card mb-4">
-              <div class="card-header pb-0">
-                <h6>회원 관리</h6>
+            <div class="container-fluid">
+              <div class="card shadow mb-4">
 
-              </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th
-                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                      >
-                        회원아이디
-                      </th>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          회원명
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                        가입날짜
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                        회원등급
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          확인
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <c:forEach items="${userList}" var="user">
-                        <tr>
-                          <td>
-                            <div class="d-flex px-2 py-1">
-                              <div class="d-flex flex-column justify-content-center">
-                                <a href="#" style="margin-left: 22px">${user.mId}</a></td>
-                              </div>
-                            </div>
-                          </td>
-                          <td>
-                            <span>${user.mName}</span>
-                          </td>
-                          <td class="align-middle text-center text-sm">
-                            <span>${user.mDate}</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <span>${user.mGrade}</span>
-                          </td>
-                          <td class="align-middle text-center">
-                            <a href="../pages/manageUserDetail?mId=${user.mId}">
-                              <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
-                              >
-                              Confirm</a
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <form
+                      action="updateProduct"
+                      method="post"
+                      id="updateProduct"
+                      enctype="multipart/form-data"
+                    >
+                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <tbody id="itemRegisterTbl">
+                          <tr>
+                            <td
+                              class="tblTitle"
+                              colspan="3"
+                              style="font-size: 16pt; font-weight: bold"
                             >
-                          </td>
-
-                        </tr>
-                      </c:forEach>
-                    </tbody>
-                  </table>
+                            신고 내역
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" style="width: 20%">작성자명</th>
+                            <td class="iValue" colspan="2">
+                              <input type="text" name="product_name" value="${getReport.mId}" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">신고 유저</th>
+                            <td class="iValue" colspan="2">
+                              <input type="text" name="product_stock" value="${getReport.rOpponent}" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">접수 일시</th>
+                            <td class="iValue" colspan="2">
+                              <input
+                                type="text"
+                                name="product_number"
+                                value="${getReport.rDate}"
+                                readonly
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">신고 분류</th>
+                            <td class="iValue" colspan="2">
+                              <input type="text" name="product_stock" value="${getReport.rClass}" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">상세 내용</th>
+                            <td class="iValue" colspan="2">
+                              <textarea name="product_desc" style="border: none; width: 500px; height: 300px;">${getReport.rReason}</textarea>
+                            </td>
+                          </tr>
+                            <td colspan="3" style="text-align: center">
+                              <input
+                                type="submit"
+                                value="경고"
+                                style="
+                                  background-color: #4e73df;
+                                  width: 70px;
+                                  height: 30px;
+                                  font-size: 10pt;
+                                  color: white;
+                                  border-style: none;
+                                  border-radius: 3px;
+                                "
+                              />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
@@ -538,12 +565,12 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
       </div>
     </div>
-
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <script>
       var win = navigator.platform.indexOf("Win") > -1;
       if (win && document.querySelector("#sidenav-scrollbar")) {

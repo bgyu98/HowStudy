@@ -180,10 +180,10 @@
                                   </svg>
                                   <span>이용권 구매</span>
                                 </a>
-                                <a class="mt-10" href="../mypage/mystudyroom">
+                                <a class="mt-10" name="likeTag" href="#" data-toggle="modal" data-target="#popup_bid2">
                                   <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
                                   src="../assets/images/icon/hashtag.png" />
-                                  <span>선호태그</span>
+                                  <span>선호 태그</span>
                                 </a>
                                 <a class="mt-10" href="../mypage/mystudyroom">
                                   <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
@@ -218,6 +218,7 @@
                         </div>
                       </div>
                     </c:if>
+                  
                     <!--유저 아이콘 끝-->
                   </div>
                 </div>
@@ -235,6 +236,8 @@
           </a>
         </div>
       </header>
+
+      
     </body>
 
     </html>

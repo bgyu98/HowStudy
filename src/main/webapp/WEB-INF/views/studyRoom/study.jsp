@@ -21,6 +21,7 @@
 
         <!-- Theme Style -->
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css">
 
 
 
@@ -39,7 +40,7 @@
         <div id="wrapper">
           <div id="page" class="clearfix">
             <!-- header 넣음 -->
-            <jsp:include page="../include/header.jsp"></jsp:include>
+            <jsp:include page="../include/header.jsp"></jsp:include> 
             <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
               <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -245,6 +246,38 @@
                 </div>
               </c:if>
             </c:forEach>
+              <!-- 모달 시작-->
+              <form action="updatelikeTag" id="updatelikeTag" >
+              <div class="modal fade popup" id="popup_bid2" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-body pd-40" id="likeTagMargin">
+                            <h3 style="margin-bottom: 30px;">나의 관심 주제</h3>
+                            <input id="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
+
+                            
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="취업"><span><img src="../assets/images/likeTag/취업.png">취업</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="독서"><span><img src="../assets/images/likeTag/독서.png">독서</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="어학" ><span><img src="../assets/images/likeTag/어학.png">어학</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="임용"><span><img src="../assets/images/likeTag/임용.png">임용</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="공무원"><span><img src="../assets/images/likeTag/공무원.png">공무원</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="대학수능"><span><img src="../assets/images/likeTag/대학수능.png">대학수능</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자격증"><span><img src="../assets/images/likeTag/자격증.png">자격증</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="학교공부"><span><img src="../assets/images/likeTag/학교공부.png">학교공부</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="기타" ><span><img src="../assets/images/likeTag/기타.png">기타</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="코딩"><span><img src="../assets/images/likeTag/코딩.png">코딩</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
+                            
+                            <button id="likeTag" style="margin-left: 136px; margin-top: 15px;">선택 완료</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </form>
 
             <!-- 눌렀을때 상세보기 모달 끝-->
 
@@ -534,7 +567,7 @@
 
 
 
-
+        <script src="../assets/js/likeTag.js"></script>
 
 
       </body>
