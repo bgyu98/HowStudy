@@ -71,7 +71,7 @@
                                                     <h4 class="title-create-item">파일 첨부</h4>
                                                     <label class="uploadFile">
                                                         <span class="filename">PNG, JPG, GIF, WEBP 또는 MP4. 최대 50mb.</span>
-                                                        <input type="file" multiple="multiple" class="inputfile" name="rFile" id="rFile">
+                                                        <input type="file" multiple="multiple" class="inputfile" name="file" id="rFile">
                                                     </label>
 
                                                     
