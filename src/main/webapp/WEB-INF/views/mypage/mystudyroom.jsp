@@ -52,6 +52,7 @@
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-md-12">
+                            <br><br>
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left" style="margin-top: 3%;">
                                     즐겨 찾기 한 스터디룸 목록</h2>

@@ -51,7 +51,7 @@
             <h1 class="h3 mb-2 text-gray-800" style="text-align: center"><b>공지사항 수정</b></h1>
 
             <!-- 입력 폼 -->
-            < action="updateNotice" method="post" id="modifyFaq" enctype="multipart/form-data">
+            <form action="updateNotice" method="post" id="modifyFaq" enctype="multipart/form-data">
               <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>

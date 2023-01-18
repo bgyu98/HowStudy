@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="body header-fixed is_dark">
+<body class="body header-fixed is_dark  connect-wal">
 
     <!-- preloade -->
     <div class="preload preload-container">
@@ -59,7 +59,7 @@
                                 <div class="widget widget-filter style-1 mgbt-0">
                                     <div class="header-widget-filter">
                                         <h4 class="title-widget">주제 등록</h4>
-                                        <a href="#" class="clear-checkbox btn-filter style-2" data-toggle="modal" data-target="#popup_bid"  name="signup"  id="signup">
+                                        <a href="#" class="clear-checkbox btn-filter style-2" data-toggle="modal" data-target="#popup_bid" >
                                             클릭
                                         </a>
                                     </div>
@@ -169,7 +169,7 @@
                                         
                                         <div style=" text-align: center">
                                             <button id="updateBtn" class="btn ">수정</button> 
-                                            <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${seleteEndNote.hSeq}&mId=${sessionScope.loginId}">삭제</a></button>
+                                            <button id="deleteBtn" class="btn "><a href="deleteNote?hSeq=${seleteEndNote.hSeq}&mId=${sessionScope.loginId}" style=" color: #fff;">삭제</a></button>
                                              </div><br/><br/><br/>
                                 </form>
                             </div>
