@@ -227,7 +227,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                                   </svg>
                                   <span>이용권 구매</span>
                                 </a>
-                                <a class="mt-10" name="likeTag" href="#" data-toggle="modal" data-target="#popup_bid2">
+                                <a class="mt-10" name="likeTag" href="#" data-toggle="modal" data-target="#popup_bid3">
                                   <img width="20" height="18" viewBox="0 0 20 18" style="filter: invert();"
                                   src="../assets/images/icon/hashtag.png" />
                                   <span>선호 태그</span>
