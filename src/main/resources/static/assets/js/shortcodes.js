@@ -897,8 +897,8 @@
                   var sNum = $(e.relatedTarget).data('num');
                   var sPw = $(e.relatedTarget).data('pw');
                   alert(sNum +": 비번 : "+ sPw);
-                  $("#hiddenNum").val(sNum)
-                  $('#insertPw').val(sPw)
+                 $(this).find("#hiddenNum").val(sNum)
+                  $(this).find("#insertPw").val(sPw)
                   $(".alertDanger").hide();
               });
 

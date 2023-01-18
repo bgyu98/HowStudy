@@ -290,16 +290,7 @@
                                 <div class="card-media">
                                   <img src="../assets/images/studyRoom/${vo.sFile}.png" alt="Image" />
                                 </div>
-                                <div class="button-place-bid">
-                                  <c:if test="${vo.sPw == ''}">
-                                    <a id="sangsae" href="#" data-toggle="modal" data-target=.${vo.sTitle}
-                                      class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
-                                  </c:if>
-                                  <c:if test="${vo.sPw != ''}">
-                                    <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
-                                      class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
-                                  </c:if>
-                                </div>
+
                                 <div class="card-title">
                                   <h4>${vo.sTitle}</h4>
                                 </div>
