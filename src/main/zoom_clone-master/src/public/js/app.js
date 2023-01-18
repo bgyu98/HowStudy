@@ -200,7 +200,7 @@ function handleChatSubmit(event) {
   const message = chatInput.value;
   chatInput.value = "";
   socket.emit("chat", `${nickname}: ${message}`, roomName);
-  writeChat(`You: ${message}`, MYCHAT_CN);
+  writeChat(`본인: ${message}`, MYCHAT_CN);
 }
 
 function writeChat(message, className = null) {
@@ -309,7 +309,7 @@ socket.on("accept_join", async (userObjArr) => {
     return;
   }
 
-  writeChat("Notice!", NOTICE_CN);
+  writeChat("알림!", NOTICE_CN);
   for (let i = 0; i < length - 1; ++i) {
     try {
       const newPC = createConnection(
@@ -324,7 +324,7 @@ socket.on("accept_join", async (userObjArr) => {
       console.error(err);
     }
   }
-  writeChat("is in the room.", NOTICE_CN);
+  writeChat("방에 있던 사람들", NOTICE_CN);
 });
 
 socket.on("offer", async (offer, remoteSocketId, remoteNickname) => {
@@ -334,7 +334,7 @@ socket.on("offer", async (offer, remoteSocketId, remoteNickname) => {
     const answer = await newPC.createAnswer();
     await newPC.setLocalDescription(answer);
     socket.emit("answer", answer, remoteSocketId);
-    writeChat(`notice! __${remoteNickname}__ joined the room`, NOTICE_CN);
+    writeChat(` ${remoteNickname} 님이 방에 입장하셨습니다.`, NOTICE_CN);
   } catch (err) {
     console.error(err);
   }
@@ -354,7 +354,7 @@ socket.on("chat", (message) => {
 
 socket.on("leave_room", (leavedSocketId, nickname) => {
   removeVideo(leavedSocketId);
-  writeChat(`notice! ${nickname} leaved the room.`, NOTICE_CN);
+  writeChat(`${nickname} 님이 방에서 나가셨습니다.`, NOTICE_CN);
   --peopleInRoom;
   sortStreams();
 });

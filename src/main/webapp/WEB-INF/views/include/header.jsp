@@ -82,7 +82,7 @@
                       <a href="../meta/meta">메타버스</a>
                     </li>
                     <li class="menu-item current-menu-item">
-                      <a href="../offline/off">위치안내</a>
+                      <a href="../shop/offlineShop">위치안내</a>
                     </li>
                     
                   </ul>

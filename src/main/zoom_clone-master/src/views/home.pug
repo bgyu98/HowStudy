@@ -15,8 +15,8 @@ html(lang="en")
         main
             div#welcome 
                 form
-                    input#roomName(type="text", required, placeholder="Room Name")
-                    input#nickname(type="text", required, placeholder="Your Nickname")
+                    input#roomName(type="text", required, placeholder="방 제목")
+                    input#nickname(type="text", required, placeholder="닉네임")
                     button Enter Room
 
             div#call(class="call")
@@ -37,11 +37,11 @@ html(lang="en")
                                     i(class="fas fa-video fa-2x cameraIcon")
                                     i(class="fas fa-video-slash fa-2x unCameraIcon")
                         div#controlers__column
-                            button#leave Leave
+                            button#leave 나가기
                 div#chatRoom
                     ul#chatBox
                     form#chatForm
-                        input(required, type="text", placeholder="Write your chat")
+                        input(required, type="text", placeholder="여기에 입력하세요..")
                         button Send
         aside.modal.hidden
             div.modal__box

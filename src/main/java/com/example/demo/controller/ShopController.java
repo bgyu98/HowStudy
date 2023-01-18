@@ -7,11 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.service.MembershipService;
+import com.example.demo.service.OfflineService;
 import com.example.demo.service.ShopService;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.MembershipVO;
+import com.example.demo.vo.OfflineVO;
 import com.example.demo.vo.ShopVO;
 import com.example.demo.vo.UserVO;
 
@@ -29,6 +32,9 @@ public class ShopController {
 	
 	@Autowired
 	private MembershipService mService;
+	
+	@Autowired
+	private OfflineService oService;
 	
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -75,11 +81,18 @@ public class ShopController {
 	    	 msg = "일치하는 정보가 없습니다..";
 	    	 return "fail";
 	     }
-	     
-	    
-	    
-	   
 	   }
+	
+	
+	//오프라인매장리스트
+	@RequestMapping("/offlineShop")
+	public void selectOffline(OfflineVO vo, Model m) {
+		List<OfflineVO> list = oService.selectOffline(vo);
+		m.addAttribute("list", list);
+	}
+	
+
+	
 	
 		
 	

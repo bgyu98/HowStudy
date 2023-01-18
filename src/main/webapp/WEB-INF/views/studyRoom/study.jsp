@@ -188,6 +188,7 @@
                       </button>
                       <div class="modal-body space-y-20 pd-40">
                         <h3>${mr.sTitle}</h3>
+                        <input type="hidden" value="${mr.sTitle}">
                         <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                         </p>
                         <hr>
