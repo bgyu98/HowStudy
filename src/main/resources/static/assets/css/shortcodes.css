@@ -26,7 +26,7 @@
 
 /* PreLoad
 -------------------------------------------------------------- */
- .preload {
+.preload {
     overflow: hidden;
 } 
 
@@ -237,7 +237,7 @@
 .sc-button {
     display      : inline-block;
     border       : 2px solid #FF8787;
-    color        : #FF8787;
+    color        : rgb(255, 255, 255);
     box-sizing   : border-box;
     padding      : 11px 35px;
     border-radius: 30px;
@@ -373,9 +373,10 @@
     transition        : all 0.3s ease-in-out;
 }
 
+/* 더보기 버튼색 => 선아 변경 */
 /* style loadmore */
 .sc-button.loadmore {
-    background-color: #ffe8c8;
+    background-color: #ecb390;
     border          : 2px solid #ffe8c8;
     padding         : 14px 40px;
 }
@@ -457,7 +458,7 @@
 }
 
 .is_dark .dark-style2 .sc-button.fl-button.pri-3 {
-    border-color: #fff;
+    border-color: rgb(128, 128, 128);
 }
 
 .is_dark .dark-style2 .sc-button.fl-button.pri-3 span {
@@ -621,9 +622,20 @@
     margin-bottom: 20px;
 }
 
+/* 게시판 이미지 사이즈 조정 - 선아 바꿈 */
 .sc-card-article .card-media img {
-    width             : 100%;
-    object-fit        : cover;
+    width             : auto;
+    height: 250px;
+    object-fit        : fill;
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition        : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 게시판 이미지 사이즈 조정 - 선아 바꿈 */
+.sc-card-article .card-media img {
+    width             : auto;
+    height: 250px;
+    object-fit        : fill;
     -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transition        : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -689,11 +701,13 @@
 
 /* sc author
 --------------------------------------------------*/
+/* 스터디룸 생성 부분 위로 업업 => 선아가 변경 */
 .swiper-container.show-shadow{
     padding-left: 15px;
     padding-right: 15px;
     margin-left: -15px;
     margin-right: -15px;
+   
 }
 .sc-author-box {
     display      : flex;
@@ -954,7 +968,7 @@
     margin: 0 5px;
 }
 
-/* card wishlist */
+/* card wishlist  ( 재동 수정 ) */ 
 .sc-card-product .card-media .wishlist-button,
 .sc-card-product .card-media .wishlist-button2{
 	position: absolute;
@@ -1077,7 +1091,7 @@
     font-weight     : bold;
     font-size       : 12px;
     color           : #fff;
-    background-color: #FF8787;
+    background-color: #ecb390;
     border-radius   : 10px;
     letter-spacing  : 0.1em;
     text-transform  : uppercase;
@@ -2063,7 +2077,7 @@
     font-weight     : bold;
     font-size       : 12px;
     color           : #fff;
-    background-color: #FF8787;
+    background-color: #ECB390;
     border-radius   : 10px;
     letter-spacing  : 0.1em;
     text-transform  : uppercase;
@@ -2658,6 +2672,7 @@ section.today-picks {
 /* tf-section live-auctions */
 .tf-section.live-auctions.style2{
     padding-top: 16px;
+    background: #f5f7f9;
 }
 
 .seller.style2{
@@ -6738,15 +6753,17 @@ section.today-picks {
     margin-bottom: 0px;
 }
 
+/* 생성 스터디룸쪽 배경 컬러 변경 => 선아 바꿈 */
 .tf-section.live-auctions.home7 {
     padding: 80px 0 75px;
+    background: #f5f7f9;
 }
 
 /* category */
+/* 랭킹별 스터디룸 패딩 탑 좀 높임 => 선아 바꿈 */
 .tf-section.category{
-    padding: 0px 0 80px;
+    padding: 30px 0 80px;
 }
-
 .sc-categoty .card-media{
     overflow: hidden;
     border-radius: 12px;
@@ -6803,7 +6820,7 @@ section.today-picks {
 .tf-section.category .swiper-button-next::after, 
 .tf-section.category .swiper-button-prev::after {
     font-family: 'Font Awesome 5 Pro';
-    color: #5142FC;
+    color: #94B49F;
     font-weight: 600;
     font-size: 30px;
     -webkit-transition: all 0.3s ease;
@@ -8112,8 +8129,17 @@ section.today-picks {
 	background: #343444;
 }
 
+/* 다크모드 배경 컬러 변경 => 선아변경 */
 .is_dark .header_1 {
-	background: unset;
+	background: #0D0D11;
+}
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .tf-section.live-auctions.home7 {
+	background: #14141f;
+}
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .tf-section.live-auctions.style2 {
+	background: #14141f;
 }
 
 .is_dark .sc-card-product{
@@ -8129,7 +8155,21 @@ section.today-picks {
 	border: #5142fc;
 }
 
-/* 밝은 모드일때 selectBox - 선아 */
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .header_1 {
+	background: #0D0D11;
+}
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .tf-section.live-auctions.home7 {
+	background: #14141f;
+}
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .tf-section.live-auctions.style2 {
+	background: #14141f;
+}
+
+
+/* 밝은 모드일때 selectBox - 선아 + 재동 */
 
 .is_dark div.tf-soft {
     position: relative;
@@ -8152,16 +8192,58 @@ section.today-picks {
     background: unset;
  
 }
+.is_dark .checkdate{
+    width: 200px;
+    border: 1px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    background-color: #1F1F2C;
+ 
+}
 
+/*재동*/
+.is_dark .sunho{
+    width: 20%;
+    border: 2px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    background: unset;
+    padding: 0.75rem 1.25rem;
+ 
+}
+.is_dark .checkdate:focus,
+.is_dark .sunho:focus,
+.is_dark #selectStudyRoom:focus{
+    border: 1px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #5142fc;
+    color:#EEEEEE;
+    border-radius: 10px;
+}
+
+/* 재동 선아 합치기 전 선아누나버전 ( 클릭시 흰색 )
 .is_dark #selectStudyRoom:focus{
     border: 1px solid #EEEEEE;
     box-sizing: border-box;
     border-radius: 10px;
     outline: 3px solid #EEEEEE;
-    color:#5142fc;
+    color:#EEEEEE;
     border-radius: 10px;
 }
-
+*/
 .is_dark .selectOpt {
   background: black;
   color: #fff;
@@ -8180,7 +8262,7 @@ div.tf-soft {
 }
 
 
-#selectStudyRoom{
+#selectStudyRoom , .checkdate{
     width: 200px;
     border: 2px solid #ffe8c8;
     box-sizing: border-box;
@@ -8194,8 +8276,32 @@ div.tf-soft {
     background: unset;
  
 }
+.sunho{
+    width: 30%;
+    border: 2px solid #ffe8c8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #ff8787;
+    font-size: 16px;
+    line-height: 16px;
+    background: unset;
+ 
+}
 
-#selectStudyRoom:focus{
+#selectStudyRoom:focus,
+.checkdate:focus,
+.sunho:focus{
+    border: 2px solid #ffe8c8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #ffe8c8;
+    color:#ff8787;
+    border-radius: 10px;
+}
+.selectdate:focus{
     border: 2px solid #ffe8c8;
     box-sizing: border-box;
     border-radius: 10px;
@@ -8229,4 +8335,12 @@ div.tf-soft {
 	font-size: 13px;
     color: #8a8aa0;
 	}          
+
+.pwConfirmcss {
+	color: red; 
+	font-size: 15px; 
+	font-weight: bold;
+}
+
+
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.StudyRoomDAO;
+import com.example.demo.vo.NoticeVO;
 import com.example.demo.vo.StudyRoomVO;
 
 @Service
@@ -47,5 +48,20 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 
 	public List<StudyRoomVO> allStudy(StudyRoomVO vo) {
 		return studyroomDAO.allStudy(vo);
+	}
+	
+	public void stdHitsplus(Integer sNum) {
+		System.out.println("조회수 올라줘ㅠㅠㅠㅠㅠㅠㅠ");
+		studyroomDAO.stdHitsplus(sNum);
+	}
+
+	// sNum 잘 받아오는지 test
+	public StudyRoomVO seleteStudyRoom(Integer sNum) {
+		return studyroomDAO.seleteStudyRoom(sNum);
+	}
+	
+	// 랭킹 별 스터디룸 출력
+	public List<StudyRoomVO> selectScnt(StudyRoomVO vo) {
+		return studyroomDAO.selectScnt(vo);
 	}
 }

@@ -1,3 +1,6 @@
+/* 다 재동 파일 */
+
+
 /*
 마이페이지 카드 선호태그부분 css
 */
@@ -9,7 +12,7 @@
 
 /* 
     마이페이지 카드 커서 올렸을 때, 움직임 효과
-*/
+
 .sc-card-collection:hover{
     transform: translateY(-.5rem);
   
@@ -18,7 +21,7 @@
     transform: translateX(1rem);
   }
 
-
+*/
   /*
     카드 안의 사이즈 설정
   */
@@ -29,4 +32,5 @@
 
   }
 
+ 
   

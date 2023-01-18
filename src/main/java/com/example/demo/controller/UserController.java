@@ -160,7 +160,6 @@ public class UserController {
    }
    
    
-   
    //아이디 찾기
    @RequestMapping(value="findId")
    @ResponseBody	//ajax 쓸 때 필요

@@ -41,7 +41,6 @@ public class BoardController {
 		
 		// 조회수 증가 구문
 		noticeService.hitsplus(vo.getnNUM());	// 조회수 증가
-		System.out.println(vo);
 		NoticeVO ncnt = noticeService.seleteNoticeBoard(vo);
 		m.addAttribute("ncnt", ncnt);
 

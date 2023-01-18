@@ -29,11 +29,15 @@
     />
   </head>
 
-  <body class="body header-fixed is_dark connect-wal">
+  
+<body class="body header-fixed is_dark connect-wal">
+
+
     <div id="wrapper">
       <div id="page" class="clearfix">
         <!-- header 넣음 -->
-        <jsp:include page="../include/header.jsp"></jsp:include>
+        <jsp:include page="../include/header.jsp"></jsp:include> 
+
         <!-- Header -->
 
         <!-- title page -->
@@ -93,7 +97,7 @@
                       >
                         확인
                       </button>
-                      <div id="pwConfirmcss">${message}</div>
+                      <div style="color: red; font-size: 15px; font-weight: bold">${message}</div>
                     </form>
                   </div>
                 </div>
@@ -110,5 +114,7 @@
     <!-- /#wrapper -->
 
     <a id="scroll-top"></a>
+
+
   </body>
 </html>

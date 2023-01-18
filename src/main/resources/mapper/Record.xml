@@ -3,15 +3,48 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.dao.RecordDAO">
-	<!-- 즐겨찾기한 방 출력 -->
+	<!-- 타이머 클릭시 db 저장 -->
 	<insert id="saveTime" parameterType="RecordVO">
 		
-		INSERT into SaveTime (saveNum,nowday, sTime , mID, sNUM, sCATEGORY )(
-		select 	nextval(sTimeNum),#{nowDay},#{sTime},s.mID, s.sNUM, s.sCATEGORY 
-		from STUDYROOM s	where s.mID = #{mId} and s.sNum = #{sNum}) 
+	INSERT into SaveTime (saveNum, sTime , mID, sNUM, sCATEGORY, sDate )(
+	select 	nextval(sTimeNum),date_format(CONCAT(CURDATE(),' ',#{sTime}),'%H:%i:%s'
+	),#{mId}, s.sNUM, s.sCATEGORY,SYSDATE()  
+	from STUDYROOM s	where  s.sNum = #{sNum})
 		
 	</insert>
-
+	
+	<!-- 오늘 누적 공부 시간 -->
+	<select id = "todayStudyTime" parameterType="RecordVO" resultType = "RecordVO">
+	select  SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime  from SaveTime st 
+	where mid = #{mId} and sDate = CURDATE() 
+	
+	</select>
+	
+	<!-- 일 별 평균 계산위한  월 별 리스트 수 체크 -->
+	<select id = "checkDate"  parameterType="RecordVO" resultType = "RecordVO">
+select SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime, sDate  from SaveTime st 
+where st.mID = #{mId} and  (sDate BETWEEN LAST_DAY(NOW() - interval 1 month) and LAST_DAY(NOW()) )
+group by sDate
+	
+	</select>
+	
+	
+	<!-- 일 별 평균 시간 -->
+	<select id = "todayAvgTime"  parameterType="RecordVO" resultType = "RecordVO">
+	
+	select CEILING(SEC_TO_TIME(sum(TIME_TO_SEC(sTime)/#{k}))) sTime  from SaveTime st 
+	where st.mID = #{mId} and (sDate BETWEEN LAST_DAY(NOW() - interval 1 month) and LAST_DAY(NOW()) )
+		
+	</select>
+	
+	<!-- 월 별 누적 시간 -->
+	<select id = "totalStudyTime"  parameterType="RecordVO" resultType = "RecordVO">
+	
+	select CEILING(SEC_TO_TIME(sum(TIME_TO_SEC(sTime)))) sTime  from SaveTime st 
+	where st.mID = #{mId} and (sDate BETWEEN LAST_DAY(NOW() - interval 1 month) and LAST_DAY(NOW()) )
+		
+	</select>
+	
 
 
 

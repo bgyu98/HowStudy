@@ -61,29 +61,24 @@
             <!-- 입력 폼 -->
             <div class="card shadow mb-4" style="width: 75%; margin: auto; margin-top: 50pt">
               <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">공지사항 게시판 글 관리</h6>
+                <h6 class="m-0 font-weight-bold text-primary">FAQ 게시판 글 관리</h6>
               </div>
-              <form action="../admin/insertNotice" id="insertNoticeFrm">
+              <form action="insertFaq" id="insertNoticeFrm">
                 <div class="card-body" style="margin-left: 15px">
                   <div class="inputTitle">
-                    <input
-                      type="text"
-                      style="width: 70%"
-                      placeholder="메인 제목"
-                      name="notify_title"
-                    />
+                    <input type="text" style="width: 70%" placeholder="메인 제목" name="fTITLE" />
                   </div>
                   <hr />
                   <div>
                     상세 설명
-                    <textarea style="width: 100%; height: 300px" name="notify_content"></textarea>
+                    <textarea style="width: 100%; height: 300px" name="fCOMMENT"></textarea>
                   </div>
                   <div id="registBtn">
-                    <button class="btn btn-primary btn-icon-split" id="insertNoticeBtn">
+                    <button class="btn btn-primary btn-icon-split" id="insertFaqBtn">
                       <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
                       <span class="text">등록</span>
                     </button>
-                    <a href="notice.do" class="btn btn-secondary btn-icon-split">
+                    <a href="faq" class="btn btn-secondary btn-icon-split">
                       <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
                       <span class="text">취소</span>
                     </a>
