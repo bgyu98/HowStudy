@@ -74,7 +74,7 @@
                     </div>
                   </div>
                   <div class="image">
-                    <img src="../assets/images/noticeimage/${notice.nMAINREALNAME}" width="100%" />
+                    <img src="../assets/images/noticeImage/${notice.nMAINREALNAME}" width="100%" />
                   </div>
                   <div class="inner-post mg-t-40">
                     <h3 class="heading mg-bt-16">${notice.nSUBTITLE}</h3>

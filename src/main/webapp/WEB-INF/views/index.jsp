@@ -47,7 +47,7 @@
                             <div class="flat-bt-slider style2 flex">
                                 <a href="studyRoom/study" class="sc-button header-slider style style-1 rocket fl-button pri-1"><span>스터디룸
                                 </span></a>
-                                <a href="#" class="sc-button header-slider style style-1 note fl-button pri-1"><span>이용가이드
+                                <a href="board/noticesangse?nNUM=1006" class="sc-button header-slider style style-1 note fl-button pri-1"><span>이용가이드
                                 </span></a>
                             </div>
                         </div>
