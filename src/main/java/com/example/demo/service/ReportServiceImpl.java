@@ -35,4 +35,10 @@ public class ReportServiceImpl implements ReportService {
 	public ReportVO getReport(Integer rNum) {
 		return reportDAO.getReport(rNum);
 	}
+
+	// 관리자 신고 갯수
+	@Override
+	public int listCount(ReportVO vo) {
+		return reportDAO.listCount(vo);
+	}
 }

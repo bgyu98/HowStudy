@@ -18,6 +18,7 @@ import com.example.demo.service.UserService;
 import com.example.demo.vo.FaqVO;
 import com.example.demo.vo.MembershipVO;
 import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.PagingVO;
 import com.example.demo.vo.ReportVO;
 import com.example.demo.vo.UserVO;
 
@@ -161,6 +162,20 @@ public class AdminController {
 		List<ReportVO> result = reportService.manageReportList(rvo);
 		System.out.println("manageReportList확인 : " +result);
 		m.addAttribute("reportList", result);
+		
+		/*
+		 * int test = rvo.getPage(); System.out.println("제바라아아 : " +
+		 * ((Object)test).getClass().getSimpleName()); m.addAttribute("test", test);
+		 */
+
+
+		
+		PagingVO pageMaker = new PagingVO();
+		pageMaker.setCri(rvo);
+		
+		pageMaker.setTotalCount(reportService.listCount(rvo));
+		System.out.println("listCount확인:" + reportService.listCount(rvo));
+		m.addAttribute("pageMaker", pageMaker);
 	}
 
 	// 관리자 신고 상세
