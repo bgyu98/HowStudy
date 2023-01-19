@@ -31,6 +31,25 @@
 
 //   return num;
 // }
+$(document).on("change", "#selectRoom", function () {
+  var selectroom = $("#selectRoom option:selected").val();
+
+  // alert(" 고른 태그 :  " + selectroom);
+
+  $.ajax({
+    type: "get",
+    url: "/study/saveTime",
+    data: selectroom,
+    dataType: "text",
+    success: function (json) {
+      alert("성공");
+    },
+    error: function (e) {
+      alert("실패");
+      console.log(e);
+    },
+  });
+});
 
 (function ($) {
   var check = function () {
@@ -83,6 +102,7 @@ var time = 0;
 var starFlag = true;
 $(document).ready(function () {
   buttonEvt();
+  tagTime();
 });
 
 function init() {
@@ -153,4 +173,147 @@ function buttonEvt() {
       init();
     }
   });
+}
+
+/* tagtime start */
+var tagTime = function () {
+  function colorize() {
+    var r = Math.floor(Math.random() * 200);
+    var g = Math.floor(Math.random() * 200);
+    var b = Math.floor(Math.random() * 200);
+    var color = "rgba(" + r + ", " + g + ", " + b + ", 0.7)";
+    return color;
+  }
+  var labelList = new Array();
+  var valueList = new Array();
+  var colorList = new Array();
+
+  $.ajax({
+    url: "saveTagTime",
+    type: "post",
+    cache: "false",
+    async: false,
+    contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+    dataType: "json",
+    success: function (json) {
+      //alert("성공");
+      $.each(json, function (key, value) {
+        labelList.push(value.sCategory);
+        //alert(value.sCategory);
+        //alert(value.total);
+        //valueList.push(value.total);
+        valueList.push(parseInt(value.total));
+        colorList.push(colorize());
+      });
+      var chartData = {
+        labels: labelList,
+        datasets: [
+          {
+            label: "태그 별 공부 시간",
+            backgroundColor: colorList,
+            data: valueList,
+          },
+        ],
+        options: {
+          title: {
+            display: true,
+            text: "태그 별 공부 시간",
+          },
+        },
+      };
+      var ctx = document.getElementById("canvas-tagchart").getContext("2d");
+      new Chart(ctx, {
+        type: "pie",
+        data: chartData,
+      });
+    },
+    error: function (error) {
+      alert("실패");
+      alert(error.log);
+      console.log(error);
+    },
+  });
+}; /* tagtime finish*/
+
+// 왼쪽 날짜 선택 했을 경우, 오른쪽 날짜의 최솟값을 왼쪽 날짜로 지정
+function checkDate1(event) {
+  var regdate2 = document.getElementById("regdate2");
+  regdate2.value = null;
+  regdate2.setAttribute("min", regdate1.value);
+}
+// checkdate1 finish
+
+// checkDate2 start ( 오른쪽 날짜 지정)
+function checkDate2(event) {
+  function colorize() {
+    var r = Math.floor(Math.random() * 200);
+    var g = Math.floor(Math.random() * 200);
+    var b = Math.floor(Math.random() * 200);
+    var color = "rgba(" + r + ", " + g + ", " + b + ", 0.7)";
+    return color;
+  }
+  var day1 = regdate1.value;
+  var day2 = regdate2.value;
+
+  if (day1 == "") {
+    // 날짜 선택 관련 유효성 검사
+    alert("왼쪽의 날짜부터 선택해주세요.");
+    regdate2.value = null;
+  }
+
+  var vo = { date1: day1, date2: day2 };
+  var labelList2 = new Array();
+  var valueList2 = new Array();
+  var colorList2 = new Array();
+  $.ajax({
+    url: "saveDateTime",
+    type: "get",
+    data: vo,
+    cache: "false",
+    async: false,
+    contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+    dataType: "json",
+
+    success: function (json2) {
+      alert("성공dsds");
+      //alert(json2);
+      $.each(json2, function (index, value) {
+        alert(value.sDate);
+        labelList2.push(value.sDate);
+        valueList2.push(parseInt(value.total));
+        colorList2.push(colorize());
+      });
+
+      var data2 = {
+        labels: labelList2,
+        datasets: [
+          {
+            label: "날짜 별 공부 시간",
+            backgroundColor: colorList2,
+            data: valueList2,
+          },
+        ],
+        options: {
+          title: {
+            display: true,
+            text: "날짜 별 공부 시간",
+          },
+        },
+      };
+      console.log(data2);
+      if (window.chartObj != undefined) {
+        window.chartObj.destroy();
+      }
+
+      var ctx2 = document.getElementById("canvas-daychart").getContext("2d");
+      chartObj = new Chart(ctx2, {
+        type: "bar",
+        data: data2,
+      });
+    },
+    error: function (err) {
+      alert("error");
+      console.log(err);
+    },
+  }); //end of ajax
 }

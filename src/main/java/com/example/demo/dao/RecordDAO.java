@@ -23,4 +23,10 @@ public interface RecordDAO {
 	// 일 별 평균 계산 위한 리스트 수 체크
 	public List<RecordVO> checkDate(RecordVO vo);
 	
+	// 태그 별 누적 시간
+	public List<RecordVO> saveTagTime(RecordVO vo);
+	
+	// 기간 별 공부 시간
+	public List<RecordVO> saveDateTime(RecordVO vo);
+	
 }

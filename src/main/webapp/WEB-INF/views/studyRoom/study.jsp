@@ -135,7 +135,7 @@
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
                                     <c:if test="${mr.sPw != ''}">
-                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
+                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}1
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
 
@@ -213,7 +213,7 @@
 
               <!-- 스터디룸 패스워드 존재할때 -->
 
-              <div class="modal fade popup sPwConfirm" id="popup_bid1" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal fade popup ${mr.sTitle}1" id="popup_bid1" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -232,7 +232,7 @@
                       <div class="hr"></div>
                       <div class="d-flex justify-content-between">
                         <p>카테고리</p>
-                        <p class="text-right price color-popup">${mr.sCategory}</p>
+                        <p class="text-right price color-popup">${mr.sCategory}</p>popup_bid2
                       </div>
                       <div class="d-flex justify-content-between">
                         <p>스터디 정원</p>
@@ -336,7 +336,7 @@
 
                           <!-- 스터디룸 패스워드 존재할때 -->
 
-                          <div class="modal fade popup sPwConfirm" id="popup_bid1" tabindex="-1" role="dialog"
+                          <div class="modal fade popup ${mr.sTitle}" id="popup_bid1" tabindex="-1" role="dialog"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                               <div class="modal-content">
@@ -422,26 +422,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    <div class="tf-soft" style="display: inline-block; float: right; width: 12%; height: 60%;">
-
-                      <select id="selectStudyRoom" style="width: 100%; height: 100%;">
-                        <option class="selectOpt" hidden="" disabled="disabled" selected="selected" value=""
-                          style="color: rgb(0, 0, 0);">태그선택</option>
-                        <option class="selectOpt" id=" job" name="keyword">취업</option>
-                        <option class="selectOpt" id="book" name="keyword">독서</option>
-                        <option class="selectOpt" id="lan" name="keyword">어학</option>
-                        <option class="selectOpt" id="teac" name="keyword">임용</option>
-                        <option class="selectOpt" id="Offi" name="keyword">공무원</option>
-                        <option class="selectOpt" id="stu" name="keyword">대학수능</option>
-                        <option class="selectOpt" id="cer" name="keyword">자격증</option>
-                        <option class="selectOpt" id="scstu" name="keyword">학교공부</option>
-                        <option class="selectOpt" id="etc" name="keyword">기타</option>
-                        <option class="selectOpt" id="cord" name="keyword">코딩</option>
-                        <option class="selectOpt" id="Turn" name="keyword">이직</option>
-                      </select>
-                    </div>
-                  </div>
-
+                
 
 
 
@@ -461,7 +442,7 @@
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                               <c:if test="${vo.sPw != ''}">
-                                <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
+                                <a id="sangsae" href="#" data-toggle="modal" data-target=${mr.sTitle}  
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                             </div>
