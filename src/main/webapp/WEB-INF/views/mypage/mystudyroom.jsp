@@ -52,13 +52,13 @@
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-md-12">
-                            <br><br>
+                            <br><br><br>
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left">
                                     즐겨찾기한 스터디룸</h2>
                             </div>
                         </div>
-
+                    
                         <!-- 즐겨찾기한 목록 방 생성 -->
 
                         <div class="col-md-12">

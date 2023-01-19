@@ -127,7 +127,7 @@
                                 </div>
                                 <!-- 사진 -->
                                 <div class="card-media">
-                                  <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
+                                  <img src=<img src="../assets/images/studyRoom/${mr.sFile}.png" /> alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
                                     <c:if test="${mr.sPw == ''}">
