@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.OfflineDAO;
 import com.example.demo.vo.OfflineVO;
+import com.example.demo.vo.ReportVO;
 
 @Service
 public class OfflineServiceImpl implements OfflineService  {
@@ -26,6 +27,12 @@ public class OfflineServiceImpl implements OfflineService  {
 	@Override
 	public int count() {
 		return offlineDAO.count();
+	}
+
+	// 페이징
+	@Override
+	public int listCount(OfflineVO vo) {
+		return offlineDAO.listCount(vo);
 	}
 
 

@@ -15,5 +15,9 @@
 		SELECT COUNT(*) FROM LOCALSHOP
 	</select>
 	
+	<select id="listCount" resultType="int">
+		SELECT COUNT(*) FROM LOCALSHOP
+	</select>
+	
 
 </mapper>
