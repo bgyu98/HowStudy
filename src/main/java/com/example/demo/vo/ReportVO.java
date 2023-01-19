@@ -2,7 +2,7 @@ package com.example.demo.vo;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,7 +15,7 @@ public class ReportVO {
 	private String  rTitle;			//제목
 	private String  rOpponent;		//피의자
 	private String  rClass;			//분류
-	private Date    rDate;			//신고날짜
+	private Date  	rDate;			//신고날짜
 	private String  rReason;		//이유
 	private String	rFile;			//파일이름
 	private List<MultipartFile> file;		//파일저장
@@ -23,10 +23,16 @@ public class ReportVO {
 	// 페이징
 	private int page;
 	private int perPageNum;
-
+	private String 	status; 		//상태
 
 	
 	//getter setter
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public Integer getrNum() {
 		return rNum;
 	}
@@ -77,19 +83,20 @@ public class ReportVO {
 		this.rFile = rFile;
 	}
 	
-	//파일업로드
+	//다중 파일 업로드
 	public void setFile(List<MultipartFile> files) {
-		this.file = file;
+		int i = 1;
 		for(MultipartFile file : files) {
 			if (!file.isEmpty()) {
-				UUID uuid = UUID.randomUUID();
-	
+				UUID uuid = UUID.randomUUID(); //랜덤 uuid
+				
 				this.rFile = uuid.toString();
-	
+				
 				File f = new File("D:\\howStudy\\howStudy\\src\\main\\resources\\static\\assets\\images\\reportFile\\"
-						+ rFile + "_" + mId + "의 신고사진.png");
+						+ rFile + "_" + mId + "의 신고사진" + i + ".png"); // f = 경로
 				try {
-					((MultipartFile) file).transferTo(f);
+					((MultipartFile) file).transferTo(f); // 서버로 전송
+					i++;
 				} catch (IllegalStateException e) {
 					e.printStackTrace();
 				} catch (IOException e) {

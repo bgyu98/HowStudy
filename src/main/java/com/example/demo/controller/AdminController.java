@@ -4,12 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.ui.Model;
 
-import com.example.demo.dao.UserDAO;
 import com.example.demo.service.FaqService;
 import com.example.demo.service.MembershipService;
 import com.example.demo.service.NoticeService;
@@ -187,6 +185,15 @@ public class AdminController {
 		System.out.println("getReport 확인 : " + vo);
 		m.addAttribute("getReport", vo);
 		
+	}
+	
+	//관리자 신고 접수
+	@RequestMapping("/updateReport")
+	public String updateReport(ReportVO vo) {
+		 reportService.updateReport(vo);
+		 System.out.println(vo.getrNum());
+		System.out.println("zzzzzzzzzzz : " + vo);
+		return "redirect:../pages/report";
 	}
 	
 

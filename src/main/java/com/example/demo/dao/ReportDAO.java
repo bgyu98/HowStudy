@@ -26,4 +26,7 @@ public interface ReportDAO {
 	
 	// 관리자 신고 회원별 상세
 	public List<ReportVO> getUserReport(String mId);
+	
+	//관리자 신고 접수
+	public void updateReport(ReportVO vo);
 }

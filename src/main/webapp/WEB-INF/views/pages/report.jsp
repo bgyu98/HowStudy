@@ -346,27 +346,28 @@
                           </a>
                         </td>
                          <!-- 답변이 달리지 않았을 경우 : 미응답 처리 -->
-
-                         <td style="width: 15%; text-align: center">
-                          <a
-                            href="registQna.do?title=${qna.qna_title }&seq=${qna.qna_seq }"
-                            class="btn btn-warning btn-icon-split"
-                          >
-                            <span class="icon text-white-50">
-                              <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                            <span class="text">미응답</span>
-                          </a>
-                        </td>
-
-                        <!-- 답변이 달렸을 경우 : 응답 처리 -->
-
-                        <td style="text-align: center; display:none" >
-                          <a href="#" class="btn btn-success btn-icon-split">
-                            <span class="icon text-white-50"> <i class="fas fa-check"></i> </span>
-                            <span class="text">응답</span>
-                          </a>
-                        </td>
+                         <c:choose>
+                          <c:when test="${report.status!='Y'}">
+                            <td style="width: 15%; text-align: center">
+                              <a href="registQna.do?title=${qna.qna_title }&seq=${qna.qna_seq }" class="btn btn-warning btn-icon-split" >
+                                <span class="icon text-white-50">
+                                  <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                                <span class="text">미응답</span>
+                              </a>
+                            </td>
+                          </c:when>
+                        
+                        
+                        <c:when test="${report.status=='Y'}">
+                          <td style="text-align: center;" >
+                            <a href="#" class="btn btn-success btn-icon-split">
+                              <span class="icon text-white-50"> <i class="fas fa-check"></i> </span>
+                              <span class="text">응답</span>
+                            </a>
+                          </td>
+                        </c:when>
+                        </c:choose>
                       </tr>
                     </c:forEach>
                     </tbody>
