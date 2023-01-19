@@ -341,8 +341,18 @@
                         <td>${report.rOpponent}</td>
                         <td>${report.rDate}</td>
                         <td style="text-align: center">
-                          <a href="../pages/getReport?rNum=${report.rNum}" class="btn btn-danger btn-circle btn-sm" >
-                            <i class="fas fa-info-circle" aria-hidden="true"></i>
+                          <a href="../pages/getReport?rNum=${report.rNum}" class="btn btn-danger btn-circle btn-sm"  style="
+                          border-radius: 50%;
+                          height: 35px;
+                          width: 37px;
+                          padding: initial;
+                          display: table-cell;
+                          display: inline-block;
+                      ">
+                            <i class="fas fa-info-circle" aria-hidden="true" style="
+                            bottom: -9px;
+                            position: relative;
+                        "></i>
                           </a>
                         </td>
                          <!-- 답변이 달리지 않았을 경우 : 미응답 처리 -->
