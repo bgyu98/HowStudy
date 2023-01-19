@@ -42,7 +42,7 @@
 		resultType="ReportVO">
 		SELECT *
 		FROM REPORT
-		Where rOpponent = #{mId}
+		Where rOpponent = #{mId} AND status = 'Y'
 	</select>
 	<!-- 신고리스트 카운트 -->
 	<select id="listCount" parameterType="ReportVO" resultType="int">

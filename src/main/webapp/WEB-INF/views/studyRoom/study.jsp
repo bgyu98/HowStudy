@@ -129,7 +129,7 @@
                                 </div>
                                 <!-- 사진 -->
                                 <div class="card-media">
-                                  <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
+                                  <img src="../assets/images/studyRoom/${mr.sFile}.png" alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
                                     <c:if test="${mr.sPw == ''}">
@@ -223,7 +223,7 @@
                     </button>
                     <div class="modal-body space-y-20 pd-40">
                       <h3>${mr.sTitle}</h3>
-                      <i class="fa-sharp fa-solid fa-key-skeleton"></i>
+                      
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                       </p>
                       <hr>

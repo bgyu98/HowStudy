@@ -19,11 +19,12 @@ public class ReportVO {
 	private String  rReason;		//이유
 	private String	rFile;			//파일이름
 	private List<MultipartFile> file;		//파일저장
+	private String 	status; 		//상태
 	
 	// 페이징
 	private int page;
 	private int perPageNum;
-	private String 	status; 		//상태
+	
 
 	
 	//getter setter
