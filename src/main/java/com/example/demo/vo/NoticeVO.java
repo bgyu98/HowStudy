@@ -18,6 +18,10 @@ public class NoticeVO {
 	private Integer nCount;
 	
 	
+	// 페이징
+	private int page;
+	private int perPageNum;
+	
 	public Integer getnCount() {
 		return nCount;
 	}
@@ -243,15 +247,51 @@ public class NoticeVO {
 	public void setnTAG3(String nTAG3) {
 		this.nTAG3 = nTAG3;
 	}
-
-	@Override
-	public String toString() {
-		return "NoticeVO [nNUM=" + nNUM + ", nTITLE=" + nTITLE + ", nWRITER=" + nWRITER + ", nCNT=" + nCNT
-				+ ", nCOMMENT=" + nCOMMENT + ", nDATE=" + nDATE + ", nTAG1="
-				+ nTAG1 + ", nTAG2=" + nTAG2 + ", nTAG3=" + nTAG3 + ", nNAME=" + nNAME + ", nREALNAME=" + nREALNAME
-				+ ", nNSIZE=" + nNSIZE + ", nMAINNAME=" + nMAINNAME + ", nMAINREALNAME=" + nMAINREALNAME
-				+ ", nMAINNSIZE=" + nMAINNSIZE + ", nFILE=" + nFILE + ", nFILE1=" + nFILE1 + "]";
-	}
 	
+	// 페이징
+		public NoticeVO() {
+			this.page = 1;
+			this.perPageNum = 10;
+		}
+		
+		public void setPage(int page) {
+			if (page <= 0) {
+				this.page = 1;
+				return;
+			}
+			this.page = page;
+		}
+		
+		public void setPerPageNum(int perPageNum) {
+			if (perPageNum <= 0 || perPageNum > 100) {
+				this.perPageNum = 10;
+				return;
+			}
+			this.perPageNum = perPageNum;
+		}
+		
+		public int getPage() {
+			return page;
+		}
+		
+		public int getPageStart() {
+			return (this.page - 1) * perPageNum;
+		}
+		
+		public int getPerPageNum() {
+			return this.perPageNum;
+		}
+
+		@Override
+		public String toString() {
+			return "NoticeVO [nNUM=" + nNUM + ", nTITLE=" + nTITLE + ", nSUBTITLE=" + nSUBTITLE + ", nWRITER=" + nWRITER
+					+ ", nCNT=" + nCNT + ", nCOMMENT=" + nCOMMENT + ", nDATE=" + nDATE + ", nCount=" + nCount
+					+ ", page=" + page + ", perPageNum=" + perPageNum + ", nTAG1=" + nTAG1 + ", nTAG2=" + nTAG2
+					+ ", nTAG3=" + nTAG3 + ", nNAME=" + nNAME + ", nREALNAME=" + nREALNAME + ", nNSIZE=" + nNSIZE
+					+ ", nMAINNAME=" + nMAINNAME + ", nMAINREALNAME=" + nMAINREALNAME + ", nMAINNSIZE=" + nMAINNSIZE
+					+ ", nFILE=" + nFILE + ", nFILE1=" + nFILE1 + "]";
+		}
+
+
 	
 }

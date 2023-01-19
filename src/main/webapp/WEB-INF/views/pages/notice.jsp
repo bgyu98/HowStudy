@@ -90,7 +90,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/report">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -403,6 +403,31 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                       </c:forEach>
                     </tbody>
                   </table>
+                  <div class="row mt-5 pb-5">
+                    <div class="col-lg-12">
+                      <div class="custom-pagination">
+                        <ul class="list-unstyled pagination justify-content-center">
+                          <li>
+                           <c:if test="${pageMaker.prev}">
+                            <a href="notice${pageMaker.makeQueryNVO(pageMaker.startPage - 1)}" class="page-link">
+                              Previous
+                            </a>
+                          </c:if>                     
+                          </li>
+            <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+              <li><a href="notice${pageMaker.makeQueryNVO(idx)}" class="page-link">${idx}</a></li>
+            </c:forEach>
+                          <li>
+                             <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                            <a href="notice${pageMaker.makeQueryNVO(pageMaker.endPage + 1)}" class="page-link">
+                              Next
+                            </a>
+                          </c:if> 
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

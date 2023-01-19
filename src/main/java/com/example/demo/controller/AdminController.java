@@ -98,6 +98,7 @@ public class AdminController {
 		return "redirect:../pages/notice";
 	}
 
+	
 	@RequestMapping(value = { "/notice", "/dashboard" })
 	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount, ReportVO vo) {
 		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
@@ -105,6 +106,12 @@ public class AdminController {
 		System.out.println("총 개수 : " + nCount);
 		m.addAttribute("cnt", noticeService.selectCount(nCount));
 		m.addAttribute("reportList", reportService.getReportList(vo));
+		
+		PagingVO pageMaker = new PagingVO();
+		pageMaker.setCriNVO(noticevo);
+		pageMaker.setTotalCountNVO(noticeService.listCount(noticevo));
+		System.out.println("listCount확인:" + noticeService.listCount(noticevo));
+		m.addAttribute("pageMaker", pageMaker);
 	}
 
 	// Notice 수정

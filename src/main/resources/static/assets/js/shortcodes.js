@@ -776,14 +776,14 @@
         c += "</div>";
 
 				$.each(result, function(key, value) {
-					d += "<div id='tagListForm' class='fl-item fl-item2 fl-item3 fl-item4 fl-item5 col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
+					d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
 					d += "<div class='sc-card-product'>";
 					d += "<form id='studyTagList'>";
 					d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
 					d += "<span id='countNum'>스터디 정원 &nbsp; " + value.sPeopleNum + " &nbsp;/&nbsp;4</span>";
 					d += "</div>";
 					d += "<div class='card-media'>";
-					d += "<a href='item-details.html'/><img src='../assets/images/studyRoom/${vo.sFile}.png'/></a>";
+					d += "<a href='item-details.html'/><img src='../assets/images/studyRoom/" + value.sFile + ".png'/></a>";
 					d += "<div class='button-place-bid'>";
 					if( value.sPw == ""){
                     d += "<a id='sangsae' href='#' data-toggle='modal' data-target=.popup class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";

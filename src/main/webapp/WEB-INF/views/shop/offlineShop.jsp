@@ -70,6 +70,31 @@
           
         </c:forEach>
       </table>
+      <div class="row mt-5 pb-5">
+        <div class="col-lg-12">
+          <div class="custom-pagination">
+            <ul class="list-unstyled pagination justify-content-center">
+              <li>
+               <c:if test="${pageMaker.prev}">
+                <a href="offlineShop${pageMaker.makeQueryOVO(pageMaker.startPage - 1)}" class="page-link">
+                  Previous
+                </a>
+              </c:if>                     
+              </li>
+<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+  <li><a href="offlineShop${pageMaker.makeQueryOVO(idx)}" class="page-link">${idx}</a></li>
+</c:forEach>
+              <li>
+                 <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                <a href="offlineShop${pageMaker.makeQueryOVO(pageMaker.endPage + 1)}" class="page-link">
+                  Next
+                </a>
+              </c:if> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
             <!-- 테이블 끝 -->
     </section>
         
