@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,20 +7,36 @@
 	<title>다음 지도 API</title>
 </head>
 <body>
-	<div id="map" style="width:750px;height:350px;"></div>
+	<jsp:include page="../include/header.jsp"></jsp:include> 
+	asdfkjalskdjf;laksjdf
+	<jsp:include page="../include/footer.jsp"></jsp:include> <!-- header include -->
 
-	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=38bd4fc1b38f6d5a3e620a3703a29c7b"></script>
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(37.56682, 126.97865), // 지도의 중심좌표
-		        level: 3, // 지도의 확대 레벨
-		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
-		    }; 
-
-		// 지도를 생성한다 
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-
-	</script>
 </body>
+<script>
+	Notification.requestPermission();
+	new Notification("타이틀", {body:'메세지내용'});
+
+	var permission = Notification.requestPermission();
+	console.log(permission)
+	//알림 권한 요청
+
+    function getNotificationPermission() {
+        // 브라우저 지원 여부 체크
+        if (!("Notification" in window)) {
+            alert("데스크톱 알림을 지원하지 않는 브라우저입니다.");
+        }
+        // 데스크탑 알림 권한 요청
+        Notification.requestPermission(function (result) {
+            // 권한 거절
+            if(result == 'denied') {
+                Notification.requestPermission();
+                alert('알림을 차단하셨습니다.\n브라우저의 사이트 설정에서 변경하실 수 있습니다.');
+                return false;
+            }
+            else if (result == 'granted'){
+                alert('알림을 허용하셨습니다.');
+            }
+        });
+    }
+</script>
 </html>
