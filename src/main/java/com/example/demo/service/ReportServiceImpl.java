@@ -36,6 +36,12 @@ public class ReportServiceImpl implements ReportService {
 		return reportDAO.getReport(rNum);
 	}
 
+	// 관리자 신고 갯수
+	@Override
+	public int listCount(ReportVO vo) {
+		return reportDAO.listCount(vo);
+	}
+	// 관리자 신고 접수
 	@Override
 	public void updateReport(ReportVO vo) {
 		System.out.println("서비스먹냐?");

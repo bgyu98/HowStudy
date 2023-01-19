@@ -19,6 +19,12 @@ public class ReportVO {
 	private String  rReason;		//이유
 	private String	rFile;			//파일이름
 	private List<MultipartFile> file;		//파일저장
+	
+	// 페이징
+	private int page;
+	private int perPageNum;
+	private int rowStart;
+	private int rowEnd;
 	private String 	status; 		//상태
 
 	
@@ -107,12 +113,60 @@ public class ReportVO {
 	}
 	
 	
+	// 페이징
+	public ReportVO() {
+		this.page = 1;
+		this.perPageNum = 10;
+	}
+	
+	public void setPage(int page) {
+		if (page <= 0) {
+			this.page = 1;
+			return;
+		}
+		this.page = page;
+	}
+	
+	public void setPerPageNum(int perPageNum) {
+		if (perPageNum <= 0 || perPageNum > 100) {
+			this.perPageNum = 6;
+			return;
+		}
+		this.perPageNum = perPageNum;
+	}
+	
+	public int getPage() {
+		return page;
+	}
+	
+	public int getPageStart() {
+		return (this.page - 1) * perPageNum;
+	}
+	
+	public int getPerPageNum() {
+		return this.perPageNum;
+	}
+	
+	public int getRowStart() {
+		rowStart = ((page - 1) * perPageNum) + 1;
+		return rowStart;
+	}
+	
+	public int getRowEnd() {
+		rowEnd = rowStart + perPageNum - 1;
+		return rowEnd;
+	}
+
+	
+	//toString
 	@Override
 	public String toString() {
 		return "ReportVO [rNum=" + rNum + ", mId=" + mId + ", rTitle=" + rTitle + ", rOpponent=" + rOpponent
 				+ ", rClass=" + rClass + ", rDate=" + rDate + ", rReason=" + rReason + ", rFile=" + rFile + ", file="
-				+ file + ", status=" + status + "]";
+				+ file + ", page=" + page + ", perPageNum=" + perPageNum + ", rowStart=" + rowStart + ", rowEnd="
+				+ rowEnd + "]";
 	}
+	
 	
 	
 	

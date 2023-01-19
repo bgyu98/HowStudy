@@ -16,6 +16,9 @@ public interface ReportService {
 	// 관리자 신고 상세
 	public ReportVO getReport(Integer rNum);
 
+	// 관리자 신고 갯수
+	public int listCount(ReportVO vo);
+
 	//관리자 신고 접수
 	public void updateReport(ReportVO vo);
 }

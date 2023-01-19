@@ -30,7 +30,17 @@
 		SELECT *
 		FROM REPORT
 		ORDER BY rNUM DESC
+		LIMIT #{pageStart}, #{perPageNum}
+
 	</select>
+
+	<!-- <select id="manageReportList" parameterType="ReportVO" resultType="ReportVO"> 
+		SELECT * FROM REPORT WHERE rNum in (SELECT rNum FROM (SELECT @ROWNUM:=@ROWNUM+1 
+		AS rowNum, rNum FROM (select @ROWNUM:=@ROWNUM+1, rNum from REPORT <where> 
+		<if test="rNUM != null"> rNum = #{rNum} </if> </where> order by rNum desc)) 
+		<![CDATA[WHERE rowNum>=#{rowStart} AND rowNum<=#{rowEnd})]]> ORDER BY rNum 
+		DESC </select> -->
+
 	<!-- 관리자 신고상세 -->
 	<select id="getReport" parameterType="ReportVO"
 		resultType="ReportVO">
@@ -39,6 +49,15 @@
 		Where rNUM = #{rNUM}
 	</select>
 
-
+	<!-- 상품목록 카운트 -->
+	<select id="listCount" parameterType="ReportVO" resultType="int">
+		SELECT COUNT(rNum)
+		FROM REPORT
+		<where>
+			<if test="rNum != null">
+				rNum = #{rNum}
+			</if>
+		</where>
+	</select>
 
 </mapper>
