@@ -23,4 +23,7 @@ public interface ReportDAO {
 	
 	// 관리자 신고 갯수
 	public int listCount(ReportVO vo);
+	
+	// 관리자 신고 회원별 상세
+	public List<ReportVO> getUserReport(String mId);
 }

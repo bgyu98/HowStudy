@@ -388,15 +388,15 @@
                     <tr>
                       <td>경고 사유</td>
                       <td>경고 일자</td>
-                      <td>경고</td>
+                      <td>경고 횟수</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <c:forEach items="${rList}" var="list2">
+                    <c:forEach items="${rvo}" var="list2">
                       <tr>
-                        <td>${list2.product_name}</td>
-                        <td>${list2.review_content}</td>
-                        <td>${list2.review_date}</td>
+                        <td>${list2.rClass}</td>
+                        <td>${list2.rDate}</td>
+                        <td></td>
                       </tr>
                     </c:forEach>
                   </tbody>

@@ -297,6 +297,11 @@ public class UserServiceImpl implements UserService {
 	public void updatelikeTag(UserVO uservo) {
 		userDAO.updatelikeTag(uservo);	
 	}
+	// 관리자 회원수
+	@Override
+	public int listCount(UserVO uservo) {
+		return userDAO.listCount(uservo);
+	}
 	
 }
 

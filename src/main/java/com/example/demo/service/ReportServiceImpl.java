@@ -41,4 +41,10 @@ public class ReportServiceImpl implements ReportService {
 	public int listCount(ReportVO vo) {
 		return reportDAO.listCount(vo);
 	}
+
+	// 관리자 신고 회원별 상세
+	@Override
+	public List<ReportVO> getUserReport(String mId) {
+		return reportDAO.getUserReport(mId);
+	}
 }

@@ -94,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/report">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -133,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/notice">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -172,7 +172,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/faq">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >

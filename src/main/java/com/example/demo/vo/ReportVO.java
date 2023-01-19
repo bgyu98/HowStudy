@@ -23,8 +23,7 @@ public class ReportVO {
 	// 페이징
 	private int page;
 	private int perPageNum;
-	private int rowStart;
-	private int rowEnd;
+
 
 	
 	//getter setter
@@ -121,7 +120,7 @@ public class ReportVO {
 	
 	public void setPerPageNum(int perPageNum) {
 		if (perPageNum <= 0 || perPageNum > 100) {
-			this.perPageNum = 6;
+			this.perPageNum = 10;
 			return;
 		}
 		this.perPageNum = perPageNum;
@@ -139,25 +138,14 @@ public class ReportVO {
 		return this.perPageNum;
 	}
 	
-	public int getRowStart() {
-		rowStart = ((page - 1) * perPageNum) + 1;
-		return rowStart;
-	}
-	
-	public int getRowEnd() {
-		rowEnd = rowStart + perPageNum - 1;
-		return rowEnd;
-	}
-
-	
-	//toString
 	@Override
 	public String toString() {
 		return "ReportVO [rNum=" + rNum + ", mId=" + mId + ", rTitle=" + rTitle + ", rOpponent=" + rOpponent
 				+ ", rClass=" + rClass + ", rDate=" + rDate + ", rReason=" + rReason + ", rFile=" + rFile + ", file="
-				+ file + ", page=" + page + ", perPageNum=" + perPageNum + ", rowStart=" + rowStart + ", rowEnd="
-				+ rowEnd + "]";
+				+ file + ", page=" + page + ", perPageNum=" + perPageNum + "]";
 	}
+
+
 	
 	
 	

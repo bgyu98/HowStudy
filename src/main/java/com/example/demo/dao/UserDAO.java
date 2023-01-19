@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.vo.FaqVO;
+import com.example.demo.vo.ReportVO;
 import com.example.demo.vo.TestVO;
 import com.example.demo.vo.UserVO;
 
@@ -60,4 +61,7 @@ public interface UserDAO {
 	
 	// 선호테그 수정
 	public void updatelikeTag(UserVO uservo);
+	
+	// 관리자 회원수
+	public int listCount(UserVO uservo);
 }

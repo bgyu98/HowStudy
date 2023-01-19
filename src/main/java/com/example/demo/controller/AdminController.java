@@ -140,6 +140,12 @@ public class AdminController {
 	public void manageUserList(UserVO uservo, Model m) {
 		System.out.println("userList확인 : " + uservo);
 		m.addAttribute("userList", userService.manageUserList(uservo));
+		
+		PagingVO pageMaker = new PagingVO();
+		pageMaker.setCriUVO(uservo);
+		pageMaker.setTotalCountUVO(userService.listCount(uservo));
+		System.out.println("listCount확인:" + userService.listCount(uservo));
+		m.addAttribute("pageMaker", pageMaker);
 	}
 
 	// 관리자 회원정보 상세 조회
@@ -151,9 +157,13 @@ public class AdminController {
 		
 		// 관리자 회원상세내역
 		List<MembershipVO> mvo = membershipService.managerUserMembership(mId);
-
 		System.out.println("확인mvo : " + mvo);
 		m.addAttribute("mvo", mvo);
+		
+		// 관리자 경고 상세 
+		List<ReportVO> rvo = reportService.getUserReport(mId) ;
+		System.out.println("확인rvo" + rvo);
+		m.addAttribute("rvo", rvo);
 	}
 	
 	// 관리자 신고 현황
@@ -163,16 +173,8 @@ public class AdminController {
 		System.out.println("manageReportList확인 : " +result);
 		m.addAttribute("reportList", result);
 		
-		/*
-		 * int test = rvo.getPage(); System.out.println("제바라아아 : " +
-		 * ((Object)test).getClass().getSimpleName()); m.addAttribute("test", test);
-		 */
-
-
-		
 		PagingVO pageMaker = new PagingVO();
-		pageMaker.setCri(rvo);
-		
+		pageMaker.setCriRVO(rvo);
 		pageMaker.setTotalCount(reportService.listCount(rvo));
 		System.out.println("listCount확인:" + reportService.listCount(rvo));
 		m.addAttribute("pageMaker", pageMaker);
