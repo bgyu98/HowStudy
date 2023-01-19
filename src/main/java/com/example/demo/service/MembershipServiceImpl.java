@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -120,6 +121,12 @@ public class MembershipServiceImpl implements MembershipService {
 			return pa;
 		}
 
+	}
+
+	// 관리자 회원상세내역
+	@Override
+	public List<MembershipVO> managerUserMembership(String mId) {
+		return membershipDAO.managerUserMembership(mId);
 	}
 
 }

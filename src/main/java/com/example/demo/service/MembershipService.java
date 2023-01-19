@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import com.example.demo.vo.MembershipVO;
 import com.example.demo.vo.UserVO;
 
@@ -14,6 +16,8 @@ public interface MembershipService {
 	//이메일 발송
 	public String sendemail(MembershipVO mvo);
 
+	// 관라지 회원 상세내역확인
+	public List<MembershipVO> managerUserMembership(String mId);
 
 
 }

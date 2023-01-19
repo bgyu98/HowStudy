@@ -357,18 +357,19 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                             </div>
                           </td>
                           <td>
-                            <a href="#">${user.mName}</a>
+                            <span>${user.mName}</span>
                           </td>
                           <td class="align-middle text-center text-sm">
-                            <a href="#">${user.mDate}</a>
+                            <span>${user.mDate}</span>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="#">${user.mGrade}</a>
+                            <span>${user.mGrade}</span>
                           </td>
                           <td class="align-middle text-center">
                             <a href="../pages/manageUserDetail?mId=${user.mId}">
                               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
-                              >Edit</a
+                              >
+                              Confirm</a
                             >
                           </td>
 

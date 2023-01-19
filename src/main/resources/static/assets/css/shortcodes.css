@@ -26,7 +26,7 @@
 
 /* PreLoad
 -------------------------------------------------------------- */
- .preload {
+.preload {
     overflow: hidden;
 } 
 
@@ -631,6 +631,15 @@
     transition        : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 게시판 이미지 사이즈 조정 - 선아 바꿈 */
+.sc-card-article .card-media img {
+    width             : auto;
+    height: 250px;
+    object-fit        : fill;
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition        : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .sc-card-article .meta-info,
 .sc-card-article .meta-info .author,
 .sc-card-product .meta-info,
@@ -698,7 +707,7 @@
     padding-right: 15px;
     margin-left: -15px;
     margin-right: -15px;
-    margin-top: -5%;
+   
 }
 .sc-author-box {
     display      : flex;
@@ -959,7 +968,7 @@
     margin: 0 5px;
 }
 
-/* card wishlist */
+/* card wishlist  ( 재동 수정 ) */ 
 .sc-card-product .card-media .wishlist-button,
 .sc-card-product .card-media .wishlist-button2{
 	position: absolute;
@@ -6755,7 +6764,6 @@ section.today-picks {
 .tf-section.category{
     padding: 30px 0 80px;
 }
-
 .sc-categoty .card-media{
     overflow: hidden;
     border-radius: 12px;
@@ -8147,7 +8155,21 @@ section.today-picks {
 	border: #5142fc;
 }
 
-/* 밝은 모드일때 selectBox - 선아 */
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .header_1 {
+	background: #0D0D11;
+}
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .tf-section.live-auctions.home7 {
+	background: #14141f;
+}
+/* 다크모드 배경 컬러 변경 => 선아변경 */
+.is_dark .tf-section.live-auctions.style2 {
+	background: #14141f;
+}
+
+
+/* 밝은 모드일때 selectBox - 선아 + 재동 */
 
 .is_dark div.tf-soft {
     position: relative;
@@ -8170,16 +8192,58 @@ section.today-picks {
     background: unset;
  
 }
+.is_dark .checkdate{
+    width: 200px;
+    border: 1px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    background-color: #1F1F2C;
+ 
+}
 
+/*재동*/
+.is_dark .sunho{
+    width: 20%;
+    border: 2px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    background: unset;
+    padding: 0.75rem 1.25rem;
+ 
+}
+.is_dark .checkdate:focus,
+.is_dark .sunho:focus,
+.is_dark #selectStudyRoom:focus{
+    border: 1px solid #5142fc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #5142fc;
+    color:#EEEEEE;
+    border-radius: 10px;
+}
+
+/* 재동 선아 합치기 전 선아누나버전 ( 클릭시 흰색 )
 .is_dark #selectStudyRoom:focus{
     border: 1px solid #EEEEEE;
     box-sizing: border-box;
     border-radius: 10px;
     outline: 3px solid #EEEEEE;
-    color:#5142fc;
+    color:#EEEEEE;
     border-radius: 10px;
 }
-
+*/
 .is_dark .selectOpt {
   background: black;
   color: #fff;
@@ -8198,7 +8262,7 @@ div.tf-soft {
 }
 
 
-#selectStudyRoom{
+#selectStudyRoom , .checkdate{
     width: 200px;
     border: 2px solid #ffe8c8;
     box-sizing: border-box;
@@ -8212,8 +8276,32 @@ div.tf-soft {
     background: unset;
  
 }
+.sunho{
+    width: 30%;
+    border: 2px solid #ffe8c8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    font-family: 'Roboto';
+    font-weight: bold;
+    color: #ff8787;
+    font-size: 16px;
+    line-height: 16px;
+    background: unset;
+ 
+}
 
-#selectStudyRoom:focus{
+#selectStudyRoom:focus,
+.checkdate:focus,
+.sunho:focus{
+    border: 2px solid #ffe8c8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #ffe8c8;
+    color:#ff8787;
+    border-radius: 10px;
+}
+.selectdate:focus{
     border: 2px solid #ffe8c8;
     box-sizing: border-box;
     border-radius: 10px;

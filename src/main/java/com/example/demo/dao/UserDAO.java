@@ -58,5 +58,6 @@ public interface UserDAO {
 	// 관리자 회원정보 상세 조회
 	public UserVO manageUserDetail(String mId);
 	
-	
+	// 선호테그 수정
+	public void updatelikeTag(UserVO uservo);
 }

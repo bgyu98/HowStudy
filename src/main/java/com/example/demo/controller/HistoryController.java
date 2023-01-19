@@ -273,6 +273,76 @@ public class HistoryController {
 	
 	
 	// Record (공부기록)
+	@RequestMapping("/record")
+	public void record(RecordVO vo,Model m, HttpSession session) {
+		System.out.println("공부 기록 페이지 이동");
+		
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ] */
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인 아이디 : " + loginId);
+		vo.setmId(loginId);
+		
+		// 아이디 별 일 평균 계산 위한 리스트 수 체크
+		List<RecordVO> cd =recordService.checkDate(vo);
+		Integer k = cd.size();
+		System.out.println("해당하는 리스트 수 : " + k);
+		vo.setK(k); // vo에 리스트 수 주입
+		
+		
+		List<RecordVO> todayStudyTime = recordService.todayStudyTime(vo);    // 오늘 공부 시간
+		System.out.println(todayStudyTime);
+		
+		if(todayStudyTime.get(0) == null) {
+			RecordVO rcvo = new RecordVO();
+			
+		
+			List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
+			System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
+
+			List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
+			System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
+
+			System.out.println(" 시간 모음 :  " + rcvo);
+			
+			rcvo.setTodayStudyTime("00:00:00");
+			rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());
+			rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime());
+			
+			m.addAttribute("time",rcvo);
+			
+		} else if(todayStudyTime.get(0) != null) {
+			System.out.println(" 오늘 공부 시간 : " + todayStudyTime.get(0).getsTime());
+
+
+			List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
+			System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
+
+
+			List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
+			System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
+
+			RecordVO rcvo = new RecordVO();
+			rcvo.setTodayStudyTime(todayStudyTime.get(0).getsTime());
+			rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());
+			rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime());
+			System.out.println(" 시간 모음 :  " + rcvo);
+			m.addAttribute("time",rcvo);
+
+
+
+			
+			
+		
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	// 타이머 클릭 시 아이디 별 시간 db에 저장
 	@RequestMapping("/saveTime")
 	@ResponseBody
 	public String saveTime(RecordVO vo,Model m, HttpSession session ) {
@@ -284,15 +354,25 @@ public class HistoryController {
 		vo.setmId(loginId);
 		System.out.println("방 번호 : " +vo.getsNum());
 		System.out.println("공부한 시간 : "+vo.getsTime());
-		System.out.println("현재 날짜 : " + vo.getNowDay());
+		/* 확인 끝 */
 		
 		/* 잘 넘어왔는지 확인했으니 관련 입력문 실행 */
 		recordService.saveTime(vo);
+		System.out.println("vo :  " +vo);
+		
+		
 		
 		return "";
 		
 		
 	}
+	
+
+	
+	
+	
+	
+	
 	
 
 }

@@ -20,5 +20,8 @@ mybatis:
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/**/*.xml
   type-aliases-package: com.example.demo.vo
+  
+  fcm:
+  certification: howstudy-a7c5d-firebase-adminsdk-ikh2j-b749936127.json
 
 server.port: 8888
