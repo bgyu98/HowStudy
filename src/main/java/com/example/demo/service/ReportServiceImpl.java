@@ -35,4 +35,10 @@ public class ReportServiceImpl implements ReportService {
 	public ReportVO getReport(Integer rNum) {
 		return reportDAO.getReport(rNum);
 	}
+
+	@Override
+	public void updateReport(ReportVO vo) {
+		System.out.println("서비스먹냐?");
+		reportDAO.updateReport(vo);
+	}
 }

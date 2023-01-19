@@ -2,7 +2,7 @@ package com.example.demo.vo;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,13 +15,20 @@ public class ReportVO {
 	private String  rTitle;			//제목
 	private String  rOpponent;		//피의자
 	private String  rClass;			//분류
-	private Date    rDate;			//신고날짜
+	private Date  	rDate;			//신고날짜
 	private String  rReason;		//이유
 	private String	rFile;			//파일이름
 	private List<MultipartFile> file;		//파일저장
+	private String 	status; 		//상태
 
 	
 	//getter setter
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public Integer getrNum() {
 		return rNum;
 	}
@@ -100,12 +107,11 @@ public class ReportVO {
 	}
 	
 	
-	//toString
 	@Override
 	public String toString() {
 		return "ReportVO [rNum=" + rNum + ", mId=" + mId + ", rTitle=" + rTitle + ", rOpponent=" + rOpponent
 				+ ", rClass=" + rClass + ", rDate=" + rDate + ", rReason=" + rReason + ", rFile=" + rFile + ", file="
-				+ file + "]";
+				+ file + ", status=" + status + "]";
 	}
 	
 	

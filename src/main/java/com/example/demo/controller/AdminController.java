@@ -172,5 +172,14 @@ public class AdminController {
 		
 	}
 	
+	//관리자 신고 접수
+	@RequestMapping("/updateReport")
+	public String updateReport(ReportVO vo) {
+		 reportService.updateReport(vo);
+		 System.out.println(vo.getrNum());
+		System.out.println("zzzzzzzzzzz : " + vo);
+		return "redirect:../pages/report";
+	}
+	
 
 }
