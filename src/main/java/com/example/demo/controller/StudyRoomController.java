@@ -14,6 +14,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpSession;
+import log.logController;
 
 import java.util.List;
 import java.util.Map;
@@ -40,10 +41,11 @@ import com.google.gson.Gson;
 @Controller
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
+	static logController log = new logController();
 
 	@Autowired
 	private StudyRoomService studyroomService;
-	
+
 	@Autowired
 	private UserService userService;
 
@@ -62,8 +64,8 @@ public class StudyRoomController {
 	// 내가 만든 스터디룸 + 하트.....
 	@RequestMapping("/study")
 	public void myRoom(StudyRoomVO vo, HttpSession session, Model m) {
-
-		System.out.println("myStudyRoom 확인 >> ");
+		log.logCustomer(String.valueOf((session.getAttribute("loginId")) + " "));
+		System.out.println("ㅎㅎㅎㅎㅎ");
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인 아이디 : " + loginId);
 		vo.setmId(loginId);
@@ -97,7 +99,7 @@ public class StudyRoomController {
 			list.get(i).setCheck2(list.size());
 
 		}
-		
+
 		// 전체 방번호 출력 - 리스트로
 		List<StudyRoomVO> allStudy = studyroomService.allStudy(vo);
 		Integer[] temp3 = new Integer[allStudy.size()]; // 방 별로 좋아요 수 저장
@@ -128,10 +130,6 @@ public class StudyRoomController {
 			allStudy.get(i).setCheck2(allStudy.size());
 
 		}
-		
-		
-		
-		
 
 		m.addAttribute("myroom", list); // 내가만든 스터디룸 화면에 찍는거
 		m.addAttribute("myroomcnt", list.size()); // 스터디룸 안 만들었을때 화면에 찍는거
@@ -195,7 +193,7 @@ public class StudyRoomController {
 //	// 선호테그 수정
 	@RequestMapping("/updatelikeTag")
 	public String updatelikeTag(UserVO vo) {
-		System.out.println("updatelikeTag : " +vo);
+		System.out.println("updatelikeTag : " + vo);
 		userService.updatelikeTag(vo);
 		return "redirect:study";
 	}
