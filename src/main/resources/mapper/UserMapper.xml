@@ -75,11 +75,12 @@
 	</insert>
 
 	<!-- 관리지 회원정보 목록 -->
-	<select id="manageUserList" parameterType="UserVO"
+		<select id="manageUserList" parameterType="UserVO"
 		resultType="UserVO">
 		SELECT *
 		FROM MEMBER
 		ORDER BY mDate DESC
+		LIMIT #{pageStart}, #{perPageNum}
 	</select>
 
 	<!-- 이름이랑 전화번호로 아이디 찾기 -->
@@ -114,5 +115,18 @@
 		mTag=#{mTag}
 		WHERE mId=#{mId}
 	</update>
+	
+	<!-- 유저 카운트 -->
+	<select id="listCount" parameterType="UserVO" resultType="int">
+		SELECT COUNT(mId)
+		FROM REPORT
+		<where>
+			<if test="mId != null">
+				mId = #{mId}
+			</if>
+		</where>
+	</select>
+	
+	
 
 </mapper>

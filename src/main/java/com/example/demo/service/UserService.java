@@ -56,5 +56,9 @@ public interface UserService {
 
 	// 선호테그 수정
 	public void updatelikeTag(UserVO uservo);
+	
+	// 관리자 회원수
+	public int listCount(UserVO uservo);
+	
 
 }

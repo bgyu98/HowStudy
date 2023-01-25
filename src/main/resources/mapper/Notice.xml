@@ -123,10 +123,13 @@
    SELECT COUNT(*)
    FROM NOTICE;
    </select>
-    
-    
+   
+   <!-- 관리자 페이징 가져오기 -->
+   <select id="listCount" resultType="int">
+   SELECT COUNT(*)
+   FROM NOTICE;
+   </select>
 
-	
 	
 
 </mapper>

@@ -333,7 +333,7 @@
                 <div class="card-body">
                   <div class="table-responsive">
                     <form
-                      action="updateProduct"
+                      action="updateReport"
                       method="post"
                       id="updateProduct"
                       enctype="multipart/form-data"
@@ -352,13 +352,13 @@
                           <tr>
                             <th scope="row" style="width: 20%">작성자명</th>
                             <td class="iValue" colspan="2">
-                              <input type="text" name="product_name" value="${getReport.mId}" />
+                              <input type="text" name="mId" value="${getReport.mId}" />
                             </td>
                           </tr>
                           <tr>
                             <th scope="row">신고 유저</th>
                             <td class="iValue" colspan="2">
-                              <input type="text" name="product_stock" value="${getReport.rOpponent}" />
+                              <input type="text" name="rOpponent" value="${getReport.rOpponent}" />
                             </td>
                           </tr>
                           <tr>
@@ -366,7 +366,7 @@
                             <td class="iValue" colspan="2">
                               <input
                                 type="text"
-                                name="product_number"
+                                name="rDate"
                                 value="${getReport.rDate}"
                                 readonly
                               />
@@ -375,17 +375,18 @@
                           <tr>
                             <th scope="row">신고 분류</th>
                             <td class="iValue" colspan="2">
-                              <input type="text" name="product_stock" value="${getReport.rClass}" />
+                              <input type="text" name="rClass" value="${getReport.rClass}" />
                             </td>
                           </tr>
                           <tr>
                             <th scope="row">상세 내용</th>
                             <td class="iValue" colspan="2">
-                              <textarea name="product_desc" style="border: none; width: 500px; height: 300px;">${getReport.rReason}</textarea>
+                              <textarea name="rReason" style="border: none; width: 500px; height: 300px;">${getReport.rReason}</textarea>
                             </td>
                           </tr>
                             <td colspan="3" style="text-align: center">
-                              <input
+                              <input type="text" name="rNum" value="${getReport.rNum}">
+                              <!-- <input
                                 type="submit"
                                 value="경고"
                                 style="
@@ -397,7 +398,9 @@
                                   border-style: none;
                                   border-radius: 3px;
                                 "
-                              />
+                              /> -->
+                              
+                              <button type="submit">눌러</button>
                             </td>
                           </tr>
                         </tbody>

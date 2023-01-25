@@ -12,6 +12,10 @@ public class UserVO {
 	private String mGrade;  //회원등급
 	private String mDate; 	//가입날짜
 	
+	// 페이징
+	private int page;
+	private int perPageNum;
+	
 	
 	public String getmId() {
 		return mId;
@@ -69,6 +73,39 @@ public class UserVO {
 	}
 	
 	
+	// 페이징
+		public UserVO() {
+			this.page = 1;
+			this.perPageNum = 10;
+		}
+		
+		public void setPage(int page) {
+			if (page <= 0) {
+				this.page = 1;
+				return;
+			}
+			this.page = page;
+		}
+		
+		public void setPerPageNum(int perPageNum) {
+			if (perPageNum <= 0 || perPageNum > 100) {
+				this.perPageNum = 6;
+				return;
+			}
+			this.perPageNum = perPageNum;
+		}
+		
+		public int getPage() {
+			return page;
+		}
+		
+		public int getPageStart() {
+			return (this.page - 1) * perPageNum;
+		}
+		
+		public int getPerPageNum() {
+			return this.perPageNum;
+		}
 	@Override
 	public String toString() {
 		return "UserVO [mId=" + mId + ", mPw=" + mPw + ", mName=" + mName + ", mPhone=" + mPhone + ", mEmail=" + mEmail

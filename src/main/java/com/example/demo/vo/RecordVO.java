@@ -15,7 +15,23 @@ public class RecordVO {
 	private String todayAvgTime; 	// 일 별 평균 시간
 	private String totalStudyTime; // 월 별 누적 시간
 	
+	private String date1;   // 첫 번째 날짜
+	private String date2 ;  // 두 번째 날짜
 	
+	
+	
+	public String getDate1() {
+		return date1;
+	}
+	public void setDate1(String date1) {
+		this.date1 = date1;
+	}
+	public String getDate2() {
+		return date2;
+	}
+	public void setDate2(String date2) {
+		this.date2 = date2;
+	}
 	public Integer getK() {
 		return k;
 	}
@@ -80,7 +96,7 @@ public class RecordVO {
 	public String toString() {
 		return "RecordVO [saveNum=" + saveNum + ", sTime=" + sTime + ", mId=" + mId + ", sNum=" + sNum + ", sCATEGORY="
 				+ sCATEGORY + ", sDate=" + sDate + ", k=" + k + ", todayStudyTime=" + todayStudyTime + ", todayAvgTime="
-				+ todayAvgTime + ", totalStudyTime=" + totalStudyTime + "]";
+				+ todayAvgTime + ", totalStudyTime=" + totalStudyTime + ", date1=" + date1 + ", date2=" + date2 + "]";
 	}
 
 	

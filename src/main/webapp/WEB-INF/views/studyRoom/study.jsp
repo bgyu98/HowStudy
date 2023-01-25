@@ -129,7 +129,7 @@
                                 </div>
                                 <!-- 사진 -->
                                 <div class="card-media">
-                                  <img src=<img src="../assets/images/studyRoom/${mr.sFile}.png" /> alt="Image">
+                                  <img src="../assets/images/studyRoom/${mr.sFile}.png" alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
                                     <c:if test="${mr.sPw == ''}">
@@ -223,7 +223,7 @@
                     </button>
                     <div class="modal-body space-y-20 pd-40">
                       <h3>${mr.sTitle}</h3>
-                      <i class="fa-sharp fa-solid fa-key-skeleton"></i>
+                      
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                       </p>
                       <hr>
@@ -503,9 +503,24 @@
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                             </div>
-                            <button class="wishlist-button heart">
-                              <span class="number-like"> 100</span>
-                            </button>
+
+                             <!-- 방 번호 ( 히든으로 바꿀 것)-->
+                             <input type="hidden" value="${vo.sNum}" />
+
+                             <c:set var="cf" value="${vo.check}" />
+                             <c:if test="${cf eq 0}">
+                               <!-- 하트 갯수-->
+                               <button class="wishlist-button heart">
+                                 <span class="number-like">${vo.sFavorNum}</span>
+                               </button>
+                             </c:if>
+                             <c:if test="${cf eq 1}">
+                               <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
+                                 <span class="number-like"> ${vo.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                               </button>
+                             </c:if>
+                             <!-- id 체크용 히든 값-->
+                             <input type="hidden" value='${sessionScope.loginId}' />
                           </div>
                           <div class="card-title">
                             <h5 class="style2">

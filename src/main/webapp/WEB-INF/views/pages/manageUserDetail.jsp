@@ -386,17 +386,20 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <td>글 번호</td>
+                      <td>신고자 명</td>
                       <td>경고 사유</td>
                       <td>경고 일자</td>
-                      <td>경고</td>
+                     
                     </tr>
                   </thead>
                   <tbody>
-                    <c:forEach items="${rList}" var="list2">
+                    <c:forEach items="${rvo}" var="list2">
                       <tr>
-                        <td>${list2.product_name}</td>
-                        <td>${list2.review_content}</td>
-                        <td>${list2.review_date}</td>
+                        <td>${list2.rNum}</td>
+                        <td>${list2.mId}</td>
+                        <td>${list2.rClass}</td>
+                        <td>${list2.rDate}</td>
                       </tr>
                     </c:forEach>
                   </tbody>
