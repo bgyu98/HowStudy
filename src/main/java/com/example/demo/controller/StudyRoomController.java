@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
+import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
 
 import com.example.demo.dao.UserDAO;
+import com.example.demo.log.logController;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
@@ -18,6 +20,8 @@ import jakarta.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -40,7 +44,12 @@ import com.google.gson.Gson;
 @Controller
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
+	
+	static logController log = new logController();
+	
 
+
+	
 	@Autowired
 	private StudyRoomService studyroomService;
 	
@@ -62,7 +71,8 @@ public class StudyRoomController {
 	// 내가 만든 스터디룸 + 하트.....
 	@RequestMapping("/study")
 	public void myRoom(StudyRoomVO vo, HttpSession session, Model m) {
-
+		log.logCustomer(String.valueOf((session.getAttribute("loginId"))+" "));
+		System.out.println("ㅎㅎㅎㅎㅎ");
 		System.out.println("myStudyRoom 확인 >> ");
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인 아이디 : " + loginId);
@@ -95,7 +105,8 @@ public class StudyRoomController {
 			}
 			list.get(i).setCheck(temp2[i]);
 			list.get(i).setCheck2(list.size());
-
+			
+			
 		}
 		
 		// 전체 방번호 출력 - 리스트로
