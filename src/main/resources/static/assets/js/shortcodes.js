@@ -801,8 +801,18 @@
               "<a id='sangsae1' href='#' data-toggle='modal' data-target=.sPwConfirm class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
           }
           d += "</div>";
-          d +=
-            "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
+          d += "<input type='hidden' value=" + value.sNum + " />";
+          if (value.check == 0) {
+            d += "<button class='wishlist - button heart'>";
+            d += "<span class='number-like'>" + value.sFavorNum + "</span>";
+            d += "</button>";
+          } else if (value.check == 1) {
+            d +=
+              "<button class='wishlist-button2 public heart mg-t-6 active'> id='wishlist-button2'";
+            d += "<span class='number-like'>" + value.sFavorNum + "</span>";
+            d += "</button>";
+          }
+          d += " <input type='hidden' value=" + value.loginId + " />";
           d += "</div>";
           d += "<div class='card-title'>";
           d += "<h5 class='style2'><a href='item-details.html'>" + value.sTitle + "</a></h5>";
