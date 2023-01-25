@@ -214,7 +214,7 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val();
       // alert(seq);
-      //alert(who);
+      alert(who);
       var check = 0; // 하트 체크 여부
       // 버튼 on of 관련 문
       var iteration = $(this).data("iteration") || 1;
@@ -269,6 +269,10 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
       var check = 0;
+      if (who == "") {
+        alert("로그인 후 이용가능한 서비스 입니다.");
+        return false;
+      }
       //alert(who);
       //alert(seq);
       switch (iteration) {
@@ -776,8 +780,7 @@
         c += "</div>";
 
         $.each(result, function (key, value) {
-          d +=
-            "<div id='tagListForm' class='fl-item fl-item2 fl-item3 fl-item4 fl-item5 col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
+          d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
           d += "<div class='sc-card-product'>";
           d += "<form id='studyTagList'>";
           d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
@@ -786,7 +789,9 @@
           d += "</div>";
           d += "<div class='card-media'>";
           d +=
-            "<a href='item-details.html'/><img src='../assets/images/studyRoom/${vo.sFile}.png'/></a>";
+            "<a href='item-details.html'/><img src='../assets/images/studyRoom/" +
+            value.sFile +
+            ".png'/></a>";
           d += "<div class='button-place-bid'>";
           if (value.sPw == "") {
             d +=

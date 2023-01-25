@@ -275,10 +275,10 @@ function checkDate2(event) {
     dataType: "json",
 
     success: function (json2) {
-      alert("성공dsds");
+      //alert("성공dsds");
       //alert(json2);
       $.each(json2, function (index, value) {
-        alert(value.sDate);
+        //alert(value.sDate);
         labelList2.push(value.sDate);
         valueList2.push(parseInt(value.total));
         colorList2.push(colorize());

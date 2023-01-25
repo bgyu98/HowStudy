@@ -21,6 +21,8 @@
 
         <!-- Theme Style -->
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
 
@@ -39,7 +41,7 @@
         <div id="wrapper">
           <div id="page" class="clearfix">
             <!-- header 넣음 -->
-            <jsp:include page="../include/header.jsp"></jsp:include>
+            <jsp:include page="../include/header.jsp"></jsp:include> 
             <section class="tf-section live-auctions style2 no-pt-mb tl-pb-0 mine">
               <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
@@ -127,7 +129,7 @@
                                 </div>
                                 <!-- 사진 -->
                                 <div class="card-media">
-                                  <img src="../assets/images/box-item/image-box-32.jpg" alt="Image">
+                                  <img src="../assets/images/studyRoom/${mr.sFile}.png" alt="Image">
                                   <!--상세보기-->
                                   <div class="button-place-bid">
                                     <c:if test="${mr.sPw == ''}">
@@ -135,7 +137,7 @@
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
                                     <c:if test="${mr.sPw != ''}">
-                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}1
+                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
 
@@ -213,7 +215,7 @@
 
               <!-- 스터디룸 패스워드 존재할때 -->
 
-              <div class="modal fade popup ${mr.sTitle}1" id="popup_bid1" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal fade popup sPwConfirm" id="popup_bid1" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -221,7 +223,7 @@
                     </button>
                     <div class="modal-body space-y-20 pd-40">
                       <h3>${mr.sTitle}</h3>
-                      <i class="fa-sharp fa-solid fa-key-skeleton"></i>
+                      
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                       </p>
                       <hr>
@@ -232,7 +234,7 @@
                       <div class="hr"></div>
                       <div class="d-flex justify-content-between">
                         <p>카테고리</p>
-                        <p class="text-right price color-popup">${mr.sCategory}</p>popup_bid2
+                        <p class="text-right price color-popup">${mr.sCategory}</p>
                       </div>
                       <div class="d-flex justify-content-between">
                         <p>스터디 정원</p>
@@ -248,7 +250,6 @@
             </c:forEach>
 
             <!-- 비밀번호 존재 시, 확인 모달-->
-
             <div class="modal fade popup sPwConfirm1" id="popup_bid2" tabindex="-1" role="dialog" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -266,6 +267,43 @@
                 </div>
               </div>
             </div>
+
+            <!-- 선호태그 모달 시작-->
+            <form action="updatelikeTag" id="updatelikeTag" >
+              <div class="modal fade popup" id="popup_bid3" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-body pd-40" id="likeTagMargin">
+                            <h3 style="margin-bottom: 30px;">나의 관심 주제</h3>
+                            <input id="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
+
+                            
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="취업"><span><img src="../assets/images/likeTag/취업.png">취업</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="독서"><span><img src="../assets/images/likeTag/독서.png">독서</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="어학" ><span><img src="../assets/images/likeTag/어학.png">어학</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="임용"><span><img src="../assets/images/likeTag/임용.png">임용</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="공무원"><span><img src="../assets/images/likeTag/공무원.png">공무원</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="대학수능"><span><img src="../assets/images/likeTag/대학수능.png">대학수능</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자격증"><span><img src="../assets/images/likeTag/자격증.png">자격증</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="학교공부"><span><img src="../assets/images/likeTag/학교공부.png">학교공부</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="기타" ><span><img src="../assets/images/likeTag/기타.png">기타</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="코딩"><span><img src="../assets/images/likeTag/코딩.png">코딩</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
+                            <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
+                            
+                            <button id="likeTag" style="margin-left: 136px; margin-top: 15px;">선택 완료</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </form>
+
+
+
+
 
 
 
@@ -336,7 +374,7 @@
 
                           <!-- 스터디룸 패스워드 존재할때 -->
 
-                          <div class="modal fade popup ${mr.sTitle}" id="popup_bid1" tabindex="-1" role="dialog"
+                          <div class="modal fade popup sPwConfirm" id="popup_bid1" tabindex="-1" role="dialog"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                               <div class="modal-content">
@@ -422,7 +460,26 @@
                   </div>
 
                   <div class="col-md-12">
-                
+                    <div class="tf-soft" style="display: inline-block; float: right; width: 12%; height: 60%;">
+
+                      <select id="selectStudyRoom" style="width: 100%; height: 100%;">
+                        <option class="selectOpt" hidden="" disabled="disabled" selected="selected" value=""
+                          style="color: rgb(0, 0, 0);">태그선택</option>
+                        <option class="selectOpt" id=" job" name="keyword">취업</option>
+                        <option class="selectOpt" id="book" name="keyword">독서</option>
+                        <option class="selectOpt" id="lan" name="keyword">어학</option>
+                        <option class="selectOpt" id="teac" name="keyword">임용</option>
+                        <option class="selectOpt" id="Offi" name="keyword">공무원</option>
+                        <option class="selectOpt" id="stu" name="keyword">대학수능</option>
+                        <option class="selectOpt" id="cer" name="keyword">자격증</option>
+                        <option class="selectOpt" id="scstu" name="keyword">학교공부</option>
+                        <option class="selectOpt" id="etc" name="keyword">기타</option>
+                        <option class="selectOpt" id="cord" name="keyword">코딩</option>
+                        <option class="selectOpt" id="Turn" name="keyword">이직</option>
+                      </select>
+                    </div>
+                  </div>
+
 
 
 
@@ -442,13 +499,28 @@
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                               <c:if test="${vo.sPw != ''}">
-                                <a id="sangsae" href="#" data-toggle="modal" data-target=${mr.sTitle}  
+                                <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                             </div>
-                            <button class="wishlist-button heart">
-                              <span class="number-like"> 100</span>
-                            </button>
+
+                             <!-- 방 번호 ( 히든으로 바꿀 것)-->
+                             <input type="hidden" value="${vo.sNum}" />
+
+                             <c:set var="cf" value="${vo.check}" />
+                             <c:if test="${cf eq 0}">
+                               <!-- 하트 갯수-->
+                               <button class="wishlist-button heart">
+                                 <span class="number-like">${vo.sFavorNum}</span>
+                               </button>
+                             </c:if>
+                             <c:if test="${cf eq 1}">
+                               <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
+                                 <span class="number-like"> ${vo.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                               </button>
+                             </c:if>
+                             <!-- id 체크용 히든 값-->
+                             <input type="hidden" value='${sessionScope.loginId}' />
                           </div>
                           <div class="card-title">
                             <h5 class="style2">
@@ -495,6 +567,8 @@
         <a id="scroll-top"></a>
 
 
+
+        <script src="../assets/js/likeTag.js"></script>
 
 
       </body>

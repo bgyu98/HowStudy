@@ -105,8 +105,7 @@
     <script type="text/javascript">
       function googleTranslateElementInit() { new google.translate.TranslateElement({ pageLanguage: 'ko', autoDisplay: true }, 'google_translate_element'); }
     </script>
-
-
   </body>
+  
 
   </html>
