@@ -420,9 +420,10 @@ public class HistoryController {
 		JsonArray jArray = new JsonArray();
 
 		Iterator<RecordVO> it = saveDateTime.iterator();
-
+		
 		while(it.hasNext()) {
 			RecordVO rcvo = it.next();
+			System.out.println("rcvo : " +  rcvo);
 			JsonObject object = new JsonObject();
 			String sDate = rcvo.getsDate();
 			String total =	rcvo.getsTime();

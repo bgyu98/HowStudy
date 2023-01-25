@@ -210,10 +210,11 @@ var tagTime = function () {
         datasets: [
           {
             label: "태그 별 공부 시간",
-            backgroundColor: colorList,
-            data: valueList,
+            backgroundColor: colorList, // 색깔
+            data: valueList, // 값
           },
         ],
+
         options: {
           title: {
             display: true,
@@ -225,6 +226,48 @@ var tagTime = function () {
       new Chart(ctx, {
         type: "pie",
         data: chartData,
+        options: {
+          legend: {
+            position: "top",
+          },
+          plugins: {
+            //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
+            datalabels: {
+              borderRadius: 4,
+              color: "#4e342e",
+              font: {
+                weight: "bold",
+              },
+              formatter: function (value, context) {
+                var idx = context.dataIndex;
+                return context.chart.data.labels[idx]; // 태그 라벨 붙이기 ( ex) 어학 , 독서 , ...)
+              },
+              padding: 1,
+              align: "end",
+            },
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                var temptime = data["datasets"][0]["data"][tooltipItem["index"]]; // value값
+                var hour = Math.floor(temptime / 3600); // 시간
+                var min = Math.floor((temptime - 3600 * hour) / 60); // 분
+                var sec = Math.floor(temptime - (3600 * hour + 60 * min)); // 초
+                //return hour + " : " + min + " : " + sec;
+                return (
+                  data["labels"][tooltipItem["index"]] +
+                  " - " +
+                  hour +
+                  " 시간 " +
+                  min +
+                  "분 " +
+                  sec +
+                  "초"
+                );
+              },
+            },
+          },
+        },
       });
     },
     error: function (error) {
@@ -265,6 +308,7 @@ function checkDate2(event) {
   var labelList2 = new Array();
   var valueList2 = new Array();
   var colorList2 = new Array();
+
   $.ajax({
     url: "saveDateTime",
     type: "get",
@@ -309,6 +353,64 @@ function checkDate2(event) {
       chartObj = new Chart(ctx2, {
         type: "bar",
         data: data2,
+        options: {
+          legend: {
+            position: "top",
+          },
+          scales: {
+            xAxes: [
+              {
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          plugins: {
+            //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
+            datalabels: {
+              borderRadius: 4,
+              color: "#4e342e",
+              font: {
+                weight: "bold",
+              },
+              formatter: function (value, context) {
+                var idx = context.dataIndex;
+                return context.chart.data.labels[idx]; // 태그 라벨 붙이기 ( ex) 어학 , 독서 , ...)
+              },
+              padding: 1,
+              align: "end",
+            },
+          },
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                var temptime = data["datasets"][0]["data"][tooltipItem["index"]]; // value값
+                var hour = Math.floor(temptime / 3600); // 시간
+                var min = Math.floor((temptime - 3600 * hour) / 60); // 분
+                var sec = Math.floor(temptime - (3600 * hour + 60 * min)); // 초
+                //return hour + " : " + min + " : " + sec;
+                return (
+                  data["labels"][tooltipItem["index"]] +
+                  " - " +
+                  hour +
+                  " 시간 " +
+                  min +
+                  "분 " +
+                  sec +
+                  "초"
+                );
+              },
+            },
+          },
+        },
       });
     },
     error: function (err) {

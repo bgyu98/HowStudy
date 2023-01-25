@@ -255,7 +255,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                                     style="margin-left: 20%;">
                                                                             </div>
                                                                             <div class="chart-container">
-                                                                                <canvas id="canvas-daychart"></canvas>
+                                                                                <canvas id="canvas-daychart" style="border-radius: 5px; height: 300px; width: 100%; "></canvas>
                                                                             </div>
                                                                         </div>
                                                                         <!--//app-card-body-->
@@ -283,7 +283,8 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                         <div class="app-card-body p-3 p-lg-4">
 
                                                                             <div class="chart-container">
-                                                                                <canvas id="canvas-tagchart"></canvas>
+                                                                                <canvas id="canvas-tagchart"  style="border-radius: 5px; height: 300px; width: 100%; "
+                                                                                ></canvas>
                                                                             </div>
                                                                         </div>
                                                                         <!--//app-card-body-->
@@ -400,8 +401,25 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                         <a id="scroll-top"></a>
                         <script src="../assets/js/todo.js"></script>
                         <script src = "../assets/js/record.js"></script>
+                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+
+
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+
+
+
 
                         
 
                     </body>
+
+                    
                 </html>
