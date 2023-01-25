@@ -35,6 +35,7 @@
       input[type="text"]:focus {
         outline: none;
       }
+      
     </style>
   </head>
 
@@ -260,7 +261,7 @@
                         </tr>
                         <tr>
                           <td colspan="3">
-                            <textarea name="product_desc">${item.product_desc}</textarea>
+                            <textarea name="product_desc" >${item.product_desc}</textarea>
                           </td>
                         </tr>
                         <tr>

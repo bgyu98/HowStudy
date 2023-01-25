@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.NoticeDAO;
 import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.ReportVO;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -52,6 +53,12 @@ public class NoticeServiceImpl implements NoticeService {
 	public Integer selectCount(Integer nCount) {
 		System.out.println("총 개수 : " + nCount);
 		return (Integer) noticeDAO.selectCount(nCount);
+	}
+
+	// 관리자 게시물 갯수
+	@Override
+	public int listCount(NoticeVO noticevo) {
+		return noticeDAO.listCount(noticevo);
 	}
 	
 }

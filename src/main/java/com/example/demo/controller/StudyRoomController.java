@@ -3,10 +3,12 @@ package com.example.demo.controller;
 import java.util.Iterator;
 import java.util.List;
 
+import com.example.demo.dao.UserDAO;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
 import com.example.demo.vo.UserVO;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -30,6 +32,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.service.StudyRoomServiceImpl;
+import com.example.demo.service.UserService;
 import com.example.demo.vo.NoticeVO;
 import com.example.demo.vo.StudyRoomVO;
 import com.google.gson.Gson;
@@ -40,6 +43,9 @@ public class StudyRoomController {
 
 	@Autowired
 	private StudyRoomService studyroomService;
+	
+	@Autowired
+	private UserService userService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -91,10 +97,45 @@ public class StudyRoomController {
 			list.get(i).setCheck2(list.size());
 
 		}
+		
+		// 전체 방번호 출력 - 리스트로
+		List<StudyRoomVO> allStudy = studyroomService.allStudy(vo);
+		Integer[] temp3 = new Integer[allStudy.size()]; // 방 별로 좋아요 수 저장
+		Integer[] temp4 = new Integer[allStudy.size()]; // 방 별로 기존에 좋아요 눌렀는지 체크
+		System.out.println("방 개수 : " + allStudy.size());
+		for (int i = 0; i < allStudy.size(); i++) {
+			// System.out.println("list : " + list.get(i));
+			if (allStudy.size() != 0) {
+
+				if (studyroomService.checkheart(allStudy.get(i).getsNum()) == null) { // 좋아요 수가 없을 경우 (0인경우)
+					temp3[i] = 0; // 0 저장
+				} else { // 좋아요 수가 있는 경우
+					temp3[i] = studyroomService.checkheart(allStudy.get(i).getsNum()); // 해당 수 저장
+				}
+
+				allStudy.get(i).setsFavorNum(temp3[i]); // allStudy에 해당 값들 저장
+			}
+
+			vo.setsNum(allStudy.get(i).getsNum()); // vo에 해당 방 번호 입력
+			if (studyroomService.checkRoomHeart(vo) == null) { // 해당 방을 즐겨찾기 안한 경우
+
+				temp4[i] = 0; // 기존에 즐겨찾기를 안했다는 의미로 0 저장
+			} else if (studyroomService.checkRoomHeart(vo) != null) { // 해당 방을 즐겨찾기 한 경우
+
+				temp4[i] = 1; // 기존에 즐겨찾기를 했다는 의미로 1 저장
+			}
+			allStudy.get(i).setCheck(temp4[i]);
+			allStudy.get(i).setCheck2(allStudy.size());
+
+		}
+		
+		
+		
+		
 
 		m.addAttribute("myroom", list); // 내가만든 스터디룸 화면에 찍는거
 		m.addAttribute("myroomcnt", list.size()); // 스터디룸 안 만들었을때 화면에 찍는거
-		m.addAttribute("studyall", studyroomService.allStudy(vo)); // 선아
+		m.addAttribute("studyall", allStudy); // 선아
 		m.addAttribute("scntSelect", studyroomService.selectScnt(vo)); // 선아
 
 	}
@@ -149,6 +190,14 @@ public class StudyRoomController {
 		System.out.println("scnt는 : " + scnt);
 		m.addAttribute("cnt", scnt);
 
+	}
+
+//	// 선호테그 수정
+	@RequestMapping("/updatelikeTag")
+	public String updatelikeTag(UserVO vo) {
+		System.out.println("updatelikeTag : " +vo);
+		userService.updatelikeTag(vo);
+		return "redirect:study";
 	}
 
 }

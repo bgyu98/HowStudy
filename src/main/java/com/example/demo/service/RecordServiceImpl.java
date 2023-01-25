@@ -41,5 +41,17 @@ public class RecordServiceImpl implements RecordService{
 		return recordDAO.checkDate(vo);
 	}
 	
+	
+	// 태그 별 공부 시간 
+	public List<RecordVO> saveTagTime(RecordVO vo){
+		return recordDAO.saveTagTime(vo);
+	}
+	
+	// 기간 별 공부 시간
+	public List<RecordVO> saveDateTime(RecordVO vo){
+		return recordDAO.saveDateTime(vo);
+	}
+	
+	
 
 }

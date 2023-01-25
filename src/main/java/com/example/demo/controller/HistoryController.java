@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -22,6 +23,8 @@ import com.example.demo.service.RecordService;
 import com.example.demo.vo.HistoryVO;
 import com.example.demo.vo.RecordVO;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -32,7 +35,7 @@ public class HistoryController {
 
 	@Autowired
 	private HistoryService historyService;
-	
+
 	@Autowired
 	private RecordService recordService;
 
@@ -137,7 +140,7 @@ public class HistoryController {
 		Note(vo, m);
 		HistoryVO result = historyService.seleteEndNote(vo);
 		System.out.println("확인 : " + result);
-		
+
 		m.addAttribute("seleteEndNote", result);
 
 	}
@@ -161,7 +164,7 @@ public class HistoryController {
 		return ResponseEntity.ok().body("/noteImages/" + fileName);	// 파일경로와 이름 리턴
 
 	}
-	
+
 	// Note 상세
 	@RequestMapping("seleteGetNote")
 	public void seleteGetNote (HistoryVO vo, Model m) {
@@ -173,7 +176,7 @@ public class HistoryController {
 		System.out.println(mId);
 		m.addAttribute("note",result);
 	}
-	
+
 	// note 수정
 	@RequestMapping("updateNote")
 	public String updateNote(HistoryVO vo) {
@@ -181,10 +184,10 @@ public class HistoryController {
 		historyService.updateNote(vo);
 		int hSeq = vo.gethSeq();
 		String mId = vo.getmId();
-		
+
 		return "redirect:seleteGetNote?hSeq="+hSeq+"&mId="+mId;
 	}
-	
+
 	// note 삭제
 	@RequestMapping("deleteNote")
 	public String deleteNote (HistoryVO vo) {
@@ -193,7 +196,7 @@ public class HistoryController {
 		String mId = vo.getmId();
 		return "redirect:note?mId="+mId;
 	}
-	
+
 	// Note 좌측 카테고리 함수
 	public void Note(HistoryVO vo, Model m) {
 		System.out.println("selectNote 확인 : " + vo);
@@ -213,7 +216,7 @@ public class HistoryController {
 				boolean flag = false;
 
 				for (HistoryVO finalVO : finalResult) {
-					
+
 					if (finalVO.getgTopic().equals(exGTopic)) { // finalVO 의 gTopic 값이 exGTopic gTopic 값이 같은경우
 
 						String seqTitle = willVO.getgTitle(); // vo 의 gTitle 값
@@ -230,7 +233,7 @@ public class HistoryController {
 						System.out.println("ccc : " +finalHseq);
 
 						finalVO.sethSeqs(finalHseq + "/" + seqhSeq);
-					
+
 
 						flag = true;
 					}
@@ -241,9 +244,9 @@ public class HistoryController {
 					HistoryVO resultVO= result.get(i);
 					int hSeq = resultVO.gethSeq();
 					resultVO.sethSeqs(Integer.toString(hSeq));
-					
+
 					finalResult.add(resultVO); // finalResult 에 붙이기
-					
+
 
 				}
 				System.out.println("확인2 :  " + finalResult);
@@ -251,16 +254,16 @@ public class HistoryController {
 			}
 		}
 		System.out.println(finalResult);
-		
+
 		for (HistoryVO temp : finalResult) {	
 			if ( temp.gethSeqs() != null) {
-			String spiltSeq = temp.gethSeqs();
-			String[] spiltSeq2 = spiltSeq.split("/");
-			for (String finalspiltSeq : spiltSeq2) {
-				list.add(finalspiltSeq);					// list 변수에 hSeqs for 문으로 하나씩 뽑아  변수 붙이기
-				System.out.println(finalspiltSeq);
+				String spiltSeq = temp.gethSeqs();
+				String[] spiltSeq2 = spiltSeq.split("/");
+				for (String finalspiltSeq : spiltSeq2) {
+					list.add(finalspiltSeq);					// list 변수에 hSeqs for 문으로 하나씩 뽑아  변수 붙이기
+					System.out.println(finalspiltSeq);
 
-			}
+				}
 			}
 		}
 
@@ -269,84 +272,83 @@ public class HistoryController {
 		System.out.println(list);
 
 	}
-	
-	
-	
+
+
+
 	// Record (공부기록)
 	@RequestMapping("/record")
-	public void record(RecordVO vo,Model m, HttpSession session) {
+	public String record(RecordVO vo,Model m, HttpSession session) throws Exception {
 		System.out.println("공부 기록 페이지 이동");
-		
+
 		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ] */
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인 아이디 : " + loginId);
 		vo.setmId(loginId);
-		
+
 		// 아이디 별 일 평균 계산 위한 리스트 수 체크
 		List<RecordVO> cd =recordService.checkDate(vo);
 		Integer k = cd.size();
 		System.out.println("해당하는 리스트 수 : " + k);
 		vo.setK(k); // vo에 리스트 수 주입
-		
-		
+
+
 		List<RecordVO> todayStudyTime = recordService.todayStudyTime(vo);    // 오늘 공부 시간
 		System.out.println(todayStudyTime);
-		
-		if(todayStudyTime.get(0) == null) {
-			RecordVO rcvo = new RecordVO();
+		try {
+			if(todayStudyTime.get(0) == null) { // 오늘 공부한 시간이 없는 경우
+				RecordVO rcvo = new RecordVO();
+
+
+				List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
+				System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
+
+				List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
+				System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
+
+				System.out.println(" 시간 모음 :  " + rcvo);
+
+				rcvo.setTodayStudyTime("00:00:00");			// 초기화 한 공부 시간 세팅
+				rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime()); // 일 평균 공부 시간 세팅
+				rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime()); // 누적 공부 시간 세팅 
+
+				m.addAttribute("time",rcvo);
+				return "study/record";
+			} else if(todayStudyTime.get(0) != null) { // 오늘 공부한 시간이 있는 경우
+				System.out.println(" 오늘 공부 시간 : " + todayStudyTime.get(0).getsTime());
+
+
+				List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
+				System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
+
+
+				List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
+				System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
+
+				RecordVO rcvo = new RecordVO();
+				rcvo.setTodayStudyTime(todayStudyTime.get(0).getsTime());  // 오늘 공부 시간 세팅
+				rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());		// 일 평균 공부 시간 세팅
+				rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime()); // 누적 공부 시간 세팅
+				System.out.println(" 시간 모음 :  " + rcvo);
+				m.addAttribute("time",rcvo);
+				return "study/record";
+
+			}
 			
-		
-			List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
-			System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
-
-			List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
-			System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
-
-			System.out.println(" 시간 모음 :  " + rcvo);
-			
-			rcvo.setTodayStudyTime("00:00:00");
-			rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());
-			rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime());
-			
-			m.addAttribute("time",rcvo);
-			
-		} else if(todayStudyTime.get(0) != null) {
-			System.out.println(" 오늘 공부 시간 : " + todayStudyTime.get(0).getsTime());
-
-
-			List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
-			System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
-
-
-			List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
-			System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
-
-			RecordVO rcvo = new RecordVO();
-			rcvo.setTodayStudyTime(todayStudyTime.get(0).getsTime());
-			rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());
-			rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime());
-			System.out.println(" 시간 모음 :  " + rcvo);
-			m.addAttribute("time",rcvo);
-
-
-
-			
-			
-		
+		} catch (Exception e) {
+			return "shop/ticket";
 		}
+			
 		
-		
-		
-		
-		
+
+		return "study/record";
 	}
-	
-	
+
+
 	// 타이머 클릭 시 아이디 별 시간 db에 저장
 	@RequestMapping("/saveTime")
 	@ResponseBody
 	public String saveTime(RecordVO vo,Model m, HttpSession session ) {
-		
+
 		System.out.println("시간 체크 ajax 실행");
 		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디, 방 번호, 공부한 시간, 현재 날짜*/
 		String loginId = (String) session.getAttribute("loginId");
@@ -355,24 +357,96 @@ public class HistoryController {
 		System.out.println("방 번호 : " +vo.getsNum());
 		System.out.println("공부한 시간 : "+vo.getsTime());
 		/* 확인 끝 */
-		
+
 		/* 잘 넘어왔는지 확인했으니 관련 입력문 실행 */
 		recordService.saveTime(vo);
 		System.out.println("vo :  " +vo);
-		
-		
-		
-		return "";
-		
-		
-	}
-	
 
-	
-	
-	
-	
-	
-	
+
+
+		return "";
+
+
+	}
+	// 선호 태그 별 공부 시간 출력
+	@RequestMapping("/saveTagTime")
+	@ResponseBody
+	public String saveTagTime(RecordVO vo, HttpSession session ) throws Exception {
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ] 	 */
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인 아이디 : " + loginId);
+		vo.setmId(loginId);
+
+		// 태그별 리스트 호출
+		List<RecordVO> saveTagTime = recordService.saveTagTime(vo);
+		Gson gson = new Gson();
+		JsonArray jArray = new JsonArray();
+
+		Iterator<RecordVO> it = saveTagTime.iterator();
+
+		while(it.hasNext()) {
+			RecordVO rcvo = it.next();
+			JsonObject object = new JsonObject();
+			String sCategory = rcvo.getsCATEGORY();
+			String total =	rcvo.getsTime();
+
+			object.addProperty("sCategory", sCategory);
+			object.addProperty("total", total);
+			jArray.add(object);
+		}
+
+		String json = gson.toJson(jArray);
+		System.out.println("json : " + json);
+
+		return json;
+	}
+
+	// 선택 날짜 기간 별 공부 기간 출력
+	@RequestMapping("/saveDateTime")
+	@ResponseBody
+	public String saveDateTime(RecordVO vo, HttpSession session ) throws Exception {
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디, 날짜1, 날짜2 ] 	 */
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("로그인 아이디 : " + loginId);
+		vo.setmId(loginId);
+		System.out.println("첫 번째 날짜 :" +vo.getDate1());
+		vo.setDate1(vo.getDate1());
+		System.out.println("두 번째 날짜 :" +vo.getDate2());
+		vo.setDate2(vo.getDate2());
+
+		// 날짜 별 리스트 호출
+		List<RecordVO> saveDateTime = recordService.saveDateTime(vo);
+		Gson gson = new Gson();
+		JsonArray jArray = new JsonArray();
+
+		Iterator<RecordVO> it = saveDateTime.iterator();
+
+		while(it.hasNext()) {
+			RecordVO rcvo = it.next();
+			JsonObject object = new JsonObject();
+			String sDate = rcvo.getsDate();
+			String total =	rcvo.getsTime();
+
+			object.addProperty("sDate", sDate);
+			object.addProperty("total", total);
+			jArray.add(object);
+		}
+
+		String json2 = gson.toJson(jArray);
+		System.out.println("json : " + json2);
+
+		return json2;
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 }

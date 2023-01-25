@@ -21,6 +21,8 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+
+    
   </head>
 
   <body class="g-sidenav-show bg-gray-100">
@@ -47,7 +49,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/manageUserList">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -90,7 +92,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/manageUserList">
+            <a class="nav-link" href="../pages/report">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -357,18 +359,19 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                             </div>
                           </td>
                           <td>
-                            <a href="#">${user.mName}</a>
+                            <span>${user.mName}</span>
                           </td>
                           <td class="align-middle text-center text-sm">
-                            <a href="#">${user.mDate}</a>
+                            <span>${user.mDate}</span>
                           </td>
                           <td class="align-middle text-center">
-                            <a href="#">${user.mGrade}</a>
+                            <span>${user.mGrade}</span>
                           </td>
                           <td class="align-middle text-center">
                             <a href="../pages/manageUserDetail?mId=${user.mId}">
                               <i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i
-                              >Edit</a
+                              >
+                              Confirm</a
                             >
                           </td>
 
@@ -376,6 +379,31 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                       </c:forEach>
                     </tbody>
                   </table>
+                  <div class="row mt-5 pb-5">
+                    <div class="col-lg-12">
+                      <div class="custom-pagination">
+                        <ul class="list-unstyled pagination justify-content-center">
+                          <li class="page-item">
+                           <c:if test="${pageMaker.prev}">
+                            <a href="manageUserList${pageMaker.makeQueryUVO(pageMaker.startPage - 1)}" class="page-link">
+                              Previous             
+                            </a>
+                          </c:if>        
+                          </li>
+            <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+              <li  class="page-item"><a href="manageUserList${pageMaker.makeQueryUVO(idx)}" class="page-link">${idx}</a></li>
+            </c:forEach>
+                          <li class="page-item">
+                             <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                            <a href="manageUserList${pageMaker.makeQueryUVO(pageMaker.endPage + 1)}" class="page-link">
+                              Next
+                            </a>
+                          </c:if> 
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -551,6 +579,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
         };
         Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
       }
+
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

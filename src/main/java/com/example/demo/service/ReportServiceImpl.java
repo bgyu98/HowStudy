@@ -23,4 +23,34 @@ public class ReportServiceImpl implements ReportService {
 	public List<ReportVO> getReportList(ReportVO vo) {
 		return reportDAO.getReportList(vo);
 	}
+
+	// 관리자 신고 리스트 
+	@Override
+	public List<ReportVO> manageReportList(ReportVO vo) {
+		return reportDAO.manageReportList(vo);
+	}
+
+	// 관리자 신고 상세
+	@Override
+	public ReportVO getReport(Integer rNum) {
+		return reportDAO.getReport(rNum);
+	}
+
+	// 관리자 신고 갯수
+	@Override
+	public int listCount(ReportVO vo) {
+		return reportDAO.listCount(vo);
+	}
+	// 관리자 신고 접수
+	@Override
+	public void updateReport(ReportVO vo) {
+		System.out.println("서비스먹냐?");
+		reportDAO.updateReport(vo);
+	}
+
+	// 관리자 신고 회원별 상세
+	@Override
+	public List<ReportVO> getUserReport(String mId) {
+		return reportDAO.getUserReport(mId);
+	}
 }

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -93,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/report">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -132,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/notice">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -171,7 +172,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/tables">
+            <a class="nav-link" href="../pages/faq">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -312,263 +313,100 @@
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
-            <div class="card mb-4">
-              <div class="card-header pb-0">
-                <h6>Authors table</h6>
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">신고 현황</h6>
               </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          Author
-                        </th>
-                        <th
-                          class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"
-                        >
-                          Function
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          Status
-                        </th>
-                        <th
-                          class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
-                        >
-                          Employed
-                        </th>
-                        <th class="text-secondary opacity-7"></th>
+                        <th>글 번호</th>
+                        <th>글 제목</th>
+                        <th>작성자</th>
+                        <th>신고 유저</th>
+                        <th>작성 날짜</th>
+                        <th>경고</th>
+                        <th>처리상태</th>
                       </tr>
                     </thead>
+
                     <tbody>
                       <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="../assets/img/team-2.jpg"
-                                class="avatar avatar-sm me-3"
-                                alt="user1"
-                              />
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">John Michael</h6>
-                              <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Manager</p>
-                          <p class="text-xs text-secondary mb-0">Organization</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-success">Online</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                        </td>
-                        <td class="align-middle">
-                          <a
-                            href="javascript:;"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip"
-                            data-original-title="Edit user"
-                          >
-                            Edit
+                        <c:forEach items="${reportList}" var="report">
+                        <td>${report.rNum}</td>
+                        <td>${report.rTitle}</td>
+                        <td>${report.mId}</td>
+                        <td>${report.rOpponent}</td>
+                        <td>${report.rDate}</td>
+                        <td style="text-align: center">
+                          <a href="../pages/getReport?rNum=${report.rNum}" class="btn btn-danger btn-circle btn-sm"  style="
+                          border-radius: 50%;
+                          height: 35px;
+                          width: 37px;
+                          padding: initial;
+                          display: table-cell;
+                          display: inline-block;
+                      ">
+                            <i class="fas fa-info-circle" aria-hidden="true" style="
+                            bottom: -9px;
+                            position: relative;
+                        "></i>
                           </a>
                         </td>
+                         <!-- 답변이 달리지 않았을 경우 : 미응답 처리 -->
+                         <c:choose>
+                          <c:when test="${report.status!='Y'}">
+                            <td style="width: 15%; text-align: center">
+                              <a href="registQna.do?title=${qna.qna_title }&seq=${qna.qna_seq }" class="btn btn-warning btn-icon-split" >
+                                <span class="icon text-white-50">
+                                  <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                                <span class="text">미응답</span>
+                              </a>
+                            </td>
+                          </c:when>
+                        
+                        
+                        <c:when test="${report.status=='Y'}">
+                          <td style="text-align: center;" >
+                            <a href="#" class="btn btn-success btn-icon-split">
+                              <span class="icon text-white-50"> <i class="fas fa-check"></i> </span>
+                              <span class="text">응답</span>
+                            </a>
+                          </td>
+                        </c:when>
+                        </c:choose>
                       </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="../assets/img/team-3.jpg"
-                                class="avatar avatar-sm me-3"
-                                alt="user2"
-                              />
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                              <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Programator</p>
-                          <p class="text-xs text-secondary mb-0">Developer</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                        </td>
-                        <td class="align-middle">
-                          <a
-                            href="javascript:;"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip"
-                            data-original-title="Edit user"
-                          >
-                            Edit
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="../assets/img/team-4.jpg"
-                                class="avatar avatar-sm me-3"
-                                alt="user3"
-                              />
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                              <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Executive</p>
-                          <p class="text-xs text-secondary mb-0">Projects</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-success">Online</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
-                        </td>
-                        <td class="align-middle">
-                          <a
-                            href="javascript:;"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip"
-                            data-original-title="Edit user"
-                          >
-                            Edit
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="../assets/img/team-3.jpg"
-                                class="avatar avatar-sm me-3"
-                                alt="user4"
-                              />
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Michael Levi</h6>
-                              <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Programator</p>
-                          <p class="text-xs text-secondary mb-0">Developer</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-success">Online</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
-                        </td>
-                        <td class="align-middle">
-                          <a
-                            href="javascript:;"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip"
-                            data-original-title="Edit user"
-                          >
-                            Edit
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="../assets/img/team-2.jpg"
-                                class="avatar avatar-sm me-3"
-                                alt="user5"
-                              />
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Richard Gran</h6>
-                              <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Manager</p>
-                          <p class="text-xs text-secondary mb-0">Executive</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
-                        </td>
-                        <td class="align-middle">
-                          <a
-                            href="javascript:;"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip"
-                            data-original-title="Edit user"
-                          >
-                            Edit
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="d-flex px-2 py-1">
-                            <div>
-                              <img
-                                src="../assets/img/team-4.jpg"
-                                class="avatar avatar-sm me-3"
-                                alt="user6"
-                              />
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                              <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">Programtor</p>
-                          <p class="text-xs text-secondary mb-0">Developer</p>
-                        </td>
-                        <td class="align-middle text-center text-sm">
-                          <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                        </td>
-                        <td class="align-middle text-center">
-                          <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                        </td>
-                        <td class="align-middle">
-                          <a
-                            href="javascript:;"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip"
-                            data-original-title="Edit user"
-                          >
-                            Edit
-                          </a>
-                        </td>
-                      </tr>
+                    </c:forEach>
                     </tbody>
                   </table>
+                  <div class="row mt-5 pb-5">
+                    <div class="col-lg-12">
+                      <div class="custom-pagination">
+                        <ul class="list-unstyled pagination justify-content-center">
+                          <li>
+                           <c:if test="${pageMaker.prev}">
+                            <a href="report${pageMaker.makeQuery(pageMaker.startPage - 1)}" class="page-link">
+                              Previous
+                            </a>
+                          </c:if>                     
+                          </li>
+            <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+              <li><a href="report${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a></li>
+            </c:forEach>
+                          <li>
+                             <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+                            <a href="report${pageMaker.makeQuery(pageMaker.endPage + 1)}" class="page-link">
+                              Next
+                            </a>
+                          </c:if> 
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -735,6 +573,7 @@
     <script src="../assets/js/core/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <script>
       var win = navigator.platform.indexOf("Win") > -1;
       if (win && document.querySelector("#sidenav-scrollbar")) {

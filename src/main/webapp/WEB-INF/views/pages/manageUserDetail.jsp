@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
-prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -360,18 +361,21 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                     <tr>
                       <td>이용권</td>
                       <td>결제 일자</td>
-                      <td>남은 기간</td>
+                      <td>결제 마감 일자</td>
+                      <td>결제 금액</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <c:forEach items="${oList }" var="list1">
-                      <tr>
-                        <td>${list1.order_detail_number }</td>
-                        <td>${list1.product_name }</td>
-                        <td>${list1.order_detail_status }</td>
-                        <td>${list1.order_date }</td>
-                      </tr>
-                    </c:forEach>
+
+                        <c:forEach items="${mvo}" var="list1">
+                        <tr>
+                          <td>${list1.tClass}</td>
+                          <td>${list1.tStart }</td>
+                          <td>${list1.tEnd }</td>
+                          <td>${list1.pAmount }</td>
+                        </tr>
+                      </c:forEach>
+
                   </tbody>
                 </table>
               </div>
@@ -382,17 +386,20 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <td>글 번호</td>
+                      <td>신고자 명</td>
                       <td>경고 사유</td>
                       <td>경고 일자</td>
-                      <td>경고 횟수</td>
+                     
                     </tr>
                   </thead>
                   <tbody>
-                    <c:forEach items="${rList}" var="list2">
+                    <c:forEach items="${rvo}" var="list2">
                       <tr>
-                        <td>${list2.product_name}</td>
-                        <td>${list2.review_content}</td>
-                        <td>${list2.review_date}</td>
+                        <td>${list2.rNum}</td>
+                        <td>${list2.mId}</td>
+                        <td>${list2.rClass}</td>
+                        <td>${list2.rDate}</td>
                       </tr>
                     </c:forEach>
                   </tbody>

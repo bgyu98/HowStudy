@@ -214,7 +214,7 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val();
       // alert(seq);
-      //alert(who);
+      alert(who);
       var check = 0; // 하트 체크 여부
       // 버튼 on of 관련 문
       var iteration = $(this).data("iteration") || 1;
@@ -269,6 +269,10 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
       var check = 0;
+      if (who == "") {
+        alert("로그인 후 이용가능한 서비스 입니다.");
+        return false;
+      }
       //alert(who);
       //alert(seq);
       switch (iteration) {
@@ -773,37 +777,48 @@
 				c += "</div>";
 				c += "</div>";
 
-				$.each(result, function(key, value) {
-					d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
-					d += "<div class='sc-card-product'>";
-					d += "<form id='studyTagList'>";
-					d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
-					d += "<span id='countNum'>스터디 정원 &nbsp; " + value.sPeopleNum + " &nbsp;/&nbsp;4</span>";
-					d += "</div>";
-					d += "<div class='card-media'>";
-					d += "<a href='item-details.html'/><img src='../assets/images/studyRoom/${vo.sFile}.png'/></a>";
-					d += "<div class='button-place-bid'>";
-					d += "<a id='sangsae' href='#' data-toggle='modal' data-target=.${mr.sTitle} class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
-					d += "</div>";
-					d += "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
-					d += "</div>";
-					d += "<div class='card-title'>";
-					d += "<h5 class='style2'><a href='item-details.html'>" + value.sTitle + "</a></h5>";
-					d += "<div class='tags'>" + value.sCategory + "</div>";
-					d += "</div>";
-					d += "<div class='meta-info'>";
-					d += "<div class='author' id='creatby'>";
-					d += "<span>CREATE BY&nbsp; &nbsp; </span>";
-					d += "<span class='pricing' id='createMid'>"+ value.smId +"</span>";
-					d += "</div>";
-					d += "</div>";
-					d += "</form>";
-					d += "</div>";
-					d += "</div>";
-					c += d
-					d = "";
-				});
 
+        $.each(result, function (key, value) {
+          d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
+          d += "<div class='sc-card-product'>";
+          d += "<form id='studyTagList'>";
+          d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
+          d +=
+            "<span id='countNum'>스터디 정원 &nbsp; " + value.sPeopleNum + " &nbsp;/&nbsp;4</span>";
+          d += "</div>";
+          d += "<div class='card-media'>";
+          d +=
+            "<a href='item-details.html'/><img src='../assets/images/studyRoom/" +
+            value.sFile +
+            ".png'/></a>";
+          d += "<div class='button-place-bid'>";
+          if (value.sPw == "") {
+            d +=
+              "<a id='sangsae' href='#' data-toggle='modal' data-target=.popup class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+          } else {
+            d +=
+              "<a id='sangsae1' href='#' data-toggle='modal' data-target=.sPwConfirm class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+          }
+          d += "</div>";
+          d +=
+            "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
+          d += "</div>";
+          d += "<div class='card-title'>";
+          d += "<h5 class='style2'><a href='item-details.html'>" + value.sTitle + "</a></h5>";
+          d += "<div class='tags'>" + value.sCategory + "</div>";
+          d += "</div>";
+          d += "<div class='meta-info'>";
+          d += "<div class='author' id='creatby'>";
+          d += "<span>CREATE BY&nbsp; &nbsp; </span>";
+          d += "<span class='pricing' id='createMid'>" + value.smId + "</span>";
+          d += "</div>";
+          d += "</div>";
+          d += "</form>";
+          d += "</div>";
+          d += "</div>";
+          c += d;
+          d = "";
+        });
 
         c += "<div class='col-md-12 wrap-inner load-more text-center mg-t-4'>";
         c += "<a href='#'' id='loadmore' class='sc-button loadmore fl-button pri-3'>";
@@ -812,22 +827,21 @@
         c += "</div>";
         c += "</div>";
 
+        $("#sectionId").append(c);
+        loadmore();
 
-				$('#sectionId').append(c);
-				loadmore();
-				
-				$('#selectStudyRoom').change(function(url) {
-					var keyword = $(this).val()
-				});
-			},
-			error: function(request, status, error) {
-				alert("에러");
-				console.log("상태코드: " + request.status);
-				console.log("메세지: " + request.responseText);
-				console.log("에러설명: " + error);
-			}
-		});
-	});
+        $("#selectStudyRoom").change(function (url) {
+          var keyword = $(this).val();
+        });
+      },
+      error: function (request, status, error) {
+        alert("에러");
+        console.log("상태코드: " + request.status);
+        console.log("메세지: " + request.responseText);
+        console.log("에러설명: " + error);
+      },
+    });
+  });
 
   var loadmore = function () {
     $(".fl-item").slice(0, 8).show();
@@ -839,28 +853,28 @@
     $("#loadmore").on("click", function (e) {
       e.preventDefault();
 
-	       $(".fl-item:hidden").slice(0, 4).slideDown();
-	       $(".fl-item2:hidden").slice(0, 3).slideDown();
-	       $(".fl-item3:hidden").slice(0, 3).slideDown();
-	       $(".fl-item4:hidden").slice(0, 5).slideDown();
-	       $(".fl-item5:hidden").slice(0, 13).slideDown();
-	       if($(".fl-item:hidden").length == 0) {
-	         $("#loadmore").hide();
-	       }
-	       if($(".fl-item2:hidden").length == 0) {
-	         $("#loadmore").hide();
-	       }
-	       if($(".fl-item3:hidden").length == 0) {
-	         $("#loadmore").hide();
-	       }
-	       if($(".fl-item4:hidden").length == 0) {
-	         $("#loadmore").hide();
-	       }
-	      if($(".fl-item5:hidden").length == 0) {
-	         $("#loadmore").hide();
-	       }
-	     });
-	 };
+      $(".fl-item:hidden").slice(0, 4).slideDown();
+      $(".fl-item2:hidden").slice(0, 3).slideDown();
+      $(".fl-item3:hidden").slice(0, 3).slideDown();
+      $(".fl-item4:hidden").slice(0, 5).slideDown();
+      $(".fl-item5:hidden").slice(0, 13).slideDown();
+      if ($(".fl-item:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item2:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item3:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item4:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item5:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+    });
+  };
 
   $("#deletecus").click(function (evt) {
     evt.stopPropagation();
@@ -882,41 +896,38 @@
       },
       error: function () {
         alert("서버요청실패");
+      },
+    });
+  });
+
+  //	스터디룸 패스워드 확인
+  $(document).ready(function () {
+    $("#popup_bid2").on("show.bs.modal", function (e) {
+      var sNum = $(e.relatedTarget).data("num");
+      var sPw = $(e.relatedTarget).data("pw");
+      alert(sNum + ": 비번 : " + sPw);
+      $(this).find("#hiddenNum").val(sNum);
+      $(this).find("#insertPw").val(sPw);
+      $(".alertDanger").hide();
+    });
+
+    $("#btnCustom").on("click", function () {
+      var number = $("#hiddenNum").val();
+      alert("방번호좀 가져가라" + number);
+      // 비번 성공 시 파라미터 가지고 이동 할 url 변수처리
+      var moveURL = "../studyRoom/chat?sNum=" + number;
+      if ($("input[name=s]").val() == $("#insertPw").val()) {
+        alert("동일");
+        $(".alertDanger").hide();
+        $("#btnCustom").attr("href", moveURL);
+      } else {
+        alert("일치ㄴㄴ");
+        $(".alertDanger").show();
+        document.querySelector("#btnCustom").removeAttribute("href");
       }
     });
   });
 
-//	스터디룸 패스워드 확인
-	$(document).ready(function() {
-              $("#popup_bid2").on("show.bs.modal", function(e) {
-                  var sNum = $(e.relatedTarget).data('num');
-                  var sPw = $(e.relatedTarget).data('pw');
-                  alert(sNum +": 비번 : "+ sPw);
-                 $(this).find("#hiddenNum").val(sNum)
-                  $(this).find("#insertPw").val(sPw)
-                  $(".alertDanger").hide();
-              });
-
-              $("#btnCustom").on('click',function(){
-                var number = $("#hiddenNum").val();
-                alert("방번호좀 가져가라" + number)
-                // 비번 성공 시 파라미터 가지고 이동 할 url 변수처리
-                var moveURL = "../studyRoom/chat?sNum="+number;
-                  if($('input[name=s]').val() == $('#insertPw').val()) {
-                      alert("동일")
-                      $(".alertDanger").hide();
-                      $("#btnCustom").attr("href",moveURL)
-                  } else {
-                    alert("일치ㄴㄴ")
-                    $(".alertDanger").show();
-                    document.querySelector("#btnCustom").removeAttribute('href');
-              
-                  }
-              });
-          });
-
-
-	
   // Dom Ready
   $(function () {
     goTop();
