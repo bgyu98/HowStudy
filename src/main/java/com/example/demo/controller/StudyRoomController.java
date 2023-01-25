@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.example.demo.dao.UserDAO;
+import com.example.demo.log.logController;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
@@ -43,6 +44,7 @@ import com.google.gson.Gson;
 public class StudyRoomController {
 	static logController log = new logController();
 
+	static logController log = new logController();
 	@Autowired
 	private StudyRoomService studyroomService;
 
