@@ -80,10 +80,6 @@
 
 
 
-
-
-
-
             <section class="tf-section live-auctions home7">
               <div class="themesflat-container">
                 <div class="row">
@@ -135,7 +131,7 @@
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
                                     <c:if test="${mr.sPw != ''}">
-                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
+                                      <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}1
                                         class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                                     </c:if>
 
@@ -172,8 +168,6 @@
                 </div>
               </div>
             </section>
-
-
 
 
             <!-- 눌렀을때 상세보기 모달 시작-->
@@ -213,7 +207,8 @@
 
               <!-- 스터디룸 패스워드 존재할때 -->
 
-              <div class="modal fade popup sPwConfirm" id="popup_bid1" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal fade popup ${mr.sTitle}1" id="popup_bid1" tabindex="-1" role="dialog"
+                aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -221,7 +216,7 @@
                     </button>
                     <div class="modal-body space-y-20 pd-40">
                       <h3>${mr.sTitle}</h3>
-                      <i class="fa-sharp fa-solid fa-key-skeleton"></i>
+
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                       </p>
                       <hr>
@@ -457,11 +452,11 @@
                             <a href="item-details.html"><img src="../assets/images/studyRoom/${vo.sFile}.png" /></a>
                             <div class="button-place-bid">
                               <c:if test="${vo.sPw == ''}">
-                                <a id="sangsae" href="#" data-toggle="modal" data-target=.popup
+                                <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                               <c:if test="${vo.sPw != ''}">
-                                <a id="sangsae" href="#" data-toggle="modal" data-target=.sPwConfirm
+                                <a id="sangsae" href="#" data-toggle="modal" data-target=.${mr.sTitle}1
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                             </div>

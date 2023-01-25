@@ -10,21 +10,14 @@ import com.example.demo.service.TestService;
 import com.example.demo.vo.TestVO;
 
 @Controller
-//@RequestMapping("/board")
+@RequestMapping("/admin")
 public class TestController {
 
-	@Autowired
-	private TestService testService;
-	
+
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
-		return  step;
+		return  "admin/" + step;
 	}
 	
-	@RequestMapping("/getBoard")
-	public void getBoard(TestVO vo, Model m) {
-		TestVO result = testService.getTest(vo);
-		m.addAttribute("board", result);
-		System.out.println("안녕");
-	}
+	
 }

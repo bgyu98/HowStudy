@@ -19,9 +19,11 @@ import com.example.demo.vo.UserVO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping(value = "user")
+@Slf4j
 public class UserController {
 
    @Autowired

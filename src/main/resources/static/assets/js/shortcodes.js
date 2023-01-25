@@ -734,49 +734,47 @@
   $(document).on("change", "#selectStudyRoom", function (url) {
     var keyword = $(this).val();
 
-    $.ajax({
-      url: "study2",
-      data: { sCategory: keyword },
-      type: "post",
-      cache: "false",
-      async: false,
-      contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-      dataType: "json",
-      success: function (result) {
-        //console.log(result);
-        var d = "";
-        var c = "";
-        $("#sectionId").empty();
-        c += "<div class='themesflat-container'>";
-        c += "<div class='row'>";
-        c += "<div class='col-md-12' style='margin-top: 30px'>";
-        c += "<div class='heading-live-auctions mg-bt-21' style='margin-bottom: -20px'>";
-        c += "<h2 class='tf-title pad-l-7'>선호 스터디룸</h2>";
-        c += "</div>";
-        c += "</div>";
-        c += "<div class='col-md-12'>";
-        c +=
-          "<div class='tf-soft' style='display: inline-block; float: right; width: 12%; height: 60%;'>";
-        c += "<select id='selectStudyRoom' style='width: 100%; height: 100%;'>";
-        c +=
-          "<option class='selectOpt' hidden='' disabled='disabled' selected='selected' value='' style = 'color: rgb(0, 0, 0);' >태그선택</option > ";
-        c += "<option class='selectOpt' id='job' name='keyword'>취업</option>";
-        c += "<option class='selectOpt' id='book' name='keyword'>독서</option>";
-        c += "<option class='selectOpt' id='lan' name='keyword'>어학</option>";
-        c += "<option class='selectOpt' id='teac' name='keyword'>임용</option>";
-        c += "<option class='selectOpt' id='Offi' name='keyword'>공무원</option>";
-        c += "<option class='selectOpt' id='stu' name='keyword'>대학수능</option>";
-        c += "<option class='selectOpt' id='cer' name='keyword'>자격증</option>";
-        c += "<option class='selectOpt' id='scstu' name='keyword'>학교공부</option>";
-        c += "<option class='selectOpt' id='etc' name='keyword'>기타</option>";
-        c += "<option class='selectOpt' id='cord' name='keyword'>코딩</option>";
-        c += "<option class='selectOpt' id='Turn' name='keyword'>이직</option>";
-        c += "</select>";
-        c += "</div>";
-        c += "</div>";
+    		$.ajax({
+			url: 'study2',
+			data: { 'sCategory': keyword },
+			type: "post",
+			cache: "false",
+			async: false,
+			contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			dataType: 'json',
+			success: function(result) {
+				//console.log(result);
+				var d = "";
+				var c = "";
+				$('#sectionId').empty();
+				c += "<div class='themesflat-container'>";
+				c += "<div class='row'>";
+				c += "<div class='col-md-12' style='margin-top: 30px'>";
+				c += "<div class='heading-live-auctions mg-bt-21' style='margin-bottom: -20px'>";
+				c += "<h2 class='tf-title pad-l-7'>선호 스터디룸</h2>";
+				c += "</div>";
+				c += "</div>";
+				c += "<div class='col-md-12'>";
+				c += "<div class='tf-soft' style='display: inline-block; float: right; width: 12%; height: 60%;'>";
+				c += "<select id='selectStudyRoom' style='width: 100%; height: 100%;'>";
+				c += "<option class='selectOpt' hidden='' disabled='disabled' selected='selected' value='' style = 'color: rgb(0, 0, 0);' >태그선택</option > ";
+				c += "<option class='selectOpt' id='job' name='keyword'>취업</option>";
+				c += "<option class='selectOpt' id='book' name='keyword'>독서</option>";
+				c += "<option class='selectOpt' id='lan' name='keyword'>어학</option>";
+				c += "<option class='selectOpt' id='teac' name='keyword'>임용</option>";
+				c += "<option class='selectOpt' id='Offi' name='keyword'>공무원</option>";
+				c += "<option class='selectOpt' id='stu' name='keyword'>대학수능</option>";
+				c += "<option class='selectOpt' id='cer' name='keyword'>자격증</option>";
+				c += "<option class='selectOpt' id='scstu' name='keyword'>학교공부</option>";
+				c += "<option class='selectOpt' id='etc' name='keyword'>기타</option>";
+				c += "<option class='selectOpt' id='cord' name='keyword'>코딩</option>";
+				c += "<option class='selectOpt' id='Turn' name='keyword'>이직</option>";
+				c += "</select>";
+				c += "</div>";
+				c += "</div>";
 
 				$.each(result, function(key, value) {
-					d += "<div id='tagListForm' class='fl-item fl-item2 fl-item3 fl-item4 fl-item5 col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
+					d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
 					d += "<div class='sc-card-product'>";
 					d += "<form id='studyTagList'>";
 					d += "<div class='price' style='margin-bottom: 7px; margin-top: -5px;'>";
@@ -785,11 +783,7 @@
 					d += "<div class='card-media'>";
 					d += "<a href='item-details.html'/><img src='../assets/images/studyRoom/${vo.sFile}.png'/></a>";
 					d += "<div class='button-place-bid'>";
-					if( value.sPw == ""){
-                    d += "<a id='sangsae' href='#' data-toggle='modal' data-target=.popup class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
-                    }else{
-                    d += "<a id='sangsae1' href='#' data-toggle='modal' data-target=.sPwConfirm class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
-                    }
+					d += "<a id='sangsae' href='#' data-toggle='modal' data-target=.${mr.sTitle} class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
 					d += "</div>";
 					d += "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
 					d += "</div>";
@@ -818,21 +812,22 @@
         c += "</div>";
         c += "</div>";
 
-        $("#sectionId").append(c);
-        loadmore();
 
-        $("#selectStudyRoom").change(function (url) {
-          var keyword = $(this).val();
-        });
-      },
-      error: function (request, status, error) {
-        alert("에러");
-        console.log("상태코드: " + request.status);
-        console.log("메세지: " + request.responseText);
-        console.log("에러설명: " + error);
-      },
-    });
-  });
+				$('#sectionId').append(c);
+				loadmore();
+				
+				$('#selectStudyRoom').change(function(url) {
+					var keyword = $(this).val()
+				});
+			},
+			error: function(request, status, error) {
+				alert("에러");
+				console.log("상태코드: " + request.status);
+				console.log("메세지: " + request.responseText);
+				console.log("에러설명: " + error);
+			}
+		});
+	});
 
   var loadmore = function () {
     $(".fl-item").slice(0, 8).show();
@@ -844,28 +839,28 @@
     $("#loadmore").on("click", function (e) {
       e.preventDefault();
 
-      $(".fl-item:hidden").slice(0, 4).slideDown();
-      $(".fl-item2:hidden").slice(0, 3).slideDown();
-      $(".fl-item3:hidden").slice(0, 3).slideDown();
-      $(".fl-item4:hidden").slice(0, 5).slideDown();
-      $(".fl-item5:hidden").slice(0, 13).slideDown();
-      if ($(".fl-item:hidden").length == 0) {
-        $("#loadmore").hide();
-      }
-      if ($(".fl-item2:hidden").length == 0) {
-        $("#loadmore").hide();
-      }
-      if ($(".fl-item3:hidden").length == 0) {
-        $("#loadmore").hide();
-      }
-      if ($(".fl-item4:hidden").length == 0) {
-        $("#loadmore").hide();
-      }
-      if ($(".fl-item5:hidden").length == 0) {
-        $("#loadmore").hide();
-      }
-    });
-  };
+	       $(".fl-item:hidden").slice(0, 4).slideDown();
+	       $(".fl-item2:hidden").slice(0, 3).slideDown();
+	       $(".fl-item3:hidden").slice(0, 3).slideDown();
+	       $(".fl-item4:hidden").slice(0, 5).slideDown();
+	       $(".fl-item5:hidden").slice(0, 13).slideDown();
+	       if($(".fl-item:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	       if($(".fl-item2:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	       if($(".fl-item3:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	       if($(".fl-item4:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	      if($(".fl-item5:hidden").length == 0) {
+	         $("#loadmore").hide();
+	       }
+	     });
+	 };
 
   $("#deletecus").click(function (evt) {
     evt.stopPropagation();
