@@ -10,7 +10,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8" />
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
-    <title>Axies | NFT Marketplace HTML Template</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com" />
 
@@ -38,12 +38,12 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="page-title-heading mg-bt-12">
-                  <h1 class="heading text-center">Signup</h1>
+                  <h1 class="heading text-center">회원가입</h1>
                 </div>
                 <div class="breadcrumbs style2">
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li>Signup</li>
+                    <li><a href="">스터디룸</a></li>
+                    <li>회원가입</li>
                   </ul>
                 </div>
               </div>
@@ -55,30 +55,15 @@
           <div class="themesflat-container">
             <div class="row">
               <div class="col-12">
-                <h2 class="tf-title-heading ct style-1">회원가입</h2>
+             
                 <div class="flat-form box-login-social">
-                  <div class="box-title-login">
-                    <h5>Signup with social</h5>
-                  </div>
-                  <ul>
-                    <li>
-                      <a href="#" class="sc-button style-2 fl-button pri-3">
-                        <i class="icon-fl-google-2"></i>
-                        <span>KAKAO</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" class="sc-button style-2 fl-button pri-3">
-                        <i class="icon-fl-facebook"></i>
-                        <span>NAVER</span>
-                      </a>
-                    </li>
-                  </ul>
+                 
+                
                 </div>
 
                 <div class="flat-form box-login-email">
                   <div class="box-title-login">
-                    <h5>Or Signup with email</h5>
+                    <h5>H O W S T U D Y</h5>
                   </div>
 
                   <div class="form-inner">

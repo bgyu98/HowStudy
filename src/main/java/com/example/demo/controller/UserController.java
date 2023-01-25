@@ -116,10 +116,10 @@ public class UserController {
    // 로그아웃
       @RequestMapping(value = "logout")
       public String logout(HttpServletRequest request, Model m) {
-         System.out.println("로그아웃");
+         System.out.println("로그아웃하겠습니다용");
          HttpSession session = request.getSession(true);
          session.invalidate();
-         return "redirect:../index";
+         return "redirect:../studyRoom/study";
       }
    
   	// 회원정보 조회

@@ -10,7 +10,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Axies | NFT Marketplace HTML Template</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com">
 
@@ -29,39 +29,36 @@
 
 <body class="body header-fixed is_dark connect-wal">
 
-    <!-- preloade -->
-    <div class="preload preload-container">
-        <div class="preload-logo"></div>
-    </div>
-    <!-- /preload -->
+   
 
     <div id="wrapper">
         <div id="page" class="clearfix">
             <!-- header 넣음 -->
           <jsp:include page="../include/header.jsp"></jsp:include> 
 
-            <!-- Header --> 
-                
-            <!-- title page -->
-            <section class="flat-title-page inner">
-                <div class="overlay"></div>
-                <div class="themesflat-container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="page-title-heading mg-bt-12">
-                                <h1 class="heading text-center">Ranking</h1>
-                            </div>
-                            <div class="breadcrumbs">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">Pages</a></li>
-                                    <li>Ranking</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>                    
-            </section>
+                   <!-- 메인 페이지 시작 -->
+        
+        <section class="flat-title-page inner">
+            <div class="overlay"></div>
+            <div class="themesflat-container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="page-title-heading mg-bt-12">
+                    <h1 class="heading text-center">랭킹</h1>
+                  </div>
+                  <div class="breadcrumbs style2">
+                    <ul>
+                      <li><a href="">공부기록</a></li>
+                      <li>랭킹</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
 
             <section class="tf-section tf-rank">
                 <div class="container-fluid">
