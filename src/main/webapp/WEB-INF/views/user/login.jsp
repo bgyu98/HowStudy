@@ -46,12 +46,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="page-title-heading mg-bt-12">
-                                <h1 class="heading text-center">Login</h1>
+                                <h1 class="heading text-center">로그인</h1>
                             </div>
                             <div class="breadcrumbs style2">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li>Login</li>
+                                    <li><a href="">스터디룸</a></li>
+                                    <li>로그인</li>
                                 </ul>
                             </div>
                         </div>
@@ -63,33 +63,25 @@
                 <div class="themesflat-container">
                     <div class="row">
                         <div class="col-12">
-                            <h2 class="tf-title-heading ct style-1">
-                                로그인
-                            </h2>
+                          
 
                             <div class="flat-form box-login-social">
                                 <div class="box-title-login">
                                     <h5>Login with social</h5>
                                 </div>
                                 <ul>
-                                    <li> 
-                                  <a href="https://kauth.kakao.com/oauth/authorize?client_id=60fba32f81035c06fdb413a6e0d5bf99&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code" class="sc-button style-2 fl-button pri-3" >
-                                            <i class="icon-fl-facebook"></i>
-                                            <span>KAKAO</span>
+                                   
+                                   <a href="https://kauth.kakao.com/oauth/authorize?client_id=60fba32f81035c06fdb413a6e0d5bf99&redirect_uri=http://localhost:8888/user/kakaoLogin&response_type=code" style="margin: auto;">
+                                    <img src="../assets/images/icon/kakao_logink.png">  
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="sc-button style-2 fl-button pri-3">
-                                            <i class="icon-fl-facebook"></i>
-                                            <span>NAVER</span>
-                                        </a>
-                                    </li>
+                                   
+                                  
                                 </ul>
                             </div>
 
                             <div class="flat-form box-login-email">
                                 <div class="box-title-login">
-                                    <h5>Or login with email</h5>
+                                    <h5>H O W S T U D Y</h5>
                                 </div>
 
                                 <div class="form-inner">
@@ -108,7 +100,7 @@
                                         
                                         <br> <br> <br>
                                         <div class="box-title-login">
-                                            <h5>아직 회원이 아니신가요?</h5>
+                                            <h5>회원이 아니신가요?</h5>
                                         </div>
        
 
