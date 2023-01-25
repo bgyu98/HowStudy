@@ -87,10 +87,6 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
                     <li class="menu-item current-menu-item">
                       <a href="../shop/offlineShop">위치안내</a>
                     </li>
-                    <li class="menu-item current-menu-item">
-                      <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;">슬랙봇</a>
-                    </li>
-                    
                   </ul>
                 </nav>
                 <!-- /#main-nav -->

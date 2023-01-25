@@ -22,6 +22,7 @@
         <!-- Theme Style -->
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/slack.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
@@ -164,6 +165,7 @@
                           <!--끝-->
                         </c:forEach>
 
+
                       </div>
 
                       <div class="swiper-pagination mg-t-13"></div>
@@ -174,8 +176,7 @@
                 </div>
               </div>
             </section>
-
-
+       
 
 
             <!-- 눌렀을때 상세보기 모달 시작-->
@@ -564,12 +565,20 @@
         </div>
         <!-- /#page -->
         <!-- /#wrapper -->
+ <!--슬랙봇 추가-->
+ <div class="quickmenu">
 
+  <ul style="text-decoration: none">
+    <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;"><img src="/assets/images/icon/slack.png"></img></a>
+    
+  </ul>
+</div>
         <a id="scroll-top"></a>
 
 
 
         <script src="../assets/js/likeTag.js"></script>
+        <script src="../assets/js/slack.js"></script>
 
 
       </body>
