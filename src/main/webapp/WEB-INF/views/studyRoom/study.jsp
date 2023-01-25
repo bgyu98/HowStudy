@@ -12,7 +12,7 @@
         <!-- Basic Page Needs -->
         <meta charset="utf-8">
         <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-        <title>Axies | NFT Marketplace HTML Template</title>
+        <title>HOWSTUDY</title>
 
         <meta name="author" content="themesflat.com">
 
@@ -300,6 +300,7 @@
                 </div>
             </div>
           </form>
+          <!--선호태그 모달 끝-->
 
 
 
@@ -503,9 +504,24 @@
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                             </div>
-                            <button class="wishlist-button heart">
-                              <span class="number-like"> 100</span>
-                            </button>
+
+                             <!-- 방 번호 ( 히든으로 바꿀 것)-->
+                             <input type="hidden" value="${vo.sNum}" />
+
+                             <c:set var="cf" value="${vo.check}" />
+                             <c:if test="${cf eq 0}">
+                               <!-- 하트 갯수-->
+                               <button class="wishlist-button heart">
+                                 <span class="number-like">${vo.sFavorNum}</span>
+                               </button>
+                             </c:if>
+                             <c:if test="${cf eq 1}">
+                               <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2">
+                                 <span class="number-like"> ${vo.sFavorNum}</span> <!-- 즐겨찾기 개수 -->
+                               </button>
+                             </c:if>
+                             <!-- id 체크용 히든 값-->
+                             <input type="hidden" value='${sessionScope.loginId}' />
                           </div>
                           <div class="card-title">
                             <h5 class="style2">

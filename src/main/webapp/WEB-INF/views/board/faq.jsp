@@ -9,7 +9,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Axies | NFT Marketplace HTML Template</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com">
 
@@ -47,8 +47,7 @@
                 </div>
                 <div class="breadcrumbs style2">
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Notice</a></li>
+                    <li><a href="index.html">게시판</a></li>
                     <li>FAQ</li>
                   </ul>
                 </div>
