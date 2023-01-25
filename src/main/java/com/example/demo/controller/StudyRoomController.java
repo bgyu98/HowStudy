@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.example.demo.dao.UserDAO;
+import com.example.demo.log.logController;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
@@ -41,6 +42,7 @@ import com.google.gson.Gson;
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
 
+	static logController log = new logController();
 	@Autowired
 	private StudyRoomService studyroomService;
 	
@@ -61,9 +63,9 @@ public class StudyRoomController {
 
 	// 내가 만든 스터디룸 + 하트.....
 	@RequestMapping("/study")
-	public void myRoom(StudyRoomVO vo, HttpSession session, Model m) {
-
-		System.out.println("myStudyRoom 확인 >> ");
+	   public void myRoom(StudyRoomVO vo, HttpSession session, Model m) {
+	      log.logCustomer(String.valueOf((session.getAttribute("loginId"))+" "));
+	      System.out.println("ㅎㅎㅎㅎㅎ");
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인 아이디 : " + loginId);
 		vo.setmId(loginId);
