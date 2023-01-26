@@ -803,12 +803,12 @@
           d += "</div>";
           d += "<input type='hidden' value=" + value.sNum + " />";
           if (value.check == 0) {
-            d += "<button class='wishlist - button heart'>";
+            d += "<button class='wishlist-button heart'>";
             d += "<span class='number-like'>" + value.sFavorNum + "</span>";
             d += "</button>";
           } else if (value.check == 1) {
             d +=
-              "<button class='wishlist-button2 public heart mg-t-6 active'> id='wishlist-button2'";
+              "<button class='wishlist-button2 public heart mg-t-6 active' id='wishlist-button2'>";
             d += "<span class='number-like'>" + value.sFavorNum + "</span>";
             d += "</button>";
           }
