@@ -269,7 +269,8 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
       var check = 0;
-      if (who == "") {
+
+      if (who == "" || who == "undefined") {
         alert("로그인 후 이용가능한 서비스 입니다.");
         return false;
       }
