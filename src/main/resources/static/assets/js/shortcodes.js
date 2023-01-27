@@ -189,7 +189,7 @@
           $(this).removeClass("active").addClass("active");
           $("body").removeClass("home-boxed");
           $("body").css({ background: "#fff" });
-          return false;
+          return false;0
         });
     }
 
@@ -794,14 +794,24 @@
           d += "<div class='button-place-bid'>";
           if (value.sPw == "") {
             d +=
-              "<a id='sangsae' href='#' data-toggle='modal' data-target=.popup class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+              "<a id='sangsae' href='#' data-toggle='modal' data-target=."+ value.sTitle +" class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
           } else {
             d +=
-              "<a id='sangsae1' href='#' data-toggle='modal' data-target=.sPwConfirm class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+              "<a id='sangsae1' href='#' data-toggle='modal' data-target=."+ value.sTitle +"1 class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
           }
           d += "</div>";
-          d +=
-            "<button class='wishlist-button heart'><span class='number-like'>100</span></button>";
+          d += "<input type='hidden' value=" + value.sNum + " />";
+          if (value.check == 0) {
+            d += "<button class='wishlist - button heart'>";
+            d += "<span class='number-like'>" + value.sFavorNum + "</span>";
+            d += "</button>";
+          } else if (value.check == 1) {
+            d +=
+              "<button class='wishlist-button2 public heart mg-t-6 active'> id='wishlist-button2'";
+            d += "<span class='number-like'>" + value.sFavorNum + "</span>";
+            d += "</button>";
+          }
+          d += " <input type='hidden' value=" + value.loginId + " />";
           d += "</div>";
           d += "<div class='card-title'>";
           d += "<h5 class='style2'><a href='item-details.html'>" + value.sTitle + "</a></h5>";
@@ -927,6 +937,130 @@
       }
     });
   });
+  
+  // 왼쪽 날짜 선택 했을 경우, 오른쪽 날짜의 최솟값을 왼쪽 날짜로 지정
+function checkDate3(event) {
+alert("확인")
+  var regdate2 = document.getElementById("regdate2");
+  regdate2.value = null;
+  regdate2.setAttribute("min", regdate1.value);
+}
+// checkdate1 finish
+
+// checkDate2 start ( 오른쪽 날짜 지정)
+function checkDate4(event) {
+  function colorize() {
+    var r = Math.floor(Math.random() * 200);
+    var g = Math.floor(Math.random() * 200);
+    var b = Math.floor(Math.random() * 200);
+    var color = "rgba(" + r + ", " + g + ", " + b + ", 0.7)";
+    return color;
+  }
+  var day1 = regdate1.value;
+  var day2 = regdate2.value;
+  alert("입력 날짜  :" + day1 + day2)
+  if (day1 == "") {
+    // 날짜 선택 관련 유효성 검사
+    alert("왼쪽의 날짜부터 선택해주세요.");
+    regdate2.value = null;
+  }
+
+  var vo = { date1: day1, date2: day2 };
+  var labelList2 = new Array();
+  var valueList2 = new Array();
+  
+  var colorList2 = new Array();
+
+  $.ajax({
+    url: "saveDate",
+    type: "get",
+    data: vo,
+    cache: "false",
+    async: false,
+    contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+    dataType: "json",
+
+    success: function (json2) {
+      //alert("성공dsds");
+      //alert(json2);
+      $.each(json2, function (index, value) {
+        //alert(value.sDate);
+        labelList2.push(value.sCategory);
+        valueList2.push(parseInt(value.sCount));
+        colorList2.push(colorize());
+      });
+
+      var data2 = {
+        labels: labelList2,
+        datasets: [
+          {
+            label: "태그 별 스터디룸 통계",
+            backgroundColor: colorList2,
+            data: valueList2,
+          },
+        ],
+        options: {
+          title: {
+            display: true,
+            text: "태그 별 스터디룸 통계",
+          },
+        },
+      };
+      console.log(data2);
+      if (window.chartObj != undefined) {
+        window.chartObj.destroy();
+      }
+
+      var ctx2 = document.getElementById("canvas-daychart").getContext("2d");
+      chartObj = new Chart(ctx2, {
+        type: "pie",
+        data: data2,
+        options: {
+          legend: {
+            position: "top",
+          },
+          scales: {
+            xAxes: [
+              {
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          plugins: {
+            //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
+            datalabels: {
+              borderRadius: 4,
+              color: "#4e342e",
+              font: {
+                weight: "bold",
+              },
+              formatter: function (value, context) {
+                var idx = context.dataIndex;
+                return context.chart.data.labels[idx]; // 태그 라벨 붙이기 ( ex) 어학 , 독서 , ...)
+              },
+              padding: 1,
+              align: "end",
+            },
+          },
+        },
+      });
+    },
+    error: function (err) {
+      alert("error");
+      console.log(err);
+    },
+  }); //end of ajax
+}
+
 
   // Dom Ready
   $(function () {
@@ -967,5 +1101,6 @@
     viewShop();
     Preloader();
     items();
+
   });
 })(jQuery);
