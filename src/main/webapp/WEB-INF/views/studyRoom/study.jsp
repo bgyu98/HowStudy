@@ -22,6 +22,7 @@
         <!-- Theme Style -->
         <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/slack.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
@@ -160,6 +161,7 @@
                           <!--끝-->
                         </c:forEach>
 
+
                       </div>
 
                       <div class="swiper-pagination mg-t-13"></div>
@@ -271,7 +273,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
-                    <div class="modal-body pd-40 " id="likeTagMargin">
+                    <div class="modal-body pd-40" id="likeTagMargin">
                       <h3 style="margin-bottom: 30px;">나의 관심 주제</h3>
                       <input id="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
 
@@ -310,12 +312,6 @@
             <!--선호태그 모달 끝-->
 
 
-
-
-
-
-
-
             <!-- 랭킹목록 (슬라이더) -->
             <section class="tf-section category">
               <div class="themesflat-container">
@@ -345,9 +341,6 @@
                             <!-- item-->
                           </div>
                         </c:forEach>
-
-
-                        <!-- item-->
 
 
                       </div>
@@ -394,8 +387,6 @@
                   </div>
 
 
-
-
                   <c:forEach items="${studyall}" var="vo">
                     <div id="tagListForm"
                       class="fl-item fl-item1 fl-item2 fl-item3 fl-item4 fl-item5 col-xl-3 col-lg-4 col-md-6 col-sm-6">
@@ -408,14 +399,23 @@
                             <a href="item-details.html"><img src="../assets/images/studyRoom/${vo.sFile}.png" /></a>
                             <div class="button-place-bid">
                               <c:if test="${vo.sPw == ''}">
+<!-- 선아누나가 지우셨나? -->
                                 <a id="sangsae0" href="#" data-toggle="modal" data-target=.${vo.sTitle}
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
                               </c:if>
                               <c:if test="${vo.sPw != ''}">
                                 <a id="sangsae1" href="#" data-toggle="modal" data-target=.${vo.sTitle}1
                                   class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+<!-- 여까지 -->
+                                <a id="sangsaePwNull" href="#" data-toggle="modal" data-target=.${vo.sTitle}
+                                  class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기</span></a>
+                              </c:if>
+                              <c:if test="${vo.sPw != ''}">
+                                <a id="sangsaePw" href="#" data-toggle="modal" data-target=.${vo.sTitle}1
+                                  class="sc-button style-place-bid style bag fl-button pri-3"><span>상세보기2</span></a>
                               </c:if>
                             </div>
+
 
 
                             <!-- 스터디룸 패스워드 존재하지 않을때 -->
@@ -487,8 +487,6 @@
                               </div>
                             </div>
 
-
-
                             <!-- 방 번호 ( 히든으로 바꿀 것)-->
                             <input type="hidden" value="${vo.sNum}" />
 
@@ -519,8 +517,59 @@
                               <span class="pricing" id="createMid">${vo.mId}</span>
                             </div>
                           </div>
-
                         </form>
+                      </div>
+                    </div>
+                    <!-- 스터디룸 패스워드 존재하지 않을때 -->
+                    <div class="modal fade popup ${vo.sTitle}" id="popup_bid6" tabindex="-1" role="dialog"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          <div class="modal-body space-y-20 pd-40">
+                            <h3>${vo.sTitle}</h3>
+                            <p class="text-center">CREATE BY <span class="price color-popup">${vo.mId}</span>
+                            </p>
+                            <hr>
+                            <p>스터디 에티켓</p>
+                            <input type="text" class="form-control" placeholder="00.00 ETH" value="${vo.sComment}"
+                              style="height: 200px;" readonly>
+                            <hr>
+                            <div class="hr"></div>
+                            <div class="d-flex justify-content-between">
+                              <p>카테고리</p>
+                              <p class="text-right price color-popup">${vo.sCategory}</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <p>스터디 정원</p>
+                              <p class="text-right price color-popup">${vo.sPeopleNum} / 4</p>
+                            </div>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success"
+                              data-dismiss="modal" aria-label="Close">입장하기</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- 비밀번호 존재 시, 확인 모달-->
+                    <div class="modal fade popup sPwConfirm1" id="popup_bid7" tabindex="-1" role="dialog"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                          <div class="modal-body space-y-20 pd-40">
+                            <p id="pwpw" style="text-align: center; font-weight: bold;">비밀번호를 입력해주세요.</p>
+                            <input type="hidden" id="hiddenNum" name="sNum" value=sNum>
+                            <input type="hidden" id="insertPw" name="sPw" value=sPw>
+                            <input type="text" id="pwConfirm" name="s" value="">
+                            <div class="alertDanger pwConfirmcss">비밀번호가 일치하지 않습니다.</div>
+                            <a href="#" id="btnCustom" class="btn btn-primary">입장하기</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </c:forEach>
@@ -530,6 +579,7 @@
                   </div>
                 </div>
               </div>
+
             </section>
 
 
@@ -548,12 +598,20 @@
         </div>
         <!-- /#page -->
         <!-- /#wrapper -->
+ <!--슬랙봇 추가-->
+ <div class="quickmenu">
 
+  <ul style="text-decoration: none">
+    <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;"><img src="/assets/images/icon/slack.png"></img></a>
+    
+  </ul>
+</div>
         <a id="scroll-top"></a>
 
 
 
         <script src="../assets/js/likeTag.js"></script>
+        <script src="../assets/js/slack.js"></script>
 
 
       </body>
