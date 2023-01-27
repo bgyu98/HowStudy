@@ -335,7 +335,7 @@ public class HistoryController {
 			}
 			
 		} catch (Exception e) {
-			return "shop/ticket";
+			return "redirect:../shop/ticket";
 		}
 			
 		

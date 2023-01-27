@@ -464,10 +464,14 @@
             </div>
           </div>
         </div>
-        </div>
-
-
-      </main>
+      </div>
+      
+      
+    </main>
+    ${rNum}
+    <button id="che">확인</button>
+    <input id="firstNum" type="text" value="${rNum}"> <!-- 이전 신고 번호 -->
+    <input id="firstNum2" type="text" value="${rNum}"> <!-- 제일 최근 신고 번호 -->
       <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
           <i class="fa fa-cog py-2"> </i>
@@ -479,6 +483,8 @@
       <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
       <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
       <script src="../assets/js/plugins/chartjs.min.js"></script>
+      <script src="../assets/js/jquery.min.js"></script>
+      <script src="../assets/js/jquery.easing.js"></script>
       <script>
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
@@ -663,6 +669,8 @@
       <script async defer src="https://buttons.github.io/buttons.js"></script>
       <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
       <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+      <script src="../assets/js/alert.js"></script> <!--웹 소켓 알림 정환 추가-->
+
     </body>
 
     </html>
