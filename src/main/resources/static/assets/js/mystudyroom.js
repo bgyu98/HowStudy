@@ -11,7 +11,6 @@
     window.open(url, "width=100%", "height=100%");
   }); //되는거
 
-
   $(".content> h4 > a").on("click", function () {
     //alert("방 클릭");
     var seq = $(this).parents().find(".sNum").val();

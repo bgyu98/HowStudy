@@ -49,7 +49,8 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                     <script type="text/javascript" src="record.js"></script>
 
                     <!-- chart.js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+                    <script
+                        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
                 </head>
                 <style>
                     * {
@@ -81,6 +82,17 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                         color: #FAED7D;
                         cursor: pointer;
                     }
+
+                    input[type="date"]:before {
+                        content: attr(data-placeholder);
+                        width: 100%;
+                    }
+
+                    input[type='date']:focus::before,
+                    input[type='date']:valid::before {
+                        display: none;
+                    }
+                    
                 </style>
 
                 <body class="body header-fixed is_dark connect-wal">
@@ -193,7 +205,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                     </div>
 
                                                                     <!-- 타이머 -->
-
+<!-- 
                                                                     <div>
                                                                         <div id='box' class="box">
                                                                             <div id='timerBox' class="timerBox">
@@ -206,96 +218,93 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                             </div>
                                                                         </div>
                                                                         <input type="hidden" class="sNum" value="29">
-                                                                        <!-- 방번호 체크용-->
+                                                                       
                                                                         <div>
                                                                             <button class="checkbutton">체크버튼</button>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
 
                                                                 </div>
+                                                                <!-- 누적 공부시간 section -->
+                                                                <section class="col-md-12 col-lg-6" style="float: left; padding-top: 10%; ">
+                                                                    <!--//col-->
+                                                                    <div class="col-md-12 col-lg-6">
+                                                                        <div class="app-card app-card-chart h-100 shadow-sm">
+                                                                            <div class="app-card-header p-3">
+                                                                                <div class="row justify-content-between align-items-center">
+                                                                                    <div class="col-auto">
+                                                                                        <h4 class="app-card-title">
+                                                                                            누적 공부시간 ( 날짜를 체크해주세요 )</h4>
+                                                                                    </div>
+                                                                                    <!--//col-->
+                                                                                </div>
+                                                                                <!--//row-->
+                                                                            </div>
+                                                                            <!--//app-card-header-->
+                                                                            <div class="app-card-body p-3 p-lg-4">
+                                                                                <div class="mb-3 d-flex">
+
+                                                                                    <input
+                                                                                        type="date"
+                                                                                        class="regdate1"
+                                                                                        id="regdate1"
+                                                                                        name="regdate1"
+                                                                                        onchange="checkDate1(event)"
+                                                                                       >
+                                                                                    <span>~</span>
+                                                                                    <input
+                                                                                        type="date"
+                                                                                        class="regdate2"
+                                                                                        id="regdate2"
+                                                                                        name="regdate2"
+                                                                                        onchange="checkDate2(event)"
+                                                                                        >
+                                                                                </div>
+                                                                                <div class="chart-container">
+                                                                                    <canvas
+                                                                                        id="canvas-daychart"
+                                                                                        style="border-radius: 5px; height: 300px; width: 100%; "></canvas>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--//app-card-body-->
+                                                                        </div>
+                                                                        <!--//app-card-->
+                                                                    </div>
+                                                                    <!--//col-->
+                                                                </section>
+                                                                <!-- 누적 공부시간 section finish-->
+
+                                                                <!-- 태그별 공부시간 section -->
+                                                                <section class="col-md-12 col-lg-6" style="float: right; padding-top: 10%; ">
+                                                                    <!--//col-->
+                                                                    <div class="col-md-12 col-lg-6">
+                                                                        <div class="app-card app-card-chart h-100 shadow-sm">
+                                                                            <div class="app-card-header p-3">
+                                                                                <div class="col-auto">
+                                                                                    <h4 class="app-card-title">태그별 공부시간</h4>
+                                                                                </div>
+                                                                                <!--//row-->
+                                                                            </div>
+                                                                            <!--//app-card-header-->
+                                                                            <div class="app-card-body p-3 p-lg-4">
+
+                                                                                <div class="chart-container">
+                                                                                    <canvas
+                                                                                        id="canvas-tagchart"
+                                                                                        style="border-radius: 5px; height: 300px; width: 100%; "></canvas>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--//app-card-body-->
+                                                                        </div>
+                                                                        <!--//app-card-->
+                                                                    </div>
+                                                                    <!--//col-->
+                                                                </section>
+                                                                <!-- 태그별 공부시간 section finish-->
                                                             </div>
                                                         </section>
                                                         <!-- section finish-->
-                                                        <div>
-                                                            <!-- 누적 공부시간 section -->
-                                                            <section
-                                                                class="col-md-12 col-lg-6"
-                                                                style="float: left; padding-top: 10%; border : 1px solid #fff">
-                                                                <!--//col-->
-                                                                <div class="col-md-12 col-lg-6">
-                                                                    <div class="app-card app-card-chart h-100 shadow-sm">
-                                                                        <div class="app-card-header p-3">
-                                                                            <div class="row justify-content-between align-items-center">
-                                                                                <div class="col-auto">
-                                                                                    <h4 class="app-card-title">
-                                                                                        누적 공부시간 ( 날짜를 체크해주세요 )</h4>
-                                                                                </div>
-                                                                                <!--//col-->
-                                                                            </div>
-                                                                            <!--//row-->
-                                                                        </div>
-                                                                        <!--//app-card-header-->
-                                                                        <div class="app-card-body p-3 p-lg-4">
-                                                                            <div class="mb-3 d-flex">
 
-                                                                                <input
-                                                                                    type="date"
-                                                                                    class="regdate1"
-                                                                                    id="regdate1"
-                                                                                    name="regdate1"
-                                                                                    onchange="checkDate1(event)"
-                                                                                    style="margin-right: 20%;">
-                                                                                ~
-                                                                                <input
-                                                                                    type="date"
-                                                                                    class="regdate2"
-                                                                                    id="regdate2"
-                                                                                    name="regdate2"
-                                                                                    onchange="checkDate2(event)"
-                                                                                    style="margin-left: 20%;">
-                                                                            </div>
-                                                                            <div class="chart-container">
-                                                                                <canvas id="canvas-daychart" style="border-radius: 5px; height: 300px; width: 100%; "></canvas>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--//app-card-body-->
-                                                                    </div>
-                                                                    <!--//app-card-->
-                                                                </div>
-                                                                <!--//col-->
-                                                            </section>
-                                                            <!-- 누적 공부시간 section finish-->
-
-                                                            <!-- 태그별 공부시간 section -->
-                                                            <section
-                                                                class="col-md-12 col-lg-6"
-                                                                style="float: right; padding-top: 10%;  border : 1px solid #fff">
-                                                                <!--//col-->
-                                                                <div class="col-md-12 col-lg-6">
-                                                                    <div class="app-card app-card-chart h-100 shadow-sm">
-                                                                        <div class="app-card-header p-3">
-                                                                            <div class="col-auto">
-                                                                                <h4 class="app-card-title">태그별 공부시간</h4>
-                                                                            </div>
-                                                                            <!--//row-->
-                                                                        </div>
-                                                                        <!--//app-card-header-->
-                                                                        <div class="app-card-body p-3 p-lg-4">
-
-                                                                            <div class="chart-container">
-                                                                                <canvas id="canvas-tagchart"  style="border-radius: 5px; height: 300px; width: 100%; "
-                                                                                ></canvas>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--//app-card-body-->
-                                                                    </div>
-                                                                    <!--//app-card-->
-                                                                </div>
-                                                                <!--//col-->
-                                                            </section>
-                                                            <!-- 태그별 공부시간 section finish-->
-                                                            <hr/>
-                                                        </div>
                                                     </div>
 
                                                 </div>
@@ -400,26 +409,35 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
 
                         <a id="scroll-top"></a>
                         <script src="../assets/js/todo.js"></script>
-                        <script src = "../assets/js/record.js"></script>
-                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
-                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
-                        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+                        <script src="../assets/js/record.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+                        <script
+                            type="text/javascript"
+                            src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 
-
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+                        <script
+                            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+                        <script
+                            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
                         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
-
-
-
-
-                        
 
                     </body>
 
-                    
                 </html>

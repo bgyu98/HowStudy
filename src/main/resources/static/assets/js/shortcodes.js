@@ -214,7 +214,7 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val();
       // alert(seq);
-      alert(who);
+      //alert(who);
       var check = 0; // 하트 체크 여부
       // 버튼 on of 관련 문
       var iteration = $(this).data("iteration") || 1;
