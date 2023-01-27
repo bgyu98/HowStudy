@@ -54,4 +54,8 @@
 			</if>
 		</where>
 	</select>
+<!-- rNum갖고오기 (Ajax에 쓸거임) -->
+	<select id="checkrNum" parameterType="ReportVO" resultType="ReportVO">
+		select rNum from REPORT order by rNum desc limit 1
+	</select>
 </mapper>

@@ -1,0 +1,11 @@
+.pagenation{
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    margin-left: 1px;
+    line-height: 1.25;
+    color: #0275d8;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 19px;
+  }

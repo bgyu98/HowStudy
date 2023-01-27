@@ -53,4 +53,10 @@ public class ReportServiceImpl implements ReportService {
 	public List<ReportVO> getUserReport(String mId) {
 		return reportDAO.getUserReport(mId);
 	}
+
+	//rNum갖고오기
+	@Override
+	public ReportVO checkrNum(ReportVO vo) {
+		return reportDAO.checkrNum(vo);
+	}
 }

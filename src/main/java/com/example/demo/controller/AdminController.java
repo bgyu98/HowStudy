@@ -111,7 +111,6 @@ public class AdminController {
 		return "redirect:../pages/notice";
 	}
 
-	
 	@RequestMapping(value = { "/notice", "/dashboard" })
 	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount, ReportVO vo) {
 		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
@@ -119,6 +118,10 @@ public class AdminController {
 		System.out.println("총 개수 : " + nCount);
 		m.addAttribute("cnt", noticeService.selectCount(nCount));
 		m.addAttribute("reportList", reportService.getReportList(vo));
+		ReportVO test = reportService.checkrNum(vo);	//vo 값 갖고오기
+		Integer rNum = test.getrNum();				// vo에서 rNum값 갖고오기
+		System.out.println("rNum :: "+ rNum);		// 출력 ( 가장 최근의 신고번호 갖고와야 정답 )
+		m.addAttribute("rNum", rNum);
 		
 		PagingVO pageMaker = new PagingVO();
 		pageMaker.setCriNVO(noticevo);
@@ -251,6 +254,15 @@ public class AdminController {
 
 		return json2;
 	}
+	
+
+	// 신고번호 확인
+//	@RequestMapping("/checkrNum")
+//	public String checkrNum(ReportVO vo) {
+//		int test = reportService.checkrNum(vo);
+//		System.out.println("rNum :: "+test);
+//		return "dashboard";
+//	}
 	
 
 }
