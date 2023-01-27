@@ -34,4 +34,6 @@ public interface StudyRoomService {
 	
 	// 랭킹 별 스터디룸 출력
 	public List<StudyRoomVO> selectScnt(StudyRoomVO vo);
+	
+	public List<StudyRoomVO> saveDate(StudyRoomVO vo);
 }

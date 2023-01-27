@@ -18,6 +18,7 @@
       <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
       <!-- Font Awesome Icons -->
       <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
       <!-- <link href="../assets/css/nucleo-svg.css" rel="stylesheet" /> -->
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
@@ -323,17 +324,32 @@
             </div>
             <div class="col-lg-7">
               <div class="card z-index-2">
-                <div class="card-header pb-0">
-                  <h6>매출 그래프 넣을거임</h6>
-                  <p class="text-sm">
-                    <i class="fa fa-arrow-up text-success"></i>
-                    <span class="font-weight-bold">4% more</span> in 2021
-                  </p>
-                </div>
-                <div class="card-body p-3">
-                  <div class="chart">
-                    <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+                <div class="app-card app-card-chart h-100 shadow-sm">
+                  <div class="app-card-header p-3">
+                    <div class="row justify-content-between align-items-center">
+                      <div class="col-auto">
+                        <h4 class="app-card-title">
+                          일별 스터디룸 현황</h4>
+                      </div>
+                      <!--//col-->
+                    </div>
+                    <!--//row-->
                   </div>
+                  <!--//app-card-header-->
+                  <div class="app-card-body p-3 p-lg-4" style="height: 100%;">
+                    <div class="mb-3 d-flex">
+
+                      <input type="date" class="regdate1" id="regdate1" name="regdate1" onchange="checkDate3(event)"
+                        style="margin-right: 20%;">
+                      ~
+                      <input type="date" class="regdate2" id="regdate2" name="regdate2" onchange="checkDate4(event)"
+                        style="margin-left: 20%;">
+                    </div>
+                    <div class="chart-container">
+                      <canvas id="canvas-daychart" style="border-radius: 5px; height: 486px; width: 100%; "></canvas>
+                    </div>
+                  </div>
+                  <!--//app-card-body-->
                 </div>
               </div>
             </div>
@@ -483,179 +499,22 @@
       <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
       <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
       <script src="../assets/js/plugins/chartjs.min.js"></script>
-      <script src="../assets/js/jquery.min.js"></script>
-      <script src="../assets/js/jquery.easing.js"></script>
-      <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
+      <script src="../assets/js/shortcodes.js"></script>
+      <script type="text/javascript"
+        src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
 
-        new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [
-              {
-                label: "Sales",
-                tension: 0.4,
-                borderWidth: 0,
-                borderRadius: 4,
-                borderSkipped: false,
-                backgroundColor: "#fff",
-                data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-                maxBarThickness: 6,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
-            interaction: {
-              intersect: false,
-              mode: "index",
-            },
-            scales: {
-              y: {
-                grid: {
-                  drawBorder: false,
-                  display: false,
-                  drawOnChartArea: false,
-                  drawTicks: false,
-                },
-                ticks: {
-                  suggestedMin: 0,
-                  suggestedMax: 500,
-                  beginAtZero: true,
-                  padding: 15,
-                  font: {
-                    size: 14,
-                    family: "Open Sans",
-                    style: "normal",
-                    lineHeight: 2,
-                  },
-                  color: "#fff",
-                },
-              },
-              x: {
-                grid: {
-                  drawBorder: false,
-                  display: false,
-                  drawOnChartArea: false,
-                  drawTicks: false,
-                },
-                ticks: {
-                  display: false,
-                },
-              },
-            },
-          },
-        });
 
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
 
-        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke1.addColorStop(1, "rgba(203,12,159,0.2)");
-        gradientStroke1.addColorStop(0.2, "rgba(72,72,176,0.0)");
-        gradientStroke1.addColorStop(0, "rgba(203,12,159,0)"); //purple colors
-
-        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke2.addColorStop(1, "rgba(20,23,39,0.2)");
-        gradientStroke2.addColorStop(0.2, "rgba(72,72,176,0.0)");
-        gradientStroke2.addColorStop(0, "rgba(20,23,39,0)"); //purple colors
-
-        new Chart(ctx2, {
-          type: "line",
-          data: {
-            labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            datasets: [
-              {
-                label: "Mobile apps",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#cb0c9f",
-                borderWidth: 3,
-                backgroundColor: gradientStroke1,
-                fill: true,
-                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                maxBarThickness: 6,
-              },
-              {
-                label: "Websites",
-                tension: 0.4,
-                borderWidth: 0,
-                pointRadius: 0,
-                borderColor: "#3A416F",
-                borderWidth: 3,
-                backgroundColor: gradientStroke2,
-                fill: true,
-                data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                maxBarThickness: 6,
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
-            interaction: {
-              intersect: false,
-              mode: "index",
-            },
-            scales: {
-              y: {
-                grid: {
-                  drawBorder: false,
-                  display: true,
-                  drawOnChartArea: true,
-                  drawTicks: false,
-                  borderDash: [5, 5],
-                },
-                ticks: {
-                  display: true,
-                  padding: 10,
-                  color: "#b2b9bf",
-                  font: {
-                    size: 11,
-                    family: "Open Sans",
-                    style: "normal",
-                    lineHeight: 2,
-                  },
-                },
-              },
-              x: {
-                grid: {
-                  drawBorder: false,
-                  display: false,
-                  drawOnChartArea: false,
-                  drawTicks: false,
-                  borderDash: [5, 5],
-                },
-                ticks: {
-                  display: true,
-                  color: "#b2b9bf",
-                  padding: 20,
-                  font: {
-                    size: 11,
-                    family: "Open Sans",
-                    style: "normal",
-                    lineHeight: 2,
-                  },
-                },
-              },
-            },
-          },
-        });
-      </script>
       <script>
         var win = navigator.platform.indexOf("Win") > -1;
         if (win && document.querySelector("#sidenav-scrollbar")) {
@@ -665,6 +524,132 @@
           Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
         }
       </script>
+
+
+      <script>
+        // 왼쪽 날짜 선택 했을 경우, 오른쪽 날짜의 최솟값을 왼쪽 날짜로 지정
+        function checkDate3(event) {
+          alert("확인")
+          var regdate2 = document.getElementById("regdate2");
+          regdate2.value = null;
+          regdate2.setAttribute("min", regdate1.value);
+        }
+        // checkdate1 finish
+
+        // checkDate2 start ( 오른쪽 날짜 지정)
+        function checkDate4(event) {
+          function colorize() {
+            var r = Math.floor(Math.random() * 200);
+            var g = Math.floor(Math.random() * 200);
+            var b = Math.floor(Math.random() * 200);
+            var color = "rgba(" + r + ", " + g + ", " + b + ", 0.7)";
+            return color;
+          }
+          var day1 = regdate1.value;
+          var day2 = regdate2.value;
+          if (day1 == "") {
+            // 날짜 선택 관련 유효성 검사
+            alert("왼쪽의 날짜부터 선택해주세요.");
+            regdate2.value = null;
+          }
+
+          var vo = { date1: day1, date2: day2 };
+          var labelList2 = new Array();
+          var valueList2 = new Array();
+
+          var colorList2 = new Array();
+
+          $.ajax({
+            url: "saveDate",
+            type: "get",
+            data: vo,
+            cache: "false",
+            async: false,
+            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+            dataType: "json",
+
+            success: function (json2) {
+              //alert("성공dsds");
+              //alert(json2);
+              $.each(json2, function (index, value) {
+                labelList2.push(value.sCategory);
+                valueList2.push(parseInt(value.sCount));
+                colorList2.push(colorize());
+              });
+
+              var data2 = {
+                labels: labelList2,
+                datasets: [
+                  {
+                    label: "태그 별 스터디룸 통계",
+                    backgroundColor: colorList2,
+                    data: valueList2,
+                  },
+                ],
+                options: {
+                  title: {
+                    display: true,
+                    text: "태그 별 스터디룸 통계",
+                  },
+                },
+              };
+              console.log(data2);
+              if (window.chartObj != undefined) {
+                window.chartObj.destroy();
+              }
+
+              var ctx2 = document.getElementById("canvas-daychart").getContext("2d");
+              chartObj = new Chart(ctx2, {
+                type: "pie",
+                data: data2,
+                options: {
+                  legend: {
+                    position: "top",
+                  },
+                  scales: {
+                    xAxes: [
+                      {
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                    ],
+                    yAxes: [
+                      {
+                        ticks: {
+                          display: false,
+                        },
+                      },
+                    ],
+                  },
+                  plugins: {
+                    //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
+                    datalabels: {
+                      borderRadius: 4,
+                      color: "#4e342e",
+                      font: {
+                        weight: "bold",
+                      },
+                      formatter: function (value, context) {
+                        var idx = context.dataIndex;
+                        return context.chart.data.labels[idx]; // 태그 라벨 붙이기 ( ex) 어학 , 독서 , ...)
+                      },
+                      padding: 1,
+                      align: "end",
+                    },
+                  },
+                },
+              });
+            },
+            error: function (err) {
+              alert("error");
+              console.log(err);
+            },
+          }); //end of ajax
+        }
+
+      </script>
+
       <!-- Github buttons -->
       <script async defer src="https://buttons.github.io/buttons.js"></script>
       <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->

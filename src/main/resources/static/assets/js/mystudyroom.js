@@ -6,6 +6,7 @@
   $(".goRoom").on("click", function () {
     //alert("방 클릭");
     var title = $(this).parents(".modal-body").find("h3").text();
+     alert(title);
 
     var url = "http://192.168.0.86:4000/?sTitle="+ title;
     window.open(url, "width=100%", "height=100%");

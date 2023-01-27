@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.vo.RecordVO;
 import com.example.demo.vo.StudyRoomVO;
 
 @Mapper
@@ -38,5 +39,7 @@ public interface StudyRoomDAO {
 	
 	// 랭킹 별 스터디룸 출력
 	public List<StudyRoomVO> selectScnt(StudyRoomVO vo);
+	
+	public List<StudyRoomVO> saveDate(StudyRoomVO vo);
 
 }

@@ -21,7 +21,6 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
-
     
   </head>
 
@@ -49,7 +48,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
       <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="../pages/manageUserList">
+            <a class="nav-link" href="../pages/tables">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >
@@ -92,7 +91,7 @@ prefix='c' uri="http://java.sun.com/jsp/jstl/core" %>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/report">
+            <a class="nav-link" href="../pages/manageUserList">
               <div
                 class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center"
               >

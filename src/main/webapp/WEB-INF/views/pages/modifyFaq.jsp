@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -57,94 +58,47 @@
               <form action="updateFaq" id="insertNoticeFrm" method="post">
                 <div class="card-body" style="margin-left: 15px">
                   <div class="inputTitle">
-                    <input type="hidden" value="${notice.nNUM }" name="nNUM" />
-                    <input type="text" style="width: 70%" placeholder="메인 제목" name="nTITLE" />
+                    <input type="hidden" value="${faq.fNUM }" name="fNUM" />
+                    <input type="text" style="width: 70%" placeholder="메인 제목" name="fTITLE" />
                   </div>
                   <hr />
                   <div>
                     상세 설명
-                    <textarea id="summernote" name="nCOMMENT"></textarea>
+                    <textarea id="summernote" name="fCOMMENT"></textarea>
                   </div>
-                  <div id="registBtn">
-                    <button class="btn btn-primary btn-icon-split" id="insertNoticeBtn">
-                      <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
-                      <span class="text">등록</span>
-                    </button>
-                    <a href="notice.do" class="btn btn-secondary btn-icon-split">
-                      <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
-                      <span class="text">취소</span>
-                    </a>
-                  </div>
-                </div>
-<<<<<<< HEAD
-                <hr />
-                <div style="padding-left: 30px">
-                  <label>변경 전 이미지</label><br />
-                  <img src="../assets/images/logo/logo01.png" width="30%" />
-                  <label> 이미지 업로드 </label> <input type="file" name="file" />
-                </div>
-                <hr />
-                <div style="padding-left: 30px">
-                  <label>변경 전 이미지</label><br />
-                  <img src="../assets/images/logo/logo01.png" width="30%" />
-                  <label> 이미지 업로드 </label> <input type="file" name="file1" />
-                </div>
-                <hr />
-                <div>
-                  <div class="inputHashTag">
-                    <span> <input type="text" name="faq_tag1" value="${faq.faq_tag1}" /> </span>
-                    <span> <input type="text" name="faq_tag2" value="${faq.faq_tag2}" /> </span>
-                    <span> <input type="text" name="faq_tag3" value="${faq.faq_tag3}" /> </span>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div class="recommItems">
-              <table class="recommItemsTbl">
-                <tr>
-                  <td></td>
-                </tr>
-              </table>
-            </div>
 
-            <div id="registBtn">
-              <button id="updateBtn" class="btn btn-primary btn-icon-split">
-                <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
-                <span class="text">등록</span>
-              </button>
-              <a href="../admin/faq" class="btn btn-secondary btn-icon-split">
-                <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
-                <span class="text">취소</span>
-              </a>
+                </div>
+                <hr />
             </div>
+          </div>
+
+          <div class="recommItems">
+            <table class="recommItemsTbl">
+              <tr>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+
+          <div id="registBtn">
+
+            <button id="updateBtn" class="btn btn-primary btn-icon-split">
+              <span class="icon text-white-50"> <i class="fas fa-flag"></i> </span>
+              <span class="text">등록</span>
+            </button>
+
+            <a href="faq" class="btn btn-secondary btn-icon-split">
+              <span class="icon text-white-50"> <i class="fas fa-arrow-right"></i> </span>
+              <span class="text">취소</span>
+            </a>
           </div>
         </div>
       </div>
-      <!-- /.container-fluid -->
+      </form>
+    </div>
+    <!-- /.container-fluid -->
     </div>
     <!-- End of Main Content -->
-=======
-              </form>
-            </div>
-          </div>
-          <!-- /.container-fluid -->
-        </div>
-        <!-- End of Main Content -->
-
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright &copy; PetDo 2021</span>
-            </div>
-          </div>
-        </footer>
-        <!-- End of Footer -->
-      </div>
-      <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
->>>>>>> 2052d0f1fc220bb992bbc818e5a87e8d5c40135a
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -152,14 +106,8 @@
     </a>
 
     <!-- Logout Modal-->
-    <div
-      class="modal fade"
-      id="logoutModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -170,12 +118,7 @@
           </div>
           <div class="modal-body">로그아웃 하시겠습니까?</div>
           <div class="modal-footer" style="height: 75px">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              style="border-radius: 10px"
-              data-dismiss="modal"
-            >
+            <button class="btn btn-secondary" type="button" style="border-radius: 10px" data-dismiss="modal">
               취소
             </button>
             <a class="btn btn-primary" href="../logOut" style="border-radius: 10px">로그아웃</a>
@@ -211,4 +154,5 @@
       });
     </script>
   </body>
-</html>
+
+  </html>

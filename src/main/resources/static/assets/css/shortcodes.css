@@ -959,35 +959,65 @@
   margin: 0 5px;
 }
 
-/* card wishlist  ( 재동 수정 ) */
+/* card wishlist  ( 재동 수정 ) */ 
+.is_dark .sc-card-product .card-media .wishlist-button,
+.is_dark .sc-card-product .card-media .wishlist-button2{
+	position: absolute;
+	top: 13px;
+	right: 11px;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 24px;
+	color: #fff;
+	padding: 2px 11px;
+	border-radius: 8px;
+	background-color: #14141F;
+	cursor: pointer;
+	border: none;
+}
+
 .sc-card-product .card-media .wishlist-button,
-.sc-card-product .card-media .wishlist-button2 {
-  position: absolute;
-  top: 13px;
-  right: 11px;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 24px;
-  color: #fff;
-  padding: 2px 11px;
-  border-radius: 8px;
-  background-color: #14141f;
-  cursor: pointer;
-  border: none;
+.sc-card-product .card-media .wishlist-button2{
+	position: absolute;
+	top: 13px;
+	right: 11px;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 21px;
+	color: black;
+	padding: 2px 11px;
+	border-radius: 8px;
+	background-color: #fff;
+	cursor: pointer;
+	border: none;
+}
+
+.is_dark .wishlist-button.public,
+.is_dark .wishlist-button2.public  {
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 25px;
+	color: #fff;
+	padding: 1px 11px;
+	border-radius: 8px;
+	background-color: #14141F;
+	cursor: pointer;
+	flex-shrink: 0;
+	border: none;
 }
 
 .wishlist-button.public,
-.wishlist-button2.public {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 24px;
-  color: #fff;
-  padding: 1px 11px;
-  border-radius: 8px;
-  background-color: #14141f;
-  cursor: pointer;
-  flex-shrink: 0;
-  border: none;
+.wishlist-button2.public  {
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 24px;
+	color: black;
+	padding: 1px 11px;
+	border-radius: 8px;
+	background-color: #fff;
+	cursor: pointer;
+	flex-shrink: 0;
+	border: none;
 }
 
 .wishlist-button .number-like,
@@ -1002,10 +1032,16 @@
   display: inline-block;
 }
 /* 선호태그 눌렸을 때 버튼 색상*/
+.is_dark .wishlist-button.active.heart::before,
+.is_dark .wishlist-button2.active.heart::before {
+	color: #ee3434;
+	font-weight: 700;
+}
+
 .wishlist-button.active.heart::before,
 .wishlist-button2.active.heart::before {
-  color: #ee3434;
-  font-weight: 700;
+	color: #ee8134;
+	font-weight: 700;
 }
 
 .wishlist-button.heart::before,
@@ -2754,8 +2790,8 @@ section.today-picks {
   margin-bottom: 4px;
 }
 
-.sc-card-collection.style-2.home2 .card-bottom .author .infor span {
-  letter-spacing: -0.5px;
+.sc-card-collection.style-2.home2 .card-bottom .author .infor span{
+    letter-spacing: -0.5px;
 }
 
 .tf-box-icon.live-auctions.style1 {
@@ -5805,8 +5841,8 @@ section.today-picks {
   margin-bottom: 15px;
 }
 
-.tf-section.live-auctions.home5.style2 {
-  padding: 80px 0 75px;
+.tf-section.live-auctions.home5.style2{
+    padding: 80px 0 75px;
 }
 
 .tf-section.top-seller.home5 {
@@ -6670,15 +6706,28 @@ section.today-picks {
 
 .meta-info.style .wishlist-button.heart,
 .meta-info.style .wishlist-button2.heart {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 24px;
-  color: #fff;
-  padding: 2px 11px;
-  border-radius: 8px;
-  background-color: #14141f;
-  cursor: pointer;
-  border: none;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 24px;
+	color: #fff;
+	padding: 2px 11px;
+	border-radius: 8px;
+	background-color: #14141F;
+	cursor: pointer;
+	border: none;
+}
+
+.meta-info.style .wishlist-button.heart,
+.meta-info.style .wishlist-button2.heart {
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 24px;
+	color: black;
+	padding: 2px 11px;
+	border-radius: 8px;
+	background-color: #fff;
+	cursor: pointer;
+	border: none;
 }
 
 .sc-card-product.style-h7 {
@@ -8329,3 +8378,41 @@ div.tf-soft {
   font-size: 15px;
   font-weight: bold;
 }
+
+.sc-card-collection .tags {
+	width: 75px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    background-color: #ecb390;
+    border-radius: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.is_dark .sc-card-collection .tags {
+	background: #5142fc;
+}
+
+.sc-card-collection {
+	background: #a5c9cae0;
+}
+
+.is_dark .sc-card-collection {
+	background: #343444;
+
+}
+
+.tf-section.live-auctions.style4.home5 {
+	background: #f5f7f9;
+}
+
+.is_dark .tf-section.live-auctions.style4.home5 {
+	background: #14141f;
+}
+
+
+
