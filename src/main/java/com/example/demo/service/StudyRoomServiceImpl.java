@@ -64,4 +64,8 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 	public List<StudyRoomVO> selectScnt(StudyRoomVO vo) {
 		return studyroomDAO.selectScnt(vo);
 	}
+	
+	public List<StudyRoomVO> saveDate(StudyRoomVO vo) {
+		return studyroomDAO.saveDate(vo);
+	}
 }

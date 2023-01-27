@@ -17,8 +17,35 @@ public class StudyRoomVO {
 	private String mId;
 	private String sTitle;
 	private Integer sCnt;
+	private Integer sCount;
 	private Integer sPeopleNum;
+	private String date1;   // 첫 번째 날짜
+	private String date2 ;  // 두 번째 날짜
+	public String getDate1() {
+		return date1;
+	}
+
+	public void setDate1(String date1) {
+		this.date1 = date1;
+	}
+
+	public String getDate2() {
+		return date2;
+	}
+
+	public void setDate2(String date2) {
+		this.date2 = date2;
+	}
+
 	private String sPw;
+	public Integer getsCount() {
+		return sCount;
+	}
+
+	public void setsCount(Integer sCount) {
+		this.sCount = sCount;
+	}
+
 	private String sDate;
 	private String sCategory;
 	private String sComment;
@@ -198,11 +225,14 @@ public class StudyRoomVO {
 
 	@Override
 	public String toString() {
-		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sCnt=" + sCnt + ", sPeopleNum="
-				+ sPeopleNum + ", sPw=" + sPw + ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment="
-				+ sComment + ", sFile=" + sFile + ", sFavorNum=" + sFavorNum + ", check=" + check + ", check2=" + check2
-				+ ", file=" + file + ", loginId=" + loginId + ", items=" + items + ", keyword=" + keyword + "]";
+		return "StudyRoomVO [sNum=" + sNum + ", mId=" + mId + ", sTitle=" + sTitle + ", sCnt=" + sCnt + ", sCount="
+				+ sCount + ", sPeopleNum=" + sPeopleNum + ", date1=" + date1 + ", date2=" + date2 + ", sPw=" + sPw
+				+ ", sDate=" + sDate + ", sCategory=" + sCategory + ", sComment=" + sComment + ", sFile=" + sFile
+				+ ", sFavorNum=" + sFavorNum + ", check=" + check + ", check2=" + check2 + ", file=" + file + ", items="
+				+ items + ", keyword=" + keyword + "]";
 	}
+
+	
 
 	
 	

@@ -83,6 +83,11 @@
 		LIMIT 10
    </select> 
    
-
+   <select id="saveDate" parameterType="StudyRoomVO"
+		resultType="StudyRoomVO">
+      	SELECT COUNT(*) sCount, sCATEGORY, sDate
+		FROM STUDYROOM
+		group by sCATEGORY
+	</select>
 
 </mapper>

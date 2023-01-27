@@ -189,7 +189,7 @@
           $(this).removeClass("active").addClass("active");
           $("body").removeClass("home-boxed");
           $("body").css({ background: "#fff" });
-          return false;
+          return false;0
         });
     }
 
@@ -739,46 +739,45 @@
   $(document).on("change", "#selectStudyRoom", function (url) {
     var keyword = $(this).val();
 
-    $.ajax({
-      url: "study2",
-      data: { sCategory: keyword },
-      type: "post",
-      cache: "false",
-      async: false,
-      contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-      dataType: "json",
-      success: function (result) {
-        //console.log(result);
-        var d = "";
-        var c = "";
-        $("#sectionId").empty();
-        c += "<div class='themesflat-container'>";
-        c += "<div class='row'>";
-        c += "<div class='col-md-12' style='margin-top: 30px'>";
-        c += "<div class='heading-live-auctions mg-bt-21' style='margin-bottom: -20px'>";
-        c += "<h2 class='tf-title pad-l-7'>선호 스터디룸</h2>";
-        c += "</div>";
-        c += "</div>";
-        c += "<div class='col-md-12'>";
-        c +=
-          "<div class='tf-soft' style='display: inline-block; float: right; width: 12%; height: 60%;'>";
-        c += "<select id='selectStudyRoom' style='width: 100%; height: 100%;'>";
-        c +=
-          "<option class='selectOpt' hidden='' disabled='disabled' selected='selected' value='' style = 'color: rgb(0, 0, 0);' >태그선택</option > ";
-        c += "<option class='selectOpt' id='job' name='keyword'>취업</option>";
-        c += "<option class='selectOpt' id='book' name='keyword'>독서</option>";
-        c += "<option class='selectOpt' id='lan' name='keyword'>어학</option>";
-        c += "<option class='selectOpt' id='teac' name='keyword'>임용</option>";
-        c += "<option class='selectOpt' id='Offi' name='keyword'>공무원</option>";
-        c += "<option class='selectOpt' id='stu' name='keyword'>대학수능</option>";
-        c += "<option class='selectOpt' id='cer' name='keyword'>자격증</option>";
-        c += "<option class='selectOpt' id='scstu' name='keyword'>학교공부</option>";
-        c += "<option class='selectOpt' id='etc' name='keyword'>기타</option>";
-        c += "<option class='selectOpt' id='cord' name='keyword'>코딩</option>";
-        c += "<option class='selectOpt' id='Turn' name='keyword'>이직</option>";
-        c += "</select>";
-        c += "</div>";
-        c += "</div>";
+    		$.ajax({
+			url: 'study2',
+			data: { 'sCategory': keyword },
+			type: "post",
+			cache: "false",
+			async: false,
+			contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
+			dataType: 'json',
+			success: function(result) {
+				//console.log(result);
+				var d = "";
+				var c = "";
+				$('#sectionId').empty();
+				c += "<div class='themesflat-container'>";
+				c += "<div class='row'>";
+				c += "<div class='col-md-12' style='margin-top: 30px'>";
+				c += "<div class='heading-live-auctions mg-bt-21' style='margin-bottom: -20px'>";
+				c += "<h2 class='tf-title pad-l-7'>선호 스터디룸</h2>";
+				c += "</div>";
+				c += "</div>";
+				c += "<div class='col-md-12'>";
+				c += "<div class='tf-soft' style='display: inline-block; float: right; width: 12%; height: 60%;'>";
+				c += "<select id='selectStudyRoom' style='width: 100%; height: 100%;'>";
+				c += "<option class='selectOpt' hidden='' disabled='disabled' selected='selected' value='' style = 'color: rgb(0, 0, 0);' >태그선택</option > ";
+				c += "<option class='selectOpt' id='job' name='keyword'>취업</option>";
+				c += "<option class='selectOpt' id='book' name='keyword'>독서</option>";
+				c += "<option class='selectOpt' id='lan' name='keyword'>어학</option>";
+				c += "<option class='selectOpt' id='teac' name='keyword'>임용</option>";
+				c += "<option class='selectOpt' id='Offi' name='keyword'>공무원</option>";
+				c += "<option class='selectOpt' id='stu' name='keyword'>대학수능</option>";
+				c += "<option class='selectOpt' id='cer' name='keyword'>자격증</option>";
+				c += "<option class='selectOpt' id='scstu' name='keyword'>학교공부</option>";
+				c += "<option class='selectOpt' id='etc' name='keyword'>기타</option>";
+				c += "<option class='selectOpt' id='cord' name='keyword'>코딩</option>";
+				c += "<option class='selectOpt' id='Turn' name='keyword'>이직</option>";
+				c += "</select>";
+				c += "</div>";
+				c += "</div>";
+
 
         $.each(result, function (key, value) {
           d += "<div id='tagListForm' class='fl-item col-xl-3 col-lg-4 col-md-6 col-sm-6'>";
@@ -796,10 +795,10 @@
           d += "<div class='button-place-bid'>";
           if (value.sPw == "") {
             d +=
-              "<a id='sangsae' href='#' data-toggle='modal' data-target=.popup class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+              "<a id='sangsae' href='#' data-toggle='modal' data-target=."+ value.sTitle +" class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
           } else {
             d +=
-              "<a id='sangsae1' href='#' data-toggle='modal' data-target=.sPwConfirm class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
+              "<a id='sangsae1' href='#' data-toggle='modal' data-target=."+ value.sTitle +"1 class='sc-button style-place-bid style bag fl-button pri-3'><span>상세보기</span></a>";
           }
           d += "</div>";
           d += "<input type='hidden' value=" + value.sNum + " />";
@@ -939,6 +938,130 @@
       }
     });
   });
+  
+  // 왼쪽 날짜 선택 했을 경우, 오른쪽 날짜의 최솟값을 왼쪽 날짜로 지정
+function checkDate3(event) {
+alert("확인")
+  var regdate2 = document.getElementById("regdate2");
+  regdate2.value = null;
+  regdate2.setAttribute("min", regdate1.value);
+}
+// checkdate1 finish
+
+// checkDate2 start ( 오른쪽 날짜 지정)
+function checkDate4(event) {
+  function colorize() {
+    var r = Math.floor(Math.random() * 200);
+    var g = Math.floor(Math.random() * 200);
+    var b = Math.floor(Math.random() * 200);
+    var color = "rgba(" + r + ", " + g + ", " + b + ", 0.7)";
+    return color;
+  }
+  var day1 = regdate1.value;
+  var day2 = regdate2.value;
+  alert("입력 날짜  :" + day1 + day2)
+  if (day1 == "") {
+    // 날짜 선택 관련 유효성 검사
+    alert("왼쪽의 날짜부터 선택해주세요.");
+    regdate2.value = null;
+  }
+
+  var vo = { date1: day1, date2: day2 };
+  var labelList2 = new Array();
+  var valueList2 = new Array();
+  
+  var colorList2 = new Array();
+
+  $.ajax({
+    url: "saveDate",
+    type: "get",
+    data: vo,
+    cache: "false",
+    async: false,
+    contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+    dataType: "json",
+
+    success: function (json2) {
+      //alert("성공dsds");
+      //alert(json2);
+      $.each(json2, function (index, value) {
+        //alert(value.sDate);
+        labelList2.push(value.sCategory);
+        valueList2.push(parseInt(value.sCount));
+        colorList2.push(colorize());
+      });
+
+      var data2 = {
+        labels: labelList2,
+        datasets: [
+          {
+            label: "태그 별 스터디룸 통계",
+            backgroundColor: colorList2,
+            data: valueList2,
+          },
+        ],
+        options: {
+          title: {
+            display: true,
+            text: "태그 별 스터디룸 통계",
+          },
+        },
+      };
+      console.log(data2);
+      if (window.chartObj != undefined) {
+        window.chartObj.destroy();
+      }
+
+      var ctx2 = document.getElementById("canvas-daychart").getContext("2d");
+      chartObj = new Chart(ctx2, {
+        type: "pie",
+        data: data2,
+        options: {
+          legend: {
+            position: "top",
+          },
+          scales: {
+            xAxes: [
+              {
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                ticks: {
+                  display: false,
+                },
+              },
+            ],
+          },
+          plugins: {
+            //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
+            datalabels: {
+              borderRadius: 4,
+              color: "#4e342e",
+              font: {
+                weight: "bold",
+              },
+              formatter: function (value, context) {
+                var idx = context.dataIndex;
+                return context.chart.data.labels[idx]; // 태그 라벨 붙이기 ( ex) 어학 , 독서 , ...)
+              },
+              padding: 1,
+              align: "end",
+            },
+          },
+        },
+      });
+    },
+    error: function (err) {
+      alert("error");
+      console.log(err);
+    },
+  }); //end of ajax
+}
+
 
   // Dom Ready
   $(function () {
@@ -979,5 +1102,6 @@
     viewShop();
     Preloader();
     items();
+
   });
 })(jQuery);
