@@ -11,7 +11,7 @@ public interface StudyRoomService {
 	// 내가 만든 스터디룸
 	public List<StudyRoomVO> myroomlist(StudyRoomVO vo);
 
-	// 내가 만든 스터디룸에 찍히는 하트
+	// 방 번호 별 하트 개수
 	public Integer checkheart(Integer sNum);
 
 	// 아이디 별 즐겨찾기 여부 체크

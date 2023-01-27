@@ -50,13 +50,24 @@ public class StudyRoomVO {
 	private String sCategory;
 	private String sComment;
 	private String sFile;
-	private Integer sFavorNum;
-	private Integer check;
-	private Integer check2;
+	private Integer sFavorNum;	// 해당 방의 즐겨찾기 수
+	private Integer check;		// 즐겨 찾기 여부 개수
+	private Integer check2;		// 방의 개수
 	private MultipartFile file;
+	
+	// 로그인 아이디
+	private String loginId;
 	
 	// 스터디룸 검색 타이틀
 	private String items;
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
 
 	// 스터디룸 클릭 태그
 	private String keyword;

@@ -15,6 +15,7 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/slack.css">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png" />
@@ -116,8 +117,18 @@
         <jsp:include page="../include/footer.jsp"></jsp:include> 
       <!-- /#page -->
     <!-- /#wrapper -->
+     <!--슬랙봇 추가-->
+ <div class="quickmenu">
+
+  <ul style="text-decoration: none">
+    <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;"><img src="/assets/images/icon/slack.png"></img></a>
+    
+  </ul>
+</div>
     
     <a id="scroll-top"></a>
+
+    <script src="../assets/js/slack.js"></script>
     <script>
       $(function(){
         $('.map').on("click", function(){

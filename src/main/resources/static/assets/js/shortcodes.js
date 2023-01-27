@@ -269,7 +269,8 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val(); // jd222
       var check = 0;
-      if (who == "") {
+
+      if (who == "" || who == "undefined") {
         alert("로그인 후 이용가능한 서비스 입니다.");
         return false;
       }
@@ -802,12 +803,12 @@
           d += "</div>";
           d += "<input type='hidden' value=" + value.sNum + " />";
           if (value.check == 0) {
-            d += "<button class='wishlist - button heart'>";
+            d += "<button class='wishlist-button heart'>";
             d += "<span class='number-like'>" + value.sFavorNum + "</span>";
             d += "</button>";
           } else if (value.check == 1) {
             d +=
-              "<button class='wishlist-button2 public heart mg-t-6 active'> id='wishlist-button2'";
+              "<button class='wishlist-button2 public heart mg-t-6 active' id='wishlist-button2'>";
             d += "<span class='number-like'>" + value.sFavorNum + "</span>";
             d += "</button>";
           }
