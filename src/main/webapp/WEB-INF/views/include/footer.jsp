@@ -18,7 +18,7 @@
           <div class="col-lg-3 col-md-12 col-12">
             <div class="widget widget-logo">
               <div class="logo-footer" style="margin-top: -40px">
-                <img id="logo_footer" src="../assets/images/logo/logo02.png" alt="nft-gaming" width="220"
+                <img id="logo_footer" src="../assets/images/logo/logo01.png" alt="nft-gaming" width="220"
                   height="120"  />
                 <p class="sub-widget-logo">
                   (주)HowStudy<br />

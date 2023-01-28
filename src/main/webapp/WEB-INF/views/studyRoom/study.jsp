@@ -30,7 +30,7 @@
         <!-- Reponsive -->
         <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 
-        <!-- Favicon and Touch Icons  -->
+        <!-- Favicon and Touch Icons  -->   
         <link rel="shortcut icon" href="../assets/icon/Favicon.png">
         <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
@@ -72,7 +72,7 @@
               <!-- 방 안 만들었을때 이미지 뜨는거-->
               <c:if test="${myroomcnt eq 0}">
                 <div class="image"
-                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; ">
+                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; border-radius: 30px; ">
                   <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이
                     등록됩니다.<br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
                 </div>
@@ -395,7 +395,7 @@
                             <span id="countNum">스터디 정원 &nbsp;${vo.sPeopleNum}&nbsp;/&nbsp;4</span>
                           </div>
                           <div class="card-media">
-                            <a href="item-details.html"><img src="../assets/images/studyRoom/${vo.sFile}.png" /></a>
+                           <img src="../assets/images/studyRoom/${vo.sFile}.png" />
                             <div class="button-place-bid">
                               <c:if test="${vo.sPw == ''}">
                                 <a id="sangsaePwNull" href="#" data-toggle="modal" data-target=.${vo.sTitle}
