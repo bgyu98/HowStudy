@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
 import com.example.demo.dao.UserDAO;
+import com.example.demo.log.logController;
 import com.example.demo.log.logController;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
@@ -15,6 +17,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpSession;
+
 
 
 import java.util.List;
@@ -44,7 +47,7 @@ import com.google.gson.Gson;
 public class StudyRoomController {
 	static logController log = new logController();
 
-
+	
 	@Autowired
 	private StudyRoomService studyroomService;
 
@@ -66,13 +69,17 @@ public class StudyRoomController {
 	// 내가 만든 스터디룸 + 하트.....
 	@RequestMapping("/study")
 	public void myRoom(StudyRoomVO vo, HttpSession session, Model m) {
-		log.logCustomer(String.valueOf((session.getAttribute("loginId")) + " "));
-		System.out.println("ㅎㅎㅎㅎㅎ");
+
+		log.logCustomer(String.valueOf((session.getAttribute("loginId"))+" "));
+	    System.out.println("ㅎㅎㅎㅎㅎ");
+	     
+		System.out.println("myStudyRoom 확인 >> ");
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("로그인 아이디 : " + loginId);
-		vo.setmId(loginId);
+		vo.setLoginId(loginId);
 		// id별 방번호 출력 - 리스트로
 		List<StudyRoomVO> list = studyroomService.myroomlist(vo);
+		
 
 		Integer[] temp = new Integer[list.size()]; // 방 별로 좋아요 수 저장
 		Integer[] temp2 = new Integer[list.size()]; // 방 별로 기존에 좋아요 눌렀는지 체크
@@ -154,7 +161,7 @@ public class StudyRoomController {
 
 	public Integer checkRoomHeart(StudyRoomVO vo, HttpSession session) throws Exception {
 		String loginId = (String) session.getAttribute("loginId");
-		vo.setmId(loginId);
+		vo.setLoginId(loginId);
 		Integer crh = studyroomService.checkRoomHeart(vo);
 		return crh;
 	}
@@ -169,10 +176,65 @@ public class StudyRoomController {
 	// 태그별 스터디룸 나열 (데이터 받기)
 	@ResponseBody
 	@RequestMapping(value = "/study2", produces = "application/text;charset=utf-8")
-	public String searchStudy(String sCategory) {
-		String json = new Gson().toJson(studyroomService.searchStudy(sCategory));
-		System.out.println("json값은??????????? : " + json);
+	public String searchStudy(String sCategory, HttpSession session, StudyRoomVO vo) {
+		String loginId = (String) session.getAttribute("loginId"); // 로그인 아이디 값 받음
+		vo.setLoginId(loginId); // 즐겨찾기 여부 체크를 위한 세팅 ( 방 번호, 로그인 아이디 필요 )
+		
+		List<StudyRoomVO> sCategoryVo = studyroomService.searchStudy(sCategory); // 카테고리 별 vo
+		Iterator<StudyRoomVO> it = sCategoryVo.iterator(); // 카테고리 별 vo를 방 번호 순서 대로 하나씩 읽음
+		Gson gson = new Gson();
+	    JsonArray jArray = new JsonArray();
+		while(it.hasNext()) {
+			StudyRoomVO srvo = it.next();
+			JsonObject object = new JsonObject();
+		//	System.out.println("srvo : " + srvo);
+		//	System.out.println("방 번호  : " + srvo.getsNum());
+			Integer checkheart = studyroomService.checkheart(srvo.getsNum()); // 방 번호별로 좋아요 수 체크
+		
+			if(checkheart != null) {		// 만약 좋아요 수가 존재한다면, 그 숫자로 설정
+				checkheart = checkheart;			
+			}else {							// 좋아요 수가 없다면, 0 으로 설정
+				checkheart = 0;
+			}
+			
+			vo.setsNum(srvo.getsNum()); // 즐겨찾기 여부 체크를 위한 세팅 ( 방 번호 )
+			
+			Integer check = studyroomService.checkRoomHeart(vo);
+		//	System.out.println("vo : " + vo.getsNum() + " check : " + check);
+			if(check == null) { // 만약 해당 값이 없음 => 즐겨찾기를 하지 않았으므로 0 저장
+				check = 0;
+			}else {					// 해당 값이 있음 = 즐겨찾기를 했다는 것이므로 1 저장
+				check = 1; 
+			}
+			
+			//System.out.println("방 별 좋아요 수 : " + checkheart);
+			srvo.setsFavorNum(checkheart);
+			System.out.println("srvo : " + srvo);
+			object.addProperty("sNum", srvo.getsNum());
+			object.addProperty("mId", srvo.getmId());
+			object.addProperty("sTitle", srvo.getsTitle());
+			object.addProperty("sCnt", srvo.getsCnt());
+			object.addProperty("sPeopleNum", srvo.getsPeopleNum());
+			object.addProperty("sPw", srvo.getsPw());
+			object.addProperty("sDate", srvo.getsDate());
+			object.addProperty("sCategory", srvo.getsCategory());
+			object.addProperty("sComment", srvo.getsComment());
+			object.addProperty("sFile", srvo.getsFile());
+			object.addProperty("items", srvo.getItems());
+			object.addProperty("keyword", srvo.getKeyword());
+			object.addProperty("file", String.valueOf(srvo.getFile()));
+			/* 까지가 기본 srvo, 여기다가 방 별 좋아요 수, 아이디 비교하여 눌렀는지 여부 추가*/
+			object.addProperty("sFavorNum", checkheart);		// 방 별 좋아요 수
+			object.addProperty("check", check);
+			 jArray.add(object);
+		}
+	
+	
+
+	String json = gson.toJson(jArray);
+	System.out.println("json값은??????????? : " + json);
 		return json;
+		
 	}
 
 	// sNum 잘 받아오는지 test

@@ -61,10 +61,10 @@ public class MyStudyController {
          insertfavor(vo);
       }
       int ch = 0;
-      if(mystudyservice.checkheart(vo.getsNum()) == null) {
-       ch = 0;
-      }else if (mystudyservice.checkheart(vo.getsNum()) != null) {
-         ch = mystudyservice.checkheart(vo.getsNum());
+      if(mystudyservice.checkheart(vo.getsNum()) == null) {  // 해당 방을 즐겨찾기 한 사람이 아무도 없는 경우
+       ch = 0;						// 0 으로 표현
+      }else if (mystudyservice.checkheart(vo.getsNum()) != null) { 	// 해당 방을 즐겨찾기 한 사람이 있는 경우
+         ch = mystudyservice.checkheart(vo.getsNum()); // 해당 수 출력
       }
       
       

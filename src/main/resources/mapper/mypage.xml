@@ -21,7 +21,7 @@
 		select DISTINCT  s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM sPeoplenum,
 		s.sPW sPw, s.sDATE sDate, r.sDATE rDATE,
 		s.sCATEGORY sCategory, s.mID mId, s.sCOMMENT
-		sComment
+		sComment, s.sFile
 		from STUDYROOM s left join (select DISTINCT r.* from ROOMROG r where mid =#{mId} order by r.sDATE desc) as r  on s.sNUM =r.sNUM
 		<if test="checkDate == null "> WHERE  r.mid = #{mId}</if>
 		<if test="checkDate=='resentd'">WHERE  r.mID =#{mId} and r.sDate BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.RecordDAO;
 import com.example.demo.vo.RecordVO;
+import com.example.demo.vo.UserVO;
 
 @Service
 public class RecordServiceImpl implements RecordService{
@@ -50,6 +51,12 @@ public class RecordServiceImpl implements RecordService{
 	// 기간 별 공부 시간
 	public List<RecordVO> saveDateTime(RecordVO vo){
 		return recordDAO.saveDateTime(vo);
+	}
+	
+	
+	// 회원 등급 체크
+	public List<UserVO> checkGrade(UserVO vo){
+		return recordDAO.checkGrade(vo);
 	}
 	
 	

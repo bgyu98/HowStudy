@@ -5,12 +5,12 @@
   });
   $(".goRoom").on("click", function () {
     //alert("방 클릭");
-    var seq = $(this).find(".sNum").val();
-    // alert(seq);
-    var url = "http://192.168.0.86:4000" + "/" + seq;
+    var title = $(this).parents(".modal-body").find("h3").text();
+     alert(title);
+
+    var url = "http://192.168.0.86:4000/?sTitle="+ title;
     window.open(url, "width=100%", "height=100%");
   }); //되는거
-
 
   $(".content> h4 > a").on("click", function () {
     //alert("방 클릭");

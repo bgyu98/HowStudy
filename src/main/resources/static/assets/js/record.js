@@ -1,12 +1,12 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   // 시간을 딜레이 없이 나타내기위한 선 실행
+document.addEventListener("DOMContentLoaded", function () {
+  // 시간을 딜레이 없이 나타내기위한 선 실행
 
-//   realTimer();
+  realTimer();
 
-//   // 이후 0.5초에 한번씩 시간을 갱신한다.
+  // 이후 0.5초에 한번씩 시간을 갱신한다.
 
-//   setInterval(realTimer, 500);
-// });
+  setInterval(realTimer, 500);
+});
 
 // /* 타이머관련 수식 */
 // function realTimer() {

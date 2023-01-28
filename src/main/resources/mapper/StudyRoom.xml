@@ -17,13 +17,13 @@
 
 		SELECT *
 		FROM STUDYROOM
-		WHERE mId = #{mId}
+		WHERE mId = #{loginId}
 		order by sNum desc
 
 	</select>
 
 
-	<!--내가 만든 스터디룸에 찍히는 하트 -->
+	<!-- 방 번호 별 하트 개수 -->
 	<select id="checkheart" parameterType="Integer"
 		resultType="Integer">
 		select count(*) sFavorNum from FAVORITES f
@@ -36,7 +36,7 @@
 	<select id="checkRoomHeart" parameterType="StudyRoomVO"
 		resultType="Integer">
 		select sNum from FAVORITES
-		where mID =#{mId} and sNUM
+		where mID =#{loginId} and sNUM
 		=#{sNum}
 	</select>
 
@@ -83,6 +83,11 @@
 		LIMIT 10
    </select> 
    
-
+   <select id="saveDate" parameterType="StudyRoomVO"
+		resultType="StudyRoomVO">
+      	SELECT COUNT(*) sCount, sCATEGORY, sDate
+		FROM STUDYROOM
+		group by sCATEGORY
+	</select>
 
 </mapper>

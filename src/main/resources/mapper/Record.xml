@@ -3,6 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.dao.RecordDAO">
+
 	<!-- 타이머 클릭시 db 저장 -->
 	<insert id="saveTime" parameterType="RecordVO">
 
@@ -73,6 +74,14 @@
 		group by sDate
 	</select>
 
+
+	<!--  회원 등급 체크 -->
+	
+	<select id="checkGrade" parameterType="UserVO"
+		resultType="UserVO">
+		select mGRADE  from MEMBER 
+		where mID =#{mId}
+	</select>
 
 
 </mapper>

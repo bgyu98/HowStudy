@@ -10,22 +10,19 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!--<![endif]-->
-
 <!-- JSTL 사용-->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <title>Axies | NFT Marketplace HTML Template</title>
     <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
@@ -36,13 +33,8 @@
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/icon/Favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
-
 </head>
-
-
 <body class="body header-fixed is_dark connect-wal">
-
-
     <div id="wrapper">
         <div id="page" class="clearfix">
             <!-- header 넣음 -->
@@ -74,7 +66,7 @@
 
 
 
-            
+
             <!-- favorite section start-->
             <section class="tf-section live-auctions style4 home5 mobie-style">
                 <div class="themesflat-container">
@@ -83,12 +75,12 @@
                             <br><br><br>
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left" style="margin-top: 3%;">
+                                    즐겨 찾기 한 스터디룸 목록</h2>
                                     즐겨 찾기한 스터디룸 목록</h2>
                             </div>
                         </div>
-                    
-                        <!-- 즐겨찾기한 목록 방 생성 -->
 
+                        <!-- 즐겨찾기한 목록 방 생성 -->
                         <div class="col-md-12">
                             <div class="swiper-container show-shadow carousel9 pad-t-17 auctions">
                                 <div class="swiper-wrapper">
@@ -131,13 +123,11 @@
                             </div>  
                         </div>
                     </div>
-
                      <!-- 즐겨찾기한 목록 방 끝 -->
                 </div>
             </section>
             <!-- favorite section finish-->
             
-
             <!-- visited section start-->
             <section class="tf-section live-auctions home5 style2 bg-style3">
                 <div class="themesflat-container">
@@ -156,8 +146,6 @@
                             </div>
                         </div>
         
-
-
                         
                         <!-- 날짜 선택 끝-->
                         <div class="col-md-12" id="favor">
@@ -172,7 +160,6 @@
                                                    
                                                     <img src="../assets/images/box-item/image-box-29.jpg" alt="Image">
                                                     <input type="hidden"  class= "sNum" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
-
                                                     
                                                     <c:set var="cf" value="${rR.checkFavor}" />
                                                     <c:if test = "${cf eq 0}">
@@ -194,7 +181,6 @@
                                                     <h3><a href="item-details.html">${rR.sTitle}</a></h3> <!-- 제목 -->
                                                     <div class="tags">${rR.sCategory}</div>
                                                 </div>
-
                                                 <div class="meta-info style2">
                                                     <div class="author">
                                                         <div class="avatar">
@@ -206,20 +192,15 @@
                                                             <h4 ><a>${rR.mId} <!-- 로그인한 아이디 -->
                                                             </a> </h4>
                                                         </div>
-
                                                     </div>
-
                                                     <div class="fdate">
                                                         <span>Date</span>
                                                         <h5> ${rR.sDate}</h5>       <!-- 날짜-->
                                                     </div>
-
                                                 </div>
-
                                             </div>    	
                                         </div><!-- item-->
                                     </div>
-
                                 </c:forEach>
                                 </div>
                                 <div class="swiper-pagination mg-t-13"></div>
@@ -231,13 +212,10 @@
                 </div>
             </section>
              <!-- visited section finish-->
-
            
-
             
         </div>
         <!-- /#page -->
-
         <!-- Modal Popup Bid -->
         <div class="modal fade popup" id="popup_bid_success" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -301,8 +279,8 @@
               <div class="modal-body pd-40" id="likeTagMargin">
                   <h3 style="margin-bottom: 30px;">나의 관심 주제</h3>
                   <input id="mId" type="hidden" name="mId" value="${sessionScope.loginId}">
-  
-                  
+
+
                   <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="취업"><span><img src="../assets/images/likeTag/취업.png">취업</span></label>
                   <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="독서"><span><img src="../assets/images/likeTag/독서.png">독서</span></label>
                   <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="어학" ><span><img src="../assets/images/likeTag/어학.png">어학</span></label>
@@ -315,7 +293,7 @@
                   <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="코딩"><span><img src="../assets/images/likeTag/코딩.png">코딩</span></label>
                   <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="이직"><span><img src="../assets/images/likeTag/이직.png">이직</span></label>
                   <label class="box-check-input"><input type="checkbox" class="likeTag" name="mTag" value="자기계발"><span><img src="../assets/images/likeTag/자기계발.png">자기계발</span></label>
-                  
+
                   <button id="likeTag" style="margin-left: 136px; margin-top: 15px;">선택 완료</button>
               </div>
           </div>

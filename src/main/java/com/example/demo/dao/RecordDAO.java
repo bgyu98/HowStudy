@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.vo.RecordVO;
+import com.example.demo.vo.UserVO;
 
 @Mapper
 public interface RecordDAO {
@@ -28,5 +29,8 @@ public interface RecordDAO {
 	
 	// 기간 별 공부 시간
 	public List<RecordVO> saveDateTime(RecordVO vo);
+	
+	// 회원 등급 체크
+	public List<UserVO> checkGrade(UserVO vo);
 	
 }

@@ -29,4 +29,7 @@ public interface ReportDAO {
 	
 	//관리자 신고 접수
 	public void updateReport(ReportVO vo);
+	
+	//rNum갖공오기
+	public ReportVO checkrNum(ReportVO vo);
 }
