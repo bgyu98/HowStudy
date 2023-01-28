@@ -33,4 +33,7 @@ public interface RecordDAO {
 	// 회원 등급 체크
 	public List<UserVO> checkGrade(UserVO vo);
 	
+	// 랭킹 목록 출력
+	public List<RecordVO> ranking(RecordVO vo);
+	
 }

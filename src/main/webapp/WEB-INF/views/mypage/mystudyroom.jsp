@@ -76,7 +76,7 @@
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left" style="margin-top: 3%;">
                                     즐겨 찾기 한 스터디룸 목록</h2>
-                                    즐겨 찾기한 스터디룸 목록</h2>
+                                
                             </div>
                         </div>
 
@@ -89,7 +89,7 @@
                                         <div class="swiper-slide">
                                             <div class="slider-item">	<!-- item start -->									
                                                 <div class="sc-card-collection style-2 home2">
-                                                    <div class="card-header sunho" style="border-radius: 15px;">
+                                                    <div class="card-header sunho" style="border-radius: 15px; width:25%">
                                                         <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
                                                     </div>
                                                     <div class="card-bottom">
@@ -158,7 +158,7 @@
                                                 
                                                 <div class="card-media style2">
                                                    
-                                                    <img src="../assets/images/box-item/image-box-29.jpg" alt="Image">
+                                                    <img src="../assets/images/studyRoom/${rR.sFile}.png" alt="Image">
                                                     <input type="hidden"  class= "sNum" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
                                                     
                                                     <c:set var="cf" value="${rR.checkFavor}" />
@@ -184,7 +184,7 @@
                                                 <div class="meta-info style2">
                                                     <div class="author">
                                                         <div class="avatar">
-                                                            <img src="../assets/images/avatar/avt-28.jpg" alt="Image">
+                                                            <img src="../assets/images/logo/logo01.png" alt="Image">
                                                         </div>
                                                         
                                                         <div class="info">

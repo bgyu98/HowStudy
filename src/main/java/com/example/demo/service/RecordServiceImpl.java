@@ -59,6 +59,11 @@ public class RecordServiceImpl implements RecordService{
 		return recordDAO.checkGrade(vo);
 	}
 	
+	// 랭킹 목록 출력
+	public List<RecordVO> ranking(RecordVO vo){
+		return recordDAO.ranking(vo);
+	}
+	
 	
 
 }

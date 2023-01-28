@@ -7,6 +7,7 @@ import java.util.List;
 import com.example.demo.dao.UserDAO;
 import com.example.demo.log.logController;
 import com.example.demo.log.logController;
+import com.example.demo.service.RecordService;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
@@ -38,6 +39,7 @@ import com.example.demo.service.StudyRoomService;
 import com.example.demo.service.StudyRoomServiceImpl;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.RecordVO;
 import com.example.demo.vo.StudyRoomVO;
 import com.google.gson.Gson;
 
@@ -52,6 +54,9 @@ public class StudyRoomController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RecordService recordService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -253,12 +258,14 @@ public class StudyRoomController {
 
 	}
 
-//	// 선호테그 수정
+	// 선호테그 수정
 	@RequestMapping("/updatelikeTag")
 	public String updatelikeTag(UserVO vo) {
 		System.out.println("updatelikeTag : " + vo);
 		userService.updatelikeTag(vo);
 		return "redirect:study";
 	}
+	
+	
 
 }
