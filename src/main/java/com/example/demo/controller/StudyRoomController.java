@@ -15,7 +15,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpSession;
-import log.logController;
+
 
 import java.util.List;
 import java.util.Map;
@@ -44,7 +44,7 @@ import com.google.gson.Gson;
 public class StudyRoomController {
 	static logController log = new logController();
 
-	static logController log = new logController();
+
 	@Autowired
 	private StudyRoomService studyroomService;
 
