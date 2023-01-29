@@ -38,6 +38,16 @@ mybatis:
   mapper-locations: classpath:mapper/**/*.xml
   type-aliases-package: com.example.demo.vo
 
-
+server: 
+  tomcat: 
+    accesslog:
+      enabled: true
+      directory: logs
+      suffix: .log
+      prefix: access_log
+      file-date-format: .yyyy-MM-dd
+      pattern: '[%{yyyy-MM-dd HH:mm:ss}t] %s "%r" %{User-Agent}i %{Referer}i %a %b'
+    basedir: .
+    
 
 server.port: 8888

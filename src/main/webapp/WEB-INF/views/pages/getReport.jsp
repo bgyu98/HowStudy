@@ -385,8 +385,8 @@
                             </td>
                           </tr>
                             <td colspan="3" style="text-align: center">
-                              <input type="text" name="rNum" value="${getReport.rNum}">
-                              <!-- <input
+                              <input type="hidden" name="rNum" value="${getReport.rNum}">
+                              <input
                                 type="submit"
                                 value="경고"
                                 style="
@@ -398,9 +398,9 @@
                                   border-style: none;
                                   border-radius: 3px;
                                 "
-                              /> -->
+                              />
                               
-                              <button type="submit">눌러</button>
+                              
                             </td>
                           </tr>
                         </tbody>
