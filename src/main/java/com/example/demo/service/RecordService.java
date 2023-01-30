@@ -34,4 +34,7 @@ public interface RecordService {
 	// 회원 등급 체크
 	List<UserVO> checkGrade(UserVO vo);
 	
+	// 랭킹 목록 출력
+	List<RecordVO> ranking(RecordVO vo);
+	
 }

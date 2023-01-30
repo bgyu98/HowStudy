@@ -438,6 +438,15 @@ public class HistoryController {
 
 		return json2;
 	}
+	
+	@RequestMapping("/ranking")
+	public void ranking(RecordVO vo, Model m) {
+		System.out.println("ranking 페이지 이동");
+		List<RecordVO> ranking = recordService.ranking(vo);
+		System.out.println("ranking 목록 출력 : " + ranking);
+		m.addAttribute("ranking", ranking);
+		
+	}
 
 
 

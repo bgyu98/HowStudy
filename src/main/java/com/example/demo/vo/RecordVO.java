@@ -18,6 +18,9 @@ public class RecordVO {
 	private String date1;   // 첫 번째 날짜
 	private String date2 ;  // 두 번째 날짜
 	
+
+	private Integer rank;  // 랭킹
+	
 	
 	
 	public String getDate1() {
@@ -92,11 +95,18 @@ public class RecordVO {
 	public void setsDate(String sDate) {
 		this.sDate = sDate;
 	}
+	public Integer getRank() {
+		return rank;
+	}
+	public void setRank(Integer rank) {
+		this.rank = rank;
+	}
 	@Override
 	public String toString() {
 		return "RecordVO [saveNum=" + saveNum + ", sTime=" + sTime + ", mId=" + mId + ", sNum=" + sNum + ", sCATEGORY="
 				+ sCATEGORY + ", sDate=" + sDate + ", k=" + k + ", todayStudyTime=" + todayStudyTime + ", todayAvgTime="
-				+ todayAvgTime + ", totalStudyTime=" + totalStudyTime + ", date1=" + date1 + ", date2=" + date2 + "]";
+				+ todayAvgTime + ", totalStudyTime=" + totalStudyTime + ", date1=" + date1 + ", date2=" + date2
+				+ ", rank=" + rank + "]";
 	}
 
 	

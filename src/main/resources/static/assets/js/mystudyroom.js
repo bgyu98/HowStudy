@@ -6,9 +6,9 @@
   $(".goRoom").on("click", function () {
     //alert("방 클릭");
     var title = $(this).parents(".modal-body").find("h3").text();
-     alert(title);
+    alert(title);
 
-    var url = "http://192.168.0.86:4000/?sTitle="+ title;
+    var url = "http://192.168.0.86:4000/?sTitle=" + title;
     window.open(url, "width=100%", "height=100%");
   }); //되는거
 
@@ -118,7 +118,7 @@ function checkD(e) {
       c += "</div>";
       c += "</div>";
       $(" #favor").append(c); // 날짜 선택 하단부분의 방부분에 해당 값들 출력
-      swiper_fn2();
+      swiper_fn2(); // ajax 이용시 swiper 구문 사용할 경우 제대로 먹히지 않는 오류 방지
       goRoom();
     },
     error: function () {
