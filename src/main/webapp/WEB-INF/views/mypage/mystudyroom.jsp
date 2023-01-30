@@ -31,8 +31,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 </head>
 <body class="body header-fixed is_dark connect-wal">
     <div id="wrapper">
