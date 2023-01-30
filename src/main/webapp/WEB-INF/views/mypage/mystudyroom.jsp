@@ -75,8 +75,8 @@
                             <br><br><br>
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left" style="margin-top: 3%;">
-                                    즐겨 찾기 한 스터디룸 목록</h2>
                                 
+                                    즐겨 찾기한 스터디룸 목록</h2>
                             </div>
                         </div>
 

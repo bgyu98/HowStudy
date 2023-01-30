@@ -18,7 +18,7 @@ public class ReportController {
    @RequestMapping("insertReport")
    public String insertReport(ReportVO vo) {
 	   rService.insertReportVO(vo);
-	   return "studyRoom/study";
+	   return "redirect:../studyRoom/study";
    }
    
    
