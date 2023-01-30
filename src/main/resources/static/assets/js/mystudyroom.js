@@ -92,7 +92,7 @@ function checkD(e) {
 
         d += "<div class='card-title'>";
         d += "<h3><a href='item-details.html'>" + value.sTitle + "</a></h3>"; // 제목
-        d += "<div class='tags'>" + value.sCategory + "</div>"; // 선호태그
+        d += "<div class='tags' style='width: 25%;'>" + value.sCategory + "</div>"; // 선호태그
         d += "</div>";
 
         d += "<div class='meta-info style2'>";

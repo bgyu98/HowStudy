@@ -179,7 +179,7 @@
                                                 
                                                 <div class="card-title">
                                                     <h3><a href="item-details.html">${rR.sTitle}</a></h3> <!-- 제목 -->
-                                                    <div class="tags">${rR.sCategory}</div>
+                                                    <div class="tags" style="width: 25%;">${rR.sCategory}</div>
                                                 </div>
                                                 <div class="meta-info style2">
                                                     <div class="author">
