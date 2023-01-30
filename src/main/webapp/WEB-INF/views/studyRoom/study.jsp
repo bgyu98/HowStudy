@@ -397,7 +397,7 @@
                             <span id="countNum">스터디 정원 &nbsp;${vo.sPeopleNum}&nbsp;/&nbsp;4</span>
                           </div>
                           <div class="card-media">
-                            <a href="item-details.html"><img src="../assets/images/studyRoom/${vo.sFile}.png" /></a>
+                            <a><img src="../assets/images/studyRoom/${vo.sFile}.png" /></a>
                             <div class="button-place-bid">
                               <c:if test="${vo.sPw == ''}">
                                 <a id="sangsaePwNull" href="#" data-toggle="modal" data-target=.${vo.sTitle}

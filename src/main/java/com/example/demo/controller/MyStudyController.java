@@ -266,6 +266,7 @@ public class MyStudyController {
          object.addProperty("sDate",    str);
          object.addProperty("sCategory", String.valueOf(msVO.get("sCategory")));
          object.addProperty("mId",       String.valueOf(msVO.get("mId")));
+         object.addProperty("sFile", String.valueOf(msVO.get("sFile")));
          object.addProperty("sFavorNum",temp[i] );
          object.addProperty("checkFavor", temp2[i]);
    
