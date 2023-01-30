@@ -887,6 +887,49 @@
     });
   };
 
+
+var loadmore = function () {
+    $(".fl-item").slice(0, 8).show();
+    $(".fl-blog.fl-item2").slice(0, 6).show();
+    $(".fl-collection.fl-item3").slice(0, 3).show();
+    $(".fl-item.fl-item4").slice(0, 15).show();
+    $(".fl-item.fl-item5").slice(0, 7).show();
+
+    $("#loadmore").on("click", function (e) {
+      e.preventDefault();
+
+      $(".fl-item:hidden").slice(0, 4).slideDown();
+      $(".fl-item2:hidden").slice(0, 3).slideDown();
+      $(".fl-item3:hidden").slice(0, 3).slideDown();
+      $(".fl-item4:hidden").slice(0, 5).slideDown();
+      $(".fl-item5:hidden").slice(0, 13).slideDown();
+      if ($(".fl-item:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item2:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item3:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item4:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+      if ($(".fl-item5:hidden").length == 0) {
+        $("#loadmore").hide();
+      }
+    });
+  };
+
+
+
+
+
+
+
+
+
+
   $("#deletecus").click(function (evt) {
     evt.stopPropagation();
     evt.preventDefault();
