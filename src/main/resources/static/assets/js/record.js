@@ -1,12 +1,12 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   // 시간을 딜레이 없이 나타내기위한 선 실행
+document.addEventListener("DOMContentLoaded", function () {
+  // 시간을 딜레이 없이 나타내기위한 선 실행
 
-//   realTimer();
+  realTimer();
 
-//   // 이후 0.5초에 한번씩 시간을 갱신한다.
+  // 이후 0.5초에 한번씩 시간을 갱신한다.
 
-//   setInterval(realTimer, 500);
-// });
+  setInterval(realTimer, 500);
+});
 
 // /* 타이머관련 수식 */
 // function realTimer() {
@@ -348,27 +348,26 @@ function checkDate2(event) {
       if (window.chartObj != undefined) {
         window.chartObj.destroy();
       }
-
+      // 날짜 선택시 보여지는 차트
       var ctx2 = document.getElementById("canvas-daychart").getContext("2d");
       chartObj = new Chart(ctx2, {
-        type: "bar",
+        type: "bar", // 차트 형태 선택
         data: data2,
         options: {
-          legend: {
-            position: "top",
-          },
           scales: {
             xAxes: [
+              // x축 관련 옵션
               {
                 ticks: {
-                  display: false,
+                  display: false, // x축 범례 안보이게 없앰
                 },
               },
             ],
             yAxes: [
+              // y축 관련 옵션
               {
                 ticks: {
-                  display: false,
+                  display: false, // y축 범례 안보이게 설정
                 },
               },
             ],
@@ -376,8 +375,7 @@ function checkDate2(event) {
           plugins: {
             //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
             datalabels: {
-              borderRadius: 4,
-              color: "#4e342e",
+              color: "#4e342e", // 글씨 색깔
               font: {
                 weight: "bold",
               },

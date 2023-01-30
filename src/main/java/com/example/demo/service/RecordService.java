@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.vo.RecordVO;
+import com.example.demo.vo.UserVO;
 
 public interface RecordService {
 	
@@ -29,5 +30,11 @@ public interface RecordService {
 	
 	// 기간 별 공부 시간
 	List<RecordVO> saveDateTime(RecordVO vo);
+	
+	// 회원 등급 체크
+	List<UserVO> checkGrade(UserVO vo);
+	
+	// 랭킹 목록 출력
+	List<RecordVO> ranking(RecordVO vo);
 	
 }
