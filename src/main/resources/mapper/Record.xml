@@ -4,107 +4,107 @@
 
 <mapper namespace="com.example.demo.dao.RecordDAO">
 
-	<!-- 타이머 클릭시 db 저장 -->
-	<insert id="saveTime" parameterType="RecordVO">
+   <!-- 타이머 클릭시 db 저장 -->
+   <insert id="saveTime" parameterType="RecordVO">
 
-		INSERT into SaveTime
-		(saveNum, sTime , mID, sNUM, sCATEGORY, sDate )(
-		select
-		nextval(sTimeNum),date_format(CONCAT(CURDATE(),'
-		',#{sTime}),'%H:%i:%s'
-		),#{mId}, s.sNUM, s.sCATEGORY,SYSDATE()
-		from
-		STUDYROOM s where s.sNum = #{sNum})
+      INSERT into SaveTime
+      (saveNum, sTime , mID, sNUM, sCATEGORY, sDate )(
+      select
+      nextval(sTimeNum),date_format(CONCAT(CURDATE(),'
+      ',#{sTime}),'%H:%i:%s'
+      ),#{mId}, s.sNUM, s.sCATEGORY,SYSDATE()
+      from
+      STUDYROOM s where s.sNum = #{sNum})
 
-	</insert>
+   </insert>
 
-	<!-- 오늘 누적 공부 시간 -->
-	<select id="todayStudyTime" parameterType="RecordVO"
-		resultType="RecordVO">
-		select SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime from
-		SaveTime st
-		where mid = #{mId} and sDate = CURDATE()
+   <!-- 오늘 누적 공부 시간 -->
+   <select id="todayStudyTime" parameterType="RecordVO"
+      resultType="RecordVO">
+      select SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime from
+      SaveTime st
+      where mid = #{mId} and sDate = CURDATE()
 
-	</select>
+   </select>
 
-	<!-- 일 별 평균 계산위한 월 별 리스트 수 체크 -->
-	<select id="checkDate" parameterType="RecordVO"
-		resultType="RecordVO">
-		select SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime, sDate
-		from SaveTime st
-		where st.mID = #{mId} and (sDate BETWEEN
-		LAST_DAY(NOW() - interval 1
-		month) and LAST_DAY(NOW()) )
-		group by sDate
+   <!-- 일 별 평균 계산위한 월 별 리스트 수 체크 -->
+   <select id="checkDate" parameterType="RecordVO"
+      resultType="RecordVO">
+      select SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime, sDate
+      from SaveTime st
+      where st.mID = #{mId} and (sDate BETWEEN
+      LAST_DAY(NOW() - interval 1
+      month) and LAST_DAY(NOW()) )
+      group by sDate
 
-	</select>
-
-
-	<!-- 일 별 평균 시간 -->
-	<select id="todayAvgTime" parameterType="RecordVO"
-		resultType="RecordVO">
-
-		select CEILING(SEC_TO_TIME(sum(TIME_TO_SEC(sTime)/#{k})))
-		sTime from
-		SaveTime st
-		where st.mID = #{mId} and (sDate BETWEEN
-		LAST_DAY(NOW() - interval 1 month)
-		and LAST_DAY(NOW()) )
-
-	</select>
-
-	<!-- 월 별 누적 시간 -->
-	<select id="totalStudyTime" parameterType="RecordVO"
-		resultType="RecordVO">
-
-		select CEILING(SEC_TO_TIME(sum(TIME_TO_SEC(sTime)))) sTime
-		from SaveTime st
-		where st.mID = #{mId} and (sDate BETWEEN
-		LAST_DAY(NOW() - interval 1
-		month) and LAST_DAY(NOW()) )
-
-	</select>
-
-	<!-- 태그 별 누적 시간 -->
-	<select id="saveTagTime" parameterType="RecordVO"
-		resultType="RecordVO">
-
-		select sum(TIME_TO_SEC( sTime)) sTime, sCATEGORY sCATEGORY
-		from SaveTime st
-		where st.mID = #{mId}
-		group by sCATEGORY;
-
-	</select>
-
-	<!-- 기간 별 공부 시간 -->
-
-	<select id="saveDateTime" parameterType="RecordVO"
-		resultType="RecordVO">
-		select sum(TIME_TO_SEC( sTime)) sTime, sDate from SaveTime
-		st
-		where st.mID = #{mId} and (sDate BETWEEN #{date1} and #{date2} )
-		group by sDate
-	</select>
+   </select>
 
 
-	<!-- 회원 등급 체크 -->
+   <!-- 일 별 평균 시간 -->
+   <select id="todayAvgTime" parameterType="RecordVO"
+      resultType="RecordVO">
 
-	<select id="checkGrade" parameterType="UserVO"
-		resultType="UserVO">
-		select mGRADE from MEMBER
-		where mID =#{mId}
-	</select>
+      select CEILING(SEC_TO_TIME(sum(TIME_TO_SEC(sTime)/#{k})))
+      sTime from
+      SaveTime st
+      where st.mID = #{mId} and (sDate BETWEEN
+      LAST_DAY(NOW() - interval 1 month)
+      and LAST_DAY(NOW()) )
+
+   </select>
+
+   <!-- 월 별 누적 시간 -->
+   <select id="totalStudyTime" parameterType="RecordVO"
+      resultType="RecordVO">
+
+      select CEILING(SEC_TO_TIME(sum(TIME_TO_SEC(sTime)))) sTime
+      from SaveTime st
+      where st.mID = #{mId} and (sDate BETWEEN
+      LAST_DAY(NOW() - interval 1
+      month) and LAST_DAY(NOW()) )
+
+   </select>
+
+   <!-- 태그 별 누적 시간 -->
+   <select id="saveTagTime" parameterType="RecordVO"
+      resultType="RecordVO">
+
+      select sum(TIME_TO_SEC( sTime)) sTime, sCATEGORY sCATEGORY
+      from SaveTime st
+      where st.mID = #{mId}
+      group by sCATEGORY;
+
+   </select>
+
+   <!-- 기간 별 공부 시간 -->
+
+   <select id="saveDateTime" parameterType="RecordVO"
+      resultType="RecordVO">
+      select sum(TIME_TO_SEC( sTime)) sTime, sDate from SaveTime
+      st
+      where st.mID = #{mId} and (sDate BETWEEN #{date1} and #{date2} )
+      group by sDate
+   </select>
 
 
-	<!-- 랭킹 목록 출력 -->
-	<select id="ranking" parameterType="RecordVO"
-		resultType="RecordVO">
-		select RANK() over (ORDER BY sTime desc) as rank, 
-		SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime,  mID from SaveTime st
-		where sDate BETWEEN LAST_DAY(NOW() - interval 1 month) and LAST_DAY(NOW())
-		group by mID
-		order by sTime DESC limit 10
-	</select>
+   <!-- 회원 등급 체크 -->
+
+   <select id="checkGrade" parameterType="UserVO"
+      resultType="UserVO">
+      select mGRADE from MEMBER
+      where mID =#{mId}
+   </select>
+
+
+   <!-- 랭킹 목록 출력 -->
+   <select id="ranking" parameterType="RecordVO"
+      resultType="RecordVO">
+      select RANK() over (ORDER BY sTime desc) as rank, 
+      SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime,  mID from SaveTime st
+      where sDate BETWEEN LAST_DAY(NOW() - interval 1 month) and LAST_DAY(NOW())
+      group by mID
+      order by sTime DESC limit 10
+   </select>
 
 
 
