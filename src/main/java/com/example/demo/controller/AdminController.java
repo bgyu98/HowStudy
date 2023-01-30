@@ -115,7 +115,7 @@ public class AdminController {
 	public void selectNoticeList(NoticeVO noticevo, Model m, Integer nCount, ReportVO vo) {
 		m.addAttribute("noticeContent", noticeService.selectAllNotice(noticevo));
 		m.addAttribute("noticeFive", noticeService.selectFiveNotice(noticevo));
-		System.out.println("총 개수 : " + nCount);
+//		System.out.println("총 개수 : " + nCount);
 		m.addAttribute("cnt", noticeService.selectCount(nCount));
 		m.addAttribute("reportList", reportService.getReportList(vo));
 		ReportVO test = reportService.checkrNum(vo);	//vo 값 갖고오기
@@ -126,8 +126,32 @@ public class AdminController {
 		PagingVO pageMaker = new PagingVO();
 		pageMaker.setCriNVO(noticevo);
 		pageMaker.setTotalCountNVO(noticeService.listCount(noticevo));
-		System.out.println("listCount확인:" + noticeService.listCount(noticevo));
+//		System.out.println("listCount확인:" + noticeService.listCount(noticevo));
 		m.addAttribute("pageMaker", pageMaker);
+	}
+	
+	// 웹푸시때매 만듦 Ajax 에 쓰이는 매핑
+	@RequestMapping(value = { "/rNum" })
+	@ResponseBody
+	public String selectNoticeList2() {
+		ReportVO vo = new ReportVO();
+		ReportVO test = reportService.checkrNum(vo);	//vo 값 갖고오기
+		Integer rNum = test.getrNum();				// vo에서 rNum값 갖고오기
+		System.out.println("rNum :: "+ rNum);
+		
+		// 값 구하고
+		
+		return  rNum.toString();
+	}
+	
+	// notice 인경우 일반적인 매칭 ->  xxxx() 호출
+	
+	// dashboard인경우 비동기통신 @ResponseBody + 문자열 리턴
+	// 1033값만 리턴
+	
+	
+	public void xxx () {
+		
 	}
 
 	// Notice 수정
