@@ -96,7 +96,7 @@ public class MyStudyController {
 		for(int i =0; i<cr.size(); i++ ) {
 			 System.out.println("cr : " + cr.get(i));
 			 System.out.println("방 번호별 좋아요 수 : " + mystudyservice.checkheart(cr.get(i)));
-			 if(mystudyservice.checkheart(cr.get(i)) != 0){
+			 if(mystudyservice.checkheart(cr.get(i)) != null){
 				 temp[i] = mystudyservice.checkheart(cr.get(i)); 
 			 }
 			 else {
