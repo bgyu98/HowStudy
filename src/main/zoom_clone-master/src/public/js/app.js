@@ -1,4 +1,5 @@
-// WebPack을 사용하지 않고 단순히 JavaScript를 User에게 전송할 것 
+const urlParams = new URL(location.href).searchParams;
+const studyRoomName = urlParams.get('sTitle');
 
 const socket = io();
 
@@ -11,11 +12,16 @@ const cameraBtn = document.querySelector("#camera");
 const cameraIcon = cameraBtn.querySelector(".cameraIcon");
 const unCameraIcon = cameraBtn.querySelector(".unCameraIcon");
 const camerasSelect = document.querySelector("#cameras");
+const enterStudyRoomName = document.querySelector("#roomName");
 
 const call = document.querySelector("#call");
 const welcome = document.querySelector("#welcome");
 
 const HIDDEN_CN = "hidden";
+
+console.log("name1:"+studyRoomName);
+console.log("test:" + enterStudyRoomName.value);
+enterStudyRoomName.value = studyRoomName;
 
 let myStream;
 let muted = true;

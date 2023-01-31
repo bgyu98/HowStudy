@@ -6,11 +6,14 @@
 	<!-- 즐겨찾기한 방 출력 -->
 	<select id="favorRoom" resultType="hashmap"
 		parameterType="MyStudyVO">
-		select DISTINCT s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM sPeoplenum,
+		select DISTINCT s.sNUM sNum, s.sTITLE sTitle,
+		s.sPEOPLENUM sPeoplenum,
 		s.sPW sPw, s.sDATE sDate,
-		s.sCATEGORY sCategory, s.mID mId, s.sCOMMENT
+		s.sCATEGORY
+		sCategory, s.mID mId, s.sCOMMENT
 		sComment
-		from STUDYROOM s left join FAVORITES f on s.sNum = f.sNum
+		from STUDYROOM s left join
+		FAVORITES f on s.sNum = f.sNum
 		where f.mId =#{mId}
 	</select>
 
@@ -18,19 +21,26 @@
 	<!-- 날짜 기준 데이터 체크 -->
 	<select id="checkdate" resultType="hashmap"
 		parameterType="MyStudyVO">
-		select DISTINCT  s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM sPeoplenum,
-		s.sPW sPw, s.sDATE sDate, r.sDATE rDATE,
-		s.sCATEGORY sCategory, s.mID mId, s.sCOMMENT
-		sComment
-		from STUDYROOM s left join (select DISTINCT r.* from ROOMROG r where mid =#{mId} order by r.sDATE desc) as r  on s.sNUM =r.sNUM
-		<if test="checkDate == null "> WHERE  r.mid = #{mId}</if>
-		<if test="checkDate=='resentd'">WHERE  r.mID =#{mId} and r.sDate BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND
+		select DISTINCT s.sNUM sNum, s.sTITLE sTitle, s.sPEOPLENUM sPeoplenum,
+		s.sPW sPw, s.sDATE sDate, max(r.sDATE) rDATE,
+		s.sCATEGORY sCategory, s.mID
+		mId, s.sCOMMENT
+		sComment, s.sFile
+		from STUDYROOM s left join (select
+		DISTINCT r.* from ROOMROG r where mid =#{mId} order by r.sDATE desc)
+		as r on s.sNUM =r.sNUM
+		<if test="checkDate == null "> WHERE r.mid = #{mId}</if>
+		<if test="checkDate=='resentd'">WHERE r.mID =#{mId} and r.sDate BETWEEN
+			DATE_ADD(NOW(),INTERVAL -1 DAY ) AND
 			NOW()</if>
-		<if test="checkDate=='resentw'">WHERE  r.mID =#{mId} and r.sDate BETWEEN DATE_ADD(NOW(),INTERVAL -7 DAY ) AND
+		<if test="checkDate=='resentw'">WHERE r.mID =#{mId} and r.sDate BETWEEN
+			DATE_ADD(NOW(),INTERVAL -7 DAY ) AND
 			NOW()</if>
-		<if test="checkDate=='resentm'">WHERE  r.mID =#{mId} and r.sDate BETWEEN DATE_ADD(NOW(),INTERVAL -30 DAY ) AND
+		<if test="checkDate=='resentm'">WHERE r.mID =#{mId} and r.sDate BETWEEN
+			DATE_ADD(NOW(),INTERVAL -30 DAY ) AND
 			NOW()</if>
-		<if test="checkDate == 'alld'"> WHERE  r.mid = #{mId}</if>	
+		<if test="checkDate == 'alld'"> WHERE r.mid = #{mId}</if>
+		GROUP by sNUM 
 		ORDER by rDate desc
 	</select>
 
@@ -63,23 +73,26 @@
 		resultType="Integer">
 		select sNum from FAVORITES f
 		where mid = #{mId}
-		order by sNum asc
+		order by sNum
+		asc
 	</select>
-	
+
 	<!-- 아이디 별 방문한 방 번호, 날짜들 호출 -->
 	<select id="rogRoom" parameterType="MyStudyVO"
 		resultType="MyStudyVO">
-		select sNum, sDate from ROOMROG r
-		where r.mid = #{mId}
-		order by sDate DESC;
-	</select>	
-	
+		select s.sNUM, s.mId, s.sDate from
+		(select r.sNUM sNUM, r.mid mId, r.sDATE sDate from ROOMROG r
+		where mID =#{mId}  )s
+		order by sDate desc
+	</select>
+
 	<!-- 방 번호별 즐겨찾기 여부 확인 -->
 	<select id="checkRoomHeart" parameterType="MyStudyVO"
 		resultType="Integer">
 		select sNum from FAVORITES
-		where mID =#{mId} and sNUM =#{sNum}
-	</select>	
+		where mID =#{mId} and sNUM
+		=#{sNum}
+	</select>
 
 
 </mapper>

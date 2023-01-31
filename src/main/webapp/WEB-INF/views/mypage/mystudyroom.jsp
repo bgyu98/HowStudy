@@ -31,8 +31,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 </head>
 <body class="body header-fixed is_dark connect-wal">
     <div id="wrapper">
@@ -88,7 +88,7 @@
                                         <div class="swiper-slide">
                                             <div class="slider-item">   <!-- item start -->                           
                                                 <div class="sc-card-collection style-2 home2">
-                                                    <div class="card-header sunho" style="border-radius: 15px;">
+                                                    <div class="card-header sunho" style="border-radius: 15px; width:25%">
                                                         <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
                                                     </div>
                                                     <div class="card-bottom">
@@ -157,7 +157,7 @@
                                                 
                                                 <div class="card-media style2">
                                                    
-                                                    <img src="../assets/images/box-item/image-box-29.jpg" alt="Image">
+                                                    <img src="../assets/images/studyRoom/${rR.sFile}.png" alt="Image">
                                                     <input type="hidden"  class= "sNum" value = "${rR.sNum}"/>     <!-- 즐겨찾기 체크 용 글번호--> 
                                                     
                                                     <c:set var="cf" value="${rR.checkFavor}" />
@@ -178,12 +178,12 @@
                                                 
                                                 <div class="card-title">
                                                     <h3><a href="item-details.html">${rR.sTitle}</a></h3> <!-- 제목 -->
-                                                    <div class="tags">${rR.sCategory}</div>
+                                                    <div class="tags" style="width: 25%;">${rR.sCategory}</div>
                                                 </div>
                                                 <div class="meta-info style2">
                                                     <div class="author">
                                                         <div class="avatar">
-                                                            <img src="../assets/images/avatar/avt-28.jpg" alt="Image">
+                                                            <img src="../assets/images/logo/logo01.png" alt="Image">
                                                         </div>
                                                         
                                                         <div class="info">
