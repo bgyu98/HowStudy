@@ -205,7 +205,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                     </div>
 
                                                                     <!-- 타이머 -->
- 
+                                                                    
                                                                     <div>
                                                                         <div id='box' class="box">
                                                                             <div id='timerBox' class="timerBox">
@@ -223,7 +223,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                             <button class="checkbutton">체크버튼</button>
                                                                         </div>
                                                                     </div> 
-
+                                                                    
                                                                 </div>
                                                                 <!-- 누적 공부시간 section -->
                                                                 <section class="col-md-12 col-lg-6" style="float: left; padding-top: 10%; ">
