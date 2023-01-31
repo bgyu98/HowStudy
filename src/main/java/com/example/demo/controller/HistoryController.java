@@ -445,6 +445,7 @@ if(todayStudyTime.get(0) == null) { // 오늘 공부한 시간이 없는 경우
    }
    
 // 회원 등급
+<<<<<<< HEAD
    public String checkgrade(UserVO vo , HttpSession session) {
       /* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ]     */
       String loginId = (String) session.getAttribute("loginId");
@@ -459,6 +460,22 @@ if(todayStudyTime.get(0) == null) { // 오늘 공부한 시간이 없는 경우
          return mGrade;
       }
    }
+=======
+	public String checkgrade(UserVO vo , HttpSession session) {
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ] 	 */
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("checkgrade 실행");
+		vo.setmId(loginId);
+		List<UserVO> checkgrade = recordService.checkGrade(vo);
+		try {
+			String mGrade = checkgrade.get(0).getmGrade();
+			return mGrade;
+		} catch (Exception e) {
+			String mGrade = "비회원";
+			return mGrade;
+		}
+	}
+>>>>>>> f3a677e9442d360d1881fb99a366202cf8b3b70b
 
 
 

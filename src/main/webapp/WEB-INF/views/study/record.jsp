@@ -157,11 +157,12 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                         aria-hidden="true"></i>
                     <i id="stopbtn" class="fa fa-stop checkbutton"
                         aria-hidden="true"></i>
+                        <input type="hidden" class="sNum" value="1050">
+                    <!-- 방번호 체크용-->
                 </span>
         </div>
     
-    <input type="hidden" class="sNum" value="1050">
-    <!-- 방번호 체크용-->
+    
     
         <!-- <button class="checkbutton">체크버튼</button>/ -->
     </div>
