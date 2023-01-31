@@ -22,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
 </head>
 
@@ -115,7 +115,7 @@
                                         </div>
                                         
                                         <div class="column td2">
-                                            <span style="color: black;">${rk.mId}</span>
+                                            <span style="color: white;">${rk.mId}</span>
                                         </div>
                                   
                                         <div class="column td4">

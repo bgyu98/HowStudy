@@ -31,8 +31,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/likeTag.css" />
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 </head>
 <body class="body header-fixed is_dark connect-wal">
     <div id="wrapper">
@@ -75,8 +75,7 @@
                             <br><br><br>
                             <div class="heading-live-auctions">
                                 <h2 class="tf-title pb-23 text-left" style="margin-top: 3%;">
-                                
-                                    즐겨 찾기한 스터디룸 목록</h2>
+                                    즐겨찾기한 스터디룸 목록</h2>
                             </div>
                         </div>
 
@@ -87,7 +86,7 @@
                                     <c:forEach items="${favorRoom}" var = "fr">
                                         
                                         <div class="swiper-slide">
-                                            <div class="slider-item">	<!-- item start -->									
+                                            <div class="slider-item">   <!-- item start -->                           
                                                 <div class="sc-card-collection style-2 home2">
                                                     <div class="card-header sunho" style="border-radius: 15px; width:25%">
                                                         <h5>${fr.sCategory}</h5> <!-- 선호 태그 -->
@@ -112,7 +111,7 @@
                                                         <button class="wishlist-button2 public heart mg-t-6 active" id="wishlist-button2"><span class="number-like">${fr.sFavorNum}</span></button> <!-- 즐겨찾기 개수 -->
                                                         <input type="hidden" value = '${sessionScope.loginId}'/>
                                                     </div>
-                                                </div> 		
+                                                </div>       
                                             </div><!-- item-->
                                         </div>
                                     </c:forEach>
@@ -153,7 +152,7 @@
                                 <div class="swiper-wrapper" >
                                     <c:forEach items="${resentRoom}" var = "rR" >
                                     <div class="swiper-slide">
-                                        <div class="slider-item">										
+                                        <div class="slider-item">                              
                                             <div class="sc-card-product menu_card style2">
                                                 
                                                 <div class="card-media style2">
@@ -198,7 +197,7 @@
                                                         <h5> ${rR.sDate}</h5>       <!-- 날짜-->
                                                     </div>
                                                 </div>
-                                            </div>    	
+                                            </div>       
                                         </div><!-- item-->
                                     </div>
                                 </c:forEach>

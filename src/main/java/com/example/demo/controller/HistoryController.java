@@ -240,20 +240,21 @@ public class HistoryController {
 
             }
 
-            if (!flag) { // false 가 아닌경우 ( gTopic 이 같지 않을경우 )
-               HistoryVO resultVO= result.get(i);
-               int hSeq = resultVO.gethSeq();
-               resultVO.sethSeqs(Integer.toString(hSeq));
+				if (!flag) { // false 가 아닌경우 ( gTopic 이 같지 않을경우 )
+					HistoryVO resultVO= result.get(i);
+					int hSeq = resultVO.gethSeq();
+					resultVO.sethSeqs(Integer.toString(hSeq));
+					if (resultVO.getgTitle() == null) {
+						resultVO.setgTitle("");
+					}
+					finalResult.add(resultVO); // finalResult 에 붙이기
 
-               finalResult.add(resultVO); // finalResult 에 붙이기
 
+				}
 
-            }
-            System.out.println("확인2 :  " + finalResult);
+			}
+		}
 
-         }
-      }
-      System.out.println(finalResult);
 
       for (HistoryVO temp : finalResult) {   
          if ( temp.gethSeqs() != null) {

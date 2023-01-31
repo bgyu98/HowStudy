@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <title>HOWSTUDY - 위치안내</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com" />
 
@@ -19,8 +19,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/offlineShop.css">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png" />
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png" />
   </head>
 
   
