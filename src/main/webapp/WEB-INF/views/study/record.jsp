@@ -178,34 +178,35 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                             <div class="fl-collection fl-item3 col-box-4">
                                                                 <div class="sc-card-collection style-2 sc-card-style7">
                                                                     <div class="card-header"
-                                                                        style="color : var(--primary-color); border-radius: 1rem">
-                                                                        <h3 style="color: #ff8787;">오늘 공부 시간</h3>
+                                                                    style="color : var(--primary-color);border-radius: 1rem;width:50%;left: 107px;position: relative;">
+                                                                        <h3 style="left: 12%;position: inherit;color: #ff8787;">오늘 공부 시간</h3>
                                                                     </div>
                                                                     <div class="card-bottom">
                                                                         <div class="author" style="margin: 0 auto;">
                                                                             <div class="content">
                                                                                 <h4>
                                                                                     <span
-                                                                                        id="todaystudytimes">${time.todayStudyTime}</span>
+                                                                                        id="todaystudytimes" style="font-size: 50px;">${time.todayStudyTime}</span>
                                                                                 </h4>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <!-- 일 평균 공부한 시간 출력 -->
-                                                                    <div class="fl-collection fl-item3 col-box-4">
-                                                                        <div class="sc-card-collection style-2 sc-card-style7">
-                                                                            <div
-                                                                                class="card-header"
-                                                                                style="color : var(--primary-color); border-radius: 1rem; width:50%">
-                                                                                <h3 style="color:#ff8787">일 평균 공부 시간</h3>
-                                                                            </div>
-                                                                            <div class="card-bottom">
-                                                                                <div class="author" style="margin: 0 auto;">
-                                                                                    <div class="content ">
-                                                                                        <h4>
-                                                                                            <span id="todayaveragetimes">${time.todayAvgTime}</span></h4>
-                                                                                    </div>
-                                                                                </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <!-- 일 평균 공부한 시간 출력 -->
+                                                            <div class="fl-collection fl-item3 col-box-4">
+                                                                <div class="sc-card-collection style-2 sc-card-style7">
+                                                                    <div
+                                                                        class="card-header"
+                                                                        style="color : var(--primary-color);border-radius: 1rem;width:50%;left: 107px;position: relative;">
+                                                                        <h3 style="left: 2%;position: inherit;color: #ff8787;">일 평균 공부 시간</h3>
+                                                                    </div>
+                                                                    <div class="card-bottom">
+                                                                        <div class="author" style="margin: 0 auto;">
+                                                                            <div class="content ">
+                                                                                <h4>
+                                                                                    <span id="todayaveragetimes" style="font-size: 50px;">${time.todayAvgTime}</span></h4>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -215,15 +216,15 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                             <div class="fl-collection fl-item3 col-box-4" style="display: block;">
                                                                 <div class="sc-card-collection style-2 sc-card-style7">
                                                                     <div class="card-header"
-                                                                        style="color : var(--primary-color); border-radius: 1rem">
-                                                                        <h3 style="color: #ff8787;">전체 공부 시간</h3>
+                                                                    style="color : var(--primary-color);border-radius: 1rem;width:50%;left: 107px;position: relative;">
+                                                                        <h3 style="left: 12%;position: inherit;color: #ff8787;">전체 공부 시간</h3>
                                                                     </div>
                                                                     <div class="card-bottom">
                                                                         <div class="author" style="margin: 0 auto;">
                                                                             <div class="content ">
                                                                                 <h4>
                                                                                     <span
-                                                                                        id="totalstudytime">${time.totalStudyTime}</span>
+                                                                                        id="totalstudytime" style="font-size: 50px;">${time.totalStudyTime}</span>
                                                                                 </h4>
                                                                             </div>
                                                                         </div>
@@ -237,7 +238,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                 <div>
                                                     <!-- 누적 공부시간 section -->
                                                     <section class="col-md-12 col-lg-6"
-                                                        style="float: left; padding-top: 10%; border : 1px solid #fff">
+                                                        style="float: left; padding-top: 10%; ">
                                                         <!--//col-->
                                                         <div class="col-md-12 col-lg-6">
                                                             <div class="app-card app-card-chart h-100 shadow-sm">
