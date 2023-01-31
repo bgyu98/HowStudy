@@ -116,7 +116,7 @@ $('#summernote2').summernote({
 	*/
 function sendFile(file, editor) {
 	
-	alert(editor)
+
 	
 	var form_data = new FormData(); // 
 	form_data.append('file', file);
@@ -129,7 +129,7 @@ function sendFile(file, editor) {
 		enctype : 'multipart/form-data',
 		processData : false,
 		success : function(url) {
-			alert(url);
+
 			$(editor).summernote('insertImage', url, function($image) {
 				$image.css('width', "25%");
 			});

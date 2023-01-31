@@ -55,12 +55,12 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
 
             .box {
                 width: 200px;
-                height: 200px;
+               
             }
 
             .timerBox {
-                width: 200px;
-                outline: 2px solid black;
+                width: 350px;
+              
             }
 
             .timerBox .time {
@@ -71,6 +71,8 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
             }
 
             .btnBox {
+                left: 135px;
+                position: relative;
                 margin: 20px auto;
                 text-align: center;
             }
@@ -135,8 +137,37 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                                 님의 스터디룸
                                                                         </h2>
                                                                     </c:if>
+<!-- 타이머 -->
+
+<div class="fl-collection fl-item3 col-box-4" style="display: block;top: 17px;position: relative;">
+    <div class="sc-card-collection style-2 sc-card-style7">
+    <div id='box' class="box">
+        <div id='timerBox' class="timerBox">
+            <span id="time" class="time"
+                style="color: white;">00:00:00</span>
+                <span class="btnBox">
+                    <i id="startbtn" class="fa fa-play"
+                        aria-hidden="true"></i>
+                    <i id="pausebtn" class="fa fa-pause"
+                        aria-hidden="true"></i>
+                    <i id="stopbtn" class="fa fa-stop checkbutton"
+                        aria-hidden="true"></i>
+                </span>
+        </div>
+    
+    <input type="hidden" class="sNum" value="1050">
+    <!-- 방번호 체크용-->
+    
+        <!-- <button class="checkbutton">체크버튼</button>/ -->
+    </div>
+</div>
+</div>
+
+
                                                                 </div>
+                                                                
                                                             </div>
+                                                            
 
                                                             <!-- 오늘 공부한 시간 출력 -->
                                                             <div class="fl-collection fl-item3 col-box-4">
@@ -178,7 +209,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                 </div>
                                                             </div>
                                                             <!-- 전체 공부한 시간 출력 -->
-                                                            <div class="fl-collection fl-item3 col-box-4">
+                                                            <div class="fl-collection fl-item3 col-box-4" style="display: block;">
                                                                 <div class="sc-card-collection style-2 sc-card-style7">
                                                                     <div class="card-header"
                                                                         style="color : var(--primary-color); border-radius: 1rem">
@@ -197,30 +228,7 @@ xml:lang="en-US" lang="en-US"> <![endif]-->
                                                                 </div>
                                                             </div>
 
-                                                            <!-- 타이머 -->
-
-                                                            <div>
-                                                                <div id='box' class="box">
-                                                                    <div id='timerBox' class="timerBox">
-                                                                        <div id="time" class="time"
-                                                                            style="color: white;">00:00:00</div>
-                                                                    </div>
-                                                                    <div class="btnBox">
-                                                                        <i id="startbtn" class="fa fa-play"
-                                                                            aria-hidden="true"></i>
-                                                                        <i id="pausebtn" class="fa fa-pause"
-                                                                            aria-hidden="true"></i>
-                                                                        <i id="stopbtn" class="fa fa-stop"
-                                                                            aria-hidden="true"></i>
-                                                                    </div>
-                                                                </div>
-                                                                <input type="hidden" class="sNum" value="29">
-                                                                <!-- 방번호 체크용-->
-                                                                <div>
-                                                                    <button class="checkbutton">체크버튼</button>
-                                                                </div>
-                                                            </div>
-
+                                                            
                                                         </div>
                                                     </div>
                                                 </section>

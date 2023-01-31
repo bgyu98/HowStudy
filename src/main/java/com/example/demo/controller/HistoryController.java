@@ -244,16 +244,17 @@ public class HistoryController {
 					HistoryVO resultVO= result.get(i);
 					int hSeq = resultVO.gethSeq();
 					resultVO.sethSeqs(Integer.toString(hSeq));
-
+					if (resultVO.getgTitle() == null) {
+						resultVO.setgTitle("");
+					}
 					finalResult.add(resultVO); // finalResult 에 붙이기
 
 
 				}
-				System.out.println("확인2 :  " + finalResult);
 
 			}
 		}
-		System.out.println(finalResult);
+
 
 		for (HistoryVO temp : finalResult) {	
 			if ( temp.gethSeqs() != null) {

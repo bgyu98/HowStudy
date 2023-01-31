@@ -214,7 +214,7 @@
       var seq = $(this).prev().val(); // 23
       var who = $(this).next().val();
       // alert(seq);
-      alert(who);
+
       var check = 0; // 하트 체크 여부
       // 버튼 on of 관련 문
       var iteration = $(this).data("iteration") || 1;
@@ -900,8 +900,7 @@
       data: { mId: mId, mPw: mPw },
 
       success: function () {
-        alert(mId);
-        alert(mPw);
+
         var url = "./passwordConfirm?mId=" + mId;
         location.replace(url);
       },
@@ -916,7 +915,7 @@
     $("#popup_bid2").on("show.bs.modal", function (e) {
       var sNum = $(e.relatedTarget).data("num");
       var sPw = $(e.relatedTarget).data("pw");
-      alert(sNum + ": 비번 : " + sPw);
+      //alert(sNum + ": 비번 : " + sPw);
       $(this).find("#hiddenNum").val(sNum);
       $(this).find("#insertPw").val(sPw);
       $(".alertDanger").hide();
@@ -924,15 +923,15 @@
 
     $("#btnCustom").on("click", function () {
       var number = $("#hiddenNum").val();
-      alert("방번호좀 가져가라" + number);
+      //alert("방번호좀 가져가라" + number);
       // 비번 성공 시 파라미터 가지고 이동 할 url 변수처리
       var moveURL = "../studyRoom/chat?sNum=" + number;
       if ($("input[name=s]").val() == $("#insertPw").val()) {
-        alert("동일");
+       // alert("동일");
         $(".alertDanger").hide();
         $("#btnCustom").attr("href", moveURL);
       } else {
-        alert("일치ㄴㄴ");
+       // alert("일치ㄴㄴ");
         $(".alertDanger").show();
         document.querySelector("#btnCustom").removeAttribute("href");
       }
@@ -941,7 +940,7 @@
   
   // 왼쪽 날짜 선택 했을 경우, 오른쪽 날짜의 최솟값을 왼쪽 날짜로 지정
 function checkDate3(event) {
-alert("확인")
+//alert("확인")
   var regdate2 = document.getElementById("regdate2");
   regdate2.value = null;
   regdate2.setAttribute("min", regdate1.value);
@@ -959,7 +958,7 @@ function checkDate4(event) {
   }
   var day1 = regdate1.value;
   var day2 = regdate2.value;
-  alert("입력 날짜  :" + day1 + day2)
+ // alert("입력 날짜  :" + day1 + day2)
   if (day1 == "") {
     // 날짜 선택 관련 유효성 검사
     alert("왼쪽의 날짜부터 선택해주세요.");

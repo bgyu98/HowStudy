@@ -64,9 +64,9 @@
                         <br/>
                         <h6 style="text-align: center;"> 1️⃣ To-Do List</h6>
                         <br/>
-                        <h6 style="text-align: center;"> 2️⃣ 요점정리</h6>
+                        <h6 style="text-align: center;"> 2️⃣ NOTE</h6>
                         <br/>
-                        <h6 style="text-align: center;"> 3️⃣ 스톱워치</h6>
+                        <h6 style="text-align: center;"> 3️⃣ RECORD</h6>
                         <br/>
                         <br/>
                         <h5 style="text-align: center;"> 등과 같은 많은 서비스를 이용해 보세요.</h5>
