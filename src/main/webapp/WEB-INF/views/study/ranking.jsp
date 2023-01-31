@@ -5,6 +5,7 @@
 <!--<![endif]-->
 <!-- 한글 깨짐 방지-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
     <!-- Basic Page Needs -->
@@ -21,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
 </head>
 
@@ -67,431 +68,72 @@
                             <div class="table-ranking">
                                 <div class="flex th-title">
                                     <div class="column1">
-                                        <h3>Collection</h3>
+                                        <h3 style="text-align: center;">순위</h3>
                                     </div>
                                     <div class="column">
-                                        <h3>Volume</h3>
                                     </div>
                                     <div class="column">
-                                    <h3>24h %</h3>
+                                    <h3 style="margin-left: 70px;">ID</h3>
                                     </div>
                                     <div class="column">
-                                    <h3>7d %</h3>
+                                    <h3></h3>
                                     </div>
                                     <div class="column">
-                                    <h3>Floor Price</h3>
+                                    <h3></h3>
                                     </div>
                                     <div class="column">
-                                    <h3>Owners</h3>
+                                    <h3>시간</h3>
                                     </div>
                                     <div class="column">
-                                    <h3>Assets</h3>
+                                    <h3></h3>
                                     </div>
                                 </div>
+                            
+                                <c:forEach items="${ranking}" var="rk">
+                                <!--한 블럭 시작-->
                                 <div class="fl-blog fl-item2">
                                     <div class="item flex">
                                         <div class="infor-item flex column1">
                                             <div class="media">
-                                                <img src="assets/images/box-item/img1rank.jpg" alt="Images">
+                                               
                                             </div>
                                             <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
+                                                <h5 class="title mb-15">${rk.rank}</h5>
                                                 <div class="author flex">
                                                     <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
+                                                       
                                                         <div class="badge"><i class="ripple"></i></div>
                                                     </div>
                                                     <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
+                                                     
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="column">
-                                            <span>12,4353</span>
+                                       
                                         </div>
+                                        
                                         <div class="column td2">
-                                            <span>+3456%</span>
+                                            <span style="color: white;">${rk.mId}</span>
                                         </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
+                                  
                                         <div class="column td4">
-                                            <span>12,4353 ETH</span>
+                                            <span></span>
                                         </div>
                                         <div class="column td5">
-                                            <span>3.3k</span>
+                                            <span>${rk.sTime}</span>
                                         </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
+                                  
                                     </div>
                                 </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img2rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img3rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img4rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img5rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img6rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img1rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img2rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img3rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fl-blog fl-item2">
-                                    <div class="item flex">
-                                        <div class="infor-item flex column1">
-                                            <div class="media">
-                                                <img src="assets/images/box-item/img4rank.jpg" alt="Images">
-                                            </div>
-                                            <div class="content-collection pad-t-4">
-                                                <h5 class="title mb-15"><a href="item-details.html">"Hamlet Contemplates Yorick's Yorick's</a></h5>
-                                                <div class="author flex">
-                                                    <div class="author-avatar">
-                                                        <img src="assets/images/avatar/author_rank.jpg" alt="Images">
-                                                        <div class="badge"><i class="ripple"></i></div>
-                                                    </div>
-                                                    <div class="content">
-                                                        <p>Owned By</p>
-                                                        <h6><a href="author01.html">SalvadorDali</a></h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="column">
-                                            <span>12,4353</span>
-                                        </div>
-                                        <div class="column td2">
-                                            <span>+3456%</span>
-                                        </div>
-                                        <div class="column td3">
-                                            <span>-564%</span>
-                                        </div>
-                                        <div class="column td4">
-                                            <span>12,4353 ETH</span>
-                                        </div>
-                                        <div class="column td5">
-                                            <span>3.3k</span>
-                                        </div>
-                                        <div class="column td6">
-                                            <span>23k</span>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                  <!--한블럭 끝-->
+                                    </c:forEach>
                             </div>
+
+
                             <div class="col-md-12 wrap-inner load-more text-center mg-t16">
-                                <a href="#" id="loadmore" class="sc-button loadmore fl-button pri-3"><span>Load More</span></a>
+                                <a href="#" id="loadmore" class="sc-button loadmore fl-button pri-3"><span>더보기</span></a>
                             </div>
                         </div>
                     </div>

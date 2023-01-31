@@ -15,6 +15,7 @@
 		SELECT COUNT(*) FROM LOCALSHOP
 	</select>
 	
+	<!-- 페이징 -->
 	<select id="listCount" resultType="int">
 		SELECT COUNT(*) FROM LOCALSHOP
 	</select>

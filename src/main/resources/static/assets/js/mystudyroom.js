@@ -3,27 +3,36 @@
   $(".icon-fl-search-filled").click(function () {
     //alert("ok");
   });
+  $(".swal2-container").css("z-index", "999999");
   $(".goRoom").on("click", function () {
     //alert("방 클릭");
     var title = $(this).parents(".modal-body").find("h3").text();
-    alert(title);
+    //alert(title);
     var seq = $(this).parents(".modal-body").find(".modalseq").val();
     // alert(seq);
-    var data = {
-      sNum: seq,
-    };
-    $.ajax({
-      type: "post",
-      url: "roomRog",
-      data: data,
-      success: function (json) {
-        var url = "http://13.125.216.41:4000/?sTitle=" + title;
-        window.open(url, "width=100%", "height=100%");
-      },
-      error: function () {
-        alert("실패");
-      },
-    });
+    var who = $(this).parents(".modal-body").find(".modalid").val();
+    //lert(who);
+
+    if (who == "" || who == undefined) {
+      alert("로그인 후 사용 가능합니다.");
+      return false;
+    } else {
+      var data = {
+        sNum: seq,
+      };
+      $.ajax({
+        type: "post",
+        url: "roomRog",
+        data: data,
+        success: function (json) {
+          var url = "http://13.125.216.41:4000/?sTitle=" + title;
+          window.open(url, "width=100%", "height=100%");
+        },
+        error: function () {
+          alert("실패");
+        },
+      });
+    }
   }); //되는거
 
   $(".content> h4 > a").on("click", function () {
@@ -74,8 +83,8 @@ function checkD(e) {
 
         d += "<div class='card-media style2'>";
 
-        d += "<img src='../assets/images/box-item/image-box-29.jpg' alt='Image'>";
-        d += "<input type='text' value = '" + value.sNum + "'/>";
+        d += "<img src='../assets/images/studyRoom/" + value.sFile + ".png' alt='Image'>";
+        d += "<input type='hidden' value = '" + value.sNum + "'/>";
         if (value.checkFavor == 0) {
           // 즐겨찾기 안한 경우
           d += "<button class='wishlist-button heart'>";
@@ -92,7 +101,7 @@ function checkD(e) {
 
         d += "<div class='card-title'>";
         d += "<h3><a href='item-details.html'>" + value.sTitle + "</a></h3>"; // 제목
-        d += "<div class='tags'>" + value.sCategory + "</div>"; // 선호태그
+        d += "<div class='tags' style='width: 25%;'>" + value.sCategory + "</div>"; // 선호태그
         d += "</div>";
 
         d += "<div class='meta-info style2'>";
@@ -100,7 +109,7 @@ function checkD(e) {
         d += "<div class='author'>";
 
         d += "<div class='avatar'>";
-        d += "<img src='../assets/images/avatar/avt-28.jpg' alt='Image'>";
+        d += "<img src='../assets/images/logo/logo01.png' alt='Image'>";
         d += "</div>";
 
         d += "<div class='info'>";

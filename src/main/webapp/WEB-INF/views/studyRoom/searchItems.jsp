@@ -30,12 +30,8 @@
       <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png" />
     </head>
 
-    <body class="body header-fixed is_dark">
-      <!-- preloade -->
-      <div class="preload preload-container">
-        <div class="preload-logo"></div>
-      </div>
-      <!-- /preload -->
+    <body class="body header-fixed is_dark connect-wal">
+   
 
       <div id="wrapper">
         <div id="page" class="clearfix">
@@ -48,13 +44,12 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="page-title-heading mg-bt-12">
-                    <h1 class="heading text-center">Explore 1</h1>
+                    <h1 class="heading text-center">검색 기록</h1>
                   </div>
                   <div class="breadcrumbs style2">
                     <ul>
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="#">Explore</a></li>
-                      <li>Explore 1</li>
+                      <li><a href="study">스터디룸</a></li>
+                      <li>검색기록</li>
                     </ul>
                   </div>
                 </div>
@@ -76,11 +71,7 @@
                     <div class="sc-card-product">
 
                       <div class="card-media">
-                        <a href="item-details.html"><img src="../assets/images/box-item/card-item-3.jpg"
-                            alt="Image" /></a>
-                        <button class="wishlist-button heart">
-                          <span class="number-like"> 100</span>
-                        </button>
+                        <a href="item-details.html"><img src="../assets/images/studyRoom/${vo.sFile}.png" alt="Image">
                       </div>
 
                       <div class="card-title">

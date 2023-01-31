@@ -99,9 +99,10 @@
 	<!-- 랭킹 목록 출력 -->
 	<select id="ranking" parameterType="RecordVO"
 		resultType="RecordVO">
-		select RANK() over (ORDER BY sTime desc) as rank, 
-		SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime,  mID from SaveTime st
-		where sDate BETWEEN LAST_DAY(NOW() - interval 1 month) and LAST_DAY(NOW())
+		select RANK() over (ORDER BY sTime desc) as rank
+		,SEC_TO_TIME(sum(TIME_TO_SEC( sTime))) sTime, mID from SaveTime st
+		where sDate BETWEEN DATE_ADD(NOW(),INTERVAL -7 DAY ) AND
+		NOW()
 		group by mID
 		order by sTime DESC limit 10
 	</select>

@@ -20,7 +20,6 @@ public class RecordServiceImpl implements RecordService{
 
 	}
 	
-	 
 	// 오늘 누적 시간
 	public List<RecordVO> todayStudyTime(RecordVO vo){
 		return recordDAO.todayStudyTime(vo); 

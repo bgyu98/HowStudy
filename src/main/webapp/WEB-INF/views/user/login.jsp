@@ -11,7 +11,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Axies | NFT Marketplace HTML Template</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com">
 
@@ -22,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png">
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
 
 </head>

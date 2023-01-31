@@ -34,10 +34,11 @@
         <link rel="shortcut icon" href="../assets/icon/Favicon.png">
         <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
+   
       </head>
 
       <body class="body header-fixed is_dark connect-wal">
-
+      
 
         <div id="wrapper">
           <div id="page" class="clearfix">
@@ -454,6 +455,7 @@
                           </button>
                           <div class="modal-body space-y-20 pd-40">
                             <input type = "hidden" class="modalseq" value="${vo.sNum}">
+                            <input type="hidden" class = "modalid"value = '${sessionScope.loginId}'/> <!-- 로그인 여부 체크-->
                             <h3>${vo.sTitle}</h3>
                             <p class="text-center">CREATE BY <span class="price color-popup">${vo.mId}</span>
                             </p>
