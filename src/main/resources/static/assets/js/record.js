@@ -57,11 +57,11 @@ $(document).on("change", "#selectRoom", function () {
       // alert("체크버튼 누름");
 
       // 누른 시간 체크
-      var ck = $("#time").text();
+      var ck = $(this).parents("#timerBox").find("#time").text();
       //alert("시간 : " + ck);
 
       // 방 번호 체크
-      var sNum = $(this).parent().parent().find(".sNum").val();
+      var sNum = $(this).parents("#timerBox").find(".sNum").val();
       //alert("방 번호 : " + sNum);
 
       // 현재 시간 체크
@@ -83,7 +83,8 @@ $(document).on("change", "#selectRoom", function () {
         data: data,
         dataType: "text",
         success: function (json) {
-          //    alert("성공");
+          let url = "/study/record";
+          location.replace(url);
         },
         error: function (e) {
           alert("실패");
@@ -161,7 +162,7 @@ function buttonEvt() {
       starFlag = true;
     }
   });
-
+  /*
   // stop btn
   $("#stopbtn").click(function () {
     if (time != 0) {
@@ -173,6 +174,7 @@ function buttonEvt() {
       init();
     }
   });
+  */
 }
 
 /* tagtime start */

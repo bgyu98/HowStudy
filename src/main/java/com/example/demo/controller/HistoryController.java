@@ -22,6 +22,7 @@ import com.example.demo.service.HistoryService;
 import com.example.demo.service.RecordService;
 import com.example.demo.vo.HistoryVO;
 import com.example.demo.vo.RecordVO;
+import com.example.demo.vo.UserVO;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -276,15 +277,24 @@ public class HistoryController {
 
 
 
-   // Record (공부기록)
+// Record (공부기록)
    @RequestMapping("/record")
-   public String record(RecordVO vo,Model m, HttpSession session) throws Exception {
+
+public String record(UserVO uvo, RecordVO vo,Model m, HttpSession session) throws Exception {
       System.out.println("공부 기록 페이지 이동");
 
       /* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ] */
       String loginId = (String) session.getAttribute("loginId");
       System.out.println("로그인 아이디 : " + loginId);
       vo.setmId(loginId);
+      uvo.setmId(loginId);
+      // System.out.println("회원 등급 : " + checkgrade(uvo, session));
+      String cGrade = "프리미엄회원";
+      String mGrade = checkgrade(uvo, session);
+      if(!mGrade.replace(" ", "").equals(cGrade)) { // 공백 제거 후 값 비교, 프리미엄 회원이 아닐 경우 티켓 구매 페이지로 이동
+         return "redirect:../shop/ticket";
+      }
+
 
       // 아이디 별 일 평균 계산 위한 리스트 수 체크
       List<RecordVO> cd =recordService.checkDate(vo);
@@ -292,56 +302,40 @@ public class HistoryController {
       System.out.println("해당하는 리스트 수 : " + k);
       vo.setK(k); // vo에 리스트 수 주입
 
+List<RecordVO> todayStudyTime = recordService.todayStudyTime(vo);    // 오늘 공부 시간      
+      List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
+      List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
+if(todayStudyTime.get(0) == null) { // 오늘 공부한 시간이 없는 경우
+         RecordVO rcvo = new RecordVO();
+         rcvo.setTodayStudyTime("00:00:00");         // 초기화 한 공부 시간 세팅
 
-      List<RecordVO> todayStudyTime = recordService.todayStudyTime(vo);    // 오늘 공부 시간
-      System.out.println(todayStudyTime);
-      try {
-         if(todayStudyTime.get(0) == null) { // 오늘 공부한 시간이 없는 경우
-            RecordVO rcvo = new RecordVO();
-
-
-            List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
-            System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
-
-            List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
-            System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
-
-            System.out.println(" 시간 모음 :  " + rcvo);
-
-            rcvo.setTodayStudyTime("00:00:00");         // 초기화 한 공부 시간 세팅
-            rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime()); // 일 평균 공부 시간 세팅
-            rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime()); // 누적 공부 시간 세팅 
-
-            m.addAttribute("time",rcvo);
-            return "study/record";
-         } else if(todayStudyTime.get(0) != null) { // 오늘 공부한 시간이 있는 경우
-            System.out.println(" 오늘 공부 시간 : " + todayStudyTime.get(0).getsTime());
-
-
-            List<RecordVO> todayAvgTime = recordService.todayAvgTime(vo);    // 일 평균 공부 시간
-            System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
-
-
-            List<RecordVO> totalStudyTime = recordService.totalStudyTime(vo);   // 이번달 누적 공부 시간
-            System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
-
-            RecordVO rcvo = new RecordVO();
-            rcvo.setTodayStudyTime(todayStudyTime.get(0).getsTime());  // 오늘 공부 시간 세팅
-            rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());      // 일 평균 공부 시간 세팅
-            rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime()); // 누적 공부 시간 세팅
-            System.out.println(" 시간 모음 :  " + rcvo);
-            m.addAttribute("time",rcvo);
-            return "study/record";
-
+         if(todayAvgTime.get(0) == null) {    // 일 평균 공부시간이 없는 경우 -> 공부x
+            rcvo.setTodayAvgTime("00:00:00"); // 일 평균 공부 시간 세팅
+            rcvo.setTotalStudyTime("00:00:00"); // 누적 공부 시간 세팅          
          }
-         
-      } catch (Exception e) {
-         return "redirect:../shop/ticket";
-      }
-         
-      
+         else if (todayAvgTime.get(0) != null) {
+            rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime()); // 일 평균 공부 시간 세팅
+            rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime()); // 누적 공부 시간 세팅             
+         }      
 
-      return "study/record";
+         System.out.println(" 시간 모음 :  " + rcvo);
+
+         m.addAttribute("time",rcvo);
+         return "study/record";
+      } else if(todayStudyTime.get(0) != null) { // 오늘 공부한 시간이 있는 경우
+         System.out.println(" 오늘 공부 시간 : " + todayStudyTime.get(0).getsTime());
+         System.out.println(" 일 평균 공부 시간 : " + todayAvgTime.get(0).getsTime());
+         System.out.println(" 이번달 누적 공부 시간 : " + totalStudyTime.get(0).getsTime());
+
+         RecordVO rcvo = new RecordVO();
+         rcvo.setTodayStudyTime(todayStudyTime.get(0).getsTime());  // 오늘 공부 시간 세팅
+         rcvo.setTodayAvgTime(todayAvgTime.get(0).getsTime());      // 일 평균 공부 시간 세팅
+         rcvo.setTotalStudyTime(totalStudyTime.get(0).getsTime()); // 누적 공부 시간 세팅
+         System.out.println(" 시간 모음 :  " + rcvo);
+         m.addAttribute("time",rcvo);
+         return "study/record";
+      }   
+      return "";
    }
 
 
@@ -449,6 +443,22 @@ public class HistoryController {
       System.out.println("갯수확인.."  + ranking.size());
       
    }
+   
+// 회원 등급
+	public String checkgrade(UserVO vo , HttpSession session) {
+		/* 필요한 데이터 잘 넘어왔는지 체크 [ 아이디 ] 	 */
+		String loginId = (String) session.getAttribute("loginId");
+		System.out.println("checkgrade 실행");
+		vo.setmId(loginId);
+		List<UserVO> checkgrade = recordService.checkGrade(vo);
+		try {
+			String mGrade = checkgrade.get(0).getmGrade();
+			return mGrade;
+		} catch (Exception e) {
+			String mGrade = "비회원";
+			return mGrade;
+		}
+	}
 
 
 
