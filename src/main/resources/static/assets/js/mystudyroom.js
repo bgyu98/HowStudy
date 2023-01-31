@@ -74,8 +74,8 @@ function checkD(e) {
 
         d += "<div class='card-media style2'>";
 
-        d += "<img src='../assets/images/box-item/image-box-29.jpg' alt='Image'>";
-        d += "<input type='text' value = '" + value.sNum + "'/>";
+        d += "<img src='../assets/images/studyRoom/" + value.sFile + ".png' alt='Image'>";
+        d += "<input type='hidden' value = '" + value.sNum + "'/>";
         if (value.checkFavor == 0) {
           // 즐겨찾기 안한 경우
           d += "<button class='wishlist-button heart'>";
@@ -92,7 +92,7 @@ function checkD(e) {
 
         d += "<div class='card-title'>";
         d += "<h3><a href='item-details.html'>" + value.sTitle + "</a></h3>"; // 제목
-        d += "<div class='tags'>" + value.sCategory + "</div>"; // 선호태그
+        d += "<div class='tags' style='width: 25%;'>" + value.sCategory + "</div>"; // 선호태그
         d += "</div>";
 
         d += "<div class='meta-info style2'>";
@@ -100,7 +100,7 @@ function checkD(e) {
         d += "<div class='author'>";
 
         d += "<div class='avatar'>";
-        d += "<img src='../assets/images/avatar/avt-28.jpg' alt='Image'>";
+        d += "<img src='../assets/images/logo/logo01.png' alt='Image'>";
         d += "</div>";
 
         d += "<div class='info'>";

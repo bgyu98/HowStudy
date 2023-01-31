@@ -16,7 +16,6 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Axies | NFT Marketplace HTML Template</title>
     <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com">
@@ -179,7 +178,7 @@
                                                 
                                                 <div class="card-title">
                                                     <h3><a href="item-details.html">${rR.sTitle}</a></h3> <!-- 제목 -->
-                                                    <div class="tags">${rR.sCategory}</div>
+                                                    <div class="tags" style="width: 25%;">${rR.sCategory}</div>
                                                 </div>
                                                 <div class="meta-info style2">
                                                     <div class="author">

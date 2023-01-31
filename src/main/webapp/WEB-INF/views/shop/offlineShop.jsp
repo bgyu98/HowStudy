@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <title>HOWSTUDY - 위치안내</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com" />
 
