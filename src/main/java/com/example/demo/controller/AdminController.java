@@ -138,20 +138,7 @@ public class AdminController {
 		ReportVO test = reportService.checkrNum(vo);	//vo 값 갖고오기
 		Integer rNum = test.getrNum();				// vo에서 rNum값 갖고오기
 		System.out.println("rNum :: "+ rNum);
-		
-		// 값 구하고
-		
 		return  rNum.toString();
-	}
-	
-	// notice 인경우 일반적인 매칭 ->  xxxx() 호출
-	
-	// dashboard인경우 비동기통신 @ResponseBody + 문자열 리턴
-	// 1033값만 리턴
-	
-	
-	public void xxx () {
-		
 	}
 
 	// Notice 수정

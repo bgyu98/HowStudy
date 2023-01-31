@@ -17,7 +17,7 @@
       url: "roomRog",
       data: data,
       success: function (json) {
-        var url = "http://192.168.0.86:4000/?sTitle=" + title;
+        var url = "http://13.125.216.41:4000/?sTitle=" + title;
         window.open(url, "width=100%", "height=100%");
       },
       error: function () {
@@ -30,7 +30,7 @@
     //alert("방 클릭");
     var seq = $(this).parents().find(".sNum").val();
     alert(seq);
-    var url = "http://192.168.0.86:4000" + "/" + seq;
+    var url = "http://13.125.216.41:4000" + "/" + seq;
     window.open(url, "width=100%", "height=100%");
   });
 
