@@ -183,6 +183,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-body space-y-20 pd-40">
+                      <input type = "hidden" class="modalseq" value="${mr.sNum}">
                       <h3>${mr.sTitle}</h3>
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                       </p>
@@ -218,6 +219,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-body space-y-20 pd-40">
+                      <input type = "hidden" class="modalseq" value="${mr.sNum}">
                       <h3>${mr.sTitle}</h3>
                       <i class="fa-sharp fa-solid fa-key-skeleton"></i>
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
@@ -442,6 +444,7 @@
                       </div>
                     </div>
                     <!-- 스터디룸 패스워드 존재하지 않을때 -->
+                    
                     <div class="modal fade popup ${vo.sTitle}" id="popup_bid6" tabindex="-1" role="dialog"
                       aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -450,6 +453,7 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                           <div class="modal-body space-y-20 pd-40">
+                            <input type = "hidden" class="modalseq" value="${vo.sNum}">
                             <h3>${vo.sTitle}</h3>
                             <p class="text-center">CREATE BY <span class="price color-popup">${vo.mId}</span>
                             </p>
@@ -467,12 +471,13 @@
                               <p>스터디 정원</p>
                               <p class="text-right price color-popup">${vo.sPeopleNum} / 4</p>
                             </div>
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success"
+                            <a href="#" class="btn btn-primary goRoom" data-toggle="modal" data-target="#popup_bid_success"
                               data-dismiss="modal" aria-label="Close">입장하기</a>
                           </div>
                         </div>
                       </div>
                     </div>
+                
 
                     <!-- 비밀번호 존재 시, 확인 모달-->
                     <div class="modal fade popup sPwConfirm1" id="popup_bid7" tabindex="-1" role="dialog"

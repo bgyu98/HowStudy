@@ -484,10 +484,8 @@
       
       
     </main>
-    ${rNum}
-    <button id="che">확인</button>
-    <input id="firstNum" type="text" value="${rNum}"> <!-- 이전 신고 번호 -->
-    <input id="firstNum2" type="text" value="${rNum}"> <!-- 제일 최근 신고 번호 -->
+    <input id="firstNum" type="hidden" value="${rNum}"> <!-- 이전 신고 번호 -->
+    <input id="firstNum2" type="hidden" value="${rNum}"> <!-- 제일 최근 신고 번호 -->
       <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
           <i class="fa fa-cog py-2"> </i>

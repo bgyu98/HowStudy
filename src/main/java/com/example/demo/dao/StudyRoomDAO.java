@@ -41,5 +41,8 @@ public interface StudyRoomDAO {
 	public List<StudyRoomVO> selectScnt(StudyRoomVO vo);
 	
 	public List<StudyRoomVO> saveDate(StudyRoomVO vo);
+	
+	// 방문 기록 저장
+	public void roomRog(StudyRoomVO vo);
 
 }

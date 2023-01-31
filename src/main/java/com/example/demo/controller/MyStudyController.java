@@ -96,7 +96,7 @@ public class MyStudyController {
 		for(int i =0; i<cr.size(); i++ ) {
 			 System.out.println("cr : " + cr.get(i));
 			 System.out.println("방 번호별 좋아요 수 : " + mystudyservice.checkheart(cr.get(i)));
-			 if(mystudyservice.checkheart(cr.get(i)) != 0){
+			 if(mystudyservice.checkheart(cr.get(i)) != null){
 				 temp[i] = mystudyservice.checkheart(cr.get(i)); 
 			 }
 			 else {
@@ -266,6 +266,7 @@ public class MyStudyController {
          object.addProperty("sDate",    str);
          object.addProperty("sCategory", String.valueOf(msVO.get("sCategory")));
          object.addProperty("mId",       String.valueOf(msVO.get("mId")));
+         object.addProperty("sFile", String.valueOf(msVO.get("sFile")));
          object.addProperty("sFavorNum",temp[i] );
          object.addProperty("checkFavor", temp2[i]);
    

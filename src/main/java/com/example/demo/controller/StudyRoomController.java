@@ -149,7 +149,8 @@ public class StudyRoomController {
 		m.addAttribute("myroomcnt", list.size()); // 스터디룸 안 만들었을때 화면에 찍는거
 		m.addAttribute("studyall", allStudy); // 선아
 		m.addAttribute("scntSelect", studyroomService.selectScnt(vo)); // 선아
-
+		
+		
 	}
 
 	// 내가 만든 스터디룸에 찍히는 하트
@@ -265,6 +266,21 @@ public class StudyRoomController {
 		System.out.println("updatelikeTag : " + vo);
 		userService.updatelikeTag(vo);
 		return "redirect:study";
+	}
+	
+	
+	// 방문 기록 db에 저장
+	@ResponseBody
+	@RequestMapping("/roomRog")
+	public String roomRog(StudyRoomVO vo, HttpSession session) {
+		System.out.println("roomRog 실행");
+		
+		String loginId = (String) session.getAttribute("loginId"); // 로그인 아이디 값 받음
+		vo.setmId(loginId); // 방문기록 저장 체크를 위한 세팅 ( 방 번호, 로그인 아이디 필요 )
+		System.out.println("방 번호 : " + vo.getsNum());
+		studyroomService.roomRog(vo);
+		String json = "";
+		return json;
 	}
 	
 	
