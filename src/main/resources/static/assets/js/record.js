@@ -54,11 +54,11 @@ $(document).on("change", "#selectRoom", function () {
 (function ($) {
   var check = function () {
     $(document).on("click", ".checkbutton", function () {
-      alert("체크버튼 누름");
+      // alert("체크버튼 누름");
 
       // 누른 시간 체크
       var ck = $("#time").text();
-      alert("시간 : " + ck);
+      //alert("시간 : " + ck);
 
       // 방 번호 체크
       var sNum = $(this).parent().parent().find(".sNum").val();
@@ -83,7 +83,7 @@ $(document).on("change", "#selectRoom", function () {
         data: data,
         dataType: "text",
         success: function (json) {
-          alert("성공");
+          //    alert("성공");
         },
         error: function (e) {
           alert("실패");
@@ -227,17 +227,12 @@ var tagTime = function () {
         type: "pie",
         data: chartData,
         options: {
-          legend: {
-            position: "top",
-          },
           plugins: {
             //그래프에 데이터 직접 표시 (마우스 올렸을때가 아니라 그래프 자체에 데이터표시)
             datalabels: {
               borderRadius: 4,
               color: "#4e342e",
-              font: {
-                weight: "bold",
-              },
+              font: { weight: "bold" },
               formatter: function (value, context) {
                 var idx = context.dataIndex;
                 return context.chart.data.labels[idx]; // 태그 라벨 붙이기 ( ex) 어학 , 독서 , ...)

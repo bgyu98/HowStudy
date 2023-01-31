@@ -3,27 +3,36 @@
   $(".icon-fl-search-filled").click(function () {
     //alert("ok");
   });
+  $(".swal2-container").css("z-index", "999999");
   $(".goRoom").on("click", function () {
     //alert("방 클릭");
     var title = $(this).parents(".modal-body").find("h3").text();
-    alert(title);
+    //alert(title);
     var seq = $(this).parents(".modal-body").find(".modalseq").val();
     // alert(seq);
-    var data = {
-      sNum: seq,
-    };
-    $.ajax({
-      type: "post",
-      url: "roomRog",
-      data: data,
-      success: function (json) {
-        var url = "http://192.168.0.86:4000/?sTitle=" + title;
-        window.open(url, "width=100%", "height=100%");
-      },
-      error: function () {
-        alert("실패");
-      },
-    });
+    var who = $(this).parents(".modal-body").find(".modalid").val();
+    //lert(who);
+
+    if (who == "" || who == undefined) {
+      alert("로그인 후 사용 가능합니다.");
+      return false;
+    } else {
+      var data = {
+        sNum: seq,
+      };
+      $.ajax({
+        type: "post",
+        url: "roomRog",
+        data: data,
+        success: function (json) {
+          var url = "http://192.168.0.86:4000/?sTitle=" + title;
+          window.open(url, "width=100%", "height=100%");
+        },
+        error: function () {
+          alert("실패");
+        },
+      });
+    }
   }); //되는거
 
   $(".content> h4 > a").on("click", function () {
