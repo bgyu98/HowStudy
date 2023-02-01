@@ -27,7 +27,7 @@ spring :
       prefix: /WEB-INF/views/
       suffix: .jsp
   datasource:
-    url: jdbc:mariadb://13.209.89.141:3306/howstudy?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
+    url: jdbc:mariadb://13.125.216.41:3306/howstudy?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: admin1234

@@ -85,7 +85,6 @@ public class AdminController {
 	// Faq 수정
 	@RequestMapping("/updateFaq")
 	public String updateFaqBoard(FaqVO faqvo) {
-		System.out.println("FAQ 글수정 : " + faqvo.getfNUM());
 		faqService.updateFaqBoard(faqvo);
 		System.out.println(faqvo);
 		return "redirect:../pages/faq";
