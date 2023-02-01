@@ -216,7 +216,7 @@
 
             }).then(result => {
                 if(result.isConfirmed){
-                    Swal.fire('신고가 완료되었습니다.', '신고 내역을 확인하시려면 마이페이지 > 신고 내역 에서 확인해주세요.', 'success')
+                    Swal.fire('신고가 완료되었습니다.', '', 'success')
                     $('.swal2-confirm').click(function(){
                         $('#insertReport').submit();
                     })

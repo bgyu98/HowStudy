@@ -6,7 +6,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <title>HOWSTUDY - 위치안내</title>
+    <title>HOWSTUDY</title>
 
     <meta name="author" content="themesflat.com" />
 
@@ -16,10 +16,11 @@
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/slack.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/offlineShop.css">
 
     <!-- Favicon and Touch Icons  -->
-    <link rel="shortcut icon" href="assets/icon/Favicon.png" />
-    <link rel="apple-touch-icon-precomposed" href="assets/icon/Favicon.png" />
+    <link rel="shortcut icon" href="../assets/icon/Favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png" />
   </head>
 
   
@@ -51,8 +52,10 @@
         <!-- 오프라인 내용 시작 -->
 	<section style="text-align:center;margin-bottom: 300px;position: relative;top: 100px;">
     <!-- 테이블 시작 -->
-    <table border="1" style="font-size: 16px;">
-    <tr>
+    <table border="1" style="font-size: 16px;display: inline;">
+    <tr style="
+    font-size: 20px;
+">
       <th>지점명</th>
       <th>주소</th>
       <th>전화번호</th>
@@ -77,17 +80,17 @@
             <ul class="list-unstyled pagination justify-content-center">
               <li>
                <c:if test="${pageMaker.prev}">
-                <a href="offlineShop${pageMaker.makeQueryOVO(pageMaker.startPage - 1)}" class="page-link">
+                <a href="offlineShop${pageMaker.makeQueryOVO(pageMaker.startPage - 1)}" class="pagenation">
                   Previous
                 </a>
               </c:if>                     
               </li>
 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-  <li><a href="offlineShop${pageMaker.makeQueryOVO(idx)}" class="page-link">${idx}</a></li>
+  <li><a href="offlineShop${pageMaker.makeQueryOVO(idx)}" class="pagenation">${idx}</a></li>
 </c:forEach>
               <li>
                  <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-                <a href="offlineShop${pageMaker.makeQueryOVO(pageMaker.endPage + 1)}" class="page-link">
+                <a href="offlineShop${pageMaker.makeQueryOVO(pageMaker.endPage + 1)}" class="pagenation">
                   Next
                 </a>
               </c:if> 

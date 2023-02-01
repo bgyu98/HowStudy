@@ -30,14 +30,15 @@
         <!-- Reponsive -->
         <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 
-        <!-- Favicon and Touch Icons  -->
+        <!-- Favicon and Touch Icons  -->   
         <link rel="shortcut icon" href="../assets/icon/Favicon.png">
         <link rel="apple-touch-icon-precomposed" href="../assets/icon/Favicon.png">
 
+   
       </head>
 
       <body class="body header-fixed is_dark connect-wal">
-
+      
 
         <div id="wrapper">
           <div id="page" class="clearfix">
@@ -72,7 +73,7 @@
               <!-- 방 안 만들었을때 이미지 뜨는거-->
               <c:if test="${myroomcnt eq 0}">
                 <div class="image"
-                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; ">
+                  style="display: flex;flex-direction: column;background-image: url('../assets/img/curved-images/gray.jpg');width: 70%;height: 231px;margin: auto;display: block; border-radius: 30px; ">
                   <p style="text-shadow: 1px 1px 2px color = white; padding-top: 85px; text-align:center;">내가 만든 스터디룸이
                     등록됩니다.<br> 플러스 버튼을 눌러 스터디룸을 만들어 보세요!</p>
                 </div>
@@ -161,7 +162,6 @@
                           <!--끝-->
                         </c:forEach>
 
-
                       </div>
 
                       <div class="swiper-pagination mg-t-13"></div>
@@ -184,6 +184,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-body space-y-20 pd-40">
+                      <input type = "hidden" class="modalseq" value="${mr.sNum}">
                       <h3>${mr.sTitle}</h3>
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
                       </p>
@@ -201,7 +202,7 @@
                         <p>스터디 정원</p>
                         <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
                       </div>
-                      <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success"
+                      <a href="#" class="btn btn-primary goRoom" data-toggle="modal" data-target="#popup_bid_success"
                         data-dismiss="modal" aria-label="Close">입장하기</a>
                     </div>
                   </div>
@@ -219,6 +220,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-body space-y-20 pd-40">
+                      <input type = "hidden" class="modalseq" value="${mr.sNum}">
                       <h3>${mr.sTitle}</h3>
                       <i class="fa-sharp fa-solid fa-key-skeleton"></i>
                       <p class="text-center">CREATE BY <span class="price color-popup">${mr.mId}</span>
@@ -237,7 +239,7 @@
                         <p>스터디 정원</p>
                         <p class="text-right price color-popup">${mr.sPeopleNum} / 4</p>
                       </div>
-                      <a href="#" id="pwData" class="btn btn-primary" aria-label="Close" data-toggle="modal"
+                      <a href="#" id="pwData" class="btn btn-primary goRoom" aria-label="Close" data-toggle="modal"
                         data-target=".sPwConfirm1" data-dismiss="modal" data-num=${mr.sNum} data-pw=${mr.sPw}>입장하기</a>
                     </div>
                   </div>
@@ -259,7 +261,7 @@
                     <input type="hidden" id="insertPw" name="sPw" value=sPw>
                     <input type="text" id="pwConfirm" name="s" value="">
                     <div class="alertDanger pwConfirmcss">비밀번호가 일치하지 않습니다.</div>
-                    <a href="#" id="btnCustom" class="btn btn-primary">입장하기</a>
+                    <a href="#" id="btnCustom" class="btn btn-primary goRoom">입장하기</a>
                   </div>
                 </div>
               </div>
@@ -396,7 +398,7 @@
                             <span id="countNum">스터디 정원 &nbsp;${vo.sPeopleNum}&nbsp;/&nbsp;4</span>
                           </div>
                           <div class="card-media">
-                            <a href="item-details.html"><img src="../assets/images/studyRoom/${vo.sFile}.png" /></a>
+                           <img src="../assets/images/studyRoom/${vo.sFile}.png" />
                             <div class="button-place-bid">
                               <c:if test="${vo.sPw == ''}">
                                 <a id="sangsaePwNull" href="#" data-toggle="modal" data-target=.${vo.sTitle}
@@ -443,6 +445,7 @@
                       </div>
                     </div>
                     <!-- 스터디룸 패스워드 존재하지 않을때 -->
+                    
                     <div class="modal fade popup ${vo.sTitle}" id="popup_bid6" tabindex="-1" role="dialog"
                       aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -451,6 +454,8 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                           <div class="modal-body space-y-20 pd-40">
+                            <input type = "hidden" class="modalseq" value="${vo.sNum}">
+                            <input type="hidden" class = "modalid"value = '${sessionScope.loginId}'/> <!-- 로그인 여부 체크-->
                             <h3>${vo.sTitle}</h3>
                             <p class="text-center">CREATE BY <span class="price color-popup">${vo.mId}</span>
                             </p>
@@ -468,12 +473,13 @@
                               <p>스터디 정원</p>
                               <p class="text-right price color-popup">${vo.sPeopleNum} / 4</p>
                             </div>
-                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#popup_bid_success"
+                            <a href="#" class="btn btn-primary goRoom" data-toggle="modal" data-target="#popup_bid_success"
                               data-dismiss="modal" aria-label="Close">입장하기</a>
                           </div>
                         </div>
                       </div>
                     </div>
+                
 
                     <!-- 비밀번호 존재 시, 확인 모달-->
                     <div class="modal fade popup sPwConfirm1" id="popup_bid7" tabindex="-1" role="dialog"
@@ -525,7 +531,7 @@
 
   <ul style="text-decoration: none">
     <a href="https://app.slack.com/client/T04K98KG26R/C04K5JX8NDU" onclick="window.open(this.href, '_blank', 'width=400, height=800'); return false;"><img src="/assets/images/icon/slack.png"></img></a>
-    
+
   </ul>
 </div>
         <a id="scroll-top"></a>

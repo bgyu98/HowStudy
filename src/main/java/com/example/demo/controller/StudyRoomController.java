@@ -7,6 +7,7 @@ import java.util.List;
 import com.example.demo.dao.UserDAO;
 import com.example.demo.log.logController;
 import com.example.demo.log.logController;
+import com.example.demo.service.RecordService;
 import com.example.demo.service.StudyRoomService;
 import com.example.demo.vo.MyStudyVO;
 import com.example.demo.vo.StudyRoomVO;
@@ -17,6 +18,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import jakarta.servlet.http.HttpSession;
+
 
 
 import java.util.List;
@@ -38,20 +40,24 @@ import com.example.demo.service.StudyRoomService;
 import com.example.demo.service.StudyRoomServiceImpl;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.NoticeVO;
+import com.example.demo.vo.RecordVO;
 import com.example.demo.vo.StudyRoomVO;
 import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/studyRoom")
 public class StudyRoomController {
-	
 	static logController log = new logController();
 
+	
 	@Autowired
 	private StudyRoomService studyroomService;
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RecordService recordService;
 
 	@RequestMapping("/{step}")
 	public String viewPage(@PathVariable String step) {
@@ -143,7 +149,8 @@ public class StudyRoomController {
 		m.addAttribute("myroomcnt", list.size()); // 스터디룸 안 만들었을때 화면에 찍는거
 		m.addAttribute("studyall", allStudy); // 선아
 		m.addAttribute("scntSelect", studyroomService.selectScnt(vo)); // 선아
-
+		
+		
 	}
 
 	// 내가 만든 스터디룸에 찍히는 하트
@@ -253,12 +260,29 @@ public class StudyRoomController {
 
 	}
 
-//	// 선호테그 수정
+	// 선호테그 수정
 	@RequestMapping("/updatelikeTag")
 	public String updatelikeTag(UserVO vo) {
 		System.out.println("updatelikeTag : " + vo);
 		userService.updatelikeTag(vo);
 		return "redirect:study";
 	}
+	
+	
+	// 방문 기록 db에 저장
+	@ResponseBody
+	@RequestMapping("/roomRog")
+	public String roomRog(StudyRoomVO vo, HttpSession session) {
+		System.out.println("roomRog 실행");
+		
+		String loginId = (String) session.getAttribute("loginId"); // 로그인 아이디 값 받음
+		vo.setmId(loginId); // 방문기록 저장 체크를 위한 세팅 ( 방 번호, 로그인 아이디 필요 )
+		System.out.println("방 번호 : " + vo.getsNum());
+		studyroomService.roomRog(vo);
+		String json = "";
+		return json;
+	}
+	
+	
 
 }

@@ -3,20 +3,48 @@
   $(".icon-fl-search-filled").click(function () {
     //alert("ok");
   });
+  $(".swal2-container").css("z-index", "999999");
   $(".goRoom").on("click", function () {
+<<<<<<< HEAD
    
     var seq = $(this).find(".sNum").val();
+=======
+    //alert("방 클릭");
+    var title = $(this).parents(".modal-body").find("h3").text();
+    //alert(title);
+    var seq = $(this).parents(".modal-body").find(".modalseq").val();
+>>>>>>> 2105f5711141b16883fb708481df88e69545a7b4
     // alert(seq);
-    var url = "http://192.168.0.86:4000" + "/" + seq;
-    window.open(url, "width=100%", "height=100%");
-  }); //되는거
+    var who = $(this).parents(".modal-body").find(".modalid").val();
+    //lert(who);
 
+    if (who == "" || who == undefined) {
+      alert("로그인 후 사용 가능합니다.");
+      return false;
+    } else {
+      var data = {
+        sNum: seq,
+      };
+      $.ajax({
+        type: "post",
+        url: "roomRog",
+        data: data,
+        success: function (json) {
+          var url = "http://13.125.216.41:4000/?sTitle=" + title;
+          window.open(url, "width=100%", "height=100%");
+        },
+        error: function () {
+          alert("실패");
+        },
+      });
+    }
+  }); //되는거
 
   $(".content> h4 > a").on("click", function () {
     //alert("방 클릭");
     var seq = $(this).parents().find(".sNum").val();
-    // alert(seq);
-    var url = "http://192.168.0.86:4000" + "/" + seq;
+    alert(seq);
+    var url = "http://13.125.216.41:4000" + "/" + seq;
     window.open(url, "width=100%", "height=100%");
   });
 
@@ -60,8 +88,8 @@ function checkD(e) {
 
         d += "<div class='card-media style2'>";
 
-        d += "<img src='../assets/images/box-item/image-box-29.jpg' alt='Image'>";
-        d += "<input type='text' value = '" + value.sNum + "'/>";
+        d += "<img src='../assets/images/studyRoom/" + value.sFile + ".png' alt='Image'>";
+        d += "<input type='hidden' value = '" + value.sNum + "'/>";
         if (value.checkFavor == 0) {
           // 즐겨찾기 안한 경우
           d += "<button class='wishlist-button heart'>";
@@ -78,7 +106,7 @@ function checkD(e) {
 
         d += "<div class='card-title'>";
         d += "<h3><a href='item-details.html'>" + value.sTitle + "</a></h3>"; // 제목
-        d += "<div class='tags'>" + value.sCategory + "</div>"; // 선호태그
+        d += "<div class='tags' style='width: 25%;'>" + value.sCategory + "</div>"; // 선호태그
         d += "</div>";
 
         d += "<div class='meta-info style2'>";
@@ -86,7 +114,7 @@ function checkD(e) {
         d += "<div class='author'>";
 
         d += "<div class='avatar'>";
-        d += "<img src='../assets/images/avatar/avt-28.jpg' alt='Image'>";
+        d += "<img src='../assets/images/logo/logo01.png' alt='Image'>";
         d += "</div>";
 
         d += "<div class='info'>";
@@ -118,8 +146,8 @@ function checkD(e) {
       c += "</div>";
       c += "</div>";
       $(" #favor").append(c); // 날짜 선택 하단부분의 방부분에 해당 값들 출력
-      swiper_fn2();
-      goRoom();
+      swiper_fn2(); // ajax 이용시 swiper 구문 사용할 경우 제대로 먹히지 않는 오류 방지하여 swiperr function 호출
+      goRoom(); // 방으로 이용하는 function 호출
     },
     error: function () {
       alert("실패");

@@ -74,7 +74,7 @@
                     <a
                       href="../board/noticesangse?nNUM=${noticevo.nNUM}"
                       class="sc-button fl-button pri-3"
-                      ><span>Read More</span></a
+                      ><span style="color:#ff8787">Read More</span></a
                     >
                     <div class="meta-info" style="float: right; margin-right: 6px">
                       <div class="date">${noticevo.nDATE}</div>

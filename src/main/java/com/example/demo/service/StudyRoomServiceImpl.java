@@ -68,4 +68,10 @@ public class StudyRoomServiceImpl implements StudyRoomService {
 	public List<StudyRoomVO> saveDate(StudyRoomVO vo) {
 		return studyroomDAO.saveDate(vo);
 	}
+	
+	// 입장시 방문 기록 저장
+	public void roomRog(StudyRoomVO vo) {
+		System.out.println("roomRog 실행(ServiceImpl) ");
+		studyroomDAO.roomRog(vo);
+	}
 }
